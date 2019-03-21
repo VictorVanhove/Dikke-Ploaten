@@ -230,19 +230,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" text="" id="4iW-Bc-TSG">
-                            <rect key="frame" x="0.0" y="0.0" width="0.0" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <textInputTraits key="textInputTraits"/>
-                            <connections>
-                                <outlet property="delegate" destination="Xgr-Ws-XK6" id="nbg-K2-npE"/>
-                            </connections>
-                        </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="albumCell" rowHeight="120" id="SfO-XU-tkV" customClass="AlbumTableViewCell" customModule="Dikke_Ploaten" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="72" width="375" height="120"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SfO-XU-tkV" id="j9V-4B-YOw">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="119.5"/>
@@ -301,7 +291,6 @@
                 <searchDisplayController id="eNk-KO-JHI">
                     <connections>
                         <outlet property="delegate" destination="Xgr-Ws-XK6" id="Mbm-Di-jox"/>
-                        <outlet property="searchBar" destination="4iW-Bc-TSG" id="EAz-m4-5u6"/>
                         <outlet property="searchContentsController" destination="Xgr-Ws-XK6" id="tUt-Z5-Edp"/>
                         <outlet property="searchResultsDataSource" destination="Xgr-Ws-XK6" id="itj-ss-aPv"/>
                         <outlet property="searchResultsDelegate" destination="Xgr-Ws-XK6" id="Z8K-tl-Exr"/>

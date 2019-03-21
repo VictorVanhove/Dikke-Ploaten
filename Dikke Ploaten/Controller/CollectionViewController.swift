@@ -19,7 +19,7 @@ class CollectionViewController: UITableViewController {
     // Firebase
     
     var contactSection = [String]()
-    var contactDictionary = [String : [String]]()
+    var contactDictionary = [String : [Album]]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,13 +43,14 @@ class CollectionViewController: UITableViewController {
     }
     
     func generateWordsDict(){
-        for artist in artists {
-            let key = String(artist.prefix(1))
+        for album in albums {
+            let key = String(album.artist.prefix(1))
             if var contactValue = contactDictionary[key]
             {
-                contactValue.append(artist)
+                contactValue.append(album)
+                contactDictionary[key] = contactValue
             }else{
-                contactDictionary[key] = [artist]
+                contactDictionary[key] = [album]
             }
         }
         contactSection = [String](contactDictionary.keys)
@@ -85,7 +86,12 @@ class CollectionViewController: UITableViewController {
         
         if  let contactValue = contactDictionary[headerKey] {
             //cell.updateCell(forAlbum: albums[indexPath.row])
-            cell.lblArtist.text = contactValue[indexPath.row]
+            //cell.lblArtist.text = contactValue[indexPath.row]
+            let album = contactValue[indexPath.row]
+            
+            cell.lblTitle.text = album.title
+            cell.lblArtist.text = album.artist
+            cell.imgCover.image = UIImage(data: try! Data(contentsOf: URL(string: album.cover)!))
         }
         return cell
     }
