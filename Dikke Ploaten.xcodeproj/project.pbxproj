@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D0A464822439CAD0042501C /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0A464722439CAD0042501C /* SettingsTableViewController.swift */; };
 		0D0B159522423A3B0042EDA5 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0B159422423A3B0042EDA5 /* LaunchViewController.swift */; };
 		0D35360C223A53CA00DA5453 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D35360B223A53CA00DA5453 /* LoginViewController.swift */; };
 		0D35360E223A53E300DA5453 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D35360D223A53E300DA5453 /* SignupViewController.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D0A464722439CAD0042501C /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		0D0B159422423A3B0042EDA5 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		0D35360B223A53CA00DA5453 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		0D35360D223A53E300DA5453 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 				0D353613223A8D4A00DA5453 /* NotificationViewController.swift */,
 				0D353615223A8D5900DA5453 /* ProfileViewController.swift */,
 				0D0B159422423A3B0042EDA5 /* LaunchViewController.swift */,
+				0D0A464722439CAD0042501C /* SettingsTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				0D35360C223A53CA00DA5453 /* LoginViewController.swift in Sources */,
 				0D353616223A8D5900DA5453 /* ProfileViewController.swift in Sources */,
 				0D35361A223A90C100DA5453 /* AlbumTableViewCell.swift in Sources */,
+				0D0A464822439CAD0042501C /* SettingsTableViewController.swift in Sources */,
 				0D0B159522423A3B0042EDA5 /* LaunchViewController.swift in Sources */,
 				0D6F68C422394F1200687EFD /* CollectionViewController.swift in Sources */,
 				0D3D147E223A9B29003CACEC /* Album.swift in Sources */,
