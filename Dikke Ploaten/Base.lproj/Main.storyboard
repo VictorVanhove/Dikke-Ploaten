@@ -258,11 +258,20 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5dq-aw-a9Z">
+                                            <rect key="frame" x="321" y="45" width="30" height="30"/>
+                                            <state key="normal" title="Add"/>
+                                            <connections>
+                                                <action selector="addToCollection:" destination="Xgr-Ws-XK6" eventType="touchUpInside" id="hFt-u6-xGf"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="5dq-aw-a9Z" firstAttribute="centerY" secondItem="j9V-4B-YOw" secondAttribute="centerY" id="AcD-No-Wcj"/>
                                         <constraint firstItem="IB7-cO-xPY" firstAttribute="leading" secondItem="GyK-3W-Wi5" secondAttribute="trailing" constant="18" id="C7u-u7-R3L"/>
                                         <constraint firstItem="GyK-3W-Wi5" firstAttribute="leading" secondItem="j9V-4B-YOw" secondAttribute="leading" constant="16" id="D5W-9s-nAU"/>
                                         <constraint firstAttribute="bottom" secondItem="GyK-3W-Wi5" secondAttribute="bottom" constant="15.5" id="IHf-oR-XjY"/>
+                                        <constraint firstAttribute="trailing" secondItem="5dq-aw-a9Z" secondAttribute="trailing" constant="24" id="LAL-G3-MOX"/>
                                         <constraint firstItem="GyK-3W-Wi5" firstAttribute="top" secondItem="j9V-4B-YOw" secondAttribute="top" constant="14" id="ME1-je-g5U"/>
                                         <constraint firstAttribute="bottom" secondItem="IB7-cO-xPY" secondAttribute="bottom" constant="35.5" id="Qwl-Tk-bJQ"/>
                                         <constraint firstItem="IB7-cO-xPY" firstAttribute="top" secondItem="9ii-x7-MvZ" secondAttribute="bottom" constant="8.3333333333333428" id="UNF-w9-9s7"/>

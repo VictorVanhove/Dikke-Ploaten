@@ -61,6 +61,13 @@ class SearchViewController: UITableViewController, UISearchResultsUpdating {
         self.tableView.reloadData()
     }
     
+    @IBAction func addToCollection(_ sender: Any) {
+        // Create new Album instance
+        let album: Album = Album.init(title: "Let's do This", artist: "Baby", cover: "https://images-na.ssl-images-amazon.com/images/I/81szdRTMdCL._SX355_.jpg", genre: nil, releaseYear: nil)
+        // Write instance to database
+        album.toDatabase()
+    }
+    
     // MARK: - Table View
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1//albums.count
@@ -89,22 +96,6 @@ class SearchViewController: UITableViewController, UISearchResultsUpdating {
         cell.imgCover.image = UIImage(data: try! Data(contentsOf: URL(string: album.cover)!))
         return cell
     }
-    
-    
-    //    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    //        return albums.count
-    //    }
-    
-    //    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    //        let cell = tableView.dequeueReusableCell(withIdentifier: "albumCell") as! AlbumTableViewCell
-    //        //cell.updateCell(forAlbum: albums[indexPath.row])
-    //
-    //        let album = albums[indexPath.row]
-    //        cell.lblTitle.text = album.title
-    //        cell.lblArtist.text = album.artist
-    //        cell.imgCover.image = UIImage(data: try! Data(contentsOf: URL(string: album.cover)!))
-    //        return cell
-    //    }
     
 }
 

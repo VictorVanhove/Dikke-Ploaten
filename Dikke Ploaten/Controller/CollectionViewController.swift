@@ -15,7 +15,6 @@ class CollectionViewController: UITableViewController {
     
     // MARK: - Properties
     var albums: OrderedSet<Album> = []
-    var artists: [String] = []
     // Firebase
     
     var contactSection = [String]()
@@ -33,12 +32,27 @@ class CollectionViewController: UITableViewController {
                     let album = try! Mapper<Album>().map(JSON: document.data())
                     album.setId(id: document.documentID)
                     self.albums.append(album)
-                    self.artists.append(album.artist)
                     self.tableView.reloadData()
                 }
             }
+
             self.generateWordsDict()
         }
+        
+//        db.collection("users").document().collection("platen").getDocuments() { (querySnapshot, err) in
+//            if let err = err {
+//                print("Error getting documents: \(err)")
+//            } else {
+//                for document in querySnapshot!.documents {
+//                    let album = try! Mapper<Album>().map(JSON: document.data())
+//                    album.setId(id: document.documentID)
+//                    self.albums.append(album)
+//                    self.tableView.reloadData()
+//                }
+//            }
+//            self.generateWordsDict()
+//
+//        }
         
     }
     
@@ -100,12 +114,12 @@ class CollectionViewController: UITableViewController {
         return contactSection
     }
     
-    override func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
-        guard let index = contactSection.index(of: title) else {
-            return -1
-        }
-        return index
-    }
+//    override func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
+//        guard let index = contactSection.index(of: title) else {
+//            return -1
+//        }
+//        return index
+//    }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.tableView.deselectRow(at: indexPath, animated: true)
