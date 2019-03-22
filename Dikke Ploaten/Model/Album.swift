@@ -61,7 +61,7 @@ class Album : ImmutableMappable, Hashable, Comparable {
         // Data from object in JSON
         let data = self.toJSON()
         // Upload data to database
-        db.collection("platen").addDocument(data: data) { err in
+        db.collection("userPlaten").addDocument(data: data) { err in
             if let err = err {
                 print("Error adding document: \(err)")
             } else {

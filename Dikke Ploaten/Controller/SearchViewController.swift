@@ -18,14 +18,12 @@ class SearchViewController: UITableViewController, UISearchResultsUpdating {
     var albums = [Album]()
     var filteredAlbums = [Album]()
     var resultSearchController = UISearchController()
-    
+
     // Firebase
-    
+    let db = Firestore.firestore()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let db = Firestore.firestore()
         
         db.collection("platen").getDocuments() { (querySnapshot, err) in
             if let err = err {
@@ -60,6 +58,7 @@ class SearchViewController: UITableViewController, UISearchResultsUpdating {
         filteredAlbums = albums.filter{ ($0.title.contains(searchController.searchBar.text!)) }
         self.tableView.reloadData()
     }
+
     
     @IBAction func addToCollection(_ sender: Any) {
         // Create new Album instance
@@ -83,7 +82,6 @@ class SearchViewController: UITableViewController, UISearchResultsUpdating {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "albumCell") as! AlbumTableViewCell
-        //cell.updateCell(forAlbum: albums[indexPath.row])
         
         var album = albums[indexPath.row]
         
@@ -94,6 +92,9 @@ class SearchViewController: UITableViewController, UISearchResultsUpdating {
         cell.lblTitle.text = album.title
         cell.lblArtist.text = album.artist
         cell.imgCover.image = UIImage(data: try! Data(contentsOf: URL(string: album.cover)!))
+//        if Auth.auth().currentUser?.uid == album.userID {
+//            cell.btnRemove.isEnabled = true
+//        }
         return cell
     }
     

@@ -16,13 +16,4 @@ class AlbumTableViewCell: UITableViewCell {
     @IBOutlet weak var imgCover: UIImageView!
     
     
-    
-//    let db = Firestore.firestore()
-//
-//    func updateCell(forAlbum album: Album){
-//        lblTitle.text = album.title
-//        lblArtist.text = album.artist
-//        imgCover.image = UIImage(data: try! Data(contentsOf: URL(string: album.cover)!))
-//    }
-    
 }

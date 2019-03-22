@@ -14,11 +14,11 @@ class WantlistViewController: UITableViewController {
     // MARK: - Properties
     var albums: [Album] = []
     // Firebase
+    let db = Firestore.firestore()
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let db = Firestore.firestore()
         
         // Gets data from database and updates on changes
         //        db.collection("platen").limit(to: 1000).addSnapshotListener { querySnapshot, error in

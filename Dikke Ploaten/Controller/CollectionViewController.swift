@@ -16,92 +16,77 @@ class CollectionViewController: UITableViewController {
     // MARK: - Properties
     var albums: OrderedSet<Album> = []
     // Firebase
+    let db = Firestore.firestore()
     
-    var contactSection = [String]()
-    var contactDictionary = [String : [Album]]()
+    var albumSection = [String]()
+    var albumDictionary = [String : [Album]]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let db = Firestore.firestore()
         
-        db.collection("platen").getDocuments() { (querySnapshot, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                for document in querySnapshot!.documents {
-                    let album = try! Mapper<Album>().map(JSON: document.data())
-                    album.setId(id: document.documentID)
+        // Gets data from database and updates on changes
+        db.collection("userPlaten").limit(to: 1000).addSnapshotListener { querySnapshot, error in
+            guard let snapshot = querySnapshot else {
+                print("Error fetching snapshots: \(error!)")
+                return
+            }
+            snapshot.documentChanges.forEach { diff in
+                if (diff.type == .added) {
+                    let album = try! Mapper<Album>().map(JSON: diff.document.data())
+                    album.setId(id: diff.document.documentID)
                     self.albums.append(album)
-                    self.tableView.reloadData()
+                }
+                if (diff.type == .removed) {
+                    let album = try! Mapper<Album>().map(JSON: diff.document.data())
+                    album.setId(id: diff.document.documentID)
+                    self.albums.remove(album)
                 }
             }
-
             self.generateWordsDict()
+            self.tableView.reloadData()
         }
-        
-//        db.collection("users").document().collection("platen").getDocuments() { (querySnapshot, err) in
-//            if let err = err {
-//                print("Error getting documents: \(err)")
-//            } else {
-//                for document in querySnapshot!.documents {
-//                    let album = try! Mapper<Album>().map(JSON: document.data())
-//                    album.setId(id: document.documentID)
-//                    self.albums.append(album)
-//                    self.tableView.reloadData()
-//                }
-//            }
-//            self.generateWordsDict()
-//
-//        }
         
     }
     
     func generateWordsDict(){
         for album in albums {
             let key = String(album.artist.prefix(1))
-            if var contactValue = contactDictionary[key]
+            if var albumValue = albumDictionary[key]
             {
-                contactValue.append(album)
-                contactDictionary[key] = contactValue
+                albumValue.append(album)
+                albumDictionary[key] = albumValue
             }else{
-                contactDictionary[key] = [album]
+                albumDictionary[key] = [album]
             }
         }
-        contactSection = [String](contactDictionary.keys)
-        contactSection = contactSection.sorted()
+        albumSection = [String](albumDictionary.keys)
+        albumSection = albumSection.sorted()
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return contactSection.count
+        return albumSection.count
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return contactSection[section]
+        return albumSection[section]
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let contactKey = contactSection[section]
-        if let contactValue = contactDictionary[contactKey]{
-            return contactValue.count
+        let albumKey = albumSection[section]
+        if let albumValue = albumDictionary[albumKey]{
+            return albumValue.count
         }
         return 0
         //return albums.count
     }
     
-    //    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    //        tableView.deselectRow(at: indexPath, animated: false)
-    //        performSegue(withIdentifier: "showPopUp", sender: indexPath)
-    //    }
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "albumCell") as! AlbumTableViewCell
         
-        let headerKey = contactSection[indexPath.section]
+        let headerKey = albumSection[indexPath.section]
         
-        if  let contactValue = contactDictionary[headerKey] {
-            //cell.updateCell(forAlbum: albums[indexPath.row])
-            //cell.lblArtist.text = contactValue[indexPath.row]
-            let album = contactValue[indexPath.row]
+        if  let albumValue = albumDictionary[headerKey] {
+            let album = albumValue[indexPath.row]
             
             cell.lblTitle.text = album.title
             cell.lblArtist.text = album.artist
@@ -110,16 +95,24 @@ class CollectionViewController: UITableViewController {
         return cell
     }
     
-    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        return contactSection
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            db.collection("userPlaten").document(albums[indexPath.row].id).delete() { err in
+                if let err = err {
+                    print("Error removing document: \(err)")
+                } else {
+                    print("Document successfully removed!")
+                }
+            }
+//          albums.removeObject(at: indexPath.row)
+//          tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+        tableView.reloadData()
     }
     
-//    override func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
-//        guard let index = contactSection.index(of: title) else {
-//            return -1
-//        }
-//        return index
-//    }
+    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        return albumSection
+    }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.tableView.deselectRow(at: indexPath, animated: true)
