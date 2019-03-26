@@ -56,30 +56,17 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
     // MARK: - Actions
     @IBAction func signUpUser(_ sender: Any) {
         if validForm() {
-            Auth.auth().createUser(withEmail: txtEmail.text!, password: txtPassword.text!) { (user, error) in
-                if error == nil {
-                    // Save user data to database
-                    let db = Firestore.firestore()
-                    db.collection("users").document(user!.user.uid).setData(["username": self.txtUser.text!,
-                                                                             "password": self.txtPassword.text!, "email": self.txtEmail.text!])
-                    { err in
-                        // Error adding user to database
-                        if let err = err {
-                            print("Error adding document: \(err)")
-                        }
-                    }
-                    
-                    // Go to next view
-                    self.performSegue(withIdentifier: "signupToHome", sender: self)
-                } else {
-                    // Error creating user
-                    let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
-                    let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-                    
-                    alertController.addAction(defaultAction)
-                    self.present(alertController, animated: true, completion: nil)
-                }
-            }
+			Database().createUser(username: txtUser.text ?? "", email: txtEmail.text ?? "", password: txtPassword.text ?? "", successHandler: {
+				// Go to next view
+				self.performSegue(withIdentifier: "signupToHome", sender: self)
+			}, failureHandler: { error in
+				// Error creating user
+				let alertController = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+				let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+				
+				alertController.addAction(defaultAction)
+				self.present(alertController, animated: true, completion: nil)
+			})
         }
     }
     
@@ -99,34 +86,27 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
     
     // Check if form is valid
     private func validForm() -> Bool {
-        var isValid: Bool = true
-        
         // Check name
         lblUser.textColor = UIColor.black
-        if txtUser.text!.isEmpty {
-            isValid = false
+        if !txtUser.text!.isEmpty {
+			// Check email
+			// TODO: valid emailadress
+			lblEmail.textColor = UIColor.black
+			if !txtEmail.text!.isEmpty {
+				// Check password
+				lblPassword.textColor = UIColor.black
+				if !txtPassword.text!.isEmpty {
+					return true
+				}
+			}
         }
-        
-        // Check email
-        lblEmail.textColor = UIColor.black
-        if txtEmail.text!.isEmpty {
-            isValid = false
-        }
-        
-        // Check password
-        lblPassword.textColor = UIColor.black
-        if txtPassword.text!.isEmpty {
-            isValid = false
-        }
-        
-        if !isValid {
-            // Show alert if form is not filled in correctly
-            let alertController = UIAlertController(title: "Whoops", message: "Please make sure all required fields are filled out correctly.", preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-            self.present(alertController, animated: true, completion: nil)
-        }
-        
-        return isValid
+		
+		// Show alert if form is not filled in correctly
+		let alertController = UIAlertController(title: "Whoops", message: "Please make sure all required fields are filled out correctly.", preferredStyle: .alert)
+		alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+		self.present(alertController, animated: true, completion: nil)
+		
+        return false
     }
 
 }

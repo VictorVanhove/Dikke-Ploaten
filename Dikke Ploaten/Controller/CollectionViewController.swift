@@ -9,22 +9,22 @@
 import UIKit
 import Firebase
 import ObjectMapper
-import OrderedSet
 
 class CollectionViewController: UITableViewController {
-    
+	
     // MARK: - Properties
-    var albums: OrderedSet<Album> = []
+    var albums: [Album] = []
     // Firebase
     let db = Firestore.firestore()
     
     var albumSection = [String]()
-    var albumDictionary = [String : [Album]]()
+    var albumDictionary = [String: [Album]]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Gets data from database and updates on changes
+		// TODO: Database
         db.collection("userPlaten").limit(to: 1000).addSnapshotListener { querySnapshot, error in
             guard let snapshot = querySnapshot else {
                 print("Error fetching snapshots: \(error!)")
@@ -33,32 +33,31 @@ class CollectionViewController: UITableViewController {
             snapshot.documentChanges.forEach { diff in
                 if (diff.type == .added) {
                     let album = try! Mapper<Album>().map(JSON: diff.document.data())
-                    album.setId(id: diff.document.documentID)
+                    album.id = diff.document.documentID
                     self.albums.append(album)
                 }
                 if (diff.type == .removed) {
                     let album = try! Mapper<Album>().map(JSON: diff.document.data())
-                    album.setId(id: diff.document.documentID)
-                    self.albums.remove(album)
+					album.id = diff.document.documentID
+					if let index = self.albums.firstIndex(of: album) {
+						self.albums.remove(at: index)
+					}
                 }
                 self.generateWordsDict()
                 self.tableView.reloadData()
             }
         }
-        
     }
     
-    func generateWordsDict(){
+    func generateWordsDict() {
         for album in albums {
             let key = String(album.artist.prefix(1))
-            if var albumValue = albumDictionary[key]
-            {
-                albumValue.append(album)
-                //albumDictionary[key] = albumValue
-            }else{
-                albumDictionary[key] = [album]
-            }
+			if albumDictionary[key] == nil {
+				albumDictionary[key] = []
+			}
+			albumDictionary[key]!.append(album)
         }
+		
         albumSection = [String](albumDictionary.keys)
         albumSection = albumSection.sorted()
     }
@@ -72,23 +71,25 @@ class CollectionViewController: UITableViewController {
     
     func deleteAction(at indexPath: IndexPath) -> UIContextualAction {
         let action = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completion) in
+			// TODO: Database
             self.db.collection("userPlaten").document(self.albums[indexPath.row].id).delete() { err in
                 if let err = err {
-                    print("Error removing document: \(err)")
+					print(err)
+                    print("Error removing document: \(err.localizedDescription)")
+					// TODO: UIAlertController
                 } else {
                     print("Document successfully removed!")
+					self.albums.remove(at: indexPath.row)
+					self.tableView.deleteRows(at: [indexPath], with: .automatic)
                 }
-                self.albums.removeObject(at: indexPath.row)
-                self.tableView.deleteRows(at: [indexPath], with: .automatic)
             }
-            //self.tableView.reloadData()
         }
         action.backgroundColor = .red
         return action
     }
     
-    
     // MARK: - TableView
+	
     override func numberOfSections(in tableView: UITableView) -> Int {
         return albumSection.count
     }
@@ -98,11 +99,7 @@ class CollectionViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let albumKey = albumSection[section]
-        if let albumValue = albumDictionary[albumKey]{
-            return albumValue.count
-        }
-        return 0
+		return albumDictionary[albumSection[section]]?.count ?? 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -112,10 +109,8 @@ class CollectionViewController: UITableViewController {
         
         if  let albumValue = albumDictionary[headerKey] {
             let album = albumValue[indexPath.row]
-            
-            cell.lblTitle.text = album.title
-            cell.lblArtist.text = album.artist
-            cell.imgCover.image = UIImage(data: try! Data(contentsOf: URL(string: album.cover)!))
+			
+			cell.updateUI(forAlbum: album)
         }
         return cell
     }
@@ -127,6 +122,5 @@ class CollectionViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.tableView.deselectRow(at: indexPath, animated: true)
     }
-    
 }
 

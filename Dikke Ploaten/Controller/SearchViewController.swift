@@ -24,7 +24,8 @@ class SearchViewController: UITableViewController, UISearchResultsUpdating {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+		
+		// TODO: Database
         db.collection("platen").getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
@@ -32,7 +33,7 @@ class SearchViewController: UITableViewController, UISearchResultsUpdating {
                 for document in querySnapshot!.documents {
                     print("\(document.documentID) => \(document.data())")
                     let album = try! Mapper<Album>().map(JSON: document.data())
-                    album.setId(id: document.documentID)
+                    album.id = document.documentID
                     self.albums.append(album)
                     self.tableView.reloadData()
                 }
@@ -103,7 +104,7 @@ class SearchViewController: UITableViewController, UISearchResultsUpdating {
         let add = UITableViewRowAction(style: .normal, title: "Add") { action, index in
             let album = self.albums[index.row]
             // Write instance to database
-            album.toDatabase()
+            Database().addToDatabase(album: album)
         }
         add.backgroundColor = UIColor(red:0.11, green:0.74, blue:0.61, alpha:1.0)
         
