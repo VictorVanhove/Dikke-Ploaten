@@ -24,30 +24,11 @@ class CollectionViewController: UITableViewController {
         super.viewDidLoad()
         
         // Gets data from database and updates on changes
-		// TODO: Database
-//        db.collection("userPlaten").limit(to: 1000).addSnapshotListener { querySnapshot, error in
-//            guard let snapshot = querySnapshot else {
-//                print("Error fetching snapshots: \(error!)")
-//                return
-//            }
-//            for diff in snapshot.documentChanges {
-//                if (diff.type == .added) {
-//                    let album = try! Mapper<Album>().map(JSON: diff.document.data())
-//                    album.id = diff.document.documentID
-//                    self.albums.append(album)
-//                }
-//                if (diff.type == .removed) {
-//                    let album = try! Mapper<Album>().map(JSON: diff.document.data())
-//                    album.id = diff.document.documentID
-//                    if let index = self.albums.firstIndex(of: album) {
-//                        self.albums.remove(at: index)
-//                    }
-//                }
-//                self.generateWordsDict()
-//                self.tableView.reloadData()
-//            }
-//
-//        }
+        Database().updateCollection(albums: albums) { albums in
+            self.albums = albums
+            self.generateWordsDict()
+            self.tableView.reloadData()
+        }
         
     }
     

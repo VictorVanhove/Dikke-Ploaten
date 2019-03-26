@@ -28,7 +28,9 @@ class Database {
 		}
 	}
     
-    func updateCollection(albums: [Album], completionHandler: (_ updatedCollection: [Album]) -> ()) {
+    func updateCollection(albums: [Album], completionHandler: @escaping (_ updatedCollection: [Album]) -> ()) {
+        // Om een kopie te nemen die niet constant is (functie variabelen zijn `let`)
+        var albums = albums
         db.collection("userPlaten").limit(to: 1000).addSnapshotListener { querySnapshot, error in
             guard let snapshot = querySnapshot else {
                 print("Error fetching snapshots: \(error!)")
@@ -38,19 +40,18 @@ class Database {
                 if (diff.type == .added) {
                     let album = try! Mapper<Album>().map(JSON: diff.document.data())
                     album.id = diff.document.documentID
-                    self.albums.append(album)
+                    albums.append(album)
                 }
                 if (diff.type == .removed) {
                     let album = try! Mapper<Album>().map(JSON: diff.document.data())
                     album.id = diff.document.documentID
-                    if let index = self.albums.firstIndex(of: album) {
-                        self.albums.remove(at: index)
+                    if let index = albums.firstIndex(of: album) {
+                        albums.remove(at: index)
                     }
                 }
             }
-            completionHandler(this.albums = albums)
+            completionHandler(albums)
         }
-        
     }
 	
 	func deleteAlbum() {
