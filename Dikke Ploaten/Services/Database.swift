@@ -7,9 +7,12 @@
 //
 
 import Firebase
+import ObjectMapper
 
 class Database {
 	
+    let db = Firestore.firestore()
+    
 	// TODO: completionhandler
 	func addToDatabase(album: Album) {
 		// Data from object in JSON
@@ -24,6 +27,31 @@ class Database {
 			}
 		}
 	}
+    
+    func updateCollection(albums: [Album], completionHandler: (_ updatedCollection: [Album]) -> ()) {
+        db.collection("userPlaten").limit(to: 1000).addSnapshotListener { querySnapshot, error in
+            guard let snapshot = querySnapshot else {
+                print("Error fetching snapshots: \(error!)")
+                return
+            }
+            for diff in snapshot.documentChanges {
+                if (diff.type == .added) {
+                    let album = try! Mapper<Album>().map(JSON: diff.document.data())
+                    album.id = diff.document.documentID
+                    self.albums.append(album)
+                }
+                if (diff.type == .removed) {
+                    let album = try! Mapper<Album>().map(JSON: diff.document.data())
+                    album.id = diff.document.documentID
+                    if let index = self.albums.firstIndex(of: album) {
+                        self.albums.remove(at: index)
+                    }
+                }
+            }
+            completionHandler(this.albums = albums)
+        }
+        
+    }
 	
 	func deleteAlbum() {
 //		self.db.collection("userPlaten").document(self.albums[indexPath.row].id).delete() { err in
