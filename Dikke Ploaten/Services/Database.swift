@@ -29,7 +29,6 @@ class Database {
 	}
     
     func updateCollection(albums: [Album], completionHandler: @escaping (_ updatedCollection: [Album]) -> ()) {
-        // Om een kopie te nemen die niet constant is (functie variabelen zijn `let`)
         var albums = albums
         db.collection("userPlaten").limit(to: 1000).addSnapshotListener { querySnapshot, error in
             guard let snapshot = querySnapshot else {
@@ -54,7 +53,7 @@ class Database {
         }
     }
     
-    func updateAlbumList(albums: [Album], completionHandler: @escaping (_ updatedCollection: [Album]) -> ()){
+    func getAlbumList(albums: [Album], completionHandler: @escaping (_ updatedCollection: [Album]) -> ()){
         var albumList = albums
         db.collection("platen").getDocuments() { (querySnapshot, err) in
             if let err = err {
@@ -71,18 +70,19 @@ class Database {
         }
     }
 	
-	func deleteAlbum() {
-//		self.db.collection("userPlaten").document(self.albums[indexPath.row].id).delete() { err in
-//			if let err = err {
-//				print(err)
-//				print("Error removing document: \(err.localizedDescription)")
-//				// TODO: UIAlertController
-//			} else {
-//				print("Document successfully removed!")
-//				self.albums.remove(at: indexPath.row)
-//				self.tableView.deleteRows(at: [indexPath], with: .automatic)
-//			}
-//		}
+	func deleteAlbum(albums: [Album], indexPath: IndexPath ,completionHandler: @escaping (_ updatedCollection: [Album]) -> ()) {
+        var albums = albums
+        db.collection("userPlaten").document(albums[indexPath.row].id).delete() { err in
+            if let err = err {
+                print(err)
+                print("Error removing document: \(err.localizedDescription)")
+                // TODO: UIAlertController
+            } else {
+                print("Document successfully removed!")
+                completionHandler(albums)
+            }
+        }
+        
 	}
 	
 	func createUser(username: String, email: String, password: String, successHandler: @escaping () -> (), failureHandler: @escaping (Error) -> ()) {

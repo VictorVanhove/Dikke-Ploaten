@@ -25,8 +25,8 @@ class SearchViewController: UITableViewController, UISearchResultsUpdating {
     override func viewDidLoad() {
         super.viewDidLoad()
 		
-		// TODO: Database
-        Database().updateAlbumList(albums: albums) { (albums) in
+        // Gets all albums from database
+        Database().getAlbumList(albums: albums) { (albums) in
                 self.albums = albums
                 self.tableView.reloadData()
         }
@@ -49,14 +49,6 @@ class SearchViewController: UITableViewController, UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         filteredAlbums = albums.filter{ ($0.title.contains(searchController.searchBar.text!)) }
         self.tableView.reloadData()
-    }
-
-    
-    @IBAction func addToCollection(_ sender: Any) {
-//        // Create new Album instance
-//        let album: Album = Album.init(title: "Let's do This", artist: "Baby", cover: "https://images-na.ssl-images-amazon.com/images/I/81szdRTMdCL._SX355_.jpg", genre: nil, releaseYear: nil)
-//        // Write instance to database
-//        album.toDatabase()
     }
     
     // MARK: - Table View

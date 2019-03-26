@@ -54,18 +54,11 @@ class CollectionViewController: UITableViewController {
     
     func deleteAction(at indexPath: IndexPath) -> UIContextualAction {
         let action = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completion) in
-			// TODO: Database
-            self.db.collection("userPlaten").document(self.albums[indexPath.row].id).delete() { err in
-                if let err = err {
-					print(err)
-                    print("Error removing document: \(err.localizedDescription)")
-					// TODO: UIAlertController
-                } else {
-                    print("Document successfully removed!")
-					self.albums.remove(at: indexPath.row)
-					self.tableView.deleteRows(at: [indexPath], with: .automatic)
-                }
-            }
+            //Removes selected album from list
+            Database().deleteAlbum(albums: self.albums, indexPath: indexPath, completionHandler: { (albums) in
+                self.albums.remove(at: indexPath.row)
+                self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            })
         }
         action.backgroundColor = .red
         return action
