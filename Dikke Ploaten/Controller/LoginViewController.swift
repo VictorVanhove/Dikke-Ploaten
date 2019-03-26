@@ -25,9 +25,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     // Skip this screen if there's already a logged in user
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if Auth.auth().currentUser != nil {
-            self.performSegue(withIdentifier: "alreadyLoggedIn", sender: nil)
-        }
+//        if Auth.auth().currentUser != nil {
+//            self.performSegue(withIdentifier: "alreadyLoggedIn", sender: nil)
+//        }
         
         // Add observers
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)

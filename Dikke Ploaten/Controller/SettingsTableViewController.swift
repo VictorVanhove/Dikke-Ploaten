@@ -26,8 +26,8 @@ class SettingsTableViewController : UITableViewController {
         
         // Go back to initial view
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let initial = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
-        //let initial = storyboard.instantiateInitialViewController()
+        //let initial = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
+        let initial = storyboard.instantiateInitialViewController()
         UIApplication.shared.keyWindow?.rootViewController = initial
     }
 }
