@@ -98,6 +98,20 @@ class SearchViewController: UITableViewController, UISearchResultsUpdating {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, editActionsForRowAt: IndexPath) -> [UITableViewRowAction]? {
+        
+        let album = albums[editActionsForRowAt.row]
+        // Write instance to database
+        album.toDatabase()
+        
+        let add = UITableViewRowAction(style: .normal, title: "Add") { action, index in
+            print("add button tapped")
+        }
+        add.backgroundColor = UIColor(red:0.11, green:0.74, blue:0.61, alpha:1.0)
+        
+        return [add]
+    }
+    
 }
 
 
