@@ -41,9 +41,9 @@ class CollectionViewController: UITableViewController {
                     album.setId(id: diff.document.documentID)
                     self.albums.remove(album)
                 }
+                self.generateWordsDict()
+                self.tableView.reloadData()
             }
-            self.generateWordsDict()
-            self.tableView.reloadData()
         }
         
     }
@@ -54,7 +54,7 @@ class CollectionViewController: UITableViewController {
             if var albumValue = albumDictionary[key]
             {
                 albumValue.append(album)
-                albumDictionary[key] = albumValue
+                //albumDictionary[key] = albumValue
             }else{
                 albumDictionary[key] = [album]
             }
@@ -63,6 +63,32 @@ class CollectionViewController: UITableViewController {
         albumSection = albumSection.sorted()
     }
     
+    // MARK: - TableView Delegate
+    
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let delete = deleteAction(at: indexPath)
+        return UISwipeActionsConfiguration(actions: [delete])
+    }
+    
+    func deleteAction(at indexPath: IndexPath) -> UIContextualAction {
+        let action = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completion) in
+            self.db.collection("userPlaten").document(self.albums[indexPath.row].id).delete() { err in
+                if let err = err {
+                    print("Error removing document: \(err)")
+                } else {
+                    print("Document successfully removed!")
+                }
+                self.albums.removeObject(at: indexPath.row)
+                self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            }
+            //self.tableView.reloadData()
+        }
+        action.backgroundColor = .red
+        return action
+    }
+    
+    
+    // MARK: - TableView
     override func numberOfSections(in tableView: UITableView) -> Int {
         return albumSection.count
     }
@@ -77,11 +103,10 @@ class CollectionViewController: UITableViewController {
             return albumValue.count
         }
         return 0
-        //return albums.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "albumCell") as! AlbumTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "albumCell", for: indexPath) as! AlbumTableViewCell
         
         let headerKey = albumSection[indexPath.section]
         
@@ -93,21 +118,6 @@ class CollectionViewController: UITableViewController {
             cell.imgCover.image = UIImage(data: try! Data(contentsOf: URL(string: album.cover)!))
         }
         return cell
-    }
-    
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            db.collection("userPlaten").document(albums[indexPath.row].id).delete() { err in
-                if let err = err {
-                    print("Error removing document: \(err)")
-                } else {
-                    print("Document successfully removed!")
-                }
-            }
-//          albums.removeObject(at: indexPath.row)
-//          tableView.deleteRows(at: [indexPath], with: .fade)
-        }
-        tableView.reloadData()
     }
     
     override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
