@@ -14,14 +14,14 @@ class Database {
     let db = Firestore.firestore()
     
 	// TODO: completionhandler
-	func addToDatabase(album: Album) {
+    func addToDatabase(album: Album/*, completionHandler: @escaping () -> ()*/) {
 		// Data from object in JSON
 		let data = album.toJSON()
 		// Upload data to database
 		Firestore.firestore().collection("userPlaten").addDocument(data: data) { err in
 			if let err = err {
 				print("Error adding document: \(err)")
-				// TODO: call completionhandler
+				//completionHandler()
 			} else {
 				print("Document added with ID")
 			}
@@ -51,6 +51,23 @@ class Database {
                 }
             }
             completionHandler(albums)
+        }
+    }
+    
+    func updateAlbumList(albums: [Album], completionHandler: @escaping (_ updatedCollection: [Album]) -> ()){
+        var albumList = albums
+        db.collection("platen").getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    print("\(document.documentID) => \(document.data())")
+                    let album = try! Mapper<Album>().map(JSON: document.data())
+                    album.id = document.documentID
+                    albumList.append(album)
+                }
+                completionHandler(albumList)
+            }
         }
     }
 	

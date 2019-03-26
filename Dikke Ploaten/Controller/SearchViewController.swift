@@ -26,18 +26,9 @@ class SearchViewController: UITableViewController, UISearchResultsUpdating {
         super.viewDidLoad()
 		
 		// TODO: Database
-        db.collection("platen").getDocuments() { (querySnapshot, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                for document in querySnapshot!.documents {
-                    print("\(document.documentID) => \(document.data())")
-                    let album = try! Mapper<Album>().map(JSON: document.data())
-                    album.id = document.documentID
-                    self.albums.append(album)
-                    self.tableView.reloadData()
-                }
-            }
+        Database().updateAlbumList(albums: albums) { (albums) in
+                self.albums = albums
+                self.tableView.reloadData()
         }
         
         resultSearchController = ({
