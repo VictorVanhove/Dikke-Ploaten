@@ -24,7 +24,8 @@ class SearchViewController: UITableViewController, UISearchResultsUpdating {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+		
+		// TODO: Database
         db.collection("platen").getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
@@ -32,7 +33,7 @@ class SearchViewController: UITableViewController, UISearchResultsUpdating {
                 for document in querySnapshot!.documents {
                     print("\(document.documentID) => \(document.data())")
                     let album = try! Mapper<Album>().map(JSON: document.data())
-                    album.setId(id: document.documentID)
+                    album.id = document.documentID
                     self.albums.append(album)
                     self.tableView.reloadData()
                 }
@@ -61,10 +62,10 @@ class SearchViewController: UITableViewController, UISearchResultsUpdating {
 
     
     @IBAction func addToCollection(_ sender: Any) {
-        // Create new Album instance
-        let album: Album = Album.init(title: "Let's do This", artist: "Baby", cover: "https://images-na.ssl-images-amazon.com/images/I/81szdRTMdCL._SX355_.jpg", genre: nil, releaseYear: nil)
-        // Write instance to database
-        album.toDatabase()
+//        // Create new Album instance
+//        let album: Album = Album.init(title: "Let's do This", artist: "Baby", cover: "https://images-na.ssl-images-amazon.com/images/I/81szdRTMdCL._SX355_.jpg", genre: nil, releaseYear: nil)
+//        // Write instance to database
+//        album.toDatabase()
     }
     
     // MARK: - Table View
@@ -100,12 +101,10 @@ class SearchViewController: UITableViewController, UISearchResultsUpdating {
     
     override func tableView(_ tableView: UITableView, editActionsForRowAt: IndexPath) -> [UITableViewRowAction]? {
         
-        let album = albums[editActionsForRowAt.row]
-        // Write instance to database
-        album.toDatabase()
-        
         let add = UITableViewRowAction(style: .normal, title: "Add") { action, index in
-            print("add button tapped")
+            let album = self.albums[index.row]
+            // Write instance to database
+            Database().addToDatabase(album: album)
         }
         add.backgroundColor = UIColor(red:0.11, green:0.74, blue:0.61, alpha:1.0)
         

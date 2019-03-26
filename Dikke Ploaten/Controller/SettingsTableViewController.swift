@@ -20,13 +20,12 @@ class SettingsTableViewController : UITableViewController {
         do {
             try Auth.auth().signOut()
         }
-        catch let signOutError as NSError {
-            print ("Error signing out: %@", signOutError)
+        catch {
+            print ("Error signing out: %@", error)
         }
         
         // Go back to initial view
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        //let initial = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
         let initial = storyboard.instantiateInitialViewController()
         UIApplication.shared.keyWindow?.rootViewController = initial
     }

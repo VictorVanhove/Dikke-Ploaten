@@ -9,7 +9,7 @@
 import Firebase
 import ObjectMapper
 
-class Album : ImmutableMappable, Hashable, Comparable {
+class Album: ImmutableMappable, Hashable, Comparable {
     var id: String = ""
     var title: String
     var artist: String
@@ -17,12 +17,6 @@ class Album : ImmutableMappable, Hashable, Comparable {
     var genre: String?
     var releaseYear: Int?
     let userID: String?
-    // Firebase
-    let db = Firestore.firestore()
-    // Hashable
-    var hashValue: Int {
-        return id.hashValue
-    }
     
     // MARK: - Constructors
     init(title: String, artist: String, cover: String, genre: String?, releaseYear: Int?) {
@@ -52,23 +46,11 @@ class Album : ImmutableMappable, Hashable, Comparable {
         genre       >>> map["genre"]
         releaseYear >>> map["releaseYear"]
     }
-    
-    func setId(id: String) {
-        self.id = id
-    }
-    
-    func toDatabase(){
-        // Data from object in JSON
-        let data = self.toJSON()
-        // Upload data to database
-        db.collection("userPlaten").addDocument(data: data) { err in
-            if let err = err {
-                print("Error adding document: \(err)")
-            } else {
-                print("Document added with ID)")
-            }
-        }
-    }
+	
+	// Hashable
+	var hashValue: Int {
+		return id.hashValue
+	}
     
     // Equatable
     static func == (lhs: Album  , rhs: Album) -> Bool {

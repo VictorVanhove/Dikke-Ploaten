@@ -15,5 +15,9 @@ class AlbumTableViewCell: UITableViewCell {
     @IBOutlet weak var lblArtist: UILabel!
     @IBOutlet weak var imgCover: UIImageView!
     
-    
+	func updateUI(forAlbum album: Album) {
+		lblTitle.text = album.title
+		lblArtist.text = album.artist
+		imgCover.image = UIImage(data: try! Data(contentsOf: URL(string: album.cover)!))
+	}
 }

@@ -22,6 +22,13 @@ class LaunchViewController : UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         animate(imageView: imgVinyl, images: vinylImages)
+		
+		// TODO: check
+//		if Auth.auth().currentUser != nil {
+//			self.performSegue(withIdentifier: "alreadyLoggedIn", sender: nil)
+//		}
+		
+		// TODO: data prefetch
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
             self.performSegue(withIdentifier: "gotoLogin", sender: nil)
         }
@@ -46,5 +53,4 @@ class LaunchViewController : UIViewController {
         imageView.animationRepeatCount = 3
         imageView.startAnimating()
     }
-    
 }

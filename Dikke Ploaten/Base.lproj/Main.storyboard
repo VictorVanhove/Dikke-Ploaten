@@ -70,11 +70,11 @@
                             <outlet property="delegate" destination="n9P-k1-arz" id="Yp8-sl-xbb"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Collection" image="collection" id="6wS-U9-G5D"/>
+                    <navigationItem key="navigationItem" id="sx1-tZ-wDh"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iRI-k9-o5I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1658" y="-1643"/>
+            <point key="canvasLocation" x="2568.1159420289855" y="-1643.3035714285713"/>
         </scene>
         <!--Profile-->
         <scene sceneID="t06-ML-bAc">
@@ -258,22 +258,13 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5dq-aw-a9Z">
-                                            <rect key="frame" x="320" y="44" width="30" height="30"/>
-                                            <state key="normal" title="Add"/>
-                                            <connections>
-                                                <action selector="addToCollection:" destination="Xgr-Ws-XK6" eventType="touchUpInside" id="QYR-pU-qkX"/>
-                                            </connections>
-                                        </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="5dq-aw-a9Z" secondAttribute="trailing" constant="25" id="1OH-Qe-3db"/>
                                         <constraint firstItem="IB7-cO-xPY" firstAttribute="leading" secondItem="GyK-3W-Wi5" secondAttribute="trailing" constant="18" id="C7u-u7-R3L"/>
                                         <constraint firstItem="GyK-3W-Wi5" firstAttribute="leading" secondItem="j9V-4B-YOw" secondAttribute="leading" constant="16" id="D5W-9s-nAU"/>
                                         <constraint firstAttribute="bottom" secondItem="GyK-3W-Wi5" secondAttribute="bottom" constant="15.5" id="IHf-oR-XjY"/>
                                         <constraint firstItem="GyK-3W-Wi5" firstAttribute="top" secondItem="j9V-4B-YOw" secondAttribute="top" constant="14" id="ME1-je-g5U"/>
                                         <constraint firstAttribute="bottom" secondItem="IB7-cO-xPY" secondAttribute="bottom" constant="35.5" id="Qwl-Tk-bJQ"/>
-                                        <constraint firstItem="5dq-aw-a9Z" firstAttribute="centerY" secondItem="j9V-4B-YOw" secondAttribute="centerY" id="TD2-P3-42F"/>
                                         <constraint firstItem="IB7-cO-xPY" firstAttribute="top" secondItem="9ii-x7-MvZ" secondAttribute="bottom" constant="8.3333333333333428" id="UNF-w9-9s7"/>
                                         <constraint firstItem="9ii-x7-MvZ" firstAttribute="top" secondItem="j9V-4B-YOw" secondAttribute="top" constant="34" id="a9a-MD-j2K"/>
                                         <constraint firstItem="9ii-x7-MvZ" firstAttribute="leading" secondItem="GyK-3W-Wi5" secondAttribute="trailing" constant="18" id="m57-Ea-yMo"/>
@@ -708,7 +699,7 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="n9P-k1-arz" kind="relationship" relationship="viewControllers" id="CWB-Yf-8Mx"/>
+                        <segue destination="tZw-cg-0Pk" kind="relationship" relationship="viewControllers" id="CWB-Yf-8Mx"/>
                         <segue destination="I6q-8Q-287" kind="relationship" relationship="viewControllers" id="2Sr-Or-nis"/>
                         <segue destination="Xgr-Ws-XK6" kind="relationship" relationship="viewControllers" id="glw-E0-uZe"/>
                         <segue destination="qsH-Me-6pr" kind="relationship" relationship="viewControllers" id="ECU-HK-3L0"/>
@@ -776,7 +767,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="GVs-gn-tnb">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" red="0.31156805199999998" green="0.31156805199999998" blue="0.31156805199999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.30980392156862746" green="0.31156805199999998" blue="0.31156805199999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -807,6 +798,25 @@
                 </tableViewSection>
             </objects>
             <point key="canvasLocation" x="1659.4202898550725" y="1143.75"/>
+        </scene>
+        <!--Collection-->
+        <scene sceneID="Fh6-X7-iSs">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tZw-cg-0Pk" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Collection" image="collection" id="6wS-U9-G5D"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="oj2-7m-xVY">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="n9P-k1-arz" kind="relationship" relationship="rootViewController" id="ZY4-IV-O3u"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SNh-Jl-XHp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1657.9710144927537" y="-1643.3035714285713"/>
         </scene>
     </scenes>
     <resources>
