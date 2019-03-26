@@ -104,4 +104,10 @@ class Database {
 			successHandler()
 		}
 	}
+    
+    func checkUser(successHandler: @escaping () -> ()){
+        if Auth.auth().currentUser != nil {
+            successHandler()
+        }
+    }
 }

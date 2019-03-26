@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class LaunchViewController : UIViewController {
     
@@ -23,13 +24,14 @@ class LaunchViewController : UIViewController {
         super.viewDidAppear(animated)
         animate(imageView: imgVinyl, images: vinylImages)
 		
-		// TODO: check
-//		if Auth.auth().currentUser != nil {
-//			self.performSegue(withIdentifier: "alreadyLoggedIn", sender: nil)
-//		}
+        //TODO: question about launscreen.storyboard
+        Database().checkUser {
+                // Go to mainview
+//                self.performSegue(withIdentifier: "alreadyLoggedIn", sender: nil)
+        }
 		
 		// TODO: data prefetch
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.performSegue(withIdentifier: "gotoLogin", sender: nil)
         }
     }
@@ -50,7 +52,7 @@ class LaunchViewController : UIViewController {
     func animate(imageView: UIImageView, images: [UIImage]){
         imageView.animationImages = images
         imageView.animationDuration = 0.5
-        imageView.animationRepeatCount = 3
+        imageView.animationRepeatCount = 2
         imageView.startAnimating()
     }
 }
