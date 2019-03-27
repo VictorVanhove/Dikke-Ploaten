@@ -77,7 +77,7 @@ class Database {
 			if let err = err {
 				print("Error removing document: \(err.localizedDescription)")
 			} else {
-				print("Document successfully removed!")
+				print("Document with id:\(albumId) successfully removed!")
 			}
 			completionHandler(err)
 		}

@@ -24,7 +24,7 @@ class LaunchViewController : UIViewController {
         super.viewDidAppear(animated)
         animate(imageView: imgVinyl, images: vinylImages)
 		
-        //TODO: question about launscreen.storyboard
+        //If already logged in, go to mainscreen
          if Database().isUserLoggedIn() {
 			// Go to mainview
 			self.performSegue(withIdentifier: "alreadyLoggedIn", sender: nil)

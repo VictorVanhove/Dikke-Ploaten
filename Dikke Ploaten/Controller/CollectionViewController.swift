@@ -14,8 +14,6 @@ class CollectionViewController: UITableViewController {
 	
 	// MARK: - Properties
 	var albums: [Album] = []
-	// Firebase
-	let db = Firestore.firestore()
 	
 	var albumSection = [String]()
 	var albumDictionary = [String: [Album]]()
@@ -65,8 +63,9 @@ class CollectionViewController: UITableViewController {
 					self.present(alertController, animated: true, completion: nil)
 					return
 				}
-				self.albums.remove(at: indexPath.row)
-				self.tableView.deleteRows(at: [indexPath], with: .automatic)
+				//self.albums.remove(at: indexPath.row)
+				//self.tableView.deleteRows(at: [indexPath], with: .automatic)
+				self.tableView.reloadData()
 			})
 		}
 		action.backgroundColor = .red

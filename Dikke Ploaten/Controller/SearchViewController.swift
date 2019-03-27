@@ -76,9 +76,7 @@ class SearchViewController: UITableViewController, UISearchResultsUpdating {
 		cell.lblTitle.text = album.title
 		cell.lblArtist.text = album.artist
 		cell.imgCover.image = UIImage(data: try! Data(contentsOf: URL(string: album.cover)!))
-		//        if Auth.auth().currentUser?.uid == album.userID {
-		//            cell.btnRemove.isEnabled = true
-		//        }
+		
 		return cell
 	}
 	
@@ -89,6 +87,8 @@ class SearchViewController: UITableViewController, UISearchResultsUpdating {
 			album.userID = Auth.auth().currentUser?.uid
 			// Write instance to database
 			Database().addToDatabase(album: album)
+			//Show toast alert
+			self.showToast(controller: self, message: "'\(album.title)' by \(album.artist) added to your collection", seconds: 1)
 		}
 		add.backgroundColor = UIColor(red:0.11, green:0.74, blue:0.61, alpha:1.0)
 		
