@@ -106,10 +106,7 @@ class Database {
 		}
 	}
 	
-	func checkUser() -> Bool {
-		if Auth.auth().currentUser == nil {
-			return false
-		}
-		return true
+	func isUserLoggedIn() -> Bool {
+		return Auth.auth().currentUser != nil
 	}
 }
