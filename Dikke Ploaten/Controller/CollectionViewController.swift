@@ -57,7 +57,11 @@ class CollectionViewController: UITableViewController {
 	func deleteAction(at indexPath: IndexPath) -> UIContextualAction {
 		let action = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completion) in
 			//Removes selected album from list
-			Database().deleteAlbum(albumId: self.albums[indexPath.row].id , completionHandler: {_ in
+			Database().deleteAlbum(albumId: self.albums[indexPath.row].id , completionHandler: { err in
+				if let err = err {
+					//TODO: UIAlertController
+					return
+				}
 				self.albums.remove(at: indexPath.row)
 				self.tableView.deleteRows(at: [indexPath], with: .automatic)
 			})
