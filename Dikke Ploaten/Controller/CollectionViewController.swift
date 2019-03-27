@@ -38,7 +38,9 @@ class CollectionViewController: UITableViewController {
 			if albumDictionary[key] == nil {
 				albumDictionary[key] = []
 			}
-			albumDictionary[key]!.append(album)
+            if !(albumDictionary[key]!.contains(album)){
+                albumDictionary[key]!.append(album)
+            }
         }
 		
         albumSection = [String](albumDictionary.keys)
@@ -79,7 +81,7 @@ class CollectionViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "albumCell", for: indexPath) as! AlbumTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "albumCell") as! AlbumTableViewCell
         
         let headerKey = albumSection[indexPath.section]
         
