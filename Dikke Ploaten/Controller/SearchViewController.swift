@@ -80,19 +80,25 @@ class SearchViewController: UITableViewController, UISearchResultsUpdating {
 		return cell
 	}
 	
-	override func tableView(_ tableView: UITableView, editActionsForRowAt: IndexPath) -> [UITableViewRowAction]? {
-		
-		let add = UITableViewRowAction(style: .normal, title: "Add") { action, index in
+	override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+		let add = UITableViewRowAction(style: .default, title: "Add", handler: {
+			(action, index) in
 			let album = self.albums[index.row]
 			album.userID = Auth.auth().currentUser?.uid
 			// Write instance to database
 			Database().addToDatabase(album: album)
 			//Show toast alert
 			self.showToast(controller: self, message: "'\(album.title)' by \(album.artist) added to your collection", seconds: 1)
-		}
+		})
 		add.backgroundColor = UIColor(red:0.11, green:0.74, blue:0.61, alpha:1.0)
 		
-		return [add]
+		let want = UITableViewRowAction(style: .default, title: "Want", handler: {
+			(action, indexPath) in
+			print("Want")
+		})
+		want.backgroundColor = UIColor(red:1.00, green:0.65, blue:0.00, alpha:1.0)
+		
+		return [add, want]
 	}
 	
 }
