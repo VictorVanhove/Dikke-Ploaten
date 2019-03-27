@@ -10,23 +10,23 @@ import Firebase
 import ObjectMapper
 
 class Database {
-	
+    
     let db = Firestore.firestore()
     
-	// TODO: completionhandler
+    // TODO: completionhandler
     func addToDatabase(album: Album/*, completionHandler: @escaping () -> ()*/) {
-		// Data from object in JSON
-		let data = album.toJSON()
-		// Upload data to database
-		Firestore.firestore().collection("userPlaten").addDocument(data: data) { err in
-			if let err = err {
-				print("Error adding document: \(err)")
-				//completionHandler()
-			} else {
-				print("Document added with ID")
-			}
-		}
-	}
+        // Data from object in JSON
+        let data = album.toJSON()
+        // Upload data to database
+        Firestore.firestore().collection("userPlaten").addDocument(data: data) { err in
+            if let err = err {
+                print("Error adding document: \(err)")
+                //completionHandler()
+            } else {
+                print("Document added with ID")
+            }
+        }
+    }
     
     func updateCollection(albums: [Album], completionHandler: @escaping (_ updatedCollection: [Album]) -> ()) {
         var albums = albums
@@ -39,7 +39,9 @@ class Database {
                 if (diff.type == .added) {
                     let album = try! Mapper<Album>().map(JSON: diff.document.data())
                     album.id = diff.document.documentID
-                    albums.append(album)
+                    if album.userID == Auth.auth().currentUser?.uid {
+                        albums.append(album)
+                    }
                 }
                 if (diff.type == .removed) {
                     let album = try! Mapper<Album>().map(JSON: diff.document.data())
@@ -69,8 +71,8 @@ class Database {
             }
         }
     }
-	
-	func deleteAlbum(albums: [Album], indexPath: IndexPath ,completionHandler: @escaping (_ updatedCollection: [Album]) -> ()) {
+    
+    func deleteAlbum(albums: [Album], indexPath: IndexPath ,completionHandler: @escaping (_ updatedCollection: [Album]) -> ()) {
         var albums = albums
         db.collection("userPlaten").document(albums[indexPath.row].id).delete() { err in
             if let err = err {
@@ -83,27 +85,27 @@ class Database {
             }
         }
         
-	}
-	
-	func createUser(username: String, email: String, password: String, successHandler: @escaping () -> (), failureHandler: @escaping (Error) -> ()) {
-		Auth.auth().createUser(withEmail: email, password: password) { user, error in
-			if let error = error {
-				failureHandler(error)
-				return
-			}
-			
-			// Save user data to database
-			let db = Firestore.firestore()
-			db.collection("users").document(user!.user.uid).setData(["username": username, "email": email]) { err in
-				// Error adding user to database
-				if let err = err {
-					print("Error adding document: \(err)")
-				}
-			}
-			
-			successHandler()
-		}
-	}
+    }
+    
+    func createUser(username: String, email: String, password: String, successHandler: @escaping () -> (), failureHandler: @escaping (Error) -> ()) {
+        Auth.auth().createUser(withEmail: email, password: password) { user, error in
+            if let error = error {
+                failureHandler(error)
+                return
+            }
+            
+            // Save user data to database
+            let db = Firestore.firestore()
+            db.collection("users").document(user!.user.uid).setData(["username": username, "email": email]) { err in
+                // Error adding user to database
+                if let err = err {
+                    print("Error adding document: \(err)")
+                }
+            }
+            
+            successHandler()
+        }
+    }
     
     func checkUser(successHandler: @escaping () -> ()){
         if Auth.auth().currentUser != nil {

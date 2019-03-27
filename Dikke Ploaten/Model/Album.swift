@@ -23,7 +23,7 @@ class Album: ImmutableMappable, Hashable, Comparable {
         self.title = title
         self.artist = artist
         self.cover = cover
-        self.userID = Auth.auth().currentUser!.uid
+        self.userID = Auth.auth().currentUser?.uid ?? ""
         self.genre = genre
         self.releaseYear = releaseYear
     }
