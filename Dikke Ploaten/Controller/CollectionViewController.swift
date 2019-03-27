@@ -12,93 +12,93 @@ import ObjectMapper
 
 class CollectionViewController: UITableViewController {
 	
-    // MARK: - Properties
-    var albums: [Album] = []
-    // Firebase
-    let db = Firestore.firestore()
-    
-    var albumSection = [String]()
-    var albumDictionary = [String: [Album]]()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Gets data from database and updates on changes
-        Database().updateCollection(albums: albums) { albums in
-            self.albums = albums
-            self.generateWordsDict()
-            self.tableView.reloadData()
-        }
-        
-    }
-    
-    func generateWordsDict() {
-        for album in albums {
-            let key = String(album.artist.prefix(1))
+	// MARK: - Properties
+	var albums: [Album] = []
+	// Firebase
+	let db = Firestore.firestore()
+	
+	var albumSection = [String]()
+	var albumDictionary = [String: [Album]]()
+	
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		
+		// Gets data from database and updates on changes
+		Database().updateCollection(albums: albums) { albums in
+			self.albums = albums
+			self.generateWordsDict()
+			self.tableView.reloadData()
+		}
+		
+	}
+	
+	func generateWordsDict() {
+		for album in albums {
+			let key = String(album.artist.prefix(1))
 			if albumDictionary[key] == nil {
 				albumDictionary[key] = []
 			}
-            if !(albumDictionary[key]!.contains(album)){
-                albumDictionary[key]!.append(album)
-            }
-        }
+			if !(albumDictionary[key]!.contains(album)){
+				albumDictionary[key]!.append(album)
+			}
+		}
 		
-        albumSection = [String](albumDictionary.keys)
-        albumSection = albumSection.sorted()
-    }
-    
-    // MARK: - TableView Delegate
-    
-    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let delete = deleteAction(at: indexPath)
-        return UISwipeActionsConfiguration(actions: [delete])
-    }
-    
-    func deleteAction(at indexPath: IndexPath) -> UIContextualAction {
-        let action = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completion) in
-            //Removes selected album from list
-            Database().deleteAlbum(albums: self.albums, indexPath: indexPath, completionHandler: { (albums) in
-                self.albums.remove(at: indexPath.row)
-                self.tableView.deleteRows(at: [indexPath], with: .automatic)
-            })
-        }
-        action.backgroundColor = .red
-        return action
-    }
-    
-    // MARK: - TableView
+		albumSection = [String](albumDictionary.keys)
+		albumSection = albumSection.sorted()
+	}
 	
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return albumSection.count
-    }
-    
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return albumSection[section]
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+	// MARK: - TableView Delegate
+	
+	override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+		let delete = deleteAction(at: indexPath)
+		return UISwipeActionsConfiguration(actions: [delete])
+	}
+	
+	func deleteAction(at indexPath: IndexPath) -> UIContextualAction {
+		let action = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completion) in
+			//Removes selected album from list
+			Database().deleteAlbum(albumId: self.albums[indexPath.row].id , completionHandler: {_ in
+				self.albums.remove(at: indexPath.row)
+				self.tableView.deleteRows(at: [indexPath], with: .automatic)
+			})
+		}
+		action.backgroundColor = .red
+		return action
+	}
+	
+	// MARK: - TableView
+	
+	override func numberOfSections(in tableView: UITableView) -> Int {
+		return albumSection.count
+	}
+	
+	override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+		return albumSection[section]
+	}
+	
+	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return albumDictionary[albumSection[section]]?.count ?? 0
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "albumCell") as! AlbumTableViewCell
-        
-        let headerKey = albumSection[indexPath.section]
-        
-        if  let albumValue = albumDictionary[headerKey] {
-            let album = albumValue[indexPath.row]
+	}
+	
+	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		let cell = tableView.dequeueReusableCell(withIdentifier: "albumCell") as! AlbumTableViewCell
+		
+		let headerKey = albumSection[indexPath.section]
+		
+		if  let albumValue = albumDictionary[headerKey] {
+			let album = albumValue[indexPath.row]
 			
 			cell.updateUI(forAlbum: album)
-        }
-        return cell
-    }
-    
-    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        return albumSection
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.tableView.deselectRow(at: indexPath, animated: true)
-    }
+		}
+		return cell
+	}
+	
+	override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+		return albumSection
+	}
+	
+	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		self.tableView.deselectRow(at: indexPath, animated: true)
+	}
 }
 

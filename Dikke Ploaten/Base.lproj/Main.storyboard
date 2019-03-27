@@ -362,6 +362,7 @@
                     <connections>
                         <outlet property="imgVinyl" destination="oVP-Bz-BAs" id="re5-F9-Rng"/>
                         <segue destination="KU2-zb-dZx" kind="presentation" identifier="gotoLogin" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="UyS-AN-ktD"/>
+                        <segue destination="49e-Tb-3d3" kind="presentation" identifier="alreadyLoggedIn" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="gu5-5s-yD4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1h3-Vy-Mk5" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -516,7 +517,6 @@
                         <outlet property="scrollView" destination="55k-9O-Kls" id="SP0-f7-Bve"/>
                         <outlet property="txtEmail" destination="zMA-ye-D37" id="Iz8-m7-8l0"/>
                         <outlet property="txtPassword" destination="WFh-TW-Ynd" id="eAh-uo-Kvt"/>
-                        <segue destination="49e-Tb-3d3" kind="presentation" identifier="alreadyLoggedIn" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="bid-Xv-cPU"/>
                         <segue destination="49e-Tb-3d3" kind="presentation" identifier="loginToHome" id="7pn-1Q-XMK"/>
                     </connections>
                 </viewController>
@@ -848,6 +848,6 @@
         <image name="wantlist" width="29" height="29"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="bid-Xv-cPU"/>
+        <segue reference="gu5-5s-yD4"/>
     </inferredMetricsTieBreakers>
 </document>

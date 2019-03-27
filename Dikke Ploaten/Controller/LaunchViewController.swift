@@ -25,9 +25,9 @@ class LaunchViewController : UIViewController {
         animate(imageView: imgVinyl, images: vinylImages)
 		
         //TODO: question about launscreen.storyboard
-        Database().checkUser {
-                // Go to mainview
-//                self.performSegue(withIdentifier: "alreadyLoggedIn", sender: nil)
+         if Database().checkUser() {
+			// Go to mainview
+			self.performSegue(withIdentifier: "alreadyLoggedIn", sender: nil)
         }
 		
 		// TODO: data prefetch
