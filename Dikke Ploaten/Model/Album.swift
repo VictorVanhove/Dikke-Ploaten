@@ -16,7 +16,7 @@ class Album: ImmutableMappable, Hashable, Comparable {
 	var cover: String
 	var genre: String?
 	var releaseYear: Int?
-	let userID: String?
+	var userID: String?
 	
 	// MARK: - Constructors
 	init(title: String, artist: String, cover: String, genre: String?, releaseYear: Int?) {

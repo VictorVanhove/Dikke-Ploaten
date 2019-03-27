@@ -72,15 +72,15 @@ class Database {
 		}
 	}
 	
-	func deleteAlbum(albumId: String, completionHandler: @escaping () -> ()) {
+	func deleteAlbum(albumId: String, completionHandler: @escaping (Error?) -> ()) {
 		db.collection("userPlaten").document(albumId).delete() { err in
 			if let err = err {
 				print(err)
 				print("Error removing document: \(err.localizedDescription)")
+				completionHandler(err)
 				// TODO: UIAlertController
 			} else {
 				print("Document successfully removed!")
-				completionHandler()
 			}
 		}
 		

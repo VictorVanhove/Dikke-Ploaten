@@ -85,8 +85,8 @@ class SearchViewController: UITableViewController, UISearchResultsUpdating {
 	override func tableView(_ tableView: UITableView, editActionsForRowAt: IndexPath) -> [UITableViewRowAction]? {
 		
 		let add = UITableViewRowAction(style: .normal, title: "Add") { action, index in
-			var album = self.albums[index.row]
-			album = Album(title: album.title, artist: album.artist, cover: album.cover, genre: nil, releaseYear: nil)
+			let album = self.albums[index.row]
+			album.userID = Auth.auth().currentUser?.uid
 			// Write instance to database
 			Database().addToDatabase(album: album)
 		}
