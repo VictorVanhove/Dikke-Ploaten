@@ -14,33 +14,28 @@ import OrderedSet
 class SearchViewController: UITableViewController, UISearchResultsUpdating {
 	
 	// MARK: - Properties
-	//var albums: OrderedSet<Album> = []
+	
 	var albums = [Album]()
 	var filteredAlbums = [Album]()
-	var resultSearchController = UISearchController()
 	
-	// Firebase
-	let db = Firestore.firestore()
+	let searchController = UISearchController(searchResultsController: nil)
+	
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		
+		// Add searchbar to nav
+		searchController.searchResultsUpdater = self
+		searchController.hidesNavigationBarDuringPresentation = false
+		searchController.dimsBackgroundDuringPresentation = false
+		searchController.searchBar.sizeToFit()
+		self.navigationItem.titleView = searchController.searchBar
 		
 		// Gets all albums from database
 		Database().getAlbumList(albums: albums) { (albums) in
 			self.albums = albums
 			self.tableView.reloadData()
 		}
-		
-		resultSearchController = ({
-			let controller = UISearchController(searchResultsController: nil)
-			controller.searchResultsUpdater = self
-			controller.dimsBackgroundDuringPresentation = false
-			controller.searchBar.sizeToFit()
-			
-			tableView.tableHeaderView = controller.searchBar
-			
-			return controller
-		})()
 		
 		// Reload the table
 		tableView.reloadData()
@@ -57,7 +52,7 @@ class SearchViewController: UITableViewController, UISearchResultsUpdating {
 	}
 	
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		if  (resultSearchController.isActive) {
+		if  (searchController.isActive) {
 			return filteredAlbums.count
 		} else {
 			return albums.count
@@ -69,7 +64,7 @@ class SearchViewController: UITableViewController, UISearchResultsUpdating {
 		
 		var album = albums[indexPath.row]
 		
-		if (resultSearchController.isActive) {
+		if (searchController.isActive) {
 			album = filteredAlbums[indexPath.row]
 		}
 		
