@@ -11,24 +11,45 @@ import ObjectMapper
 
 class Database {
 	
+	//Firebase
 	let db = Firestore.firestore()
 	
-	// TODO: completionhandler
-	func addToDatabase(album: Album/*, completionHandler: @escaping () -> ()*/) {
+	static let shared = Database()
+	
+	private init(){}
+	
+	// Adds album to user's collection
+	func addToCollection(album: Album, completionHandler: @escaping (Error?) -> ()) {
 		// Data from object in JSON
 		let data = album.toJSON()
 		// Upload data to database
 		Firestore.firestore().collection("userPlaten").addDocument(data: data) { err in
 			if let err = err {
 				print("Error adding document: \(err)")
-				//completionHandler()
 			} else {
 				print("Document added with ID")
 			}
+			completionHandler(err)
 		}
 	}
 	
-	func updateCollection(albums: [Album], completionHandler: @escaping (_ updatedCollection: [Album]) -> ()) {
+	// Adds album to user's wantlist
+	func addToWantlist(album: Album, completionHandler: @escaping (Error?) -> ()) {
+		// Data from object in JSON
+		let data = album.toJSON()
+		// Upload data to database
+		Firestore.firestore().collection("userWantlist").addDocument(data: data) { err in
+			if let err = err {
+				print("Error adding document: \(err)")
+			} else {
+				print("Document added with ID")
+			}
+			completionHandler(err)
+		}
+	}
+	
+	// Updates user's collection when album gets added/deleted
+	func addCollectionChangeListener(albums: [Album], completionHandler: @escaping (_ updatedCollection: [Album]) -> ()) {
 		var albums = albums
 		db.collection("userPlaten").limit(to: 1000).addSnapshotListener { querySnapshot, error in
 			guard let snapshot = querySnapshot else {
@@ -55,6 +76,35 @@ class Database {
 		}
 	}
 	
+	// Updates user's wantlist when album gets added/deleted
+	func addWantlistChangeListener(albums: [Album], completionHandler: @escaping (_ updatedCollection: [Album]) -> ()) {
+		var albums = albums
+		db.collection("userWantlist").limit(to: 1000).addSnapshotListener { querySnapshot, error in
+			guard let snapshot = querySnapshot else {
+				print("Error fetching snapshots: \(error!)")
+				return
+			}
+			for diff in snapshot.documentChanges {
+				if (diff.type == .added) {
+					let album = try! Mapper<Album>().map(JSON: diff.document.data())
+					album.id = diff.document.documentID
+					if album.userID == Auth.auth().currentUser?.uid {
+						albums.append(album)
+					}
+				}
+				if (diff.type == .removed) {
+					let album = try! Mapper<Album>().map(JSON: diff.document.data())
+					album.id = diff.document.documentID
+					if let index = albums.firstIndex(of: album) {
+						albums.remove(at: index)
+					}
+				}
+			}
+			completionHandler(albums)
+		}
+	}
+	
+	// Gets the whole list of albums out of database
 	func getAlbumList(albums: [Album], completionHandler: @escaping (_ updatedCollection: [Album]) -> ()){
 		var albumList = albums
 		db.collection("platen").getDocuments() { (querySnapshot, err) in
@@ -72,12 +122,13 @@ class Database {
 		}
 	}
 	
+	// Deletes selected album out of collection
 	func deleteAlbum(albumId: String, completionHandler: @escaping (Error?) -> ()) {
 		db.collection("userPlaten").document(albumId).delete() { err in
 			if let err = err {
 				print("Error removing document: \(err.localizedDescription)")
 			} else {
-				print("Document successfully removed!")
+				print("Document with id:\(albumId) successfully removed!")
 			}
 			completionHandler(err)
 		}
@@ -90,10 +141,7 @@ class Database {
 				failureHandler(error)
 				return
 			}
-			
-			// Save user data to database
-			let db = Firestore.firestore()
-			db.collection("users").document(user!.user.uid).setData(["username": username, "email": email]) { err in
+			self.db.collection("users").document(user!.user.uid).setData(["username": username, "email": email]) { err in
 				// Error adding user to database
 				if let err = err {
 					print("Error adding document: \(err)")

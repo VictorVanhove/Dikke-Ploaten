@@ -56,7 +56,7 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
 	// MARK: - Actions
 	@IBAction func signUpUser(_ sender: Any) {
 		if validForm() {
-			Database().createUser(username: txtUser.text ?? "", email: txtEmail.text ?? "", password: txtPassword.text ?? "", successHandler: {
+			Database.shared.createUser(username: txtUser.text ?? "", email: txtEmail.text ?? "", password: txtPassword.text ?? "", successHandler: {
 				// Go to next view
 				self.performSegue(withIdentifier: "signupToHome", sender: self)
 			}, failureHandler: { error in

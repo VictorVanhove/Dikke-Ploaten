@@ -302,19 +302,56 @@
         <!--Wantlist-->
         <scene sceneID="2IP-vJ-gtz">
             <objects>
-                <tableViewController id="I6q-8Q-287" customClass="WantlistViewController" customModule="Dikke_Ploaten" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Wantlist" id="I6q-8Q-287" customClass="WantlistViewController" customModule="Dikke_Ploaten" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="WZ9-tQ-IPi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="j2i-0q-7TX">
-                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="albumCell" rowHeight="120" id="j2i-0q-7TX" customClass="AlbumTableViewCell" customModule="Dikke_Ploaten" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="j2i-0q-7TX" id="snf-3V-kyj">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="119.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="czc-uW-09D">
+                                            <rect key="frame" x="16" y="14" width="91" height="90.5"/>
+                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="91" id="4dp-kF-W9b"/>
+                                                <constraint firstAttribute="height" constant="90.333333333333329" id="cDR-Sd-oRW"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Highway To Hell" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="96Z-aX-oJF">
+                                            <rect key="frame" x="125" y="34" width="130.5" height="21"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AC/DC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jHN-GI-Oxr">
+                                            <rect key="frame" x="125" y="63" width="52" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="czc-uW-09D" firstAttribute="leading" secondItem="snf-3V-kyj" secondAttribute="leading" constant="16" id="2Br-Lh-Pp7"/>
+                                        <constraint firstItem="jHN-GI-Oxr" firstAttribute="leading" secondItem="czc-uW-09D" secondAttribute="trailing" constant="18" id="5n9-52-A3V"/>
+                                        <constraint firstAttribute="bottom" secondItem="czc-uW-09D" secondAttribute="bottom" constant="15" id="G7u-mf-sOM"/>
+                                        <constraint firstAttribute="bottom" secondItem="jHN-GI-Oxr" secondAttribute="bottom" constant="35.5" id="K0q-hH-TJO"/>
+                                        <constraint firstItem="czc-uW-09D" firstAttribute="top" secondItem="snf-3V-kyj" secondAttribute="top" constant="14" id="Tdn-Ap-05y"/>
+                                        <constraint firstItem="jHN-GI-Oxr" firstAttribute="top" secondItem="96Z-aX-oJF" secondAttribute="bottom" constant="8" id="V3q-p6-CiJ"/>
+                                        <constraint firstItem="96Z-aX-oJF" firstAttribute="top" secondItem="snf-3V-kyj" secondAttribute="top" constant="34" id="b8R-Rw-1dV"/>
+                                        <constraint firstItem="96Z-aX-oJF" firstAttribute="leading" secondItem="czc-uW-09D" secondAttribute="trailing" constant="18" id="vJP-34-bf1"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="imgCover" destination="czc-uW-09D" id="Bam-IT-1ZQ"/>
+                                    <outlet property="lblArtist" destination="jHN-GI-Oxr" id="u1d-Lk-w6B"/>
+                                    <outlet property="lblTitle" destination="96Z-aX-oJF" id="3DE-Gm-cuS"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -322,11 +359,11 @@
                             <outlet property="delegate" destination="I6q-8Q-287" id="kZt-0p-tCU"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Wantlist" image="wantlist" id="T0B-OT-1UC"/>
+                    <navigationItem key="navigationItem" id="v94-SZ-QqA"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iKS-81-zrO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1658" y="-940"/>
+            <point key="canvasLocation" x="2568.1159420289855" y="-940.17857142857133"/>
         </scene>
         <!--Launch-->
         <scene sceneID="ZI7-N6-78b">
@@ -700,7 +737,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="tZw-cg-0Pk" kind="relationship" relationship="viewControllers" id="CWB-Yf-8Mx"/>
-                        <segue destination="I6q-8Q-287" kind="relationship" relationship="viewControllers" id="2Sr-Or-nis"/>
+                        <segue destination="XfB-X0-P8Y" kind="relationship" relationship="viewControllers" id="2Sr-Or-nis"/>
                         <segue destination="abc-Ho-QQA" kind="relationship" relationship="viewControllers" id="glw-E0-uZe"/>
                         <segue destination="qsH-Me-6pr" kind="relationship" relationship="viewControllers" id="ECU-HK-3L0"/>
                         <segue destination="PE9-c6-CRm" kind="relationship" relationship="viewControllers" id="rlk-QY-e2n"/>
@@ -836,6 +873,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ogR-NA-1k0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1657.9710144927537" y="-245.08928571428569"/>
+        </scene>
+        <!--Wantlist-->
+        <scene sceneID="v5U-b7-pS5">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XfB-X0-P8Y" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Wantlist" image="wantlist" id="T0B-OT-1UC"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Za5-UI-Zuf">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="I6q-8Q-287" kind="relationship" relationship="rootViewController" id="rC8-13-8L8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rhh-9Y-05V" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1657.9710144927537" y="-940.17857142857133"/>
         </scene>
     </scenes>
     <resources>

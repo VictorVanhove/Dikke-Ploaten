@@ -22,6 +22,8 @@
 		0D6F68C622394F1200687EFD /* WantlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6F68C522394F1200687EFD /* WantlistViewController.swift */; };
 		0D6F68C922394F1200687EFD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D6F68C722394F1200687EFD /* Main.storyboard */; };
 		0D6F68CE22394F1300687EFD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D6F68CC22394F1300687EFD /* LaunchScreen.storyboard */; };
+		0D9EC154224BAA4B00DF9E9C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9EC153224BAA4B00DF9E9C /* Extensions.swift */; };
+		0D9EC156224CEA7300DF9E9C /* BaseAlbumListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9EC155224CEA7300DF9E9C /* BaseAlbumListTableViewController.swift */; };
 		0DEBCBAD2242454D00E5A3BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DEBCBAC2242454D00E5A3BB /* Assets.xcassets */; };
 		2BEE2813224A5D6B007EA0E9 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BEE2812224A5D6B007EA0E9 /* Database.swift */; };
 		C39E9E3E4E74F7EDE6CACB61 /* Pods_Dikke_Ploaten.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 989F7FDF88058EF8EF722F8E /* Pods_Dikke_Ploaten.framework */; };
@@ -45,6 +47,8 @@
 		0D6F68C822394F1200687EFD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0D6F68CD22394F1300687EFD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0D6F68CF22394F1300687EFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0D9EC153224BAA4B00DF9E9C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		0D9EC155224CEA7300DF9E9C /* BaseAlbumListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAlbumListTableViewController.swift; sourceTree = "<group>"; };
 		0DEBCBAC2242454D00E5A3BB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2BEE2812224A5D6B007EA0E9 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		64A325EAF70B758CF86E2702 /* Pods-Dikke Ploaten.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dikke Ploaten.release.xcconfig"; path = "Target Support Files/Pods-Dikke Ploaten/Pods-Dikke Ploaten.release.xcconfig"; sourceTree = "<group>"; };
@@ -67,6 +71,7 @@
 		0D353607223A513C00DA5453 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				0D9EC155224CEA7300DF9E9C /* BaseAlbumListTableViewController.swift */,
 				0D6F68C322394F1200687EFD /* CollectionViewController.swift */,
 				0D6F68C522394F1200687EFD /* WantlistViewController.swift */,
 				0D353611223A8C6800DA5453 /* SearchViewController.swift */,
@@ -84,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				0D353619223A90C100DA5453 /* AlbumTableViewCell.swift */,
+				0D9EC153224BAA4B00DF9E9C /* Extensions.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -303,9 +309,11 @@
 				0D35360C223A53CA00DA5453 /* LoginViewController.swift in Sources */,
 				0D353616223A8D5900DA5453 /* ProfileViewController.swift in Sources */,
 				0D35361A223A90C100DA5453 /* AlbumTableViewCell.swift in Sources */,
+				0D9EC154224BAA4B00DF9E9C /* Extensions.swift in Sources */,
 				0D0A464822439CAD0042501C /* SettingsTableViewController.swift in Sources */,
 				0D0B159522423A3B0042EDA5 /* LaunchViewController.swift in Sources */,
 				0D6F68C422394F1200687EFD /* CollectionViewController.swift in Sources */,
+				0D9EC156224CEA7300DF9E9C /* BaseAlbumListTableViewController.swift in Sources */,
 				2BEE2813224A5D6B007EA0E9 /* Database.swift in Sources */,
 				0D3D147E223A9B29003CACEC /* Album.swift in Sources */,
 			);
