@@ -12,9 +12,6 @@ import ObjectMapper
 
 class CollectionViewController: BaseTableViewController {
 	
-//	// MARK: - Properties
-//	var albums: [Album] = []
-	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		

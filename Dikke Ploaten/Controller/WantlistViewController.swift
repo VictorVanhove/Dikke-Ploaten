@@ -12,12 +12,6 @@ import Firebase
 //A lot of duplicate code (see CollectionViewController), best way to solve this?
 class WantlistViewController: BaseTableViewController {
 	
-//	// MARK: - Properties
-//	var albums: [Album] = []
-//
-//	var albumSection = [String]()
-//	var albumDictionary = [String: [Album]]()
-	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
