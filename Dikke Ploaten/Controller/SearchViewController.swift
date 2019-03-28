@@ -86,15 +86,32 @@ class SearchViewController: UITableViewController, UISearchResultsUpdating {
 			let album = self.albums[index.row]
 			album.userID = Auth.auth().currentUser?.uid
 			// Write instance to database
-			Database().addToDatabase(album: album)
+			Database().addToCollection(album: album, failureHandler: { err in
+				if let err = err {
+					print(err)
+					// TODO Alert
+					return
+				}
+			})
 			//Show toast alert
 			self.showToast(controller: self, message: "'\(album.title)' by \(album.artist) added to your collection", seconds: 1)
 		})
 		add.backgroundColor = UIColor(red:0.11, green:0.74, blue:0.61, alpha:1.0)
 		
 		let want = UITableViewRowAction(style: .default, title: "Want", handler: {
-			(action, indexPath) in
-			print("Want")
+			(action, index) in
+			let album = self.albums[index.row]
+			album.userID = Auth.auth().currentUser?.uid
+			// Write instance to database
+			Database().addToWantlist(album: album, failureHandler: { err in
+				if let err = err {
+					print(err)
+					//TODO Alert
+					return
+				}
+			})
+			//Show toast alert
+			self.showToast(controller: self, message: "'\(album.title)' by \(album.artist) added to your wantlist", seconds: 1)
 		})
 		want.backgroundColor = UIColor(red:1.00, green:0.65, blue:0.00, alpha:1.0)
 		
