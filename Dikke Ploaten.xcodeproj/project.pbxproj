@@ -16,6 +16,7 @@
 		0D353614223A8D4A00DA5453 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D353613223A8D4A00DA5453 /* NotificationViewController.swift */; };
 		0D353616223A8D5900DA5453 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D353615223A8D5900DA5453 /* ProfileViewController.swift */; };
 		0D35361A223A90C100DA5453 /* AlbumTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D353619223A90C100DA5453 /* AlbumTableViewCell.swift */; };
+		0D379613224D2C4C00A68DDD /* AlbumDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D379612224D2C4C00A68DDD /* AlbumDetailViewController.swift */; };
 		0D3D147E223A9B29003CACEC /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3D147D223A9B29003CACEC /* Album.swift */; };
 		0D6F68C222394F1200687EFD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6F68C122394F1200687EFD /* AppDelegate.swift */; };
 		0D6F68C422394F1200687EFD /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6F68C322394F1200687EFD /* CollectionViewController.swift */; };
@@ -39,6 +40,7 @@
 		0D353613223A8D4A00DA5453 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		0D353615223A8D5900DA5453 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		0D353619223A90C100DA5453 /* AlbumTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumTableViewCell.swift; sourceTree = "<group>"; };
+		0D379612224D2C4C00A68DDD /* AlbumDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailViewController.swift; sourceTree = "<group>"; };
 		0D3D147D223A9B29003CACEC /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		0D6F68BE22394F1200687EFD /* Dikke Ploaten.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dikke Ploaten.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D6F68C122394F1200687EFD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				0D6F68C322394F1200687EFD /* CollectionViewController.swift */,
 				0D6F68C522394F1200687EFD /* WantlistViewController.swift */,
 				0D353611223A8C6800DA5453 /* SearchViewController.swift */,
+				0D379612224D2C4C00A68DDD /* AlbumDetailViewController.swift */,
 				0D35360B223A53CA00DA5453 /* LoginViewController.swift */,
 				0D35360D223A53E300DA5453 /* SignupViewController.swift */,
 				0D353613223A8D4A00DA5453 /* NotificationViewController.swift */,
@@ -314,6 +317,7 @@
 				0D0B159522423A3B0042EDA5 /* LaunchViewController.swift in Sources */,
 				0D6F68C422394F1200687EFD /* CollectionViewController.swift in Sources */,
 				0D9EC156224CEA7300DF9E9C /* BaseAlbumListTableViewController.swift in Sources */,
+				0D379613224D2C4C00A68DDD /* AlbumDetailViewController.swift in Sources */,
 				2BEE2813224A5D6B007EA0E9 /* Database.swift in Sources */,
 				0D3D147E223A9B29003CACEC /* Album.swift in Sources */,
 			);
