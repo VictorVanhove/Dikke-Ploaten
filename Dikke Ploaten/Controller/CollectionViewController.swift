@@ -56,7 +56,7 @@ class CollectionViewController: UITableViewController {
 		let action = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completion) in
 			//Removes selected album from list
 			let album = self.albums[indexPath.row]
-			Database().deleteAlbum(albumId: album.id , completionHandler: { err in
+			Database().deleteAlbum(albumId: album.id , failureHandler: { err in
 				if let err = err {
 					let alertController = UIAlertController(title: "Whoops", message: err.localizedDescription, preferredStyle: .alert)
 					alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
