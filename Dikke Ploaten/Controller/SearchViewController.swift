@@ -89,7 +89,6 @@ class SearchViewController: UITableViewController, UISearchResultsUpdating {
 					let alertController = UIAlertController(title: "Whoops", message: err.localizedDescription, preferredStyle: .alert)
 					alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
 					self.present(alertController, animated: true, completion: nil)
-					return
 				}
 			})
 			//Show toast alert
@@ -111,7 +110,6 @@ class SearchViewController: UITableViewController, UISearchResultsUpdating {
 					let alertController = UIAlertController(title: "Whoops", message: err.localizedDescription, preferredStyle: .alert)
 					alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
 					self.present(alertController, animated: true, completion: nil)
-					return
 				}
 			})
 			//Show toast alert

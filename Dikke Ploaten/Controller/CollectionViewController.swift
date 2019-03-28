@@ -10,13 +10,13 @@ import UIKit
 import Firebase
 import ObjectMapper
 
-class CollectionViewController: BaseTableViewController {
+class CollectionViewController: BaseAlbumListTableViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
 		// Gets data from database and updates on changes
-		Database.shared.getCollection(albums: albums) { albums in
+		Database.shared.addCollectionChangeListener(albums: albums) { albums in
 			self.albums = albums
 			self.generateWordsDict()
 			self.tableView.reloadData()
@@ -40,7 +40,6 @@ class CollectionViewController: BaseTableViewController {
 					let alertController = UIAlertController(title: "Whoops", message: err.localizedDescription, preferredStyle: .alert)
 					alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
 					self.present(alertController, animated: true, completion: nil)
-					return
 				}
 				self.tableView.reloadData()
 			})

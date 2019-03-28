@@ -10,13 +10,13 @@ import UIKit
 import Firebase
 
 //A lot of duplicate code (see CollectionViewController), best way to solve this?
-class WantlistViewController: BaseTableViewController {
+class WantlistViewController: BaseAlbumListTableViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
 		// Gets data from database and updates on changes
-		Database.shared.getWantlist(albums: albums) { albums in
+		Database.shared.addWantlistChangeListener(albums: albums) { albums in
 			self.albums = albums
 			self.generateWordsDict()
 			self.tableView.reloadData()

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BaseTableViewController : UITableViewController {
+class BaseAlbumListTableViewController : UITableViewController {
 	
 	// MARK: - Properties
 	var albums: [Album] = []

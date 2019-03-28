@@ -16,6 +16,8 @@ class Database {
 	
 	static let shared = Database()
 	
+	private init(){}
+	
 	// Adds album to user's collection
 	func addToCollection(album: Album, completionHandler: @escaping (Error?) -> ()) {
 		// Data from object in JSON
@@ -47,7 +49,7 @@ class Database {
 	}
 	
 	// Updates user's collection when album gets added/deleted
-	func getCollection(albums: [Album], completionHandler: @escaping (_ updatedCollection: [Album]) -> ()) {
+	func addCollectionChangeListener(albums: [Album], completionHandler: @escaping (_ updatedCollection: [Album]) -> ()) {
 		var albums = albums
 		db.collection("userPlaten").limit(to: 1000).addSnapshotListener { querySnapshot, error in
 			guard let snapshot = querySnapshot else {
@@ -75,7 +77,7 @@ class Database {
 	}
 	
 	// Updates user's wantlist when album gets added/deleted
-	func getWantlist(albums: [Album], completionHandler: @escaping (_ updatedCollection: [Album]) -> ()) {
+	func addWantlistChangeListener(albums: [Album], completionHandler: @escaping (_ updatedCollection: [Album]) -> ()) {
 		var albums = albums
 		db.collection("userWantlist").limit(to: 1000).addSnapshotListener { querySnapshot, error in
 			guard let snapshot = querySnapshot else {
