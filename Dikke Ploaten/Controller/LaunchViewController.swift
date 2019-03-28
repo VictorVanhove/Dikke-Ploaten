@@ -25,7 +25,7 @@ class LaunchViewController : UIViewController {
         animate(imageView: imgVinyl, images: vinylImages)
 		
         //If already logged in, go to mainscreen
-         if Database().isUserLoggedIn() {
+         if Database.shared.isUserLoggedIn() {
 			// Go to mainview
 			self.performSegue(withIdentifier: "alreadyLoggedIn", sender: nil)
         }

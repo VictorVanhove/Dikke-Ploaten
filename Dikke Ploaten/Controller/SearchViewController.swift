@@ -32,7 +32,7 @@ class SearchViewController: UITableViewController, UISearchResultsUpdating {
 		self.navigationItem.titleView = searchController.searchBar
 		
 		// Gets all albums from database
-		Database().getAlbumList(albums: albums) { (albums) in
+		Database.shared.getAlbumList(albums: albums) { (albums) in
 			self.albums = albums
 			self.tableView.reloadData()
 		}
@@ -54,9 +54,8 @@ class SearchViewController: UITableViewController, UISearchResultsUpdating {
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		if  (searchController.isActive) {
 			return filteredAlbums.count
-		} else {
-			return albums.count
 		}
+		return albums.count
 	}
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -76,15 +75,20 @@ class SearchViewController: UITableViewController, UISearchResultsUpdating {
 	}
 	
 	override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-		let add = UITableViewRowAction(style: .default, title: "Add", handler: {
+		let add = UITableViewRowAction(style: .default, title: "\u{2630}\n Add", handler: {
 			(action, index) in
-			let album = self.albums[index.row]
+			var album = self.albums[index.row]
+			if (self.searchController.isActive) {
+				album = self.filteredAlbums[indexPath.row]
+			}
 			album.userID = Auth.auth().currentUser?.uid
 			// Write instance to database
-			Database().addToCollection(album: album, failureHandler: { err in
+			Database.shared.addToCollection(album: album, completionHandler: { err in
 				if let err = err {
 					print(err)
-					// TODO Alert
+					let alertController = UIAlertController(title: "Whoops", message: err.localizedDescription, preferredStyle: .alert)
+					alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+					self.present(alertController, animated: true, completion: nil)
 					return
 				}
 			})
@@ -93,15 +97,20 @@ class SearchViewController: UITableViewController, UISearchResultsUpdating {
 		})
 		add.backgroundColor = UIColor(red:0.11, green:0.74, blue:0.61, alpha:1.0)
 		
-		let want = UITableViewRowAction(style: .default, title: "Want", handler: {
+		let want = UITableViewRowAction(style: .default, title: "\u{2665}\n Want", handler: {
 			(action, index) in
-			let album = self.albums[index.row]
+			var album = self.albums[index.row]
+			if (self.searchController.isActive) {
+				album = self.filteredAlbums[indexPath.row]
+			}
 			album.userID = Auth.auth().currentUser?.uid
 			// Write instance to database
-			Database().addToWantlist(album: album, failureHandler: { err in
+			Database.shared.addToWantlist(album: album, completionHandler: { err in
 				if let err = err {
 					print(err)
-					//TODO Alert
+					let alertController = UIAlertController(title: "Whoops", message: err.localizedDescription, preferredStyle: .alert)
+					alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+					self.present(alertController, animated: true, completion: nil)
 					return
 				}
 			})
