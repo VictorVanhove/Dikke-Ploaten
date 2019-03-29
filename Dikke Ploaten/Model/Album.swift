@@ -19,13 +19,15 @@ class Album: ImmutableMappable, Hashable, Comparable {
 	var releaseYear: String?
 	var tracklist: String?
 	var musicians: String?
+	//var images: [String]?
 	var userID: String?
 	
 	// MARK: - Constructors
-	init(title: String, artist: String, cover: String, description: String?, genre: String?, releaseYear: String?, tracklist: String?, musicians: String?) {
+	init(title: String, artist: String, cover: String/*, images: [String]?*/, description: String?, genre: String?, releaseYear: String?, tracklist: String?, musicians: String?) {
 		self.title = title
 		self.artist = artist
 		self.cover = cover
+		//self.images = images
 		self.description = description ?? ""
 		self.userID = Auth.auth().currentUser?.uid ?? ""
 		self.genre = genre ?? ""
@@ -39,6 +41,7 @@ class Album: ImmutableMappable, Hashable, Comparable {
 		title = try map.value("title")
 		artist = try map.value("artist")
 		cover = try map.value("image")
+		//images = try? map.value("images")
 		description = try? map.value("description")
 		userID = try? map.value("user")
 		genre = try? map.value("genre")
@@ -51,6 +54,7 @@ class Album: ImmutableMappable, Hashable, Comparable {
 		title       >>> map["title"]
 		artist      >>> map["artist"]
 		cover       >>> map["image"]
+		//images 	    >>> map["images"]
 		description >>> map["description"]
 		userID      >>> map["user"]
 		genre       >>> map["genre"]

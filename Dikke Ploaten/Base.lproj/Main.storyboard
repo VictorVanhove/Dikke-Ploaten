@@ -313,10 +313,59 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lq6-8F-4yh">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="1300"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PcW-ov-uHj">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="420.5"/>
-                                                <color key="backgroundColor" red="0.31156805199999998" green="0.31156805199999998" blue="0.31156805199999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </imageView>
+                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dni-OG-Sup">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
+                                            </scrollView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f2p-c9-Si9">
+                                                <rect key="frame" x="19" y="367" width="337" height="283"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="YXi-ma-gha">
+                                                        <rect key="frame" x="0.0" y="35" width="337" height="84"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Highway To Hell" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9iz-8V-eea">
+                                                                <rect key="frame" x="0.0" y="0.0" width="337" height="42"/>
+                                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="AC/DC" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PKh-ZC-xSy">
+                                                                <rect key="frame" x="0.0" y="54" width="337" height="30"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstItem="9iz-8V-eea" firstAttribute="top" secondItem="YXi-ma-gha" secondAttribute="top" id="gDS-Dh-zvT"/>
+                                                            <constraint firstItem="9iz-8V-eea" firstAttribute="centerX" secondItem="YXi-ma-gha" secondAttribute="centerX" id="j6v-qn-Phr"/>
+                                                        </constraints>
+                                                    </stackView>
+                                                    <textView multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="749" directionalLockEnabled="YES" scrollEnabled="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pj8-o9-WDO">
+                                                        <rect key="frame" x="0.0" y="145" width="337" height="128"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <string key="text">lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    </textView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="pj8-o9-WDO" secondAttribute="trailing" id="0UT-En-O0s"/>
+                                                    <constraint firstItem="YXi-ma-gha" firstAttribute="top" secondItem="f2p-c9-Si9" secondAttribute="top" constant="35" id="9Of-IC-VrB"/>
+                                                    <constraint firstItem="YXi-ma-gha" firstAttribute="leading" secondItem="f2p-c9-Si9" secondAttribute="leading" id="AYe-Uv-NLs"/>
+                                                    <constraint firstItem="YXi-ma-gha" firstAttribute="centerX" secondItem="f2p-c9-Si9" secondAttribute="centerX" id="CeT-G9-kvP"/>
+                                                    <constraint firstItem="pj8-o9-WDO" firstAttribute="centerX" secondItem="f2p-c9-Si9" secondAttribute="centerX" id="Eo8-me-Puy"/>
+                                                    <constraint firstItem="pj8-o9-WDO" firstAttribute="leading" secondItem="f2p-c9-Si9" secondAttribute="leading" id="Eym-DX-Ml7"/>
+                                                    <constraint firstItem="pj8-o9-WDO" firstAttribute="top" secondItem="YXi-ma-gha" secondAttribute="bottom" constant="26" id="Jz3-Wb-dCr"/>
+                                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="pj8-o9-WDO" secondAttribute="bottom" constant="10" id="vz4-0y-6p2"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qVY-Nt-naP">
                                                 <rect key="frame" x="19" y="660" width="337" height="1"/>
                                                 <color key="backgroundColor" red="0.31156805199999998" green="0.31156805199999998" blue="0.31156805199999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -438,66 +487,17 @@ Phil Rudd – drums</string>
                                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f2p-c9-Si9">
-                                                <rect key="frame" x="19" y="367" width="337" height="283"/>
-                                                <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="YXi-ma-gha">
-                                                        <rect key="frame" x="0.0" y="35" width="337" height="84"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Highway To Hell" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9iz-8V-eea">
-                                                                <rect key="frame" x="0.0" y="0.0" width="337" height="42"/>
-                                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="AC/DC" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PKh-ZC-xSy">
-                                                                <rect key="frame" x="0.0" y="54" width="337" height="30"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                        </subviews>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <constraints>
-                                                            <constraint firstItem="9iz-8V-eea" firstAttribute="top" secondItem="YXi-ma-gha" secondAttribute="top" id="gDS-Dh-zvT"/>
-                                                            <constraint firstItem="9iz-8V-eea" firstAttribute="centerX" secondItem="YXi-ma-gha" secondAttribute="centerX" id="j6v-qn-Phr"/>
-                                                        </constraints>
-                                                    </stackView>
-                                                    <textView multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="749" directionalLockEnabled="YES" scrollEnabled="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pj8-o9-WDO">
-                                                        <rect key="frame" x="0.0" y="145" width="337" height="128"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <string key="text">lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                    </textView>
-                                                </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="trailing" secondItem="pj8-o9-WDO" secondAttribute="trailing" id="0UT-En-O0s"/>
-                                                    <constraint firstItem="YXi-ma-gha" firstAttribute="top" secondItem="f2p-c9-Si9" secondAttribute="top" constant="35" id="9Of-IC-VrB"/>
-                                                    <constraint firstItem="YXi-ma-gha" firstAttribute="leading" secondItem="f2p-c9-Si9" secondAttribute="leading" id="AYe-Uv-NLs"/>
-                                                    <constraint firstItem="YXi-ma-gha" firstAttribute="centerX" secondItem="f2p-c9-Si9" secondAttribute="centerX" id="CeT-G9-kvP"/>
-                                                    <constraint firstItem="pj8-o9-WDO" firstAttribute="centerX" secondItem="f2p-c9-Si9" secondAttribute="centerX" id="Eo8-me-Puy"/>
-                                                    <constraint firstItem="pj8-o9-WDO" firstAttribute="leading" secondItem="f2p-c9-Si9" secondAttribute="leading" id="Eym-DX-Ml7"/>
-                                                    <constraint firstItem="pj8-o9-WDO" firstAttribute="top" secondItem="YXi-ma-gha" secondAttribute="bottom" constant="26" id="Jz3-Wb-dCr"/>
-                                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="pj8-o9-WDO" secondAttribute="bottom" constant="10" id="vz4-0y-6p2"/>
-                                                </constraints>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <integer key="value" value="5"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="f2p-c9-Si9" firstAttribute="leading" secondItem="qVY-Nt-naP" secondAttribute="leading" id="3Cp-t3-Dn3"/>
+                                            <constraint firstItem="f2p-c9-Si9" firstAttribute="top" secondItem="dni-OG-Sup" secondAttribute="bottom" constant="-8" id="56j-3N-kBp"/>
                                             <constraint firstAttribute="height" constant="1300" id="7gm-If-5Zc"/>
+                                            <constraint firstAttribute="trailing" secondItem="dni-OG-Sup" secondAttribute="trailing" id="AuK-YT-L68"/>
                                             <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="RP5-P3-q0N" secondAttribute="bottom" constant="338" id="CuZ-a0-cDy"/>
                                             <constraint firstItem="vGd-Ge-5Ez" firstAttribute="leading" secondItem="Lq6-8F-4yh" secondAttribute="leading" constant="19" id="Enn-lR-0qk"/>
                                             <constraint firstItem="qVY-Nt-naP" firstAttribute="top" secondItem="f2p-c9-Si9" secondAttribute="bottom" constant="10" id="Gp0-hC-3NZ"/>
                                             <constraint firstItem="RPO-Fz-V0I" firstAttribute="top" secondItem="t8Y-S4-7Z4" secondAttribute="bottom" constant="8" id="Ir1-bS-OVE"/>
-                                            <constraint firstItem="f2p-c9-Si9" firstAttribute="top" secondItem="PcW-ov-uHj" secondAttribute="bottom" constant="-53.5" id="K2e-fS-PSV"/>
                                             <constraint firstAttribute="trailing" secondItem="AqK-oF-zsg" secondAttribute="trailing" constant="19" id="MTj-uS-o6o"/>
                                             <constraint firstItem="RP5-P3-q0N" firstAttribute="leading" secondItem="Lq6-8F-4yh" secondAttribute="leading" constant="19" id="Ol1-ao-SBg"/>
                                             <constraint firstItem="AqK-oF-zsg" firstAttribute="top" secondItem="tSA-nx-rg8" secondAttribute="bottom" constant="19" id="PLm-Zo-kHe"/>
@@ -505,16 +505,15 @@ Phil Rudd – drums</string>
                                             <constraint firstItem="RP5-P3-q0N" firstAttribute="top" secondItem="vGd-Ge-5Ez" secondAttribute="bottom" constant="8" id="Seh-uc-ii9"/>
                                             <constraint firstItem="vGd-Ge-5Ez" firstAttribute="top" secondItem="RPO-Fz-V0I" secondAttribute="bottom" constant="22" id="TZe-DU-LB2"/>
                                             <constraint firstItem="AqK-oF-zsg" firstAttribute="leading" secondItem="Lq6-8F-4yh" secondAttribute="leading" constant="19" id="alm-gy-OUj"/>
+                                            <constraint firstItem="dni-OG-Sup" firstAttribute="leading" secondItem="Lq6-8F-4yh" secondAttribute="leading" id="bdW-Kz-e2g"/>
                                             <constraint firstItem="f2p-c9-Si9" firstAttribute="top" secondItem="Lq6-8F-4yh" secondAttribute="top" constant="367" id="cJi-hH-JBX"/>
                                             <constraint firstAttribute="bottom" secondItem="RP5-P3-q0N" secondAttribute="bottom" constant="76" id="dMH-Oy-OdE"/>
                                             <constraint firstItem="t8Y-S4-7Z4" firstAttribute="top" secondItem="AqK-oF-zsg" secondAttribute="bottom" constant="22" id="fIK-cX-Vnb"/>
                                             <constraint firstAttribute="trailing" secondItem="RP5-P3-q0N" secondAttribute="trailing" constant="19" id="ggN-v8-gGi"/>
                                             <constraint firstItem="qVY-Nt-naP" firstAttribute="leading" secondItem="Lq6-8F-4yh" secondAttribute="leading" constant="19" id="i82-e3-sCT"/>
                                             <constraint firstAttribute="trailing" secondItem="RPO-Fz-V0I" secondAttribute="trailing" constant="19" id="iWe-RL-tuB"/>
-                                            <constraint firstItem="PcW-ov-uHj" firstAttribute="centerX" secondItem="Lq6-8F-4yh" secondAttribute="centerX" id="ici-y7-Ryb"/>
-                                            <constraint firstItem="PcW-ov-uHj" firstAttribute="width" secondItem="Lq6-8F-4yh" secondAttribute="width" id="iw4-TJ-UBd"/>
                                             <constraint firstItem="RPO-Fz-V0I" firstAttribute="leading" secondItem="Lq6-8F-4yh" secondAttribute="leading" constant="19" id="jFm-Fp-1XP"/>
-                                            <constraint firstItem="PcW-ov-uHj" firstAttribute="top" secondItem="Lq6-8F-4yh" secondAttribute="top" id="nhY-ml-9s9"/>
+                                            <constraint firstItem="dni-OG-Sup" firstAttribute="top" secondItem="Lq6-8F-4yh" secondAttribute="top" id="pkn-NX-tZA"/>
                                             <constraint firstItem="t8Y-S4-7Z4" firstAttribute="leading" secondItem="Lq6-8F-4yh" secondAttribute="leading" constant="19" id="ryC-J9-nle"/>
                                             <constraint firstItem="qVY-Nt-naP" firstAttribute="centerX" secondItem="Lq6-8F-4yh" secondAttribute="centerX" id="sI1-wv-nmh"/>
                                             <constraint firstAttribute="trailing" secondItem="qVY-Nt-naP" secondAttribute="trailing" constant="19" id="ufb-gt-mwi"/>
@@ -543,11 +542,11 @@ Phil Rudd – drums</string>
                     </view>
                     <size key="freeformSize" width="375" height="1300"/>
                     <connections>
-                        <outlet property="imgCover" destination="PcW-ov-uHj" id="Ykx-r4-QxU"/>
                         <outlet property="lblArtist" destination="PKh-ZC-xSy" id="8PG-Mm-yBG"/>
                         <outlet property="lblGenre" destination="I9F-Bg-an0" id="sAh-Em-M2a"/>
                         <outlet property="lblReleaseYear" destination="QEa-W2-npa" id="aMn-Ec-UlA"/>
                         <outlet property="lblTitle" destination="9iz-8V-eea" id="X7O-z5-Uy0"/>
+                        <outlet property="scrollView" destination="dni-OG-Sup" id="d5y-Qy-nrg"/>
                         <outlet property="txtDescription" destination="pj8-o9-WDO" id="wkF-Ti-VAK"/>
                         <outlet property="txtMusicians" destination="RP5-P3-q0N" id="h3j-rW-z7S"/>
                         <outlet property="txtTracklist" destination="RPO-Fz-V0I" id="ISQ-Ul-f81"/>
