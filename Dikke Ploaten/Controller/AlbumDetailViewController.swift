@@ -15,7 +15,7 @@ class AlbumDetailViewController: UIViewController {
 	@IBOutlet weak var lblTitle: UILabel!
 	@IBOutlet weak var lblArtist: UILabel!
 	@IBOutlet weak var imgCover: UIImageView!
-	@IBOutlet weak var txtDescription: UITextView!
+	@IBOutlet weak var txtDescription: UILabel!
 	@IBOutlet weak var lblGenre: UILabel!
 	@IBOutlet weak var lblReleaseYear: UILabel!
 	@IBOutlet weak var txtTracklist: UITextView!

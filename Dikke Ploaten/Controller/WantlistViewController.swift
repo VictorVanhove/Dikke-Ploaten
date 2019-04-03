@@ -11,16 +11,13 @@ import Firebase
 
 class WantlistViewController: BaseAlbumListTableViewController {
 	
-	override func viewDidLoad() {
-		super.viewDidLoad()
-		
+	override func viewWillAppear(_ animated: Bool) {
 		// Gets data from database and updates on changes
-		Database.shared.addWantlistChangeListener(albums: albums) { albums in
+		Database.shared.getUserWantlist { (albums) in
 			self.albums = albums
 			self.generateWordsDict()
 			self.tableView.reloadData()
 		}
 	}
-	
 }
 

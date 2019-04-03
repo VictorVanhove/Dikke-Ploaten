@@ -78,6 +78,11 @@ class Album: ImmutableMappable, Hashable, Comparable {
 		return lhs.artist < rhs.artist
 	}
 	
+	static func docToAlbum(document: QueryDocumentSnapshot) -> Album {
+		let album = try! Mapper<Album>().map(JSON: document.data())
+		album.id = document.documentID
+		return album
+	}
 	
 	
 }

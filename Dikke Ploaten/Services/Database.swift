@@ -49,75 +49,36 @@ class Database {
 	}
 	
 	// Updates user's collection when album gets added/deleted
-	func addCollectionChangeListener(albums: [Album], completionHandler: @escaping (_ updatedCollection: [Album]) -> ()) {
-		var albums = albums
-		db.collection("userPlaten").limit(to: 1000).addSnapshotListener { querySnapshot, error in
+	func getUserPlates(completionHandler: @escaping (_ updatedCollection: [Album]) -> ()) {
+		db.collection("userPlaten").limit(to: 1000).getDocuments { querySnapshot, error in
 			guard let snapshot = querySnapshot else {
 				print("Error fetching snapshots: \(error!)")
 				return
 			}
-			for diff in snapshot.documentChanges {
-				if (diff.type == .added) {
-					let album = try! Mapper<Album>().map(JSON: diff.document.data())
-					album.id = diff.document.documentID
-					if album.userID == Auth.auth().currentUser?.uid {
-						albums.append(album)
-					}
-				}
-				if (diff.type == .removed) {
-					let album = try! Mapper<Album>().map(JSON: diff.document.data())
-					album.id = diff.document.documentID
-					if let index = albums.firstIndex(of: album) {
-						albums.remove(at: index)
-					}
-				}
-			}
+			let albums = snapshot.documents.map(Album.docToAlbum)
 			completionHandler(albums)
 		}
 	}
 	
 	// Updates user's wantlist when album gets added/deleted
-	func addWantlistChangeListener(albums: [Album], completionHandler: @escaping (_ updatedCollection: [Album]) -> ()) {
-		var albums = albums
-		db.collection("userWantlist").limit(to: 1000).addSnapshotListener { querySnapshot, error in
+	func getUserWantlist(completionHandler: @escaping (_ updatedCollection: [Album]) -> ()) {		db.collection("userWantlist").limit(to: 1000).getDocuments { querySnapshot, error in
 			guard let snapshot = querySnapshot else {
 				print("Error fetching snapshots: \(error!)")
 				return
 			}
-			for diff in snapshot.documentChanges {
-				if (diff.type == .added) {
-					let album = try! Mapper<Album>().map(JSON: diff.document.data())
-					album.id = diff.document.documentID
-					if album.userID == Auth.auth().currentUser?.uid {
-						albums.append(album)
-					}
-				}
-				if (diff.type == .removed) {
-					let album = try! Mapper<Album>().map(JSON: diff.document.data())
-					album.id = diff.document.documentID
-					if let index = albums.firstIndex(of: album) {
-						albums.remove(at: index)
-					}
-				}
-			}
+			let albums = snapshot.documents.map(Album.docToAlbum)
 			completionHandler(albums)
 		}
 	}
 	
 	// Gets the whole list of albums out of database
-	func getAlbumList(albums: [Album], completionHandler: @escaping (_ updatedCollection: [Album]) -> ()){
-		var albumList = albums
+	func getAlbumList(completionHandler: @escaping (_ updatedCollection: [Album]) -> ()){
 		db.collection("platen").getDocuments() { (querySnapshot, err) in
 			if let err = err {
 				print("Error getting documents: \(err)")
 			} else {
-				for document in querySnapshot!.documents {
-					print("\(document.documentID) => \(document.data())")
-					let album = try! Mapper<Album>().map(JSON: document.data())
-					album.id = document.documentID
-					albumList.append(album)
-				}
-				completionHandler(albumList)
+				let albums = querySnapshot!.documents.map(Album.docToAlbum)
+				completionHandler(albums)
 			}
 		}
 	}

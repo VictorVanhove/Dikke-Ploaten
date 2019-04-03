@@ -22,7 +22,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 		super.viewDidLoad()
 	}
 	
-	// Skip this screen if there's already a logged in user
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
 		

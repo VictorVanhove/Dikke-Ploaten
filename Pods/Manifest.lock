@@ -2,6 +2,14 @@ PODS:
   - Alamofire (4.8.1)
   - AlamofireImage (3.5.0):
     - Alamofire (~> 4.8)
+  - AppCenter (1.13.1):
+    - AppCenter/Analytics (= 1.13.1)
+    - AppCenter/Crashes (= 1.13.1)
+  - AppCenter/Analytics (1.13.1):
+    - AppCenter/Core
+  - AppCenter/Core (1.13.1)
+  - AppCenter/Crashes (1.13.1):
+    - AppCenter/Core
   - BoringSSL-GRPC (0.0.2):
     - BoringSSL-GRPC/Implementation (= 0.0.2)
     - BoringSSL-GRPC/Interface (= 0.0.2)
@@ -62,6 +70,7 @@ PODS:
     - FirebaseAuthInterop (~> 1.0)
     - FirebaseCore (~> 5.2)
     - GTMSessionFetcher/Core (~> 1.1)
+  - FLEX (2.4.0)
   - GoogleAppMeasurement (5.5.0):
     - GoogleUtilities/AppDelegateSwizzler (~> 5.2)
     - GoogleUtilities/MethodSwizzler (~> 5.2)
@@ -120,10 +129,13 @@ PODS:
   - Protobuf (3.6.1)
 
 DEPENDENCIES:
+  - AlamofireImage (~> 3.5)
+  - AppCenter
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Firestore
   - Firebase/Storage
+  - FLEX
   - ImageSlideshow (~> 1.6)
   - ImageSlideshow/Alamofire
   - ObjectMapper
@@ -133,6 +145,7 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - AlamofireImage
+    - AppCenter
     - BoringSSL-GRPC
     - Firebase
     - FirebaseAnalytics
@@ -142,6 +155,7 @@ SPEC REPOS:
     - FirebaseFirestore
     - FirebaseInstanceID
     - FirebaseStorage
+    - FLEX
     - GoogleAppMeasurement
     - GoogleUtilities
     - "gRPC-C++"
@@ -157,6 +171,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
   AlamofireImage: 1aea346f4dda2f6c67622fa5a89fcbb80d79cc16
+  AppCenter: c41422e3d69220d17a622e48edebb8c1e0d06ec9
   BoringSSL-GRPC: 2a230d9cd93e7ce39916044f645cebb31f37dde6
   Firebase: 749a8ff4962f9d8c79dda1966de20f6f77583d67
   FirebaseAnalytics: d35d47c03c50c73c14a7fd31463c5775843e78a9
@@ -166,6 +181,7 @@ SPEC CHECKSUMS:
   FirebaseFirestore: 6f2b93b4f7bb8416628142763c91ccc00fa04c86
   FirebaseInstanceID: 97ea7a5dca9afd72c79bfcdddb7a44aa1cbb42a1
   FirebaseStorage: 29075f874c2b3cf61e5221a62c4ceefc809e5412
+  FLEX: bd1a39e55b56bb413b6f1b34b3c10a0dc44ef079
   GoogleAppMeasurement: 621f3bc6211d5ba548debe01fafad30cf5ab6859
   GoogleUtilities: 111a012f4c3a29c9e7c954c082fafd6ee3c999c0
   "gRPC-C++": e76441995900ac90e9bd98644ab4733f12521edf
@@ -178,6 +194,6 @@ SPEC CHECKSUMS:
   OrderedSet: 489d84c7469d5aa7658c78f66259c87d878a2dfb
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
 
-PODFILE CHECKSUM: da51c91ce2e3aa4ef59d90c8e433034eed490ff9
+PODFILE CHECKSUM: f2ea1fce27cb4da4075d6be9000777a0ddfdb63b
 
 COCOAPODS: 1.6.1

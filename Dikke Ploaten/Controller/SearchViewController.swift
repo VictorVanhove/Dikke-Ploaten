@@ -32,7 +32,7 @@ class SearchViewController: UITableViewController, UISearchResultsUpdating {
 		self.navigationItem.titleView = searchController.searchBar
 		
 		// Gets all albums from database
-		Database.shared.getAlbumList(albums: albums) { (albums) in
+		Database.shared.getAlbumList() { (albums) in
 			self.albums = albums
 			self.tableView.reloadData()
 		}
@@ -67,9 +67,7 @@ class SearchViewController: UITableViewController, UISearchResultsUpdating {
 			album = filteredAlbums[indexPath.row]
 		}
 		
-		cell.lblTitle.text = album.title
-		cell.lblArtist.text = album.artist
-		cell.imgCover.image = UIImage(data: try! Data(contentsOf: URL(string: album.cover)!))
+		cell.updateUI(forAlbum: album)
 		
 		return cell
 	}
@@ -81,7 +79,7 @@ class SearchViewController: UITableViewController, UISearchResultsUpdating {
 			if (self.searchController.isActive) {
 				album = self.filteredAlbums[indexPath.row]
 			}
-			album.userID = (Auth.auth().currentUser?.uid)!
+			album.userID = Auth.auth().currentUser!.uid
 			// Write instance to database
 			Database.shared.addToCollection(album: album, completionHandler: { err in
 				if let err = err {
@@ -113,7 +111,7 @@ class SearchViewController: UITableViewController, UISearchResultsUpdating {
 				}
 			})
 			//Show toast alert
-			self.showToast(controller: self, message: "'\(album.title)' by \(album.artist) was added to your wantlist", seconds: 1)
+			self.showToast(controller: self, message: "'\(album.title)' by \(album.artist) was added to your wantlist", seconds: 2)
 		})
 		want.backgroundColor = UIColor(red:1.00, green:0.65, blue:0.00, alpha:1.0)
 		

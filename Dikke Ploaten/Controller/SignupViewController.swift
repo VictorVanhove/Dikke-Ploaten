@@ -24,6 +24,20 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
 		super.viewDidLoad()
 	}
 	
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
+		
+		// Add observers
+		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+	}
+	
+	deinit {
+		// Remove observers
+		NotificationCenter.default.removeObserver(keyboardWillShow)
+		NotificationCenter.default.removeObserver(keyboardWillHide)
+	}
+	
 	func textFieldDidEndEditing(_ textField: UITextField) {
 		self.activeField = nil
 	}
