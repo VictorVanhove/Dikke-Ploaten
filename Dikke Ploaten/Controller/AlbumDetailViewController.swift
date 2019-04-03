@@ -28,7 +28,7 @@ class AlbumDetailViewController: UIViewController {
 		lblTitle.text = album.title
 		lblArtist.text = album.artist
 		imgCover.image = UIImage(data: try! Data(contentsOf: URL(string: album.cover)!))
-		//imgCover.setImage(UIImage(data: try! Data(contentsOf: URL(string: album.cover)!)), for: .normal)
+		imgCover.contentMode = .scaleAspectFill
 		txtDescription.text = album.description
 		lblGenre.text = album.genre
 		lblReleaseYear.text = album.releaseYear
@@ -38,7 +38,7 @@ class AlbumDetailViewController: UIViewController {
 	
 	@IBAction func showMoreImages(_ sender: Any) {
 		if(album.images.count != nil){
-			performSegue(withIdentifier: "segue", sender: self)
+			performSegue(withIdentifier: "showMoreImages", sender: self)
 		}
 	}
 	
@@ -46,17 +46,5 @@ class AlbumDetailViewController: UIViewController {
 		let albumImageViewController = segue.destination as! AlbumImageViewController
 		albumImageViewController.album = album
 	}
-	
-	
-//	func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//		if segue.identifier == "showImages" {
-//			if let albumImageViewController = segue.destination as? AlbumImageViewController {
-//				albumImageViewController.album = album
-//			}
-//		}
-//
-//	}
-
-	
 	
 }

@@ -21,14 +21,13 @@ class AlbumImageViewController: UIViewController {
 		super.viewDidLoad()
 		
 		slideshow.pageIndicatorPosition = .init(horizontal: .center, vertical: .under)
-		slideshow.contentScaleMode = UIView.ContentMode.scaleAspectFill
+		slideshow.contentScaleMode = UIView.ContentMode.scaleAspectFit
 		
 		let pageControl = UIPageControl()
 		pageControl.currentPageIndicatorTintColor = UIColor.lightGray
 		pageControl.pageIndicatorTintColor = UIColor.black
 		slideshow.pageIndicator = pageControl
 		
-		// optional way to show activity indicator during image load (skipping the line will show no activity indicator)
 		slideshow.activityIndicator = DefaultActivityIndicator()
 		
 		var alamofireSource = [AlamofireSource]()
