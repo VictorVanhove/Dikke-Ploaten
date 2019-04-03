@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7jt-9N-JFs">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,15 +15,15 @@
             <objects>
                 <tableViewController title="Collection" id="n9P-k1-arz" customClass="CollectionViewController" customModule="Dikke_Ploaten" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="aZ9-ki-e71">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="albumCell" rowHeight="120" id="LzD-mu-YIV" customClass="AlbumTableViewCell" customModule="Dikke_Ploaten" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="120"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LzD-mu-YIV" id="fDF-h2-OPQ">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="119.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="119.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="E6o-ql-PDN">
@@ -83,11 +83,11 @@
             <objects>
                 <viewController title="Profile" id="SJU-jv-84Y" customClass="ProfileViewController" customModule="Dikke_Ploaten" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Dx3-DS-ns8">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KLM-XH-ZDr">
-                                <rect key="frame" x="322" y="89" width="37" height="37"/>
+                                <rect key="frame" x="322" y="113" width="76" height="37"/>
                                 <state key="normal" image="settings"/>
                                 <connections>
                                     <segue destination="lih-ba-Ifl" kind="show" id="zG4-rB-aEw"/>
@@ -114,21 +114,21 @@
             <objects>
                 <tableViewController title="Settings" id="lih-ba-Ifl" customClass="SettingsTableViewController" customModule="Dikke_Ploaten" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="AXB-xa-xy3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
                             <tableViewSection id="lCh-Cu-bOq">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="aiy-vM-4wX" style="IBUITableViewCellStyleDefault" id="jaa-5R-4fs">
-                                        <rect key="frame" x="0.0" y="35" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="35" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jaa-5R-4fs" id="M5G-Q2-LuV">
-                                            <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="376" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aiy-vM-4wX">
-                                                    <rect key="frame" x="16" y="0.0" width="324" height="43.5"/>
+                                                    <rect key="frame" x="20" y="0.0" width="356" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -145,14 +145,14 @@
                             <tableViewSection id="3B7-pZ-cZS">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="NRL-24-szW">
-                                        <rect key="frame" x="0.0" y="115" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="115" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NRL-24-szW" id="png-Xg-ghu">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Le-1N-tMp">
-                                                    <rect key="frame" x="20" y="5.5" width="335" height="33"/>
+                                                    <rect key="frame" x="20" y="5.5" width="374" height="33"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <state key="normal" title="Uitloggen"/>
                                                     <connections>
@@ -187,11 +187,11 @@
             <objects>
                 <viewController title="Info" id="iMi-fy-gFC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mLc-jn-mTx">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iOS application to share and keep up your album collection with others. Created to learn iOS development using Swift." textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Abf-qx-vhp">
-                                <rect key="frame" x="20" y="86" width="335" height="100"/>
+                                <rect key="frame" x="20" y="110" width="374" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="tpO-GN-Iuu"/>
                                 </constraints>
@@ -200,7 +200,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Victor Vanhove" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jbd-Hl-VTo">
-                                <rect key="frame" x="20" y="194" width="76" height="21"/>
+                                <rect key="frame" x="20" y="218" width="115" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="17"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -227,15 +227,15 @@
             <objects>
                 <tableViewController id="Xgr-Ws-XK6" customClass="SearchViewController" customModule="Dikke_Ploaten" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="oUI-G8-4tZ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="albumCell" rowHeight="120" id="SfO-XU-tkV" customClass="AlbumTableViewCell" customModule="Dikke_Ploaten" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="120"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="albumCell" rowHeight="120" id="SfO-XU-tkV" customClass="AlbumTableViewCell" customModule="Dikke_Ploaten" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SfO-XU-tkV" id="j9V-4B-YOw">
-                                    <rect key="frame" x="0.0" y="0.0" width="341" height="119.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="119.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GyK-3W-Wi5">
@@ -304,32 +304,32 @@
             <objects>
                 <viewController storyboardIdentifier="albumDetail" id="a1s-aU-jFr" customClass="AlbumDetailViewController" customModule="Dikke_Ploaten" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="McR-He-YrZ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="1300"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3eF-gb-Zn3">
-                                <rect key="frame" x="0.0" y="20" width="375" height="1280"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lq6-8F-4yh">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1300"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1500"/>
                                         <subviews>
-                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dni-OG-Sup">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
-                                            </scrollView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kam-xc-Q0R">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="394.5"/>
+                                            </imageView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f2p-c9-Si9">
-                                                <rect key="frame" x="19" y="367" width="337" height="283"/>
+                                                <rect key="frame" x="19" y="423.5" width="376" height="263.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="YXi-ma-gha">
-                                                        <rect key="frame" x="0.0" y="35" width="337" height="84"/>
+                                                        <rect key="frame" x="0.0" y="35" width="376" height="84"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Highway To Hell" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9iz-8V-eea">
-                                                                <rect key="frame" x="0.0" y="0.0" width="337" height="42"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="376" height="42"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="AC/DC" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PKh-ZC-xSy">
-                                                                <rect key="frame" x="0.0" y="54" width="337" height="30"/>
+                                                                <rect key="frame" x="0.0" y="54" width="376" height="30"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
@@ -342,9 +342,9 @@
                                                         </constraints>
                                                     </stackView>
                                                     <textView multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="749" directionalLockEnabled="YES" scrollEnabled="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pj8-o9-WDO">
-                                                        <rect key="frame" x="0.0" y="145" width="337" height="128"/>
+                                                        <rect key="frame" x="0.0" y="145" width="376" height="111.5"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <string key="text">lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
+                                                        <string key="text">lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </string>
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                     </textView>
@@ -358,7 +358,7 @@
                                                     <constraint firstItem="pj8-o9-WDO" firstAttribute="centerX" secondItem="f2p-c9-Si9" secondAttribute="centerX" id="Eo8-me-Puy"/>
                                                     <constraint firstItem="pj8-o9-WDO" firstAttribute="leading" secondItem="f2p-c9-Si9" secondAttribute="leading" id="Eym-DX-Ml7"/>
                                                     <constraint firstItem="pj8-o9-WDO" firstAttribute="top" secondItem="YXi-ma-gha" secondAttribute="bottom" constant="26" id="Jz3-Wb-dCr"/>
-                                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="pj8-o9-WDO" secondAttribute="bottom" constant="10" id="vz4-0y-6p2"/>
+                                                    <constraint firstAttribute="bottom" secondItem="pj8-o9-WDO" secondAttribute="bottom" constant="7" id="qve-eH-1dE"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -367,14 +367,14 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qVY-Nt-naP">
-                                                <rect key="frame" x="19" y="660" width="337" height="1"/>
+                                                <rect key="frame" x="19" y="697" width="376" height="1"/>
                                                 <color key="backgroundColor" red="0.31156805199999998" green="0.31156805199999998" blue="0.31156805199999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="BxO-oQ-FeT"/>
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="73" translatesAutoresizingMaskIntoConstraints="NO" id="tSA-nx-rg8">
-                                                <rect key="frame" x="51" y="681" width="273" height="50"/>
+                                                <rect key="frame" x="70.5" y="718" width="273" height="50"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="93i-Nc-kai">
                                                         <rect key="frame" x="0.0" y="0.0" width="100" height="50"/>
@@ -434,20 +434,20 @@
                                                 </constraints>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AqK-oF-zsg">
-                                                <rect key="frame" x="19" y="750" width="337" height="1"/>
+                                                <rect key="frame" x="19" y="787" width="376" height="1"/>
                                                 <color key="backgroundColor" red="0.31156805199999998" green="0.31156805199999998" blue="0.31156805199999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="Mus-4u-KHS"/>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tracklist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t8Y-S4-7Z4">
-                                                <rect key="frame" x="19" y="773" width="71" height="20.5"/>
+                                                <rect key="frame" x="19" y="810" width="71" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RPO-Fz-V0I">
-                                                <rect key="frame" x="19" y="801.5" width="337" height="267"/>
+                                                <rect key="frame" x="19" y="838.5" width="376" height="267"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <string key="text">Side A
  
@@ -468,13 +468,13 @@ Side B
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Musicians" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vGd-Ge-5Ez">
-                                                <rect key="frame" x="19" y="1090.5" width="82.5" height="20.5"/>
+                                                <rect key="frame" x="19" y="1127.5" width="82.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RP5-P3-q0N">
-                                                <rect key="frame" x="19" y="1119" width="337" height="105"/>
+                                                <rect key="frame" x="19" y="1156" width="376" height="105"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="105" id="CkM-vw-dRi"/>
@@ -487,35 +487,52 @@ Phil Rudd – drums</string>
                                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DPE-hb-PL5">
+                                                <rect key="frame" x="300" y="20" width="100" height="30"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" id="Bkt-gV-7mo"/>
+                                                    <constraint firstAttribute="height" constant="30" id="P8s-k3-n1G"/>
+                                                </constraints>
+                                                <state key="normal" title="More images"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="showMoreImages:" destination="a1s-aU-jFr" eventType="touchUpInside" id="H64-6S-XLb"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="f2p-c9-Si9" firstAttribute="leading" secondItem="qVY-Nt-naP" secondAttribute="leading" id="3Cp-t3-Dn3"/>
-                                            <constraint firstItem="f2p-c9-Si9" firstAttribute="top" secondItem="dni-OG-Sup" secondAttribute="bottom" constant="-8" id="56j-3N-kBp"/>
-                                            <constraint firstAttribute="height" constant="1300" id="7gm-If-5Zc"/>
-                                            <constraint firstAttribute="trailing" secondItem="dni-OG-Sup" secondAttribute="trailing" id="AuK-YT-L68"/>
-                                            <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="RP5-P3-q0N" secondAttribute="bottom" constant="338" id="CuZ-a0-cDy"/>
+                                            <constraint firstItem="kam-xc-Q0R" firstAttribute="leading" secondItem="Lq6-8F-4yh" secondAttribute="leading" id="83O-T2-WVg"/>
+                                            <constraint firstAttribute="trailing" secondItem="kam-xc-Q0R" secondAttribute="trailing" id="9xZ-3u-p18"/>
                                             <constraint firstItem="vGd-Ge-5Ez" firstAttribute="leading" secondItem="Lq6-8F-4yh" secondAttribute="leading" constant="19" id="Enn-lR-0qk"/>
                                             <constraint firstItem="qVY-Nt-naP" firstAttribute="top" secondItem="f2p-c9-Si9" secondAttribute="bottom" constant="10" id="Gp0-hC-3NZ"/>
                                             <constraint firstItem="RPO-Fz-V0I" firstAttribute="top" secondItem="t8Y-S4-7Z4" secondAttribute="bottom" constant="8" id="Ir1-bS-OVE"/>
                                             <constraint firstAttribute="trailing" secondItem="AqK-oF-zsg" secondAttribute="trailing" constant="19" id="MTj-uS-o6o"/>
+                                            <constraint firstItem="kam-xc-Q0R" firstAttribute="top" secondItem="DPE-hb-PL5" secondAttribute="bottom" constant="-50" id="NUX-Vt-Wy3"/>
                                             <constraint firstItem="RP5-P3-q0N" firstAttribute="leading" secondItem="Lq6-8F-4yh" secondAttribute="leading" constant="19" id="Ol1-ao-SBg"/>
                                             <constraint firstItem="AqK-oF-zsg" firstAttribute="top" secondItem="tSA-nx-rg8" secondAttribute="bottom" constant="19" id="PLm-Zo-kHe"/>
                                             <constraint firstItem="tSA-nx-rg8" firstAttribute="top" secondItem="qVY-Nt-naP" secondAttribute="bottom" constant="20" id="SYy-22-HII"/>
                                             <constraint firstItem="RP5-P3-q0N" firstAttribute="top" secondItem="vGd-Ge-5Ez" secondAttribute="bottom" constant="8" id="Seh-uc-ii9"/>
                                             <constraint firstItem="vGd-Ge-5Ez" firstAttribute="top" secondItem="RPO-Fz-V0I" secondAttribute="bottom" constant="22" id="TZe-DU-LB2"/>
+                                            <constraint firstAttribute="bottom" secondItem="RP5-P3-q0N" secondAttribute="bottom" constant="239" id="aLG-Sn-eA0"/>
                                             <constraint firstItem="AqK-oF-zsg" firstAttribute="leading" secondItem="Lq6-8F-4yh" secondAttribute="leading" constant="19" id="alm-gy-OUj"/>
-                                            <constraint firstItem="dni-OG-Sup" firstAttribute="leading" secondItem="Lq6-8F-4yh" secondAttribute="leading" id="bdW-Kz-e2g"/>
-                                            <constraint firstItem="f2p-c9-Si9" firstAttribute="top" secondItem="Lq6-8F-4yh" secondAttribute="top" constant="367" id="cJi-hH-JBX"/>
-                                            <constraint firstAttribute="bottom" secondItem="RP5-P3-q0N" secondAttribute="bottom" constant="76" id="dMH-Oy-OdE"/>
+                                            <constraint firstAttribute="trailing" secondItem="DPE-hb-PL5" secondAttribute="trailing" constant="14" id="cxG-IH-HHp"/>
                                             <constraint firstItem="t8Y-S4-7Z4" firstAttribute="top" secondItem="AqK-oF-zsg" secondAttribute="bottom" constant="22" id="fIK-cX-Vnb"/>
                                             <constraint firstAttribute="trailing" secondItem="RP5-P3-q0N" secondAttribute="trailing" constant="19" id="ggN-v8-gGi"/>
                                             <constraint firstItem="qVY-Nt-naP" firstAttribute="leading" secondItem="Lq6-8F-4yh" secondAttribute="leading" constant="19" id="i82-e3-sCT"/>
                                             <constraint firstAttribute="trailing" secondItem="RPO-Fz-V0I" secondAttribute="trailing" constant="19" id="iWe-RL-tuB"/>
                                             <constraint firstItem="RPO-Fz-V0I" firstAttribute="leading" secondItem="Lq6-8F-4yh" secondAttribute="leading" constant="19" id="jFm-Fp-1XP"/>
-                                            <constraint firstItem="dni-OG-Sup" firstAttribute="top" secondItem="Lq6-8F-4yh" secondAttribute="top" id="pkn-NX-tZA"/>
+                                            <constraint firstItem="f2p-c9-Si9" firstAttribute="top" secondItem="kam-xc-Q0R" secondAttribute="bottom" constant="29" id="kgQ-Fe-Npf"/>
+                                            <constraint firstAttribute="height" constant="1500" id="qe9-q6-pWL"/>
                                             <constraint firstItem="t8Y-S4-7Z4" firstAttribute="leading" secondItem="Lq6-8F-4yh" secondAttribute="leading" constant="19" id="ryC-J9-nle"/>
                                             <constraint firstItem="qVY-Nt-naP" firstAttribute="centerX" secondItem="Lq6-8F-4yh" secondAttribute="centerX" id="sI1-wv-nmh"/>
+                                            <constraint firstItem="kam-xc-Q0R" firstAttribute="top" secondItem="Lq6-8F-4yh" secondAttribute="top" id="tRu-CI-MTM"/>
                                             <constraint firstAttribute="trailing" secondItem="qVY-Nt-naP" secondAttribute="trailing" constant="19" id="ufb-gt-mwi"/>
                                             <constraint firstItem="tSA-nx-rg8" firstAttribute="centerX" secondItem="Lq6-8F-4yh" secondAttribute="centerX" id="vUw-CB-Epv"/>
                                             <constraint firstItem="f2p-c9-Si9" firstAttribute="centerX" secondItem="Lq6-8F-4yh" secondAttribute="centerX" id="zVh-Ym-RCo"/>
@@ -527,7 +544,7 @@ Phil Rudd – drums</string>
                                     <constraint firstItem="Lq6-8F-4yh" firstAttribute="leading" secondItem="3eF-gb-Zn3" secondAttribute="leading" id="V0F-2a-Xfj"/>
                                     <constraint firstAttribute="trailing" secondItem="Lq6-8F-4yh" secondAttribute="trailing" id="ncC-ih-rW4"/>
                                     <constraint firstItem="Lq6-8F-4yh" firstAttribute="top" secondItem="3eF-gb-Zn3" secondAttribute="top" id="vi2-XD-FbN"/>
-                                    <constraint firstAttribute="bottom" secondItem="Lq6-8F-4yh" secondAttribute="bottom" constant="-20" id="wlB-HS-4QM"/>
+                                    <constraint firstAttribute="bottom" secondItem="Lq6-8F-4yh" secondAttribute="bottom" id="wlB-HS-4QM"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -540,36 +557,67 @@ Phil Rudd – drums</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="UiB-BP-l01"/>
                     </view>
-                    <size key="freeformSize" width="375" height="1300"/>
                     <connections>
+                        <outlet property="imgCover" destination="kam-xc-Q0R" id="0O2-Km-BeT"/>
                         <outlet property="lblArtist" destination="PKh-ZC-xSy" id="8PG-Mm-yBG"/>
                         <outlet property="lblGenre" destination="I9F-Bg-an0" id="sAh-Em-M2a"/>
                         <outlet property="lblReleaseYear" destination="QEa-W2-npa" id="aMn-Ec-UlA"/>
                         <outlet property="lblTitle" destination="9iz-8V-eea" id="X7O-z5-Uy0"/>
-                        <outlet property="scrollView" destination="dni-OG-Sup" id="d5y-Qy-nrg"/>
                         <outlet property="txtDescription" destination="pj8-o9-WDO" id="wkF-Ti-VAK"/>
                         <outlet property="txtMusicians" destination="RP5-P3-q0N" id="h3j-rW-z7S"/>
                         <outlet property="txtTracklist" destination="RPO-Fz-V0I" id="ISQ-Ul-f81"/>
+                        <segue destination="ZgX-Hz-GxP" kind="show" identifier="segue" id="YH9-7Y-1MM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DHx-0G-DRn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3700" y="-940.92953523238384"/>
+            <point key="canvasLocation" x="3544.9275362318845" y="-1393.5267857142856"/>
+        </scene>
+        <!--Album Image View Controller-->
+        <scene sceneID="B0f-Ti-ZIa">
+            <objects>
+                <viewController id="ZgX-Hz-GxP" customClass="AlbumImageViewController" customModule="Dikke_Ploaten" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SJ5-zg-e1R">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XED-sp-5on" customClass="ImageSlideshow" customModule="ImageSlideshow">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="XED-sp-5on" firstAttribute="top" secondItem="ROZ-VM-WpQ" secondAttribute="top" id="FL6-Th-v84"/>
+                            <constraint firstItem="ROZ-VM-WpQ" firstAttribute="bottom" secondItem="XED-sp-5on" secondAttribute="bottom" id="NuX-4I-41H"/>
+                            <constraint firstItem="XED-sp-5on" firstAttribute="leading" secondItem="ROZ-VM-WpQ" secondAttribute="leading" id="RVv-5s-nRA"/>
+                            <constraint firstItem="ROZ-VM-WpQ" firstAttribute="trailing" secondItem="XED-sp-5on" secondAttribute="trailing" id="kBv-BA-QXt"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ROZ-VM-WpQ"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="MxK-lC-Sqy"/>
+                    <connections>
+                        <outlet property="slideshow" destination="XED-sp-5on" id="wIi-gB-2e8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zgB-1x-Ivz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4463" y="-1393"/>
         </scene>
         <!--Wantlist-->
         <scene sceneID="2IP-vJ-gtz">
             <objects>
                 <tableViewController title="Wantlist" id="I6q-8Q-287" customClass="WantlistViewController" customModule="Dikke_Ploaten" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="WZ9-tQ-IPi">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="albumCell" rowHeight="120" id="j2i-0q-7TX" customClass="AlbumTableViewCell" customModule="Dikke_Ploaten" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="120"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="j2i-0q-7TX" id="snf-3V-kyj">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="119.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="119.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="czc-uW-09D">
@@ -629,18 +677,18 @@ Phil Rudd – drums</string>
             <objects>
                 <viewController title="Launch" modalTransitionStyle="crossDissolve" id="7jt-9N-JFs" customClass="LaunchViewController" customModule="Dikke_Ploaten" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Fiz-w8-Dm2">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vinyl1" translatesAutoresizingMaskIntoConstraints="NO" id="oVP-Bz-BAs">
-                                <rect key="frame" x="87.5" y="170" width="200" height="200"/>
+                                <rect key="frame" x="107" y="279.5" width="200" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="rCo-tp-PnA"/>
                                     <constraint firstAttribute="height" constant="200" id="yw2-ir-Hx0"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="Dikke Ploaten" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ob-Rr-nLo">
-                                <rect key="frame" x="102.5" y="392" width="170" height="40"/>
+                                <rect key="frame" x="122" y="501.5" width="170" height="40"/>
                                 <fontDescription key="fontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="40"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -670,17 +718,17 @@ Phil Rudd – drums</string>
             <objects>
                 <viewController storyboardIdentifier="LoginViewController" title="Login" id="uo5-RX-civ" customClass="LoginViewController" customModule="Dikke_Ploaten" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xFo-LJ-TtN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="55k-9O-Kls">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E8e-xe-8gP">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wzN-4K-O1i">
-                                                <rect key="frame" x="97" y="560" width="181" height="29"/>
+                                                <rect key="frame" x="116.5" y="731" width="181" height="29"/>
                                                 <fontDescription key="fontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="17"/>
                                                 <state key="normal" title="Nog geen account? Meld je nu aan">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -690,19 +738,19 @@ Phil Rudd – drums</string>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="Dikke Ploaten" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wvc-pB-ISw">
-                                                <rect key="frame" x="102.5" y="173" width="170" height="40"/>
+                                                <rect key="frame" x="122" y="173" width="170" height="40"/>
                                                 <fontDescription key="fontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="40"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Wachtwoord" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ASs-NF-Rxy">
-                                                <rect key="frame" x="38" y="393" width="300" height="23"/>
+                                                <rect key="frame" x="38" y="393" width="339" height="23"/>
                                                 <fontDescription key="fontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="23"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Emailadres" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="zMA-ye-D37">
-                                                <rect key="frame" x="38" y="350" width="300" height="30"/>
+                                                <rect key="frame" x="38" y="350" width="339" height="30"/>
                                                 <color key="textColor" red="0.31156805199999998" green="0.31156805199999998" blue="0.31156805199999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="email"/>
@@ -711,7 +759,7 @@ Phil Rudd – drums</string>
                                                 </connections>
                                             </textField>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ald-hc-HRT">
-                                                <rect key="frame" x="38" y="226" width="300" height="78"/>
+                                                <rect key="frame" x="38" y="226" width="339" height="78"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="78" id="jSG-lA-yCT"/>
@@ -722,7 +770,7 @@ Phil Rudd – drums</string>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Wachtwoord" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="WFh-TW-Ynd">
-                                                <rect key="frame" x="38" y="424" width="300" height="30"/>
+                                                <rect key="frame" x="38" y="424" width="339" height="30"/>
                                                 <color key="textColor" red="0.31156805199999998" green="0.31156805199999998" blue="0.31156805199999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="go" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
@@ -731,20 +779,20 @@ Phil Rudd – drums</string>
                                                 </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalCompressionResistancePriority="751" text="Emailadres" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cnq-QF-Uhx">
-                                                <rect key="frame" x="38" y="321" width="300" height="23"/>
+                                                <rect key="frame" x="38" y="321" width="339" height="23"/>
                                                 <fontDescription key="fontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="23"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" image="vinyl1" translatesAutoresizingMaskIntoConstraints="NO" id="ZcL-uS-m21">
-                                                <rect key="frame" x="112" y="10" width="151" height="150"/>
+                                                <rect key="frame" x="131.5" y="10" width="151" height="150"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="ZcL-uS-m21" secondAttribute="height" multiplier="1:1" constant="1" id="JQi-e2-vlT"/>
                                                     <constraint firstAttribute="height" constant="150" id="f91-MI-tcd"/>
                                                 </constraints>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="38C-63-lBo">
-                                                <rect key="frame" x="38" y="472" width="300" height="80"/>
+                                                <rect key="frame" x="38" y="643" width="339" height="80"/>
                                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="80" id="8DU-a3-4oR"/>
@@ -825,23 +873,23 @@ Phil Rudd – drums</string>
             <objects>
                 <viewController title="Signup" id="AdA-6t-fHw" customClass="SignupViewController" customModule="Dikke_Ploaten" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="c4R-zp-T5H">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zir-rS-Auw">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YUN-Xm-rEm">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Wachtwoord" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sz9-k2-ET6">
-                                                <rect key="frame" x="38" y="430" width="300" height="23"/>
+                                                <rect key="frame" x="38" y="430" width="339" height="23"/>
                                                 <fontDescription key="fontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="23"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Wachtwoord" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="eHb-Cv-ct2">
-                                                <rect key="frame" x="38" y="459" width="301" height="30"/>
+                                                <rect key="frame" x="38" y="459" width="340" height="30"/>
                                                 <color key="textColor" red="0.31156805199999998" green="0.31156805199999998" blue="0.31156805199999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="go" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
@@ -850,7 +898,7 @@ Phil Rudd – drums</string>
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Gebruikersnaam" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="4Mu-XG-Zsj">
-                                                <rect key="frame" x="38" y="315" width="300" height="30"/>
+                                                <rect key="frame" x="38" y="315" width="339" height="30"/>
                                                 <color key="textColor" red="0.31156805199999998" green="0.31156805199999998" blue="0.31156805199999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="username"/>
@@ -859,7 +907,7 @@ Phil Rudd – drums</string>
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Emailadres" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="lhl-Pe-7mN">
-                                                <rect key="frame" x="38" y="387" width="301" height="30"/>
+                                                <rect key="frame" x="38" y="387" width="340" height="30"/>
                                                 <color key="textColor" red="0.31156805199999998" green="0.31156805199999998" blue="0.31156805199999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="email"/>
@@ -868,19 +916,19 @@ Phil Rudd – drums</string>
                                                 </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalCompressionResistancePriority="751" text="Emailadres" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1z-QQ-3B7">
-                                                <rect key="frame" x="38" y="358" width="301" height="23"/>
+                                                <rect key="frame" x="38" y="358" width="340" height="23"/>
                                                 <fontDescription key="fontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="23"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalCompressionResistancePriority="751" text="Gebruikersnaam" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2rY-eN-RDI">
-                                                <rect key="frame" x="38" y="286" width="300" height="23"/>
+                                                <rect key="frame" x="38" y="286" width="339" height="23"/>
                                                 <fontDescription key="fontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="23"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Ha-4u-70s">
-                                                <rect key="frame" x="37.5" y="503" width="300" height="80"/>
+                                                <rect key="frame" x="37.5" y="674" width="339" height="80"/>
                                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="80" id="R8o-Jj-Qk0"/>
@@ -913,13 +961,13 @@ Phil Rudd – drums</string>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="Dikke Ploaten" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cqG-qY-AmL">
-                                        <rect key="frame" x="102.5" y="173" width="170" height="40"/>
+                                        <rect key="frame" x="122" y="173" width="170" height="40"/>
                                         <fontDescription key="fontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="40"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor " textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wp8-on-meC">
-                                        <rect key="frame" x="39" y="226" width="296" height="57"/>
+                                        <rect key="frame" x="39" y="226" width="335" height="57"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="57" id="ura-li-bi9"/>
@@ -929,7 +977,7 @@ Phil Rudd – drums</string>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" image="vinyl1" translatesAutoresizingMaskIntoConstraints="NO" id="8tr-Ga-mgt">
-                                        <rect key="frame" x="112" y="10" width="151" height="150"/>
+                                        <rect key="frame" x="131.5" y="10" width="151" height="150"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="8tr-Ga-mgt" secondAttribute="height" multiplier="1:1" constant="1" id="7DQ-YS-0c4"/>
                                             <constraint firstAttribute="height" constant="150" id="s9Q-mC-yuq"/>
@@ -1011,15 +1059,15 @@ Phil Rudd – drums</string>
             <objects>
                 <tableViewController id="qsH-Me-6pr" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="jqH-5y-zU5">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="120" id="Djr-I6-2eT">
-                                <rect key="frame" x="0.0" y="28" width="375" height="120"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Djr-I6-2eT" id="guh-ig-lbG">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="119.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="119.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -1041,7 +1089,7 @@ Phil Rudd – drums</string>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KU2-zb-dZx" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Mci-Pe-fiR">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.31156805199999998" green="0.31156805199999998" blue="0.31156805199999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
@@ -1061,7 +1109,7 @@ Phil Rudd – drums</string>
                     <tabBarItem key="tabBarItem" title="Profile" image="profile" id="oVz-y1-jMa"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="GVs-gn-tnb">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1101,7 +1149,7 @@ Phil Rudd – drums</string>
                     <tabBarItem key="tabBarItem" title="Collection" image="collection" id="6wS-U9-G5D"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="oj2-7m-xVY">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1120,7 +1168,7 @@ Phil Rudd – drums</string>
                     <tabBarItem key="tabBarItem" title="Search" image="search" id="teA-C8-HFL"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="437-RU-F8a">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1139,7 +1187,7 @@ Phil Rudd – drums</string>
                     <tabBarItem key="tabBarItem" title="Wantlist" image="wantlist" id="T0B-OT-1UC"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Za5-UI-Zuf">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1158,7 +1206,7 @@ Phil Rudd – drums</string>
                     <tabBarItem key="tabBarItem" title="Notifications" image="notification" id="d2V-V5-YMX"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jAl-QC-Eaq">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1181,6 +1229,6 @@ Phil Rudd – drums</string>
         <image name="wantlist" width="29" height="29"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="7pn-1Q-XMK"/>
+        <segue reference="gu5-5s-yD4"/>
     </inferredMetricsTieBreakers>
 </document>

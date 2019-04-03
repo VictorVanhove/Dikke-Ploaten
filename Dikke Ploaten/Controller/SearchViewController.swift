@@ -81,7 +81,7 @@ class SearchViewController: UITableViewController, UISearchResultsUpdating {
 			if (self.searchController.isActive) {
 				album = self.filteredAlbums[indexPath.row]
 			}
-			album.userID = Auth.auth().currentUser?.uid
+			album.userID = (Auth.auth().currentUser?.uid)!
 			// Write instance to database
 			Database.shared.addToCollection(album: album, completionHandler: { err in
 				if let err = err {
@@ -92,7 +92,7 @@ class SearchViewController: UITableViewController, UISearchResultsUpdating {
 				}
 			})
 			//Show toast alert
-			self.showToast(controller: self, message: "'\(album.title)' by \(album.artist) added to your collection", seconds: 1)
+			self.showToast(controller: self, message: "'\(album.title)' by \(album.artist) added to your collection", seconds: 2)
 		})
 		add.backgroundColor = UIColor(red:0.11, green:0.74, blue:0.61, alpha:1.0)
 		

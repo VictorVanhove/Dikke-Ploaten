@@ -25,6 +25,7 @@
 		0D6F68CE22394F1300687EFD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D6F68CC22394F1300687EFD /* LaunchScreen.storyboard */; };
 		0D9EC154224BAA4B00DF9E9C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9EC153224BAA4B00DF9E9C /* Extensions.swift */; };
 		0D9EC156224CEA7300DF9E9C /* BaseAlbumListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9EC155224CEA7300DF9E9C /* BaseAlbumListTableViewController.swift */; };
+		0DA3132C22539DBF0082827A /* AlbumImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA3132B22539DBF0082827A /* AlbumImageViewController.swift */; };
 		0DEBCBAD2242454D00E5A3BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DEBCBAC2242454D00E5A3BB /* Assets.xcassets */; };
 		2BEE2813224A5D6B007EA0E9 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BEE2812224A5D6B007EA0E9 /* Database.swift */; };
 		C39E9E3E4E74F7EDE6CACB61 /* Pods_Dikke_Ploaten.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 989F7FDF88058EF8EF722F8E /* Pods_Dikke_Ploaten.framework */; };
@@ -51,6 +52,7 @@
 		0D6F68CF22394F1300687EFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0D9EC153224BAA4B00DF9E9C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		0D9EC155224CEA7300DF9E9C /* BaseAlbumListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAlbumListTableViewController.swift; sourceTree = "<group>"; };
+		0DA3132B22539DBF0082827A /* AlbumImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumImageViewController.swift; sourceTree = "<group>"; };
 		0DEBCBAC2242454D00E5A3BB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2BEE2812224A5D6B007EA0E9 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		64A325EAF70B758CF86E2702 /* Pods-Dikke Ploaten.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dikke Ploaten.release.xcconfig"; path = "Target Support Files/Pods-Dikke Ploaten/Pods-Dikke Ploaten.release.xcconfig"; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				0D6F68C522394F1200687EFD /* WantlistViewController.swift */,
 				0D353611223A8C6800DA5453 /* SearchViewController.swift */,
 				0D379614224D2EEF00A68DDD /* AlbumDetailViewController.swift */,
+				0DA3132B22539DBF0082827A /* AlbumImageViewController.swift */,
 				0D35360B223A53CA00DA5453 /* LoginViewController.swift */,
 				0D35360D223A53E300DA5453 /* SignupViewController.swift */,
 				0D353613223A8D4A00DA5453 /* NotificationViewController.swift */,
@@ -266,9 +269,12 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Dikke Ploaten/Pods-Dikke Ploaten-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/ImageSlideshow/ImageSlideshow.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/OrderedSet/OrderedSet.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
@@ -281,9 +287,12 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageSlideshow.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OrderedSet.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
@@ -312,6 +321,7 @@
 				0D35360C223A53CA00DA5453 /* LoginViewController.swift in Sources */,
 				0D353616223A8D5900DA5453 /* ProfileViewController.swift in Sources */,
 				0D35361A223A90C100DA5453 /* AlbumTableViewCell.swift in Sources */,
+				0DA3132C22539DBF0082827A /* AlbumImageViewController.swift in Sources */,
 				0D9EC154224BAA4B00DF9E9C /* Extensions.swift in Sources */,
 				0D0A464822439CAD0042501C /* SettingsTableViewController.swift in Sources */,
 				0D0B159522423A3B0042EDA5 /* LaunchViewController.swift in Sources */,
