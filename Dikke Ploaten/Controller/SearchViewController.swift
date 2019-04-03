@@ -92,7 +92,7 @@ class SearchViewController: UITableViewController, UISearchResultsUpdating {
 				}
 			})
 			//Show toast alert
-			self.showToast(controller: self, message: "'\(album.title)' by \(album.artist) added to your collection", seconds: 2)
+			self.showToast(controller: self, message: "'\(album.title)' by \(album.artist) was added to your collection", seconds: 2)
 		})
 		add.backgroundColor = UIColor(red:0.11, green:0.74, blue:0.61, alpha:1.0)
 		
@@ -113,7 +113,7 @@ class SearchViewController: UITableViewController, UISearchResultsUpdating {
 				}
 			})
 			//Show toast alert
-			self.showToast(controller: self, message: "'\(album.title)' by \(album.artist) added to your wantlist", seconds: 1)
+			self.showToast(controller: self, message: "'\(album.title)' by \(album.artist) was added to your wantlist", seconds: 1)
 		})
 		want.backgroundColor = UIColor(red:1.00, green:0.65, blue:0.00, alpha:1.0)
 		

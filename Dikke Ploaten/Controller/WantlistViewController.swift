@@ -9,7 +9,6 @@
 import UIKit
 import Firebase
 
-//A lot of duplicate code (see CollectionViewController), best way to solve this?
 class WantlistViewController: BaseAlbumListTableViewController {
 	
 	override func viewDidLoad() {
