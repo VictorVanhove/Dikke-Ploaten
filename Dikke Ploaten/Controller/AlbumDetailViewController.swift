@@ -27,7 +27,7 @@ class AlbumDetailViewController: UIViewController {
 		
 		lblTitle.text = album.title
 		lblArtist.text = album.artist
-		imgCover.image = UIImage(data: try! Data(contentsOf: URL(string: album.cover)!))
+		imgCover.af_setImage(withURL: URL(string: album.cover)!)
 		imgCover.contentMode = .scaleAspectFill
 		txtDescription.text = album.description
 		lblGenre.text = album.genre
@@ -37,9 +37,7 @@ class AlbumDetailViewController: UIViewController {
 	}
 	
 	@IBAction func showMoreImages(_ sender: Any) {
-		if(album.images.count != nil){
 			performSegue(withIdentifier: "showMoreImages", sender: self)
-		}
 	}
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

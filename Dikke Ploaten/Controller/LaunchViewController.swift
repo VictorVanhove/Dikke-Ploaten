@@ -32,7 +32,6 @@ class LaunchViewController : UIViewController {
 				// Go to mainview
 				self.performSegue(withIdentifier: "alreadyLoggedIn", sender: nil)
 			} else {
-				// TODO: data prefetch, geen idee hoe hier data in te laden en door te sturen
 				self.performSegue(withIdentifier: "gotoLogin", sender: nil)
 			}
 		}
