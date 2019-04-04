@@ -38,6 +38,7 @@ class CollectionViewController: BaseAlbumListTableViewController {
 					alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
 					self.present(alertController, animated: true, completion: nil)
 				}
+				// Still problem with delete
 				self.generateWordsDict()
 				self.tableView.reloadData()
 			})

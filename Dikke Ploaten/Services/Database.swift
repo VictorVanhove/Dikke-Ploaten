@@ -61,13 +61,21 @@ class Database {
 	}
 	
 	// Updates user's wantlist when album gets added/deleted
-	func getUserWantlist(completionHandler: @escaping (_ updatedCollection: [Album]) -> ()) {		db.collection("userWantlist").limit(to: 1000).getDocuments { querySnapshot, error in
+	func getUserWantlist(completionHandler: @escaping (_ updatedCollection: [Album]) -> ()) {
+		db.collection("userWantlist").limit(to: 1000).getDocuments { querySnapshot, error in
 			guard let snapshot = querySnapshot else {
 				print("Error fetching snapshots: \(error!)")
 				return
 			}
 			let albums = snapshot.documents.map(Album.docToAlbum)
-			completionHandler(albums)
+			// Filters albums or else it will show all the albums instead of just the user
+			var filteredAlbums = [Album]()
+			for album in albums {
+				if(album.userID == Auth.auth().currentUser!.uid){
+					filteredAlbums.append(album)
+				}
+			}
+			completionHandler(filteredAlbums)
 		}
 	}
 	

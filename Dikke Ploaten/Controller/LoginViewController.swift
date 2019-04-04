@@ -30,7 +30,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
 	}
 	
-	deinit {
+	override func viewWillDisappear(_ animated: Bool) {
 		// Remove observers
 		NotificationCenter.default.removeObserver(keyboardWillShow)
 		NotificationCenter.default.removeObserver(keyboardWillHide)
