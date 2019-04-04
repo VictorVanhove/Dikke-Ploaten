@@ -13,5 +13,10 @@ target 'Dikke Ploaten' do
   pod 'Firebase/Storage'
   pod 'ObjectMapper'
   pod 'OrderedSet'
+  pod 'ImageSlideshow', '~> 1.6'
+  pod "ImageSlideshow/Alamofire"
+  pod 'AlamofireImage', '~> 3.5'
+  pod 'FLEX'
+  pod 'AppCenter'
 
 end

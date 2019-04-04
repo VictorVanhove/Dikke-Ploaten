@@ -22,7 +22,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 		super.viewDidLoad()
 	}
 	
-	// Skip this screen if there's already a logged in user
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
 		
@@ -31,7 +30,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
 	}
 	
-	deinit {
+	override func viewWillDisappear(_ animated: Bool) {
 		// Remove observers
 		NotificationCenter.default.removeObserver(keyboardWillShow)
 		NotificationCenter.default.removeObserver(keyboardWillHide)

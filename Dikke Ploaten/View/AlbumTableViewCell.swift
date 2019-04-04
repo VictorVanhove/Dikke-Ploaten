@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import AlamofireImage
 
 class AlbumTableViewCell: UITableViewCell {
 	
@@ -18,6 +19,6 @@ class AlbumTableViewCell: UITableViewCell {
 	func updateUI(forAlbum album: Album) {
 		lblTitle.text = album.title
 		lblArtist.text = album.artist
-		imgCover.image = UIImage(data: try! Data(contentsOf: URL(string: album.cover)!))
+		imgCover.af_setImage(withURL: URL(string: album.cover)!)
 	}
 }

@@ -63,7 +63,11 @@ class BaseAlbumListTableViewController : UITableViewController {
 	}
 	
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		self.tableView.deselectRow(at: indexPath, animated: true)
+		tableView.deselectRow(at: indexPath, animated: false)
+		
+		let viewController = storyboard?.instantiateViewController(withIdentifier: "albumDetail") as! AlbumDetailViewController
+		viewController.album = albumDictionary[albumSection[indexPath.section]]![indexPath.row]
+		self.navigationController?.pushViewController(viewController, animated: true)
 	}
 	
 }

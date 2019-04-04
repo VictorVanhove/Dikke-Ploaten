@@ -24,16 +24,17 @@ class LaunchViewController : UIViewController {
         super.viewDidAppear(animated)
         animate(imageView: imgVinyl, images: vinylImages)
 		
-        //If already logged in, go to mainscreen
-         if Database.shared.isUserLoggedIn() {
-			// Go to mainview
-			self.performSegue(withIdentifier: "alreadyLoggedIn", sender: nil)
-        }
-		
-		// TODO: data prefetch
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            self.performSegue(withIdentifier: "gotoLogin", sender: nil)
-        }
+		DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+
+			
+			//If already logged in, go to mainscreen
+			if Database.shared.isUserLoggedIn() {
+				// Go to mainview
+				self.performSegue(withIdentifier: "alreadyLoggedIn", sender: nil)
+			} else {
+				self.performSegue(withIdentifier: "gotoLogin", sender: nil)
+			}
+		}
     }
 
     func createImageArray(total: Int, imagePrefix: String) -> [UIImage] {
@@ -52,7 +53,7 @@ class LaunchViewController : UIViewController {
     func animate(imageView: UIImageView, images: [UIImage]){
         imageView.animationImages = images
         imageView.animationDuration = 0.5
-        imageView.animationRepeatCount = 2
+        imageView.animationRepeatCount = 6
         imageView.startAnimating()
     }
 }

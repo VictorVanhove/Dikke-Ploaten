@@ -12,16 +12,13 @@ import ObjectMapper
 
 class CollectionViewController: BaseAlbumListTableViewController {
 	
-	override func viewDidLoad() {
-		super.viewDidLoad()
-		
+	override func viewWillAppear(_ animated: Bool) {
 		// Gets data from database and updates on changes
-		Database.shared.addCollectionChangeListener(albums: albums) { albums in
+		Database.shared.getUserPlates { (albums) in
 			self.albums = albums
 			self.generateWordsDict()
 			self.tableView.reloadData()
 		}
-		
 	}
 	
 	// MARK: - TableView Delegate
@@ -34,13 +31,15 @@ class CollectionViewController: BaseAlbumListTableViewController {
 	func deleteAction(at indexPath: IndexPath) -> UIContextualAction {
 		let action = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completion) in
 			//Removes selected album from list
-			let album = self.albums[indexPath.row]
+			let album = self.albumDictionary[self.albumSection[indexPath.section]]![indexPath.row]
 			Database.shared.deleteAlbum(albumId: album.id , completionHandler: { err in
 				if let err = err {
 					let alertController = UIAlertController(title: "Whoops", message: err.localizedDescription, preferredStyle: .alert)
 					alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
 					self.present(alertController, animated: true, completion: nil)
 				}
+				// Still problem with delete
+				self.generateWordsDict()
 				self.tableView.reloadData()
 			})
 		}

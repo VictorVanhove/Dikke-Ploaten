@@ -8,6 +8,10 @@
 
 import UIKit
 import Firebase
+import FLEX
+import AppCenter
+import AppCenterAnalytics
+import AppCenterCrashes
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,6 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
+		
+		MSAppCenter.start("ff4eb3db-19be-4eb0-8f51-8a4837e58fff", withServices:[ MSAnalytics.self, MSCrashes.self ])
 		
 		UINavigationBar.appearance().tintColor = UIColor(red:0.31, green:0.31, blue:0.31, alpha:1.0)
 		
