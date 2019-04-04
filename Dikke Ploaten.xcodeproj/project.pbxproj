@@ -27,6 +27,7 @@
 		0D9EC156224CEA7300DF9E9C /* BaseAlbumListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9EC155224CEA7300DF9E9C /* BaseAlbumListTableViewController.swift */; };
 		0DA3132C22539DBF0082827A /* AlbumImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA3132B22539DBF0082827A /* AlbumImageViewController.swift */; };
 		0DEBCBAD2242454D00E5A3BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DEBCBAC2242454D00E5A3BB /* Assets.xcassets */; };
+		0DF765002256150300608C75 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF764FF2256150300608C75 /* User.swift */; };
 		2BEE2813224A5D6B007EA0E9 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BEE2812224A5D6B007EA0E9 /* Database.swift */; };
 		C39E9E3E4E74F7EDE6CACB61 /* Pods_Dikke_Ploaten.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 989F7FDF88058EF8EF722F8E /* Pods_Dikke_Ploaten.framework */; };
 /* End PBXBuildFile section */
@@ -54,6 +55,7 @@
 		0D9EC155224CEA7300DF9E9C /* BaseAlbumListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAlbumListTableViewController.swift; sourceTree = "<group>"; };
 		0DA3132B22539DBF0082827A /* AlbumImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumImageViewController.swift; sourceTree = "<group>"; };
 		0DEBCBAC2242454D00E5A3BB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0DF764FF2256150300608C75 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2BEE2812224A5D6B007EA0E9 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		64A325EAF70B758CF86E2702 /* Pods-Dikke Ploaten.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dikke Ploaten.release.xcconfig"; path = "Target Support Files/Pods-Dikke Ploaten/Pods-Dikke Ploaten.release.xcconfig"; sourceTree = "<group>"; };
 		80B8C8308877F89BA86ABD07 /* Pods-Dikke Ploaten.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dikke Ploaten.debug.xcconfig"; path = "Target Support Files/Pods-Dikke Ploaten/Pods-Dikke Ploaten.debug.xcconfig"; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				0D3D147D223A9B29003CACEC /* Album.swift */,
+				0DF764FF2256150300608C75 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 				0D0B159522423A3B0042EDA5 /* LaunchViewController.swift in Sources */,
 				0D6F68C422394F1200687EFD /* CollectionViewController.swift in Sources */,
 				0D9EC156224CEA7300DF9E9C /* BaseAlbumListTableViewController.swift in Sources */,
+				0DF765002256150300608C75 /* User.swift in Sources */,
 				0D379615224D2EEF00A68DDD /* AlbumDetailViewController.swift in Sources */,
 				2BEE2813224A5D6B007EA0E9 /* Database.swift in Sources */,
 				0D3D147E223A9B29003CACEC /* Album.swift in Sources */,

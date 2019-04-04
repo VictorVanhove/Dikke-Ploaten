@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ProfileViewController: UIViewController {
 	
@@ -17,6 +18,10 @@ class ProfileViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+		
+		Database.shared.getUser { user in
+			self.lblUser.text = user.username
+		}
 		
 	}
 	
