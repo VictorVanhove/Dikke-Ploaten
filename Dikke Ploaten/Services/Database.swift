@@ -56,7 +56,14 @@ class Database {
 				return
 			}
 			let albums = snapshot.documents.map(Album.docToAlbum)
-			completionHandler(albums)
+			// Filters albums or else it will show all the albums instead of just the user
+			var filteredAlbums = [Album]()
+			for album in albums {
+				if(album.userID == Auth.auth().currentUser!.uid){
+					filteredAlbums.append(album)
+				}
+			}
+			completionHandler(filteredAlbums)
 		}
 	}
 	
