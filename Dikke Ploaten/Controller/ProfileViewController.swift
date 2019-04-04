@@ -18,10 +18,16 @@ class ProfileViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		
 		Database.shared.getUser { user in
+			print(user)
 			self.lblUser.text = user.username
 		}
+		
+		imgProfile.layer.borderWidth = 1
+		imgProfile.layer.masksToBounds = false
+		imgProfile.layer.borderColor = UIColor.black.cgColor
+		imgProfile.layer.cornerRadius = imgProfile.frame.height/2
+		imgProfile.clipsToBounds = true
 		
 	}
 	

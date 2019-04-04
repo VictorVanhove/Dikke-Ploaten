@@ -130,14 +130,6 @@ class Database {
 	
 	func getUser(completionHandler: @escaping (_ user: User) -> ()) {
 		let user = Auth.auth().currentUser;
-//		db.collection("users").whereField("email", isEqualTo: user!.email!).getDocuments{ querySnapshot, error in
-//			guard let snapshot = querySnapshot else {
-//				print("Error fetching snapshots: \(error!)")
-//				return
-//			}
-//			let user = snapshot.documents.map(User.docToUser)
-//			completionHandler(user)
-//		}
 		db.collection("users").document(user!.uid).getDocument { (docSnapshot , error) in
 			guard let snapshot = docSnapshot else {
 				print("Error fetching snapshots: \(error!)")

@@ -24,7 +24,7 @@ class LaunchViewController : UIViewController {
         super.viewDidAppear(animated)
         animate(imageView: imgVinyl, images: vinylImages)
 		
-		DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+		DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
 
 			
 			//If already logged in, go to mainscreen
@@ -53,7 +53,7 @@ class LaunchViewController : UIViewController {
     func animate(imageView: UIImageView, images: [UIImage]){
         imageView.animationImages = images
         imageView.animationDuration = 0.5
-        imageView.animationRepeatCount = 6
+        imageView.animationRepeatCount = 3
         imageView.startAnimating()
     }
 }

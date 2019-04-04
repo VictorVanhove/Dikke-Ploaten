@@ -102,7 +102,7 @@
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Bfg-nJ-Wa4">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="180"/>
-                                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.18091012813327312" green="0.24689292928971021" blue="0.54291921718121827" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="180" id="Kjp-rC-wbC"/>
                                                 </constraints>
@@ -114,7 +114,7 @@
                                                     <segue destination="lih-ba-Ifl" kind="show" id="6GA-Nm-aDM"/>
                                                 </connections>
                                             </button>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Dmb-Vy-FGD">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="Dmb-Vy-FGD">
                                                 <rect key="frame" x="132" y="109" width="150" height="150"/>
                                                 <color key="backgroundColor" red="0.31156805199999998" green="0.31156805199999998" blue="0.31156805199999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -1313,6 +1313,7 @@ Phil Rudd – drums</string>
         <image name="collection" width="29" height="29"/>
         <image name="notification" width="29" height="29"/>
         <image name="profile" width="29" height="29"/>
+        <image name="profile-placeholder" width="600" height="600"/>
         <image name="search" width="29" height="29"/>
         <image name="settings" width="37.5" height="37.5"/>
         <image name="vinyl1" width="200" height="200"/>
