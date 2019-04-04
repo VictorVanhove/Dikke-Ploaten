@@ -28,6 +28,8 @@
 		0DA3132C22539DBF0082827A /* AlbumImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA3132B22539DBF0082827A /* AlbumImageViewController.swift */; };
 		0DEBCBAD2242454D00E5A3BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DEBCBAC2242454D00E5A3BB /* Assets.xcassets */; };
 		0DF765002256150300608C75 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF764FF2256150300608C75 /* User.swift */; };
+		0DF765022256452700608C75 /* AlbumCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF765012256452700608C75 /* AlbumCollectionViewCell.swift */; };
+		0DF765042256473600608C75 /* CollectionHolderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF765032256473600608C75 /* CollectionHolderTableViewCell.swift */; };
 		2BEE2813224A5D6B007EA0E9 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BEE2812224A5D6B007EA0E9 /* Database.swift */; };
 		C39E9E3E4E74F7EDE6CACB61 /* Pods_Dikke_Ploaten.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 989F7FDF88058EF8EF722F8E /* Pods_Dikke_Ploaten.framework */; };
 /* End PBXBuildFile section */
@@ -56,6 +58,8 @@
 		0DA3132B22539DBF0082827A /* AlbumImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumImageViewController.swift; sourceTree = "<group>"; };
 		0DEBCBAC2242454D00E5A3BB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0DF764FF2256150300608C75 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		0DF765012256452700608C75 /* AlbumCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCollectionViewCell.swift; sourceTree = "<group>"; };
+		0DF765032256473600608C75 /* CollectionHolderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionHolderTableViewCell.swift; sourceTree = "<group>"; };
 		2BEE2812224A5D6B007EA0E9 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		64A325EAF70B758CF86E2702 /* Pods-Dikke Ploaten.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dikke Ploaten.release.xcconfig"; path = "Target Support Files/Pods-Dikke Ploaten/Pods-Dikke Ploaten.release.xcconfig"; sourceTree = "<group>"; };
 		80B8C8308877F89BA86ABD07 /* Pods-Dikke Ploaten.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dikke Ploaten.debug.xcconfig"; path = "Target Support Files/Pods-Dikke Ploaten/Pods-Dikke Ploaten.debug.xcconfig"; sourceTree = "<group>"; };
@@ -97,6 +101,8 @@
 			isa = PBXGroup;
 			children = (
 				0D353619223A90C100DA5453 /* AlbumTableViewCell.swift */,
+				0DF765032256473600608C75 /* CollectionHolderTableViewCell.swift */,
+				0DF765012256452700608C75 /* AlbumCollectionViewCell.swift */,
 				0D9EC153224BAA4B00DF9E9C /* Extensions.swift */,
 			);
 			path = View;
@@ -321,7 +327,9 @@
 				0D353612223A8C6800DA5453 /* SearchViewController.swift in Sources */,
 				0D35360E223A53E300DA5453 /* SignupViewController.swift in Sources */,
 				0D6F68C622394F1200687EFD /* WantlistViewController.swift in Sources */,
+				0DF765042256473600608C75 /* CollectionHolderTableViewCell.swift in Sources */,
 				0D353614223A8D4A00DA5453 /* NotificationViewController.swift in Sources */,
+				0DF765022256452700608C75 /* AlbumCollectionViewCell.swift in Sources */,
 				0D6F68C222394F1200687EFD /* AppDelegate.swift in Sources */,
 				0D35360C223A53CA00DA5453 /* LoginViewController.swift in Sources */,
 				0D353616223A8D5900DA5453 /* ProfileViewController.swift in Sources */,
