@@ -86,7 +86,7 @@
             </objects>
             <point key="canvasLocation" x="2568.1159420289855" y="-1643.3035714285713"/>
         </scene>
-        <!--Profile View Controller-->
+        <!--Profile-->
         <scene sceneID="wJx-4q-PKA">
             <objects>
                 <tableViewController id="q9N-nn-hyH" customClass="ProfileViewController" customModule="Dikke_Ploaten" customModuleProvider="target" sceneMemberID="viewController">
@@ -210,7 +210,7 @@
                             <outlet property="delegate" destination="q9N-nn-hyH" id="l3M-ad-83a"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="FVS-DK-k1F"/>
+                    <navigationItem key="navigationItem" title="Profile" id="FVS-DK-k1F"/>
                     <connections>
                         <outlet property="imgBackgroundCover" destination="Bfg-nJ-Wa4" id="NcY-aR-qdR"/>
                         <outlet property="imgProfile" destination="Dmb-Vy-FGD" id="LdK-Hp-qDR"/>
@@ -899,7 +899,7 @@ Phil Rudd – drums</string>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="78" id="jSG-lA-yCT"/>
                                                 </constraints>
-                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </string>
+                                                <string key="text">Welkom en bedankt om lid te worden van de 'Dikke Ploaten'-community. Log je snel in en neem eens een kijkje in wat deze app te bieden heeft!</string>
                                                 <color key="textColor" red="0.31156805199999998" green="0.31156805199999998" blue="0.31156805199999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -1101,7 +1101,7 @@ Phil Rudd – drums</string>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor " textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wp8-on-meC">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Meld je hier eerst aan en word lid van onze prachtige 'Dikke Ploaten'-community en zijn features." textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wp8-on-meC">
                                         <rect key="frame" x="39" y="226" width="335" height="57"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -1344,6 +1344,6 @@ Phil Rudd – drums</string>
         <image name="wantlist" width="29" height="29"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="7pn-1Q-XMK"/>
+        <segue reference="B2C-KQ-Hrh"/>
     </inferredMetricsTieBreakers>
 </document>
