@@ -12,7 +12,8 @@ import Firebase
 class ProfileViewController: UITableViewController {
 	
 	// MARK: - Properties
-	var albums: [Album] = []
+	var collectionAlbums: [Album] = []
+	var wantlistAlbums: [Album] = []
 	
 	@IBOutlet weak var imgBackgroundCover: UIImageView!
 	@IBOutlet weak var imgProfile: UIImageView!
@@ -29,7 +30,12 @@ class ProfileViewController: UITableViewController {
 		}
 		
 		Database.shared.getUserPlates { (albums) in
-			self.albums = albums
+			self.collectionAlbums = albums
+			self.tableView.reloadData()
+		}
+		
+		Database.shared.getUserWantlist { (albums) in
+			self.wantlistAlbums = albums
 			self.tableView.reloadData()
 		}
 		
@@ -41,8 +47,13 @@ class ProfileViewController: UITableViewController {
 		
 	}
 	
+	struct Storyboard {
+		static let collectionCell = "collectionCell"
+		static let wantlistCell = "wantlistCell"
+	}
+	
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return 1
+		return 2
 	}
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
@@ -50,6 +61,7 @@ class ProfileViewController: UITableViewController {
 		let cell = tableView.dequeueReusableCell(withIdentifier: Storyboard.collectionCell, for: indexPath) as! CollectionHolderTableViewCell
 		
 		return cell
+		
 	}
 	
 	override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath)
@@ -66,26 +78,22 @@ class ProfileViewController: UITableViewController {
 		indexPath: IndexPath) -> CGFloat
 	{
 		return tableView.bounds.width + 68.0
-	}	
-	
-	struct Storyboard {
-		static let collectionCell = "collectionCell"
-	} 
+	}
 	
 }
 
 extension ProfileViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout
 {
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return albums.count
+		return collectionAlbums.count
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
 	{
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Storyboard.collectionCell, for: indexPath) as! AlbumCollectionViewCell
 		
-		if(!albums.isEmpty){
-			cell.image = UIImage(data: try! Data(contentsOf: URL(string: albums[indexPath.item].cover)!))
+		if(!collectionAlbums.isEmpty){
+			cell.image = UIImage(data: try! Data(contentsOf: URL(string: collectionAlbums[indexPath.item].cover)!))
 		}
 		return cell
 	}

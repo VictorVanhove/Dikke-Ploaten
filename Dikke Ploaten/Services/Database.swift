@@ -99,8 +99,21 @@ class Database {
 	}
 	
 	// Deletes selected album out of collection
-	func deleteAlbum(albumId: String, completionHandler: @escaping (Error?) -> ()) {
+	func deleteCollectionAlbum(albumId: String, completionHandler: @escaping (Error?) -> ()) {
 		db.collection("userPlaten").document(albumId).delete() { err in
+			if let err = err {
+				print("Error removing document: \(err.localizedDescription)")
+			} else {
+				print("Document with id:\(albumId) successfully removed!")
+			}
+			completionHandler(err)
+		}
+		
+	}
+	
+	// Deletes selected album out of wantlist
+	func deleteWantlistAlbum(albumId: String, completionHandler: @escaping (Error?) -> ()) {
+		db.collection("userWantlist").document(albumId).delete() { err in
 			if let err = err {
 				print("Error removing document: \(err.localizedDescription)")
 			} else {
