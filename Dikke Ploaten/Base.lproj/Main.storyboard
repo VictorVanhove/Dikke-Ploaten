@@ -1272,7 +1272,7 @@ Phil Rudd – drums</string>
         <!--Profile-->
         <scene sceneID="1Pp-lR-YGm">
             <objects>
-                <viewController id="Hwe-dO-zFt" customClass="ViewController" customModule="Dikke_Ploaten" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Hwe-dO-zFt" customClass="ProfileViewController" customModule="Dikke_Ploaten" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ck3-64-SBX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1344,7 +1344,7 @@ Phil Rudd – drums</string>
                                             <subviews>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="nBr-sc-yKb">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="144.5"/>
-                                                    <color key="backgroundColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="5" minimumInteritemSpacing="5" id="oB4-6R-6mp">
                                                         <size key="itemSize" width="109" height="134.5"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -1360,7 +1360,7 @@ Phil Rudd – drums</string>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Czp-6V-aAK">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="109" height="135"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="109" height="134.5"/>
                                                                     </imageView>
                                                                 </subviews>
                                                             </view>
@@ -1417,6 +1417,7 @@ Phil Rudd – drums</string>
                         <outlet property="imgBackgroundCover" destination="Bfg-nJ-Wa4" id="cKg-0d-dKm"/>
                         <outlet property="imgProfile" destination="Dmb-Vy-FGD" id="kwe-eG-iPn"/>
                         <outlet property="lblUser" destination="3OJ-Y7-96G" id="mCQ-om-3pf"/>
+                        <outlet property="tableView" destination="3wn-F3-Vmf" id="P1L-cG-mvu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aZQ-zX-caO" userLabel="First Responder" sceneMemberID="firstResponder"/>

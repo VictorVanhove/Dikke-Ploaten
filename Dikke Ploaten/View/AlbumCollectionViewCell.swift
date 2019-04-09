@@ -7,17 +7,15 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class AlbumCollectionViewCell : UICollectionViewCell {
 	
 	@IBOutlet weak var imgCover: UIImageView!
 	
-//	var image: UIImage! {
-//		didSet {
-//			self.imgCover.image = image
-//			self.setNeedsLayout()
-//		}
-//		
-//	}
+	func updateUI(forAlbum album: Album){
+		imgCover.af_setImage(withURL: URL(string: album.cover)!)
+	}
+	
 	
 }
