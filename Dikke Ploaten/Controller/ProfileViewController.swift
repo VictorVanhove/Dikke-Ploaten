@@ -73,7 +73,10 @@ extension ProfileViewController : UITableViewDataSource {
 	func tableView(_ tableView: UITableView, heightForRowAt
 		indexPath: IndexPath) -> CGFloat
 	{
-		return 100
+		let itemsPerRow:CGFloat = 4
+		let hardCodedPadding:CGFloat = 5
+		let itemWidth = (tableView.bounds.width / itemsPerRow) - hardCodedPadding
+		return itemWidth
 	}
 	
 }
