@@ -20,6 +20,13 @@ class ProfileViewController: UIViewController {
 	var wantlistAlbums: [Album] = []
 	var collections = ["Collection", "Wantlist"]
 	
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		
+		// Removes additional empty cells in tableView
+		tableView.tableFooterView = UIView()
+	}
+	
 	override func viewWillAppear(_ animated: Bool) {
 		Database.shared.getUser { user in
 			self.lblUser.text = user.username
