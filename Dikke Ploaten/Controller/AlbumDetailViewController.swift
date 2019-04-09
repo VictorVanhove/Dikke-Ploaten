@@ -37,7 +37,7 @@ class AlbumDetailViewController: UIViewController {
 	}
 	
 	@IBAction func showMoreImages(_ sender: Any) {
-			performSegue(withIdentifier: "showMoreImages", sender: self)
+		performSegue(withIdentifier: "showMoreImages", sender: self)
 	}
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

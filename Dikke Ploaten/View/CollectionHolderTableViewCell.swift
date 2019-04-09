@@ -10,7 +10,7 @@ import UIKit
 
 class CollectionHolderTableViewCell: UITableViewCell {
 	@IBOutlet weak var collectionCollectionView: UICollectionView!
-
+	
 	var albums: [Album] = []
 	
 	func updateAlbums(albums: [Album]){
@@ -46,7 +46,6 @@ extension CollectionHolderTableViewCell: UICollectionViewDelegateFlowLayout {
 		let itemsPerRow:CGFloat = 4
 		let hardCodedPadding:CGFloat = 5
 		let itemWidth = (collectionView.bounds.width / itemsPerRow) - hardCodedPadding
-		let itemHeight = collectionView.bounds.height - (2 * hardCodedPadding)
 		return CGSize(width: itemWidth, height: itemWidth)
 	}
 	
