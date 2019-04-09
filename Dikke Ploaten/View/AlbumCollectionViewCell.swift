@@ -12,12 +12,12 @@ class AlbumCollectionViewCell : UICollectionViewCell {
 	
 	@IBOutlet weak var imgCover: UIImageView!
 	
-	var image: UIImage! {
-		didSet {
-			self.imgCover.image = image
-			self.setNeedsLayout()
-		}
-		
-	}
+//	var image: UIImage! {
+//		didSet {
+//			self.imgCover.image = image
+//			self.setNeedsLayout()
+//		}
+//		
+//	}
 	
 }

@@ -47,38 +47,49 @@ class ProfileViewController: UITableViewController {
 		
 	}
 	
-	struct Storyboard {
-		static let collectionCell = "collectionCell"
-		static let wantlistCell = "wantlistCell"
-	}
+//	struct Storyboard {
+//		static let collectionCell = "collectionCell"
+//		static let wantlistCell = "wantlistCell"
+//	}
 	
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		return 1
+	}
+	
+	override func numberOfSections(in tableView: UITableView) -> Int {
 		return 2
+	}
+	
+	override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+		if section == 0 {
+			return "Collection"
+		}
+		return "Wantlist"
 	}
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
 	{
-		let cell = tableView.dequeueReusableCell(withIdentifier: Storyboard.collectionCell, for: indexPath) as! CollectionHolderTableViewCell
+		let cell = tableView.dequeueReusableCell(withIdentifier: "collectionCell", for: indexPath) as! CollectionHolderTableViewCell
 		
 		return cell
 		
 	}
 	
-	override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath)
-	{
-		if let cell = cell as? CollectionHolderTableViewCell {
-			cell.collectionCollectionView.dataSource = self
-			cell.collectionCollectionView.delegate = self
-			cell.collectionCollectionView.reloadData()
-			cell.collectionCollectionView.isScrollEnabled = false
-		}
-	}
+//	override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath)
+//	{
+//		if let cell = cell as? CollectionHolderTableViewCell {
+//			cell.collectionCollectionView.dataSource = self
+//			cell.collectionCollectionView.delegate = self
+//			cell.collectionCollectionView.reloadData()
+//			cell.collectionCollectionView.isScrollEnabled = false
+//		}
+//	}
 	
-	override func tableView(_ tableView: UITableView, heightForRowAt
-		indexPath: IndexPath) -> CGFloat
-	{
-		return tableView.bounds.width + 68.0
-	}
+//	override func tableView(_ tableView: UITableView, heightForRowAt
+//		indexPath: IndexPath) -> CGFloat
+//	{
+//		return tableView.bounds.width + 68.0
+//	}
 	
 }
 
@@ -88,26 +99,30 @@ extension ProfileViewController: UICollectionViewDataSource, UICollectionViewDel
 		return collectionAlbums.count
 	}
 	
-	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
-	{
-		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Storyboard.collectionCell, for: indexPath) as! AlbumCollectionViewCell
+	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "albumCell", for: indexPath) as! AlbumCollectionViewCell
 		
-		if(!collectionAlbums.isEmpty){
-			cell.image = UIImage(data: try! Data(contentsOf: URL(string: collectionAlbums[indexPath.item].cover)!))
-		}
+//		if(!collectionAlbums.isEmpty){
+//			cell.image = UIImage(data: try! Data(contentsOf: URL(string: collectionAlbums[indexPath.item].cover)!))
+//		}
 		return cell
 	}
 	
-	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
-	{
-		let layout = collectionViewLayout as! UICollectionViewFlowLayout
-		layout.minimumLineSpacing = 5.0
-		layout.minimumInteritemSpacing = 1.0
-		
-		let numberOfItemsPerRow: CGFloat = 2.0
-		let itemWidth = (collectionView.bounds.width - layout.minimumLineSpacing) / numberOfItemsPerRow
-		
-		return CGSize(width: itemWidth, height: itemWidth)
+	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//		let layout = collectionViewLayout as! UICollectionViewFlowLayout
+//		layout.minimumLineSpacing = 5.0
+//		layout.minimumInteritemSpacing = 1.0
+//
+//		let numberOfItemsPerRow: CGFloat = 2.0
+//		let itemWidth = (collectionView.bounds.width - layout.minimumLineSpacing) / numberOfItemsPerRow
+//
+//		return CGSize(width: itemWidth, height: itemWidth)
+		let itemsPerRow:CGFloat = 4
+		let hardCodedPadding:CGFloat = 5
+		let itemWidth = (collectionView.bounds.width / itemsPerRow) - hardCodedPadding
+		let itemHeight = collectionView.bounds.height - (2 * hardCodedPadding)
+		return CGSize(width: itemWidth, height: itemHeight)
+
 	}
 	
 }
