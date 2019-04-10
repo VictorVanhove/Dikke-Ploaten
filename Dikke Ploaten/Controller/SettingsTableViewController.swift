@@ -11,8 +11,10 @@ import Firebase
 
 class SettingsTableViewController : UITableViewController {
 	
+	@IBOutlet weak var lblName: UILabel!
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		lblName.text = "Naam: Tom"
 	}
 	
 	@IBAction func signOutUser(_ sender: Any) {
