@@ -142,7 +142,7 @@ class Database {
 	}
 	
 	func getUser(completionHandler: @escaping (_ user: User) -> ()) {
-		let user = Auth.auth().currentUser;
+		let user = Auth.auth().currentUser
 		db.collection("users").document(user!.uid).getDocument { (docSnapshot , error) in
 			guard let snapshot = docSnapshot else {
 				print("Error fetching snapshots: \(error!)")
@@ -154,15 +154,29 @@ class Database {
 	}
 	
 	func updateUsername(username: String, completionHandler: @escaping (Error?) -> ()) {
-		let user = Auth.auth().currentUser;
+		let user = Auth.auth().currentUser
 		db.collection("users").document(user!.uid).updateData((["username": username])) { err in
 			if let err = err {
-				print("Error getting document: \(err)")
+				print("Error when changing username: \(err)")
 			} else {
-				print("Document was succesfully updated!")
+				print("Username was succesfully updated!")
 			}
 			completionHandler(err)
 		}
+	}
+	
+	func updatePassword(newPassword: String, completionHandler: @escaping (Error?) -> ()) {
+		let user = Auth.auth().currentUser
+		Auth.auth().currentUser?.updatePassword(to: newPassword) { err in
+			if let err = err {
+				print("Error when changing password: \(err)")
+			} else {
+				print("Password was succesfully updated!")
+			}
+			completionHandler(err)
+		}
+		
+		db.collection("users").document(user!.uid).updateData((["password": newPassword]))
 	}
 	
 	func isUserLoggedIn() -> Bool {
