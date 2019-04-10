@@ -35,7 +35,13 @@ class BaseAlbumListTableViewController : UITableViewController {
 	// MARK: - TableView
 	
 	override func numberOfSections(in tableView: UITableView) -> Int {
-		return albumSection.count
+		if(albumSection.count == 0){
+			self.tableView.setEmptyMessage("Je hebt nog geen albums toegevoegd.\nGa naar de zoekfunctie en voeg albums toe!")
+			return 0
+		} else{
+			self.tableView.restore()
+			return albumSection.count
+		}
 	}
 	
 	override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
