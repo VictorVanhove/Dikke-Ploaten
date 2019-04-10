@@ -32,13 +32,14 @@ class CollectionViewController: BaseAlbumListTableViewController {
 		let action = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completion) in
 			//Removes selected album from list
 			let album = self.albumDictionary[self.albumSection[indexPath.section]]![indexPath.row]
-			Database.shared.deleteAlbum(albumId: album.id , completionHandler: { err in
+			Database.shared.deleteCollectionAlbum(albumId: album.id , completionHandler: { err in
 				if let err = err {
 					let alertController = UIAlertController(title: "Whoops", message: err.localizedDescription, preferredStyle: .alert)
 					alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
 					self.present(alertController, animated: true, completion: nil)
+					return
 				}
-				// Still problem with delete
+				self.albums.remove(at: self.albums.firstIndex(of: album)!)
 				self.generateWordsDict()
 				self.tableView.reloadData()
 			})

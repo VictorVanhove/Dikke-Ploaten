@@ -17,6 +17,7 @@ class BaseAlbumListTableViewController : UITableViewController {
 	var albumDictionary = [String: [Album]]()
 	
 	func generateWordsDict() {
+		albumDictionary = [:]
 		for album in albums {
 			let key = String(album.artist.prefix(1))
 			if albumDictionary[key] == nil {

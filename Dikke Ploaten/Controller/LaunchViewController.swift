@@ -10,23 +10,21 @@ import UIKit
 import Firebase
 
 class LaunchViewController : UIViewController {
-    
-    @IBOutlet weak var imgVinyl: UIImageView!
-
-    var vinylImages: [UIImage] = []
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        vinylImages = createImageArray(total: 35, imagePrefix: "vinyl")
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        animate(imageView: imgVinyl, images: vinylImages)
+	
+	@IBOutlet weak var imgVinyl: UIImageView!
+	
+	var vinylImages: [UIImage] = []
+	
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		vinylImages = createImageArray(total: 35, imagePrefix: "vinyl")
+	}
+	
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
+		animate(imageView: imgVinyl, images: vinylImages)
 		
-		DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-
-			
+		DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
 			//If already logged in, go to mainscreen
 			if Database.shared.isUserLoggedIn() {
 				// Go to mainview
@@ -35,25 +33,25 @@ class LaunchViewController : UIViewController {
 				self.performSegue(withIdentifier: "gotoLogin", sender: nil)
 			}
 		}
-    }
-
-    func createImageArray(total: Int, imagePrefix: String) -> [UIImage] {
-        var imageArray: [UIImage] = []
-
-        for imageCount in 1..<total {
-            let imageName = "\(imagePrefix)\(imageCount)"
-            let image = UIImage(named: imageName)!
-
-            imageArray.append(image)
-        }
-
-        return imageArray
-    }
-
-    func animate(imageView: UIImageView, images: [UIImage]){
-        imageView.animationImages = images
-        imageView.animationDuration = 0.5
-        imageView.animationRepeatCount = 6
-        imageView.startAnimating()
-    }
+	}
+	
+	func createImageArray(total: Int, imagePrefix: String) -> [UIImage] {
+		var imageArray: [UIImage] = []
+		
+		for imageCount in 1..<total {
+			let imageName = "\(imagePrefix)\(imageCount)"
+			let image = UIImage(named: imageName)!
+			
+			imageArray.append(image)
+		}
+		
+		return imageArray
+	}
+	
+	func animate(imageView: UIImageView, images: [UIImage]){
+		imageView.animationImages = images
+		imageView.animationDuration = 0.5
+		imageView.animationRepeatCount = 3
+		imageView.startAnimating()
+	}
 }

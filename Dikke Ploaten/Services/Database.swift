@@ -56,7 +56,14 @@ class Database {
 				return
 			}
 			let albums = snapshot.documents.map(Album.docToAlbum)
-			completionHandler(albums)
+			// Filters albums or else it will show all the albums instead of just the user
+			var filteredAlbums = [Album]()
+			for album in albums {
+				if(album.userID == Auth.auth().currentUser!.uid){
+					filteredAlbums.append(album)
+				}
+			}
+			completionHandler(filteredAlbums)
 		}
 	}
 	
@@ -92,8 +99,21 @@ class Database {
 	}
 	
 	// Deletes selected album out of collection
-	func deleteAlbum(albumId: String, completionHandler: @escaping (Error?) -> ()) {
+	func deleteCollectionAlbum(albumId: String, completionHandler: @escaping (Error?) -> ()) {
 		db.collection("userPlaten").document(albumId).delete() { err in
+			if let err = err {
+				print("Error removing document: \(err.localizedDescription)")
+			} else {
+				print("Document with id:\(albumId) successfully removed!")
+			}
+			completionHandler(err)
+		}
+		
+	}
+	
+	// Deletes selected album out of wantlist
+	func deleteWantlistAlbum(albumId: String, completionHandler: @escaping (Error?) -> ()) {
+		db.collection("userWantlist").document(albumId).delete() { err in
 			if let err = err {
 				print("Error removing document: \(err.localizedDescription)")
 			} else {
@@ -118,6 +138,18 @@ class Database {
 			}
 			
 			successHandler()
+		}
+	}
+	
+	func getUser(completionHandler: @escaping (_ user: User) -> ()) {
+		let user = Auth.auth().currentUser;
+		db.collection("users").document(user!.uid).getDocument { (docSnapshot , error) in
+			guard let snapshot = docSnapshot else {
+				print("Error fetching snapshots: \(error!)")
+				return
+			}
+			let user = User.docToUser(document: snapshot)
+			completionHandler(user)
 		}
 	}
 	

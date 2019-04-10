@@ -10,13 +10,13 @@ import UIKit
 import ImageSlideshow
 
 class AlbumImageViewController: UIViewController {
-
+	
 	@IBOutlet weak var scrollView: UIScrollView!
 	
 	@IBOutlet var slideshow: ImageSlideshow!
-
+	
 	var album: Album!
-
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
@@ -31,13 +31,13 @@ class AlbumImageViewController: UIViewController {
 		slideshow.activityIndicator = DefaultActivityIndicator()
 		
 		var alamofireSource = [AlamofireSource]()
-
+		
 		for i in 0..<album.images.count {
 			alamofireSource.append(AlamofireSource(urlString: album.images[i])!)
 		}
 		
 		slideshow.setImageInputs(alamofireSource)
 	}
-
-
+	
+	
 }

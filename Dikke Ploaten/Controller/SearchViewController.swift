@@ -20,16 +20,10 @@ class SearchViewController: UITableViewController, UISearchResultsUpdating {
 	
 	let searchController = UISearchController(searchResultsController: nil)
 	
-	
-	override func viewDidLoad() {
-		super.viewDidLoad()
+	override func viewWillAppear(_ animated: Bool) {
 		
 		// Add searchbar to nav
-		searchController.searchResultsUpdater = self
-		searchController.hidesNavigationBarDuringPresentation = false
-		searchController.dimsBackgroundDuringPresentation = false
-		searchController.searchBar.sizeToFit()
-		self.navigationItem.titleView = searchController.searchBar
+		addSearchBar()
 		
 		// Gets all albums from database
 		Database.shared.getAlbumList() { (albums) in
@@ -41,8 +35,17 @@ class SearchViewController: UITableViewController, UISearchResultsUpdating {
 		tableView.reloadData()
 	}
 	
+	func addSearchBar() {
+		searchController.searchResultsUpdater = self
+		searchController.hidesNavigationBarDuringPresentation = false
+		searchController.dimsBackgroundDuringPresentation = false
+		searchController.searchBar.sizeToFit()
+		self.navigationItem.titleView = searchController.searchBar
+		self.definesPresentationContext = true
+	}
+	
 	func updateSearchResults(for searchController: UISearchController) {
-		filteredAlbums = albums.filter{ ($0.title.contains(searchController.searchBar.text!)) }
+		filteredAlbums = albums.filter{ ($0.title.contains(searchController.searchBar.text!)) || ($0.artist.contains(searchController.searchBar.text!)) }
 		self.tableView.reloadData()
 	}
 	
@@ -91,6 +94,7 @@ class SearchViewController: UITableViewController, UISearchResultsUpdating {
 			})
 			//Show toast alert
 			self.showToast(controller: self, message: "'\(album.title)' by \(album.artist) was added to your collection", seconds: 2)
+			self.searchController.isActive = false
 		})
 		add.backgroundColor = UIColor(red:0.11, green:0.74, blue:0.61, alpha:1.0)
 		
@@ -112,6 +116,7 @@ class SearchViewController: UITableViewController, UISearchResultsUpdating {
 			})
 			//Show toast alert
 			self.showToast(controller: self, message: "'\(album.title)' by \(album.artist) was added to your wantlist", seconds: 2)
+			self.searchController.isActive = false
 		})
 		want.backgroundColor = UIColor(red:1.00, green:0.65, blue:0.00, alpha:1.0)
 		
