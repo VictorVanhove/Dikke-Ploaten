@@ -42,7 +42,7 @@ class Database {
 			if let err = err {
 				print("Error adding document: \(err)")
 			} else {
-				print("Document added with ID")
+				print("Document was succesfully added!")
 			}
 			completionHandler(err)
 		}
@@ -130,7 +130,7 @@ class Database {
 				failureHandler(error)
 				return
 			}
-			self.db.collection("users").document(user!.user.uid).setData(["username": username, "email": email]) { err in
+			self.db.collection("users").document(user!.user.uid).setData(["username": username, "email": email, "password": password]) { err in
 				// Error adding user to database
 				if let err = err {
 					print("Error adding document: \(err)")
@@ -150,6 +150,18 @@ class Database {
 			}
 			let user = User.docToUser(document: snapshot)
 			completionHandler(user)
+		}
+	}
+	
+	func updateUsername(username: String, completionHandler: @escaping (Error?) -> ()) {
+		let user = Auth.auth().currentUser;
+		db.collection("users").document(user!.uid).updateData((["username": username])) { err in
+			if let err = err {
+				print("Error getting document: \(err)")
+			} else {
+				print("Document was succesfully updated!")
+			}
+			completionHandler(err)
 		}
 	}
 	
