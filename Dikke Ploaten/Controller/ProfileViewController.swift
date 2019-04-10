@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ProfileViewController: UIViewController {
 	
@@ -40,6 +41,24 @@ class ProfileViewController: UIViewController {
 		Database.shared.getUserWantlist { (albums) in
 			self.wantlistAlbums = albums
 			self.tableView.reloadData()
+		}
+		
+		let storageRef = Storage.storage().reference(forURL: "gs://dikke-ploaten.appspot.com")
+		let profileRef = storageRef.child("images/profile/\(Auth.auth().currentUser!.uid).jpg")
+		profileRef.getData(maxSize: 15 * 1024 * 1024) { data, error in
+			if let error = error {
+				print(error)
+			} else {
+				self.imgProfile.image = UIImage(data: data!)
+			}
+		}
+		let coverRef = storageRef.child("images/cover/\(Auth.auth().currentUser!.uid).jpg")
+		coverRef.getData(maxSize: 15 * 1024 * 1024) { data, error in
+			if let error = error {
+				print(error)
+			} else {
+				self.imgBackgroundCover.image = UIImage(data: data!)
+			}
 		}
 	}
 	
