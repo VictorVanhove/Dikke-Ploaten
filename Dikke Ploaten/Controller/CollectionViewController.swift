@@ -16,13 +16,7 @@ class CollectionViewController: BaseAlbumListTableViewController {
 		// Gets data from database and updates on changes
 		Database.shared.getUserPlates { (albums) in
 			self.albums = albums
-			self.generateWordsDict()
-			if(albums.isEmpty){
-				self.tableView.setEmptyMessage("Je hebt nog geen albums toegevoegd aan je collectie.\nGa naar de zoekfunctie en voeg albums toe!")
-			} else {
-				self.tableView.setEmptyMessage()
-			}
-			self.tableView.reloadData()
+			self.checkIfEmpty()
 		}
 	}
 	
@@ -45,8 +39,7 @@ class CollectionViewController: BaseAlbumListTableViewController {
 					return
 				}
 				self.albums.remove(at: self.albums.firstIndex(of: album)!)
-				self.generateWordsDict()
-				self.tableView.reloadData()
+				self.checkIfEmpty()
 			})
 		}
 		action.backgroundColor = .red

@@ -15,13 +15,7 @@ class WantlistViewController: BaseAlbumListTableViewController {
 		// Gets data from database and updates on changes
 		Database.shared.getUserWantlist { (albums) in
 			self.albums = albums
-			self.generateWordsDict()
-			if(albums.isEmpty){
-				self.tableView.setEmptyMessage("Je hebt nog geen albums toegevoegd aan je wantlist.\nGa naar de zoekfunctie en voeg albums toe!")
-			} else {
-				self.tableView.setEmptyMessage()
-			}
-			self.tableView.reloadData()
+			self.checkIfEmpty()
 		}
 	}
 	
@@ -44,8 +38,7 @@ class WantlistViewController: BaseAlbumListTableViewController {
 					return
 				}
 				self.albums.remove(at: self.albums.firstIndex(of: album)!)
-				self.generateWordsDict()
-				self.tableView.reloadData()
+				self.checkIfEmpty()
 			})
 		}
 		action.backgroundColor = .red
