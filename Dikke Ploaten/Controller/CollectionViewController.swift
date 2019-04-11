@@ -16,7 +16,7 @@ class CollectionViewController: BaseAlbumListTableViewController {
 		// Gets data from database and updates on changes
 		Database.shared.getUserPlates { (albums) in
 			self.albums = albums
-			self.checkIfEmpty()
+			self.reloadTableView()
 		}
 	}
 	
@@ -39,7 +39,7 @@ class CollectionViewController: BaseAlbumListTableViewController {
 					return
 				}
 				self.albums.remove(at: self.albums.firstIndex(of: album)!)
-				self.checkIfEmpty()
+				self.reloadTableView()
 			})
 		}
 		action.backgroundColor = .red

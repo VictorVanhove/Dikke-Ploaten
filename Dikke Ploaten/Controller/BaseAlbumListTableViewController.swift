@@ -32,7 +32,7 @@ class BaseAlbumListTableViewController : UITableViewController {
 		albumSection = albumSection.sorted()
 	}
 	
-	func checkIfEmpty() {
+	func reloadTableView() {
 		if(albums.isEmpty){
 			self.tableView.setEmptyMessage("Je hebt nog geen albums toegevoegd.\nGa naar de zoekfunctie en voeg albums toe!")
 		} else {
