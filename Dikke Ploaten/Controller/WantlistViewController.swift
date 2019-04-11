@@ -16,6 +16,11 @@ class WantlistViewController: BaseAlbumListTableViewController {
 		Database.shared.getUserWantlist { (albums) in
 			self.albums = albums
 			self.generateWordsDict()
+			if(albums.isEmpty){
+				self.tableView.setEmptyMessage("Je hebt nog geen albums toegevoegd aan je wantlist.\nGa naar de zoekfunctie en voeg albums toe!")
+			} else {
+				self.tableView.setEmptyMessage()
+			}
 			self.tableView.reloadData()
 		}
 	}

@@ -17,7 +17,7 @@ class SettingsTableViewController : UITableViewController, UIImagePickerControll
 	@IBOutlet weak var imgBackgroundCover: UIImageView!
 	
 	let imagePicker = UIImagePickerController()
-	var isImgProfile: Bool = false
+	var isPickingImageForProfile = false
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -59,7 +59,7 @@ class SettingsTableViewController : UITableViewController, UIImagePickerControll
 	
 	func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
 		if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-			if(isImgProfile) {
+			if(isPickingImageForProfile) {
 				imgProfile.contentMode = .scaleAspectFit
 				imgProfile.image = image
 			} else {
@@ -67,11 +67,11 @@ class SettingsTableViewController : UITableViewController, UIImagePickerControll
 				imgBackgroundCover.image = image
 			}
 		}
-		if(isImgProfile) {
-			Database.shared.uploadImage(image: imgProfile.image!, isImgProfile: true)
-			isImgProfile = false
+		if(isPickingImageForProfile) {
+			Database.shared.uploadImage(image: imgProfile.image!, isPickingImageForProfile: true)
+			isPickingImageForProfile = false
 		} else {
-			Database.shared.uploadImage(image: imgBackgroundCover.image!, isImgProfile: false)
+			Database.shared.uploadImage(image: imgBackgroundCover.image!, isPickingImageForProfile: false)
 		}
 		
 		imagePicker.dismiss(animated: true, completion: nil)
@@ -87,7 +87,7 @@ class SettingsTableViewController : UITableViewController, UIImagePickerControll
 		tableView.deselectRow(at: indexPath, animated: false)
 		if indexPath.section == 0 {
 			if indexPath.row == 0 {
-				isImgProfile = true
+				isPickingImageForProfile = true
 			}
 			imagePicker.allowsEditing = false
 			imagePicker.sourceType = .photoLibrary
@@ -124,17 +124,23 @@ class SettingsTableViewController : UITableViewController, UIImagePickerControll
 					textField.placeholder = "Nieuw wachtwoord"
 					textField.isSecureTextEntry = true
 				}
+				alertController.addTextField { textField in
+					textField.placeholder = "Bevestig nieuw wachtwoord"
+					textField.isSecureTextEntry = true
+				}
 				let confirmAction = UIAlertAction(title: "OK", style: .default) { [weak alertController] _ in
-					guard let alertController = alertController, let textField = alertController.textFields?.last else { return }
-					Database.shared.updatePassword(newPassword: textField.text!, completionHandler: { err in
-						if let err = err {
-							print(err)
-						}
-						Database.shared.getUser { user in
-							self.lblName.text = user.username
-							self.lblEmail.text = user.email
-						}
-					})
+					guard let alertController = alertController, let textField1 = alertController.textFields?.first, let textField2 = alertController.textFields?.last  else { return }
+					if(textField1.text == textField2.text){
+						Database.shared.updatePassword(newPassword: textField2.text!, completionHandler: { err in
+							if let err = err {
+								print(err)
+							}
+							Database.shared.getUser { user in
+								self.lblName.text = user.username
+								self.lblEmail.text = user.email
+							}
+						})
+					}
 				}
 				alertController.addAction(confirmAction)
 				let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)

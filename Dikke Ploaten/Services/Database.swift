@@ -204,11 +204,11 @@ class Database {
 	}
 	
 	// Upload image
-	func uploadImage(image: UIImage, isImgProfile: Bool) {
+	func uploadImage(image: UIImage, isPickingImageForProfile: Bool) {
 		// Create imagePath
 		let itemId = auth.currentUser!.uid
 		var imagePath = ""
-		if(isImgProfile){
+		if(isPickingImageForProfile){
 			imagePath = "images/profile/\(itemId).jpg"
 		} else {
 			imagePath = "images/cover/\(itemId).jpg"
