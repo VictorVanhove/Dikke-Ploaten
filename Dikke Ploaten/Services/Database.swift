@@ -13,6 +13,8 @@ class Database {
 	
 	//Firebase
 	let db = Firestore.firestore()
+	let auth = Auth.auth()
+	let storageRef = Storage.storage().reference(forURL: "gs://dikke-ploaten.appspot.com")
 	
 	static let shared = Database()
 	
@@ -23,11 +25,11 @@ class Database {
 		// Data from object in JSON
 		let data = album.toJSON()
 		// Upload data to database
-		Firestore.firestore().collection("userPlaten").addDocument(data: data) { err in
+		db.collection("userPlaten").addDocument(data: data) { err in
 			if let err = err {
 				print("Error adding document: \(err)")
 			} else {
-				print("Document added with ID")
+				print("Album was succesfully added in collection!")
 			}
 			completionHandler(err)
 		}
@@ -38,11 +40,11 @@ class Database {
 		// Data from object in JSON
 		let data = album.toJSON()
 		// Upload data to database
-		Firestore.firestore().collection("userWantlist").addDocument(data: data) { err in
+		db.collection("userWantlist").addDocument(data: data) { err in
 			if let err = err {
 				print("Error adding document: \(err)")
 			} else {
-				print("Document added with ID")
+				print("Album was succesfully added in wantlist!")
 			}
 			completionHandler(err)
 		}
@@ -59,7 +61,7 @@ class Database {
 			// Filters albums or else it will show all the albums instead of just the user
 			var filteredAlbums = [Album]()
 			for album in albums {
-				if(album.userID == Auth.auth().currentUser!.uid){
+				if(album.userID == self.auth.currentUser!.uid){
 					filteredAlbums.append(album)
 				}
 			}
@@ -78,7 +80,7 @@ class Database {
 			// Filters albums or else it will show all the albums instead of just the user
 			var filteredAlbums = [Album]()
 			for album in albums {
-				if(album.userID == Auth.auth().currentUser!.uid){
+				if(album.userID == self.auth.currentUser!.uid){
 					filteredAlbums.append(album)
 				}
 			}
@@ -91,10 +93,10 @@ class Database {
 		db.collection("platen").getDocuments() { (querySnapshot, err) in
 			if let err = err {
 				print("Error getting documents: \(err)")
-			} else {
-				let albums = querySnapshot!.documents.map(Album.docToAlbum)
-				completionHandler(albums)
+				return
 			}
+			let albums = querySnapshot!.documents.map(Album.docToAlbum)
+			completionHandler(albums)
 		}
 	}
 	
@@ -125,7 +127,7 @@ class Database {
 	}
 	
 	func createUser(username: String, email: String, password: String, successHandler: @escaping () -> (), failureHandler: @escaping (Error) -> ()) {
-		Auth.auth().createUser(withEmail: email, password: password) { user, error in
+		auth.createUser(withEmail: email, password: password) { user, error in
 			if let error = error {
 				failureHandler(error)
 				return
@@ -136,14 +138,12 @@ class Database {
 					print("Error adding document: \(err)")
 				}
 			}
-			
 			successHandler()
 		}
 	}
 	
 	func getUser(completionHandler: @escaping (_ user: User) -> ()) {
-		let user = Auth.auth().currentUser;
-		db.collection("users").document(user!.uid).getDocument { (docSnapshot , error) in
+		db.collection("users").document(auth.currentUser!.uid).getDocument { (docSnapshot , error) in
 			guard let snapshot = docSnapshot else {
 				print("Error fetching snapshots: \(error!)")
 				return
@@ -153,7 +153,72 @@ class Database {
 		}
 	}
 	
+	func getProfileImage(completionHandler: @escaping (_ data: Data) -> ()) {
+		let profileRef = storageRef.child("images/profile/\(auth.currentUser!.uid).jpg")
+		profileRef.getData(maxSize: 15 * 1024 * 1024) { data, error in
+			if let error = error {
+				print("Error fetching data profileimage: \(error)")
+				return
+			}
+			completionHandler(data!)
+		}
+	}
+	
+	func getProfileCover(completionHandler: @escaping (_ data: Data) -> ()) {
+		let coverRef = storageRef.child("images/cover/\(auth.currentUser!.uid).jpg")
+		coverRef.getData(maxSize: 15 * 1024 * 1024) { data, error in
+			if let error = error {
+				print("Error fetching data profilecover: \(error)")
+				return
+			}
+			completionHandler(data!)
+		}
+	}
+	
+	func updateUsername(username: String, completionHandler: @escaping (Error?) -> ()) {
+		db.collection("users").document(auth.currentUser!.uid).updateData((["username": username])) { err in
+			if let err = err {
+				print("Error when changing username: \(err)")
+			} else {
+				print("Username was succesfully updated!")
+			}
+			completionHandler(err)
+		}
+	}
+	
+	func updatePassword(newPassword: String, completionHandler: @escaping (Error?) -> ()) {
+		auth.currentUser?.updatePassword(to: newPassword) { err in
+			if let err = err {
+				print("Error when changing password: \(err)")
+			} else {
+				print("Password was succesfully updated!")
+			}
+			completionHandler(err)
+		}
+		
+//		db.collection("users").document(auth.currentUser!.uid).updateData((["password": newPassword]))
+	}
+	
 	func isUserLoggedIn() -> Bool {
-		return Auth.auth().currentUser != nil
+		return auth.currentUser != nil
+	}
+	
+	// Upload image
+	func uploadImage(image: UIImage, asProfileImage: Bool) {
+		// Create imagePath
+		let itemId = auth.currentUser!.uid
+		var imagePath = ""
+		if(asProfileImage){
+			imagePath = "images/profile/\(itemId).jpg"
+		} else {
+			imagePath = "images/cover/\(itemId).jpg"
+		}
+		var data = NSData()
+		data = image.jpegData(compressionQuality: 0.8)! as NSData
+		let childImages = storageRef.child(imagePath)
+		let metaData = StorageMetadata()
+		metaData.contentType = "image/jpeg"
+		// Upload
+		childImages.putData(data as Data, metadata: metaData)
 	}
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ProfileViewController: UIViewController {
 	
@@ -15,6 +16,7 @@ class ProfileViewController: UIViewController {
 	@IBOutlet weak var lblUser: UILabel!
 	
 	@IBOutlet weak var tableView: UITableView!
+	
 	// MARK: - Properties
 	var collectionAlbums: [Album] = []
 	var wantlistAlbums: [Album] = []
@@ -25,21 +27,30 @@ class ProfileViewController: UIViewController {
 		
 		// Removes additional empty cells in tableView
 		tableView.tableFooterView = UIView()
+		
+		imgProfile.layer.cornerRadius = self.imgProfile.frame.height/2
+		imgProfile.layer.borderWidth = 1
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
 		Database.shared.getUser { user in
 			self.lblUser.text = user.username
 		}
-		
 		Database.shared.getUserPlates { (albums) in
 			self.collectionAlbums = albums
 			self.tableView.reloadData()
 		}
-		
 		Database.shared.getUserWantlist { (albums) in
 			self.wantlistAlbums = albums
 			self.tableView.reloadData()
+		}
+		Database.shared.getProfileImage { data in
+			self.imgProfile.image = UIImage(data: data)
+			self.imgProfile.contentMode = .scaleAspectFill
+		}
+		Database.shared.getProfileCover { data in
+			self.imgBackgroundCover.image = UIImage(data: data)
+			self.imgBackgroundCover.contentMode = .scaleAspectFill
 		}
 	}
 	
