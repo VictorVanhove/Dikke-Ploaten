@@ -68,10 +68,10 @@ class SettingsTableViewController : UITableViewController, UIImagePickerControll
 			}
 		}
 		if(isPickingImageForProfile) {
-			Database.shared.uploadImage(image: imgProfile.image!, isPickingImageForProfile: true)
+			Database.shared.uploadImage(image: imgProfile.image!, asProfileImage: true)
 			isPickingImageForProfile = false
 		} else {
-			Database.shared.uploadImage(image: imgBackgroundCover.image!, isPickingImageForProfile: false)
+			Database.shared.uploadImage(image: imgBackgroundCover.image!, asProfileImage: false)
 		}
 		
 		imagePicker.dismiss(animated: true, completion: nil)
