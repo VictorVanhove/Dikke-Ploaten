@@ -16,6 +16,7 @@ class ProfileViewController: UIViewController {
 	@IBOutlet weak var lblUser: UILabel!
 	
 	@IBOutlet weak var tableView: UITableView!
+	
 	// MARK: - Properties
 	var collectionAlbums: [Album] = []
 	var wantlistAlbums: [Album] = []
@@ -26,39 +27,30 @@ class ProfileViewController: UIViewController {
 		
 		// Removes additional empty cells in tableView
 		tableView.tableFooterView = UIView()
+		
+		imgProfile.layer.cornerRadius = self.imgProfile.frame.height/2
+		imgProfile.layer.borderWidth = 1
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
 		Database.shared.getUser { user in
 			self.lblUser.text = user.username
 		}
-		
 		Database.shared.getUserPlates { (albums) in
 			self.collectionAlbums = albums
 			self.tableView.reloadData()
 		}
-		
 		Database.shared.getUserWantlist { (albums) in
 			self.wantlistAlbums = albums
 			self.tableView.reloadData()
 		}
-		
-		let storageRef = Storage.storage().reference(forURL: "gs://dikke-ploaten.appspot.com")
-		let profileRef = storageRef.child("images/profile/\(Auth.auth().currentUser!.uid).jpg")
-		profileRef.getData(maxSize: 15 * 1024 * 1024) { data, error in
-			if let error = error {
-				print(error)
-			} else {
-				self.imgProfile.image = UIImage(data: data!)
-			}
+		Database.shared.getProfileImage { data in
+			self.imgProfile.image = UIImage(data: data)
+			self.imgProfile.contentMode = .scaleAspectFill
 		}
-		let coverRef = storageRef.child("images/cover/\(Auth.auth().currentUser!.uid).jpg")
-		coverRef.getData(maxSize: 15 * 1024 * 1024) { data, error in
-			if let error = error {
-				print(error)
-			} else {
-				self.imgBackgroundCover.image = UIImage(data: data!)
-			}
+		Database.shared.getProfileCover { data in
+			self.imgBackgroundCover.image = UIImage(data: data)
+			self.imgBackgroundCover.contentMode = .scaleAspectFill
 		}
 	}
 	

@@ -13,7 +13,6 @@ class SettingsTableViewController : UITableViewController, UIImagePickerControll
 	
 	@IBOutlet weak var lblName: UILabel!
 	@IBOutlet weak var lblEmail: UILabel!
-	@IBOutlet weak var lblPassword: UITextField!
 	@IBOutlet weak var imgProfile: UIImageView!
 	@IBOutlet weak var imgBackgroundCover: UIImageView!
 	
@@ -28,7 +27,15 @@ class SettingsTableViewController : UITableViewController, UIImagePickerControll
 		Database.shared.getUser { user in
 			self.lblName.text = user.username
 			self.lblEmail.text = user.email
-			self.lblPassword.text = user.password
+		}
+		
+		Database.shared.getProfileImage { data in
+			self.imgProfile.image = UIImage(data: data)
+			self.imgProfile.contentMode = .scaleAspectFit
+		}
+		Database.shared.getProfileCover { data in
+			self.imgBackgroundCover.image = UIImage(data: data)
+			self.imgBackgroundCover.contentMode = .scaleAspectFit
 		}
 		
 	}
@@ -48,19 +55,6 @@ class SettingsTableViewController : UITableViewController, UIImagePickerControll
 		UIApplication.shared.keyWindow?.rootViewController = initial
 	}
 	
-	// Upload image
-	private func uploadImage(image: UIImage, path: String) {
-		let storageRef = Storage.storage().reference(forURL: "gs://dikke-ploaten.appspot.com")
-		var data = NSData()
-		data = image.jpegData(compressionQuality: 0.8)! as NSData
-		let childImages = storageRef.child(path)
-		let metaData = StorageMetadata()
-		metaData.contentType = "image/jpeg"
-		// Upload
-		childImages.putData(data as Data, metadata: metaData)
-	}
-	
-	
 	// MARK: - UIImagePickerControllerDelegate Methods
 	
 	func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
@@ -73,19 +67,11 @@ class SettingsTableViewController : UITableViewController, UIImagePickerControll
 				imgBackgroundCover.image = image
 			}
 		}
-		
-		// Create imagePath
-		let itemId = Auth.auth().currentUser!.uid
-		var imagePath = ""
 		if(isImgProfile) {
-			imagePath = "images/profile/\(itemId).jpg"
-			// Upload image
-			uploadImage(image: imgProfile.image!, path: imagePath)
+			Database.shared.uploadImage(image: imgProfile.image!, isImgProfile: true)
 			isImgProfile = false
 		} else {
-			imagePath = "images/cover/\(itemId).jpg"
-			// Upload image
-			uploadImage(image: imgBackgroundCover.image!, path: imagePath)
+			Database.shared.uploadImage(image: imgBackgroundCover.image!, isImgProfile: false)
 		}
 		
 		imagePicker.dismiss(animated: true, completion: nil)
@@ -124,7 +110,6 @@ class SettingsTableViewController : UITableViewController, UIImagePickerControll
 						Database.shared.getUser { user in
 							self.lblName.text = user.username
 							self.lblEmail.text = user.email
-							self.lblPassword.text = user.password
 						}
 					})
 				}
@@ -135,25 +120,19 @@ class SettingsTableViewController : UITableViewController, UIImagePickerControll
 			}
 			if indexPath.row == 1{
 				let alertController = UIAlertController(title: "Verander wachtwoord", message: "Verander hier je wachtwoord:", preferredStyle: .alert)
-				//				alertController.addTextField { textField in
-				//					textField.placeholder = "Oud wachtwoord"
-				//					textField.isSecureTextEntry = true
-				//				}
 				alertController.addTextField { textField in
 					textField.placeholder = "Nieuw wachtwoord"
 					textField.isSecureTextEntry = true
 				}
 				let confirmAction = UIAlertAction(title: "OK", style: .default) { [weak alertController] _ in
-					guard let alertController = alertController/*, let textField1 = alertController.textFields?.first*/, let textField2 = alertController.textFields?.last else { return }
-					print("New password \(String(describing: textField2.text))")
-					Database.shared.updatePassword(newPassword: textField2.text!, completionHandler: { err in
+					guard let alertController = alertController, let textField = alertController.textFields?.last else { return }
+					Database.shared.updatePassword(newPassword: textField.text!, completionHandler: { err in
 						if let err = err {
 							print(err)
 						}
 						Database.shared.getUser { user in
 							self.lblName.text = user.username
 							self.lblEmail.text = user.email
-							self.lblPassword.text = user.password
 						}
 					})
 				}

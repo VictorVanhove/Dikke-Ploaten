@@ -139,9 +139,9 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AOy-Ah-tbb">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coverimage" translatesAutoresizingMaskIntoConstraints="NO" id="AOy-Ah-tbb">
                                                     <rect key="frame" x="20" y="7" width="30" height="30"/>
-                                                    <color key="backgroundColor" red="0.18091012810000001" green="0.24689292930000001" blue="0.54291921720000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="30" id="K7Z-ko-HrZ"/>
                                                         <constraint firstAttribute="height" constant="30" id="UFS-Pw-jkr"/>
@@ -201,7 +201,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Label" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ttx-wy-i9B">
+                                                <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="testtest" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ttx-wy-i9B">
                                                     <rect key="frame" x="137.5" y="11.5" width="262.5" height="21"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -312,7 +312,6 @@
                         <outlet property="imgProfile" destination="ceb-Dq-meG" id="f7q-MO-f4i"/>
                         <outlet property="lblEmail" destination="qd1-AQ-lNd" id="x8B-97-a6z"/>
                         <outlet property="lblName" destination="Xvg-O7-ifq" id="gT6-1j-Fz8"/>
-                        <outlet property="lblPassword" destination="Ttx-wy-i9B" id="Dvh-fl-9DW"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PIb-wA-zht" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1348,52 +1347,43 @@ Phil Rudd – drums</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qri-M0-wI7">
-                                <rect key="frame" x="0.0" y="88" width="414" height="350"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="420"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Bfg-nJ-Wa4">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="180"/>
-                                        <color key="backgroundColor" red="0.18091012813327312" green="0.24689292928971021" blue="0.54291921718121827" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coverimage" translatesAutoresizingMaskIntoConstraints="NO" id="Bfg-nJ-Wa4">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="180" id="Kjp-rC-wbC"/>
+                                            <constraint firstAttribute="height" constant="250" id="U3d-on-zT1"/>
                                         </constraints>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="Dmb-Vy-FGD">
-                                        <rect key="frame" x="132" y="105" width="150" height="150"/>
+                                        <rect key="frame" x="132" y="175" width="150" height="150"/>
                                         <color key="backgroundColor" red="0.31156805199999998" green="0.31156805199999998" blue="0.31156805199999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="150" id="i8L-NS-qDo"/>
-                                            <constraint firstAttribute="height" constant="150" id="v0K-Pu-69a"/>
+                                            <constraint firstAttribute="width" constant="150" id="9TJ-ct-hOq"/>
+                                            <constraint firstAttribute="height" constant="150" id="TQW-ej-7cm"/>
                                         </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="75"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                                <integer key="value" value="1"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3OJ-Y7-96G">
-                                        <rect key="frame" x="207" y="285" width="0.0" height="30"/>
+                                        <rect key="frame" x="207" y="355" width="0.0" height="0.0"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="29"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="Dmb-Vy-FGD" firstAttribute="centerX" secondItem="qri-M0-wI7" secondAttribute="centerX" id="2Fi-Vg-F8R"/>
-                                    <constraint firstItem="Dmb-Vy-FGD" firstAttribute="top" secondItem="Bfg-nJ-Wa4" secondAttribute="bottom" constant="-75" id="2bd-9d-6c5"/>
+                                    <constraint firstItem="Dmb-Vy-FGD" firstAttribute="centerX" secondItem="qri-M0-wI7" secondAttribute="centerX" id="Thu-F3-82f"/>
+                                    <constraint firstItem="3OJ-Y7-96G" firstAttribute="top" secondItem="Dmb-Vy-FGD" secondAttribute="bottom" constant="30" id="VkD-ou-F8l"/>
                                     <constraint firstItem="Bfg-nJ-Wa4" firstAttribute="top" secondItem="qri-M0-wI7" secondAttribute="top" id="XXW-9Y-eQf"/>
                                     <constraint firstItem="Bfg-nJ-Wa4" firstAttribute="leading" secondItem="qri-M0-wI7" secondAttribute="leading" id="Y00-bw-fis"/>
-                                    <constraint firstItem="3OJ-Y7-96G" firstAttribute="top" secondItem="Dmb-Vy-FGD" secondAttribute="bottom" constant="30" id="ZBg-0h-Hzr"/>
+                                    <constraint firstAttribute="height" constant="420" id="beA-ZQ-v9n"/>
                                     <constraint firstItem="3OJ-Y7-96G" firstAttribute="centerX" secondItem="qri-M0-wI7" secondAttribute="centerX" id="dCk-VA-eZ7"/>
-                                    <constraint firstAttribute="bottom" secondItem="3OJ-Y7-96G" secondAttribute="bottom" constant="35" id="emJ-rU-hpA"/>
-                                    <constraint firstAttribute="height" constant="350" id="fpU-w2-Ns1"/>
                                     <constraint firstAttribute="trailing" secondItem="Bfg-nJ-Wa4" secondAttribute="trailing" id="o27-oC-LiZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="Bfg-nJ-Wa4" secondAttribute="bottom" constant="170" id="qK3-wh-2Pe"/>
+                                    <constraint firstItem="Dmb-Vy-FGD" firstAttribute="top" secondItem="Bfg-nJ-Wa4" secondAttribute="bottom" constant="-75" id="tX0-r5-riL"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3wn-F3-Vmf">
-                                <rect key="frame" x="0.0" y="438" width="414" height="375"/>
+                                <rect key="frame" x="0.0" y="508" width="414" height="305"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="145" id="T4L-lS-ftJ" customClass="CollectionHolderTableViewCell" customModule="Dikke_Ploaten" customModuleProvider="target">
@@ -1489,7 +1479,7 @@ Phil Rudd – drums</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aZQ-zX-caO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2570" y="1144"/>
+            <point key="canvasLocation" x="2569.5652173913045" y="1143.75"/>
         </scene>
         <!--Profile-->
         <scene sceneID="9Db-Lc-IhK">
@@ -1513,6 +1503,7 @@ Phil Rudd – drums</string>
     </scenes>
     <resources>
         <image name="collection" width="29" height="29"/>
+        <image name="coverimage" width="600" height="600"/>
         <image name="notification" width="29" height="29"/>
         <image name="profile" width="29" height="29"/>
         <image name="profile-placeholder" width="600" height="600"/>

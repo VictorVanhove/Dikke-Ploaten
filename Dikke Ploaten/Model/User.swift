@@ -13,26 +13,22 @@ class User: ImmutableMappable, Hashable, Comparable {
 	var id: String = ""
 	var username: String
 	var email: String
-	var password: String?
 	
 	// MARK: - Constructors
-	init(username: String, email: String, password: String?) {
+	init(username: String, email: String) {
 		self.username = username
 		self.email = email
-		self.password = password
 	}
 	
 	// MARK - ObjectMapper
 	required init(map: Map) throws {
 		username = try map.value("username")
 		email = try map.value("email")
-		password = try? map.value("password")
 	}
 	
 	func mapping(map: Map) {
 		username	>>> map["username"]
 		email		>>> map["email"]
-		password	>>> map["password"]
 	}
 	
 	// Hashable
