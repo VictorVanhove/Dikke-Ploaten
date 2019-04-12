@@ -55,7 +55,10 @@ class User: ImmutableMappable, Hashable, Comparable {
 	}
 	
 	static func docToUser(document: DocumentSnapshot) -> User {
-		let user = try! Mapper<User>().map(JSON: document.data()!)
+		var json = document.data()!
+		json["plates"] = []
+		json["wantList"] = []
+		let user = try! Mapper<User>().map(JSON: json)
 		user.id = document.documentID
 		return user
 	}

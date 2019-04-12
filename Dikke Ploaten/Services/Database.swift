@@ -21,6 +21,8 @@ class Database {
 	let userPlatenCollection = "platen"
 	let userWantList = "wantList"
 	
+	let cache = Cache()
+	
 	private init(){}
 	
 	// Adds album to user's collection
@@ -35,13 +37,22 @@ class Database {
 	
 	private func addToUserPlatesList(albumId: String, name: String, completionHandler: @escaping (Error?) -> ()) {
 		// Data from object in JSON
-		let data = UserAlbum(albumID: albumId).toJSON()
+		let userAlbum = UserAlbum(albumID: albumId)
+		let data = userAlbum.toJSON()
 		// Upload data to database
 		db.collection("users").document(auth.currentUser!.uid).collection(name).addDocument(data: data) { err in
 			if let err = err {
 				print("Error adding document: \(err)")
 			} else {
 				print("Album was succesfully added in collection!")
+				switch name {
+				case self.userPlatenCollection:
+					self.cache.user.plates.append(userAlbum)
+				case self.userWantList:
+					self.cache.user.wantList.append(userAlbum)
+				default:
+					break
+				}
 			}
 			completionHandler(err)
 		}
@@ -66,6 +77,15 @@ class Database {
 			}
 			let userAlbums = snapshot.documents.map(UserAlbum.docToUserAlbum)
 			var albums = [Album]()
+			
+			switch name {
+			case self.userPlatenCollection:
+				self.cache.user.plates = userAlbums
+			case self.userWantList:
+				self.cache.user.wantList = userAlbums
+			default:
+				break
+			}
 			
 			let group = DispatchGroup()
 			
@@ -96,6 +116,8 @@ class Database {
 				return
 			}
 			let albums = querySnapshot!.documents.map(Album.docToAlbum)
+			
+			self.cache.albums = albums
 			completionHandler(albums)
 		}
 	}
@@ -122,6 +144,16 @@ class Database {
 				
 				self.db.collection("users").document(self.auth.currentUser!.uid).collection(name).document(snapshot.documents.first!.documentID).delete { err in
 					completionHandler(err)
+					if err == nil {
+						switch name {
+						case self.userPlatenCollection:
+							self.cache.user.plates.remove(at: self.cache.user.plates.firstIndex { $0.albumID == albumId }!)
+						case self.userWantList:
+							self.cache.user.wantList.remove(at: self.cache.user.wantList.firstIndex { $0.albumID == albumId }!)
+						default:
+							break
+						}
+					}
 				}
 		}
 	}
@@ -142,8 +174,9 @@ extension Database {
 				if let err = err {
 					print("Error adding document: \(err)")
 				}
+				self.cache.user = User(username: username, email: email, plates: [], wantList: [])
+				successHandler()
 			}
-			successHandler()
 		}
 	}
 	
@@ -154,6 +187,7 @@ extension Database {
 				return
 			}
 			let user = User.docToUser(document: snapshot)
+			self.cache.user = user
 			completionHandler(user)
 		}
 	}
@@ -187,6 +221,7 @@ extension Database {
 			} else {
 				print("Username was succesfully updated!")
 			}
+			self.cache.user.username = username
 			completionHandler(err)
 		}
 	}

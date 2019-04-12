@@ -31,6 +31,7 @@
 		0DF765022256452700608C75 /* AlbumCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF765012256452700608C75 /* AlbumCollectionViewCell.swift */; };
 		0DF765042256473600608C75 /* CollectionHolderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF765032256473600608C75 /* CollectionHolderTableViewCell.swift */; };
 		2B472B5322607BF6001B1FF6 /* UserAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B472B5222607BF6001B1FF6 /* UserAlbum.swift */; };
+		2B472B5522608C98001B1FF6 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B472B5422608C98001B1FF6 /* Cache.swift */; };
 		2BEE2813224A5D6B007EA0E9 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BEE2812224A5D6B007EA0E9 /* Database.swift */; };
 		C39E9E3E4E74F7EDE6CACB61 /* Pods_Dikke_Ploaten.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 989F7FDF88058EF8EF722F8E /* Pods_Dikke_Ploaten.framework */; };
 /* End PBXBuildFile section */
@@ -62,6 +63,7 @@
 		0DF765012256452700608C75 /* AlbumCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCollectionViewCell.swift; sourceTree = "<group>"; };
 		0DF765032256473600608C75 /* CollectionHolderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionHolderTableViewCell.swift; sourceTree = "<group>"; };
 		2B472B5222607BF6001B1FF6 /* UserAlbum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAlbum.swift; sourceTree = "<group>"; };
+		2B472B5422608C98001B1FF6 /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
 		2BEE2812224A5D6B007EA0E9 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		64A325EAF70B758CF86E2702 /* Pods-Dikke Ploaten.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dikke Ploaten.release.xcconfig"; path = "Target Support Files/Pods-Dikke Ploaten/Pods-Dikke Ploaten.release.xcconfig"; sourceTree = "<group>"; };
 		80B8C8308877F89BA86ABD07 /* Pods-Dikke Ploaten.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dikke Ploaten.debug.xcconfig"; path = "Target Support Files/Pods-Dikke Ploaten/Pods-Dikke Ploaten.debug.xcconfig"; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				2BEE2812224A5D6B007EA0E9 /* Database.swift */,
+				2B472B5422608C98001B1FF6 /* Cache.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 				0D35360E223A53E300DA5453 /* SignupViewController.swift in Sources */,
 				0D6F68C622394F1200687EFD /* WantlistViewController.swift in Sources */,
 				0DF765042256473600608C75 /* CollectionHolderTableViewCell.swift in Sources */,
+				2B472B5522608C98001B1FF6 /* Cache.swift in Sources */,
 				0D353614223A8D4A00DA5453 /* NotificationViewController.swift in Sources */,
 				0DF765022256452700608C75 /* AlbumCollectionViewCell.swift in Sources */,
 				0D6F68C222394F1200687EFD /* AppDelegate.swift in Sources */,

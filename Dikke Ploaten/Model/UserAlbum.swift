@@ -9,7 +9,7 @@
 import Firebase
 import ObjectMapper
 
-class UserAlbum: ImmutableMappable {
+class UserAlbum: ImmutableMappable, Equatable {
 	var id: String = ""
 	var albumID: String
 	
@@ -30,5 +30,9 @@ class UserAlbum: ImmutableMappable {
 		let userAlbum = try! Mapper<UserAlbum>().map(JSON: document.data())
 		userAlbum.id = document.documentID
 		return userAlbum
+	}
+	
+	static func == (lhs: UserAlbum, rhs: UserAlbum) -> Bool {
+		return lhs.id == rhs.id
 	}
 }
