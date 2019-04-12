@@ -28,16 +28,18 @@ class SettingsTableViewController : UITableViewController, UIImagePickerControll
 			self.lblName.text = user.username
 			self.lblEmail.text = user.email
 		}
-		
 		Database.shared.getProfileImage { data in
-			self.imgProfile.image = UIImage(data: data)
-			self.imgProfile.contentMode = .scaleAspectFit
+			if let data = data {
+				self.imgProfile.image = UIImage(data: data)
+				self.imgProfile.contentMode = .scaleAspectFill
+			}
 		}
 		Database.shared.getProfileCover { data in
-			self.imgBackgroundCover.image = UIImage(data: data)
-			self.imgBackgroundCover.contentMode = .scaleAspectFit
+			if let data = data {
+				self.imgBackgroundCover.image = UIImage(data: data)
+				self.imgBackgroundCover.contentMode = .scaleAspectFill
+			}
 		}
-		
 	}
 	
 	@IBAction func signOutUser(_ sender: Any) {

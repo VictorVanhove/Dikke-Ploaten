@@ -192,25 +192,17 @@ extension Database {
 		}
 	}
 	
-	func getProfileImage(completionHandler: @escaping (_ data: Data) -> ()) {
+	func getProfileImage(completionHandler: @escaping (_ data: Data?) -> ()) {
 		let profileRef = storageRef.child("images/profile/\(auth.currentUser!.uid).jpg")
 		profileRef.getData(maxSize: 15 * 1024 * 1024) { data, error in
-			if let error = error {
-				print("Error fetching data profileimage: \(error)")
-				return
-			}
-			completionHandler(data!)
+			completionHandler(data)
 		}
 	}
 	
-	func getProfileCover(completionHandler: @escaping (_ data: Data) -> ()) {
+	func getProfileCover(completionHandler: @escaping (_ data: Data?) -> ()) {
 		let coverRef = storageRef.child("images/cover/\(auth.currentUser!.uid).jpg")
 		coverRef.getData(maxSize: 15 * 1024 * 1024) { data, error in
-			if let error = error {
-				print("Error fetching data profilecover: \(error)")
-				return
-			}
-			completionHandler(data!)
+			completionHandler(data)
 		}
 	}
 	

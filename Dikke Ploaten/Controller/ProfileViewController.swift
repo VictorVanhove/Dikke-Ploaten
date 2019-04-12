@@ -45,12 +45,16 @@ class ProfileViewController: UIViewController {
 			self.tableView.reloadData()
 		}
 		Database.shared.getProfileImage { data in
-			self.imgProfile.image = UIImage(data: data)
-			self.imgProfile.contentMode = .scaleAspectFill
+			if let data = data {
+				self.imgProfile.image = UIImage(data: data)
+				self.imgProfile.contentMode = .scaleAspectFill
+			}
 		}
 		Database.shared.getProfileCover { data in
-			self.imgBackgroundCover.image = UIImage(data: data)
-			self.imgBackgroundCover.contentMode = .scaleAspectFill
+			if let data = data {
+				self.imgBackgroundCover.image = UIImage(data: data)
+				self.imgBackgroundCover.contentMode = .scaleAspectFill
+			}
 		}
 	}
 	
