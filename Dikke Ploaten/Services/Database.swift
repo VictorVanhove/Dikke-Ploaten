@@ -18,14 +18,26 @@ class Database {
 	
 	static let shared = Database()
 	
+	let userPlatenCollection = "platen"
+	let userWantList = "wantList"
+	
 	private init(){}
 	
 	// Adds album to user's collection
 	func addToCollection(album: Album, completionHandler: @escaping (Error?) -> ()) {
+		addToUserPlatesList(albumId: album.id, name: userPlatenCollection, completionHandler: completionHandler)
+	}
+	
+	// Adds album to user's wantlist
+	func addToWantlist(album: Album, completionHandler: @escaping (Error?) -> ()) {
+		addToUserPlatesList(albumId: album.id, name: userWantList, completionHandler: completionHandler)
+	}
+	
+	private func addToUserPlatesList(albumId: String, name: String, completionHandler: @escaping (Error?) -> ()) {
 		// Data from object in JSON
-		let data = album.toJSON()
+		let data = UserAlbum(albumID: albumId).toJSON()
 		// Upload data to database
-		db.collection("userPlaten").addDocument(data: data) { err in
+		db.collection("users").document(auth.currentUser!.uid).collection(name).addDocument(data: data) { err in
 			if let err = err {
 				print("Error adding document: \(err)")
 			} else {
@@ -35,62 +47,50 @@ class Database {
 		}
 	}
 	
-	// Adds album to user's wantlist
-	func addToWantlist(album: Album, completionHandler: @escaping (Error?) -> ()) {
-		// Data from object in JSON
-		let data = album.toJSON()
-		// Upload data to database
-		db.collection("userWantlist").addDocument(data: data) { err in
-			if let err = err {
-				print("Error adding document: \(err)")
-			} else {
-				print("Album was succesfully added in wantlist!")
-			}
-			completionHandler(err)
-		}
-	}
-	
 	// Updates user's collection when album gets added/deleted
-	func getUserPlates(completionHandler: @escaping (_ updatedCollection: [Album]) -> ()) {
-		db.collection("userPlaten").limit(to: 1000).getDocuments { querySnapshot, error in
-			guard let snapshot = querySnapshot else {
-				print("Error fetching snapshots: \(error!)")
-				return
-			}
-			let albums = snapshot.documents.map(Album.docToAlbum)
-			// Filters albums or else it will show all the albums instead of just the user
-			var filteredAlbums = [Album]()
-			for album in albums {
-				if(album.userID == self.auth.currentUser!.uid){
-					filteredAlbums.append(album)
-				}
-			}
-			completionHandler(filteredAlbums)
-		}
+	func getUserPlates(completionHandler: @escaping ([Album]) -> ()) {
+		getUserAlbumCollection(name: userPlatenCollection, completionHandler: completionHandler)
 	}
 	
 	// Updates user's wantlist when album gets added/deleted
-	func getUserWantlist(completionHandler: @escaping (_ updatedCollection: [Album]) -> ()) {
-		db.collection("userWantlist").limit(to: 1000).getDocuments { querySnapshot, error in
+	func getUserWantlist(completionHandler: @escaping ([Album]) -> ()) {
+		getUserAlbumCollection(name: userWantList, completionHandler: completionHandler)
+	}
+	
+	private func getUserAlbumCollection(name: String, completionHandler: @escaping ([Album]) -> ()) {
+		let userPlates = db.collection("users").document(auth.currentUser!.uid).collection(name)
+		userPlates.getDocuments { querySnapshot, error in
 			guard let snapshot = querySnapshot else {
 				print("Error fetching snapshots: \(error!)")
 				return
 			}
-			let albums = snapshot.documents.map(Album.docToAlbum)
-			// Filters albums or else it will show all the albums instead of just the user
-			var filteredAlbums = [Album]()
-			for album in albums {
-				if(album.userID == self.auth.currentUser!.uid){
-					filteredAlbums.append(album)
+			let userAlbums = snapshot.documents.map(UserAlbum.docToUserAlbum)
+			var albums = [Album]()
+			
+			let group = DispatchGroup()
+			
+			for userAlbum in userAlbums {
+				group.enter()
+				self.db.collection("platen").document(userAlbum.albumID).getDocument { querySnapshot, error in
+					guard let snapshot = querySnapshot else {
+						print("Error fetching snapshots: \(error!)")
+						group.leave()
+						return
+					}
+					albums.append(Album.docToAlbum(document: snapshot))
+					group.leave()
 				}
 			}
-			completionHandler(filteredAlbums)
+			
+			group.notify(queue: .main) {
+				completionHandler(albums)
+			}
 		}
 	}
 	
 	// Gets the whole list of albums out of database
 	func getAlbumList(completionHandler: @escaping (_ updatedCollection: [Album]) -> ()){
-		db.collection("platen").getDocuments() { (querySnapshot, err) in
+		db.collection("platen").getDocuments { (querySnapshot, err) in
 			if let err = err {
 				print("Error getting documents: \(err)")
 				return
@@ -102,29 +102,34 @@ class Database {
 	
 	// Deletes selected album out of collection
 	func deleteCollectionAlbum(albumId: String, completionHandler: @escaping (Error?) -> ()) {
-		db.collection("userPlaten").document(albumId).delete() { err in
-			if let err = err {
-				print("Error removing document: \(err.localizedDescription)")
-			} else {
-				print("Document with id:\(albumId) successfully removed!")
-			}
-			completionHandler(err)
-		}
-		
+		deleteUserAlbum(name: userPlatenCollection, albumId: albumId, completionHandler: completionHandler)
 	}
 	
 	// Deletes selected album out of wantlist
 	func deleteWantlistAlbum(albumId: String, completionHandler: @escaping (Error?) -> ()) {
-		db.collection("userWantlist").document(albumId).delete() { err in
-			if let err = err {
-				print("Error removing document: \(err.localizedDescription)")
-			} else {
-				print("Document with id:\(albumId) successfully removed!")
-			}
-			completionHandler(err)
-		}
-		
+		deleteUserAlbum(name: userWantList, albumId: albumId, completionHandler: completionHandler)
 	}
+	
+	private func deleteUserAlbum(name: String, albumId: String, completionHandler: @escaping (Error?) -> ()) {
+		db.collection("users").document(auth.currentUser!.uid).collection(name)
+			.whereField("albumID", isEqualTo: albumId)
+			.getDocuments { snapshot, err in
+				guard let snapshot = snapshot else {
+					print("Error removing document: \(err?.localizedDescription ?? "")")
+					completionHandler(err)
+					return
+				}
+				
+				self.db.collection("users").document(self.auth.currentUser!.uid).collection(name).document(snapshot.documents.first!.documentID).delete { err in
+					completionHandler(err)
+				}
+		}
+	}
+}
+
+// MARK: - User
+
+extension Database {
 	
 	func createUser(username: String, email: String, password: String, successHandler: @escaping () -> (), failureHandler: @escaping (Error) -> ()) {
 		auth.createUser(withEmail: email, password: password) { user, error in
@@ -195,8 +200,6 @@ class Database {
 			}
 			completionHandler(err)
 		}
-		
-//		db.collection("users").document(auth.currentUser!.uid).updateData((["password": newPassword]))
 	}
 	
 	func isUserLoggedIn() -> Bool {

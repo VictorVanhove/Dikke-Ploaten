@@ -20,7 +20,6 @@ class Album: ImmutableMappable, Hashable, Comparable {
 	var tracklist: String
 	var musicians: String
 	var images: [String]
-	var userID: String?
 	
 	// MARK: - Constructors
 	init(title: String, artist: String, cover: String, images: [String], description: String, genre: String, releaseYear: String, tracklist: String, musicians: String) {
@@ -29,7 +28,6 @@ class Album: ImmutableMappable, Hashable, Comparable {
 		self.cover = cover
 		self.images = images
 		self.description = description
-		self.userID = Auth.auth().currentUser?.uid ?? ""
 		self.genre = genre
 		self.releaseYear = releaseYear
 		self.tracklist = tracklist
@@ -43,7 +41,6 @@ class Album: ImmutableMappable, Hashable, Comparable {
 		cover = try map.value("image")
 		images = try! map.value("images")
 		description = try! map.value("description")
-		userID = try? map.value("user")
 		genre = try! map.value("genre")
 		releaseYear = try! map.value("released_in")
 		tracklist = try! map.value("tracklist")
@@ -56,7 +53,6 @@ class Album: ImmutableMappable, Hashable, Comparable {
 		cover       >>> map["image"]
 		images 	    >>> map["images"]
 		description >>> map["description"]
-		userID      >>> map["user"]
 		genre       >>> map["genre"]
 		releaseYear >>> map["released_in"]
 		tracklist   >>> map["tracklist"]
@@ -78,11 +74,9 @@ class Album: ImmutableMappable, Hashable, Comparable {
 		return lhs.artist < rhs.artist
 	}
 	
-	static func docToAlbum(document: QueryDocumentSnapshot) -> Album {
-		let album = try! Mapper<Album>().map(JSON: document.data())
+	static func docToAlbum(document: DocumentSnapshot) -> Album {
+		let album = try! Mapper<Album>().map(JSON: document.data()!)
 		album.id = document.documentID
 		return album
 	}
-	
-	
 }

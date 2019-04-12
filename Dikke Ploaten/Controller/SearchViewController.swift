@@ -82,7 +82,6 @@ class SearchViewController: UITableViewController, UISearchResultsUpdating {
 			if (self.searchController.isActive) {
 				album = self.filteredAlbums[indexPath.row]
 			}
-			album.userID = Auth.auth().currentUser!.uid
 			// Write instance to database
 			Database.shared.addToCollection(album: album, completionHandler: { err in
 				if let err = err {
@@ -104,7 +103,6 @@ class SearchViewController: UITableViewController, UISearchResultsUpdating {
 			if (self.searchController.isActive) {
 				album = self.filteredAlbums[indexPath.row]
 			}
-			album.userID = Auth.auth().currentUser?.uid
 			// Write instance to database
 			Database.shared.addToWantlist(album: album, completionHandler: { err in
 				if let err = err {
