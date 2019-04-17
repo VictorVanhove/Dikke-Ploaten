@@ -28,7 +28,8 @@ class CollectionViewController: BaseAlbumListTableViewController {
 	}
 	
 	func deleteAction(at indexPath: IndexPath) -> UIContextualAction {
-		let action = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completion) in
+		
+		let action = UIContextualAction(style: .destructive, title: "\u{232B}\n" + NSLocalizedString("Remove", comment: "")) { (action, view, completion) in
 			//Removes selected album from list
 			let album = self.albumDictionary[self.albumSection[indexPath.section]]![indexPath.row]
 			Database.shared.deleteCollectionAlbum(albumId: album.id , completionHandler: { err in
@@ -42,7 +43,8 @@ class CollectionViewController: BaseAlbumListTableViewController {
 				self.reloadTableView()
 				
 				//Show toast alert
-				self.showToast(controller: self, message: "'\(album.title)' by \(album.artist) was removed from your collection", seconds: 2)
+				let alertMessage = NSLocalizedString("'\(album.title)' by \(album.artist) was removed from your collection", comment: "")
+				self.showToast(controller: self, message: alertMessage, seconds: 2)
 			})
 		}
 		action.backgroundColor = .red

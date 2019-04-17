@@ -71,11 +71,11 @@ class SearchViewController: UITableViewController, UISearchResultsUpdating {
 		}
 		
 		if Database.shared.cache.user.plates.first(where: {$0.albumID == album.id}) != nil {
-			cell.updateUI(forAlbum: album, image: "inCollection")
+			cell.updateUISearch(forAlbum: album, image: "inCollection")
 		} else if Database.shared.cache.user.wantList.first(where: {$0.albumID == album.id}) != nil {
-			cell.updateUI(forAlbum: album, image: "inWantlist")
+			cell.updateUISearch(forAlbum: album, image: "inWantlist")
 		} else {
-			cell.updateUI(forAlbum: album)
+			cell.updateUISearch(forAlbum: album)
 		}
 		
 		return cell
@@ -132,7 +132,7 @@ extension SearchViewController {
 			return remove
 		} else {
 			// Not yet in plates, show add item
-			let add = UITableViewRowAction(style: .default, title: "\u{2630}\n Add", handler: {
+			let add = UITableViewRowAction(style: .default, title: "\u{2630}\n" + NSLocalizedString("Add", comment: ""), handler: {
 				(action, index) in
 				// Write instance to database
 				Database.shared.addToCollection(album: album, completionHandler: { err in
@@ -177,7 +177,7 @@ extension SearchViewController {
 			return remove
 		} else {
 			// Not yet in wantlist, show add item
-			let want = UITableViewRowAction(style: .default, title: "\u{2665}\n Want", handler: {
+			let want = UITableViewRowAction(style: .default, title: "\u{2665}\n" + NSLocalizedString("Want", comment: ""), handler: {
 				(action, index) in
 				var album = self.albums[index.row]
 				if (self.searchController.isActive) {

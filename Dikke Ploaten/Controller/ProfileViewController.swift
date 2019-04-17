@@ -20,7 +20,7 @@ class ProfileViewController: UIViewController {
 	// MARK: - Properties
 	var collectionAlbums: [Album] = []
 	var wantlistAlbums: [Album] = []
-	var collections = ["Collection", "Wantlist"]
+	var collections = [NSLocalizedString("Collection", comment: ""), NSLocalizedString("Wantlist", comment: "")]
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()

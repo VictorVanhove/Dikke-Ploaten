@@ -75,7 +75,18 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
 				self.performSegue(withIdentifier: "signupToHome", sender: self)
 			}, failureHandler: { error in
 				// Error creating user
-				let alertController = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+				let alertTitle = NSLocalizedString("Whoops", comment: "")
+				var alertMessage = NSLocalizedString("", comment: "")
+				if(error.localizedDescription == "The email address is badly formatted."){
+					alertMessage = NSLocalizedString("The email address is badly formatted.", comment: "")
+				}
+				if(error.localizedDescription == "The password must be 6 characters long or more."){
+					alertMessage = NSLocalizedString("The password must be 6 characters long or more.", comment: "")
+				}
+				if(error.localizedDescription == "The email address is already in use by another account."){
+					alertMessage = NSLocalizedString("The email address is already in use by another account.", comment: "")
+				}
+				let alertController = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
 				let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
 				
 				alertController.addAction(defaultAction)
@@ -116,7 +127,9 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
 		}
 		
 		// Show alert if form is not filled in correctly
-		let alertController = UIAlertController(title: "Whoops", message: "Please make sure all required fields are filled out correctly.", preferredStyle: .alert)
+		let alertTitle = NSLocalizedString("Whoops", comment: "")
+		let alertMessage = NSLocalizedString("Please make sure all required fields are filled out correctly.", comment: "")
+		let alertController = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
 		alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
 		self.present(alertController, animated: true, completion: nil)
 		

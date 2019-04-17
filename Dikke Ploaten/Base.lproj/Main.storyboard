@@ -54,13 +54,6 @@
                                                 <constraint firstAttribute="width" id="nbG-CE-4U7"/>
                                             </constraints>
                                         </view>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="x1c-0f-oug">
-                                            <rect key="frame" x="364" y="25" width="30" height="30"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="30" id="2Zk-gT-KOX"/>
-                                                <constraint firstAttribute="width" constant="30" id="xsu-50-psc"/>
-                                            </constraints>
-                                        </imageView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="ANk-NU-Vdx" firstAttribute="leading" secondItem="E6o-ql-PDN" secondAttribute="trailing" constant="18" id="1pj-yU-8Yb"/>
@@ -69,17 +62,14 @@
                                         <constraint firstItem="E6o-ql-PDN" firstAttribute="top" secondItem="fDF-h2-OPQ" secondAttribute="top" constant="14" id="Jw1-7C-vp5"/>
                                         <constraint firstItem="E6o-ql-PDN" firstAttribute="leading" secondItem="fDF-h2-OPQ" secondAttribute="leading" constant="16" id="P7C-oQ-ly0"/>
                                         <constraint firstItem="iqU-xA-0cV" firstAttribute="bottom" secondItem="aAA-Pn-S2A" secondAttribute="bottom" id="PxZ-s1-anP"/>
-                                        <constraint firstAttribute="trailing" secondItem="x1c-0f-oug" secondAttribute="trailing" constant="20" id="bw3-cW-K2t"/>
                                         <constraint firstItem="aAA-Pn-S2A" firstAttribute="leading" secondItem="E6o-ql-PDN" secondAttribute="trailing" constant="18" id="j4p-fO-jjl"/>
                                         <constraint firstAttribute="bottom" secondItem="E6o-ql-PDN" secondAttribute="bottom" priority="999" constant="15.5" id="qhv-ja-0Fh"/>
-                                        <constraint firstItem="x1c-0f-oug" firstAttribute="top" secondItem="fDF-h2-OPQ" secondAttribute="top" constant="25" id="tDa-TY-sjH"/>
                                         <constraint firstItem="aAA-Pn-S2A" firstAttribute="top" secondItem="ANk-NU-Vdx" secondAttribute="bottom" constant="8" id="w75-4q-1c0"/>
                                         <constraint firstItem="iqU-xA-0cV" firstAttribute="centerY" secondItem="E6o-ql-PDN" secondAttribute="centerY" id="x0u-x5-RIp"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="imgCover" destination="E6o-ql-PDN" id="xn6-le-822"/>
-                                    <outlet property="imgNotifier" destination="x1c-0f-oug" id="VCk-J6-bNi"/>
                                     <outlet property="lblArtist" destination="aAA-Pn-S2A" id="XNO-XK-qnp"/>
                                     <outlet property="lblTitle" destination="ANk-NU-Vdx" id="W4G-H0-Dw7"/>
                                 </connections>
@@ -114,18 +104,23 @@
                                             <rect key="frame" x="0.0" y="0.0" width="376" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Foto" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5YP-4m-N5H">
-                                                    <rect key="frame" x="70" y="11.5" width="35" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Photo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5YP-4m-N5H">
+                                                    <rect key="frame" x="70" y="11.5" width="46" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="ceb-Dq-meG">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="ceb-Dq-meG">
                                                     <rect key="frame" x="20" y="7" width="30" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="30" id="L8G-aT-Sjn"/>
                                                         <constraint firstAttribute="height" constant="30" id="LhO-Bg-zR6"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="15"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
@@ -168,7 +163,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Uw persoonlijke informatie" id="Cx4-9h-9Bi">
+                            <tableViewSection headerTitle="Your personal information" id="Cx4-9h-9Bi">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="HEo-Jb-yGb">
                                         <rect key="frame" x="0.0" y="179" width="414" height="44"/>
@@ -177,24 +172,24 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xvg-O7-ifq">
-                                                    <rect key="frame" x="138" y="11.5" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nSw-g2-MYy">
+                                                    <rect key="frame" x="20" y="11.5" width="84" height="21"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Naam" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nSw-g2-MYy">
-                                                    <rect key="frame" x="20" y="11.5" width="48" height="21"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xvg-O7-ifq">
+                                                    <rect key="frame" x="138" y="12" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Xvg-O7-ifq" firstAttribute="leading" secondItem="nSw-g2-MYy" secondAttribute="trailing" constant="70" id="GFT-eG-E7Y"/>
                                                 <constraint firstItem="Xvg-O7-ifq" firstAttribute="centerY" secondItem="n50-GX-8lF" secondAttribute="centerY" id="HMg-SI-otY"/>
                                                 <constraint firstItem="nSw-g2-MYy" firstAttribute="centerY" secondItem="n50-GX-8lF" secondAttribute="centerY" id="QTm-GV-0Ry"/>
                                                 <constraint firstItem="nSw-g2-MYy" firstAttribute="leading" secondItem="n50-GX-8lF" secondAttribute="leading" constant="20" id="XEg-Wy-xW0"/>
+                                                <constraint firstItem="Xvg-O7-ifq" firstAttribute="leading" secondItem="n50-GX-8lF" secondAttribute="leading" constant="137" id="jlo-Dx-16T"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -205,14 +200,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wachtwoord" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cnx-LC-LP9">
-                                                    <rect key="frame" x="20" y="11.5" width="103.5" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cnx-LC-LP9">
+                                                    <rect key="frame" x="20" y="11.5" width="80" height="21"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="testtest" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ttx-wy-i9B">
-                                                    <rect key="frame" x="137.5" y="11.5" width="262.5" height="21"/>
+                                                    <rect key="frame" x="137" y="11.5" width="263" height="21"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
@@ -220,10 +215,10 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="cnx-LC-LP9" firstAttribute="centerY" secondItem="2XW-79-96D" secondAttribute="centerY" id="CLe-lu-9sY"/>
+                                                <constraint firstItem="Ttx-wy-i9B" firstAttribute="leading" secondItem="2XW-79-96D" secondAttribute="leading" constant="137" id="Fg2-7r-v2p"/>
                                                 <constraint firstAttribute="trailing" secondItem="Ttx-wy-i9B" secondAttribute="trailing" constant="14" id="LKo-Wx-Rc3"/>
                                                 <constraint firstItem="cnx-LC-LP9" firstAttribute="leading" secondItem="2XW-79-96D" secondAttribute="leading" constant="20" id="dus-4R-ysp"/>
                                                 <constraint firstItem="Ttx-wy-i9B" firstAttribute="centerY" secondItem="2XW-79-96D" secondAttribute="centerY" id="nkP-Hb-hNv"/>
-                                                <constraint firstItem="Ttx-wy-i9B" firstAttribute="leading" secondItem="cnx-LC-LP9" secondAttribute="trailing" constant="14" id="quw-hj-1d9"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -235,13 +230,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qd1-AQ-lNd">
-                                                    <rect key="frame" x="137.5" y="11.5" width="42" height="21"/>
+                                                    <rect key="frame" x="137" y="11.5" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Emailadres" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bG2-vq-oOL">
-                                                    <rect key="frame" x="20" y="11.5" width="90.5" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bG2-vq-oOL">
+                                                    <rect key="frame" x="20" y="11.5" width="44.5" height="21"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -249,9 +244,9 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="bG2-vq-oOL" firstAttribute="leading" secondItem="BLO-Wt-V9P" secondAttribute="leading" constant="20" id="Tub-Ut-gd2"/>
+                                                <constraint firstItem="qd1-AQ-lNd" firstAttribute="leading" secondItem="BLO-Wt-V9P" secondAttribute="leading" constant="137" id="UAD-1E-8EW"/>
                                                 <constraint firstItem="qd1-AQ-lNd" firstAttribute="centerY" secondItem="BLO-Wt-V9P" secondAttribute="centerY" id="UdZ-Xl-2nU"/>
                                                 <constraint firstItem="bG2-vq-oOL" firstAttribute="centerY" secondItem="BLO-Wt-V9P" secondAttribute="centerY" id="eeH-vw-n3g"/>
-                                                <constraint firstItem="qd1-AQ-lNd" firstAttribute="leading" secondItem="bG2-vq-oOL" secondAttribute="trailing" constant="27" id="zvY-dA-kto"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -266,7 +261,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="376" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Over deze app" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UgC-02-2xv">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About this app" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UgC-02-2xv">
                                                     <rect key="frame" x="20" y="11.5" width="336" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -293,7 +288,7 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pfc-Aw-maI">
                                                     <rect key="frame" x="20" y="5.5" width="374" height="33"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <state key="normal" title="Uitloggen">
+                                                    <state key="normal" title="Log out">
                                                         <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                     <connections>
@@ -358,7 +353,6 @@
                             <constraint firstItem="Jbd-Hl-VTo" firstAttribute="leading" secondItem="Pkk-1i-ha7" secondAttribute="leading" constant="20" id="Dj1-F3-7hg"/>
                             <constraint firstItem="Abf-qx-vhp" firstAttribute="leading" secondItem="Pkk-1i-ha7" secondAttribute="leading" constant="20" id="GXi-xA-VGt"/>
                             <constraint firstItem="Abf-qx-vhp" firstAttribute="top" secondItem="Pkk-1i-ha7" secondAttribute="top" constant="22" id="S75-A0-dNR"/>
-                            <constraint firstItem="Pkk-1i-ha7" firstAttribute="trailing" secondItem="Jbd-Hl-VTo" secondAttribute="trailing" constant="279" id="lMX-mc-F9n"/>
                             <constraint firstItem="Abf-qx-vhp" firstAttribute="trailing" secondItem="Pkk-1i-ha7" secondAttribute="trailing" constant="-20" id="rCf-XI-yW9"/>
                             <constraint firstItem="Jbd-Hl-VTo" firstAttribute="top" secondItem="Abf-qx-vhp" secondAttribute="bottom" constant="8" id="xjH-Yc-Mk4"/>
                         </constraints>
@@ -526,8 +520,8 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pw4-MG-PNz">
                                                         <rect key="frame" x="173" y="0.0" width="100" height="50"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Uitgebracht" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cR0-rF-SwB">
-                                                                <rect key="frame" x="1" y="0.0" width="98" height="20.5"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Released" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cR0-rF-SwB">
+                                                                <rect key="frame" x="12.5" y="0.0" width="75" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -588,8 +582,8 @@ Side B
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Muzikanten" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vGd-Ge-5Ez">
-                                                <rect key="frame" x="19" y="922.5" width="95.5" height="20.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Members" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vGd-Ge-5Ez">
+                                                <rect key="frame" x="19" y="922.5" width="77" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -609,13 +603,11 @@ Phil Rudd – drums</string>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DPE-hb-PL5">
-                                                <rect key="frame" x="259" y="20" width="141" height="30"/>
+                                                <rect key="frame" x="301" y="20" width="99" height="28"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="141" id="Bkt-gV-7mo"/>
-                                                    <constraint firstAttribute="height" constant="30" id="P8s-k3-n1G"/>
-                                                </constraints>
-                                                <state key="normal" title="Meer afbeeldingen"/>
+                                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                                                <inset key="contentEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
+                                                <state key="normal" title="More images"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                         <integer key="value" value="5"/>
@@ -818,32 +810,22 @@ Phil Rudd – drums</string>
                                                 <constraint firstAttribute="height" constant="50" id="vYM-7s-B2B"/>
                                             </constraints>
                                         </view>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JzP-Kk-eLw">
-                                            <rect key="frame" x="364" y="25" width="30" height="30"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="30" id="76e-Bn-bKN"/>
-                                                <constraint firstAttribute="height" constant="30" id="JhD-ys-Idv"/>
-                                            </constraints>
-                                        </imageView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="czc-uW-09D" firstAttribute="leading" secondItem="snf-3V-kyj" secondAttribute="leading" constant="16" id="2Br-Lh-Pp7"/>
                                         <constraint firstItem="jHN-GI-Oxr" firstAttribute="leading" secondItem="czc-uW-09D" secondAttribute="trailing" constant="18" id="5n9-52-A3V"/>
                                         <constraint firstAttribute="bottom" secondItem="czc-uW-09D" secondAttribute="bottom" priority="999" constant="15" id="G7u-mf-sOM"/>
                                         <constraint firstItem="yJN-G4-e7V" firstAttribute="leading" secondItem="czc-uW-09D" secondAttribute="trailing" constant="10" id="MgR-RT-E9H"/>
-                                        <constraint firstItem="JzP-Kk-eLw" firstAttribute="top" secondItem="snf-3V-kyj" secondAttribute="top" constant="25" id="TCU-GM-Dq1"/>
                                         <constraint firstItem="czc-uW-09D" firstAttribute="top" secondItem="snf-3V-kyj" secondAttribute="top" constant="14" id="Tdn-Ap-05y"/>
                                         <constraint firstItem="jHN-GI-Oxr" firstAttribute="top" secondItem="96Z-aX-oJF" secondAttribute="bottom" constant="8" id="V3q-p6-CiJ"/>
                                         <constraint firstItem="yJN-G4-e7V" firstAttribute="bottom" secondItem="jHN-GI-Oxr" secondAttribute="bottom" id="W1M-FS-5wS"/>
                                         <constraint firstItem="yJN-G4-e7V" firstAttribute="centerY" secondItem="czc-uW-09D" secondAttribute="centerY" id="XsB-bL-H6J"/>
-                                        <constraint firstAttribute="trailing" secondItem="JzP-Kk-eLw" secondAttribute="trailing" constant="20" id="ga9-Tm-Qmg"/>
                                         <constraint firstItem="96Z-aX-oJF" firstAttribute="leading" secondItem="czc-uW-09D" secondAttribute="trailing" constant="18" id="vJP-34-bf1"/>
                                         <constraint firstItem="yJN-G4-e7V" firstAttribute="top" secondItem="96Z-aX-oJF" secondAttribute="top" id="yZL-Yj-b47"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="imgCover" destination="czc-uW-09D" id="Bam-IT-1ZQ"/>
-                                    <outlet property="imgNotifier" destination="JzP-Kk-eLw" id="jFY-CJ-Toe"/>
                                     <outlet property="lblArtist" destination="jHN-GI-Oxr" id="u1d-Lk-w6B"/>
                                     <outlet property="lblTitle" destination="96Z-aX-oJF" id="3DE-Gm-cuS"/>
                                 </connections>
@@ -854,9 +836,7 @@ Phil Rudd – drums</string>
                             <outlet property="delegate" destination="I6q-8Q-287" id="kZt-0p-tCU"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Wantlist" id="v94-SZ-QqA">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="NUV-cg-fqT"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Wantlist" id="v94-SZ-QqA"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iKS-81-zrO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -918,9 +898,9 @@ Phil Rudd – drums</string>
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wzN-4K-O1i">
-                                                <rect key="frame" x="116.5" y="731" width="181" height="29"/>
+                                                <rect key="frame" x="135.5" y="731" width="143" height="29"/>
                                                 <fontDescription key="fontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="17"/>
-                                                <state key="normal" title="Nog geen account? Meld je nu aan">
+                                                <state key="normal" title="Not a member yet? Sign Up">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
@@ -933,13 +913,13 @@ Phil Rudd – drums</string>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Wachtwoord" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ASs-NF-Rxy">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ASs-NF-Rxy">
                                                 <rect key="frame" x="38" y="393" width="339" height="23"/>
                                                 <fontDescription key="fontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="23"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Emailadres" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="zMA-ye-D37">
+                                            <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="zMA-ye-D37">
                                                 <rect key="frame" x="38" y="350" width="339" height="30"/>
                                                 <color key="textColor" red="0.31156805199999998" green="0.31156805199999998" blue="0.31156805199999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="17"/>
@@ -948,18 +928,17 @@ Phil Rudd – drums</string>
                                                     <outlet property="delegate" destination="uo5-RX-civ" id="1mP-m8-jbL"/>
                                                 </connections>
                                             </textField>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ald-hc-HRT">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Welcome and thanks for joining the 'Dikke Ploaten'-community.  Log in quickly en take a look at what this app has to offer!" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ald-hc-HRT">
                                                 <rect key="frame" x="38" y="226" width="339" height="78"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="78" id="jSG-lA-yCT"/>
                                                 </constraints>
-                                                <string key="text">Welkom en bedankt om lid te worden van de 'Dikke Ploaten'-community. Log je snel in en neem eens een kijkje in wat deze app te bieden heeft!</string>
                                                 <color key="textColor" red="0.31156805199999998" green="0.31156805199999998" blue="0.31156805199999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Wachtwoord" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="WFh-TW-Ynd">
+                                            <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="WFh-TW-Ynd">
                                                 <rect key="frame" x="38" y="424" width="339" height="30"/>
                                                 <color key="textColor" red="0.31156805199999998" green="0.31156805199999998" blue="0.31156805199999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="17"/>
@@ -968,7 +947,7 @@ Phil Rudd – drums</string>
                                                     <outlet property="delegate" destination="uo5-RX-civ" id="AOB-xq-Iv6"/>
                                                 </connections>
                                             </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalCompressionResistancePriority="751" text="Emailadres" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cnq-QF-Uhx">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalCompressionResistancePriority="751" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cnq-QF-Uhx">
                                                 <rect key="frame" x="38" y="321" width="339" height="23"/>
                                                 <fontDescription key="fontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="23"/>
                                                 <nil key="textColor"/>
@@ -989,7 +968,7 @@ Phil Rudd – drums</string>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="22"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" title="Inloggen"/>
+                                                <state key="normal" title="Log In"/>
                                                 <connections>
                                                     <action selector="logUserIn:" destination="uo5-RX-civ" eventType="touchUpInside" id="8Px-e0-Osv"/>
                                                 </connections>
@@ -1072,13 +1051,13 @@ Phil Rudd – drums</string>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YUN-Xm-rEm">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Wachtwoord" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sz9-k2-ET6">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sz9-k2-ET6">
                                                 <rect key="frame" x="38" y="430" width="339" height="23"/>
                                                 <fontDescription key="fontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="23"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Wachtwoord" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="eHb-Cv-ct2">
+                                            <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="eHb-Cv-ct2">
                                                 <rect key="frame" x="38" y="459" width="340" height="30"/>
                                                 <color key="textColor" red="0.31156805199999998" green="0.31156805199999998" blue="0.31156805199999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="17"/>
@@ -1087,7 +1066,7 @@ Phil Rudd – drums</string>
                                                     <outlet property="delegate" destination="AdA-6t-fHw" id="M30-dc-jE9"/>
                                                 </connections>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Gebruikersnaam" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="4Mu-XG-Zsj">
+                                            <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="4Mu-XG-Zsj">
                                                 <rect key="frame" x="38" y="315" width="339" height="30"/>
                                                 <color key="textColor" red="0.31156805199999998" green="0.31156805199999998" blue="0.31156805199999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="17"/>
@@ -1096,7 +1075,7 @@ Phil Rudd – drums</string>
                                                     <outlet property="delegate" destination="AdA-6t-fHw" id="OEg-xd-CWn"/>
                                                 </connections>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Emailadres" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="lhl-Pe-7mN">
+                                            <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="lhl-Pe-7mN">
                                                 <rect key="frame" x="38" y="387" width="340" height="30"/>
                                                 <color key="textColor" red="0.31156805199999998" green="0.31156805199999998" blue="0.31156805199999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="17"/>
@@ -1105,13 +1084,13 @@ Phil Rudd – drums</string>
                                                     <outlet property="delegate" destination="AdA-6t-fHw" id="KYw-xL-eLH"/>
                                                 </connections>
                                             </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalCompressionResistancePriority="751" text="Emailadres" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1z-QQ-3B7">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalCompressionResistancePriority="751" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1z-QQ-3B7">
                                                 <rect key="frame" x="38" y="358" width="340" height="23"/>
                                                 <fontDescription key="fontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="23"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalCompressionResistancePriority="751" text="Gebruikersnaam" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2rY-eN-RDI">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalCompressionResistancePriority="751" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2rY-eN-RDI">
                                                 <rect key="frame" x="38" y="286" width="339" height="23"/>
                                                 <fontDescription key="fontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="23"/>
                                                 <nil key="textColor"/>
@@ -1125,7 +1104,7 @@ Phil Rudd – drums</string>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="22"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" title="Aanmelden"/>
+                                                <state key="normal" title="Sign Up"/>
                                                 <connections>
                                                     <action selector="signUpUser:" destination="AdA-6t-fHw" eventType="touchUpInside" id="R0a-aC-qma"/>
                                                 </connections>
@@ -1156,7 +1135,7 @@ Phil Rudd – drums</string>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Meld je hier eerst aan en word lid van onze prachtige 'Dikke Ploaten'-community en zijn features." textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wp8-on-meC">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Register here first and become a member of our beautiful 'Dikke Ploaten'-community and its features." textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wp8-on-meC">
                                         <rect key="frame" x="39" y="226" width="335" height="57"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>

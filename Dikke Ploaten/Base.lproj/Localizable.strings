@@ -1,0 +1,36 @@
+/* 
+  Localizable.strings
+  Dikke Ploaten
+
+  Created by Victor Vanhove on 17/04/2019.
+  Copyright © 2019 bazookas. All rights reserved.
+*/
+
+//Login and SignUp
+"Whoops" = "Whoops";
+"Please make sure all required fields are filled out correctly." = "Please make sure all required fields are filled out correctly.";
+"The email address is badly formatted." = "The email address is badly formatted.";
+"The password must be 6 characters long or more." = "The password must be 6 characters long or more.";
+"The email address is already in use by another account." = "The email address is already in use by another account.";
+"There is no user record corresponding to this identifier." = "There is no user record corresponding to this identifier.";
+
+//Collection and Wantlist
+"'' by was removed from your collection" = "'' by was removed from your collection";
+"You have not added any albums yet.\nGo to the search function and add albums!" = "You have not added any albums yet.\nGo to the search function and add albums!";
+"Remove" = "Remove";
+"Add" = "Add";
+"Want" = "Want";
+
+//Profile
+"Collection" = "Collection";
+"Wantlist" = "Wantlist";
+
+//Settings
+"Change name" = "Change name";
+"Fill in your new username:" = "Fill in your new username:";
+"Username" = "Username";
+"Cancel" = "Cancel";
+"Change password" = "Change password";
+"Fill in your new password:" = "Fill in your new password:";
+"New password" = "New password";
+"Confirm new password" = "Confirm new password";

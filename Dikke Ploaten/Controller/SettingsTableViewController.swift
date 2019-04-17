@@ -99,9 +99,11 @@ class SettingsTableViewController : UITableViewController, UIImagePickerControll
 		}
 		if indexPath.section == 1 {
 			if indexPath.row == 0 {
-				let alertController = UIAlertController(title: "Verander naam", message: "Verander hier je gebruikersnaam:", preferredStyle: .alert)
+				let alertTitle = NSLocalizedString("Change name", comment: "")
+				let alertMessage = NSLocalizedString("Fill in your new username:", comment: "")
+				let alertController = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
 				alertController.addTextField { textField in
-					textField.placeholder = "Gebruikersnaam"
+					textField.placeholder = NSLocalizedString("Username", comment: "")
 				}
 				let confirmAction = UIAlertAction(title: "OK", style: .default) { [weak alertController] _ in
 					guard let alertController = alertController, let textField = alertController.textFields?.first else { return }
@@ -116,18 +118,20 @@ class SettingsTableViewController : UITableViewController, UIImagePickerControll
 					})
 				}
 				alertController.addAction(confirmAction)
-				let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+				let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil)
 				alertController.addAction(cancelAction)
 				present(alertController, animated: true, completion: nil)
 			}
 			if indexPath.row == 1{
-				let alertController = UIAlertController(title: "Verander wachtwoord", message: "Verander hier je wachtwoord:", preferredStyle: .alert)
+				let alertTitle = NSLocalizedString("Change password", comment: "")
+				let alertMessage = NSLocalizedString("Fill in your new password:", comment: "")
+				let alertController = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
 				alertController.addTextField { textField in
-					textField.placeholder = "Nieuw wachtwoord"
+					textField.placeholder = NSLocalizedString("New password", comment: "")
 					textField.isSecureTextEntry = true
 				}
 				alertController.addTextField { textField in
-					textField.placeholder = "Bevestig nieuw wachtwoord"
+					textField.placeholder = NSLocalizedString("Confirm new password", comment: "")
 					textField.isSecureTextEntry = true
 				}
 				let confirmAction = UIAlertAction(title: "OK", style: .default) { [weak alertController] _ in
@@ -145,7 +149,7 @@ class SettingsTableViewController : UITableViewController, UIImagePickerControll
 					}
 				}
 				alertController.addAction(confirmAction)
-				let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+				let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil)
 				alertController.addAction(cancelAction)
 				present(alertController, animated: true, completion: nil)
 			}

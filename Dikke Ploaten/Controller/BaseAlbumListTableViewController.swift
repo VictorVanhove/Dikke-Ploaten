@@ -34,7 +34,8 @@ class BaseAlbumListTableViewController : UITableViewController {
 	
 	func reloadTableView() {
 		if(albums.isEmpty){
-			self.tableView.setEmptyMessage("Je hebt nog geen albums toegevoegd.\nGa naar de zoekfunctie en voeg albums toe!")
+			let message = NSLocalizedString("You have not added any albums yet.\nGo to the search function and add albums!", comment: "")
+			self.tableView.setEmptyMessage(message)
 		} else {
 			self.tableView.setEmptyMessage()
 		}
