@@ -39,6 +39,9 @@ class WantlistViewController: BaseAlbumListTableViewController {
 				}
 				self.albums.remove(at: self.albums.firstIndex(of: album)!)
 				self.reloadTableView()
+				
+				//Show toast alert
+				self.showToast(controller: self, message: "'\(album.title)' by \(album.artist) was removed from your wantlist", seconds: 2)
 			})
 		}
 		action.backgroundColor = .red

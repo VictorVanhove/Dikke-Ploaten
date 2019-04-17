@@ -16,9 +16,16 @@ class AlbumTableViewCell: UITableViewCell {
 	@IBOutlet weak var lblArtist: UILabel!
 	@IBOutlet weak var imgCover: UIImageView!
 	
-	func updateUI(forAlbum album: Album) {
+	@IBOutlet weak var imgNotifier: UIImageView!
+	
+	func updateUI(forAlbum album: Album, image: String? = nil) {
 		lblTitle.text = album.title
 		lblArtist.text = album.artist
 		imgCover.af_setImage(withURL: URL(string: album.cover)!)
+		if image != nil {
+			imgNotifier.image = UIImage(named: image!)
+		} else {
+			imgNotifier.image = UIImage(named: "notInCollection")
+		}
 	}
 }
