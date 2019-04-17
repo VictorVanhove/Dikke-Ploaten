@@ -25,6 +25,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		MSAppCenter.start("ff4eb3db-19be-4eb0-8f51-8a4837e58fff", withServices:[ MSAnalytics.self, MSCrashes.self ])
 		
 		UINavigationBar.appearance().tintColor = UIColor(red:0.31, green:0.31, blue:0.31, alpha:1.0)
+		let titleAttributes = [NSAttributedString.Key.font: UIFont(name: "DIN Condensed", size: 25)!]
+		let attributes = [NSAttributedString.Key.font: UIFont(name: "DIN Condensed", size: 13)!]
+		UINavigationBar.appearance().titleTextAttributes = titleAttributes
+		UITabBarItem.appearance().setTitleTextAttributes(attributes, for: .normal)
 		
         return true
     }
