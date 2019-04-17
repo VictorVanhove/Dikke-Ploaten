@@ -30,9 +30,7 @@ class SearchViewController: UITableViewController, UISearchResultsUpdating {
 			self.albums = albums
 			self.tableView.reloadData()
 		}
-		
-		// Reload the table
-		//tableView.reloadData()
+
 	}
 	
 	func addSearchBar() {
@@ -91,13 +89,7 @@ class SearchViewController: UITableViewController, UISearchResultsUpdating {
 		}
 		
 		// als album toegevoegd in collectie
-		if Database.shared.cache.user.plates.first(where: {$0.albumID == album.id}) != nil {
-			//let add = addAddOrRemoveAction(forIndexPath: indexPath, forAlbum: album)
-			//return [add]
-		} else if Database.shared.cache.user.wantList.first(where: {$0.albumID == album.id}) != nil{
-			//let want = addWantOrRemoveAction(forIndexPath: indexPath, forAlbum: album)
-			//return [want]
-		} else{
+		if Database.shared.cache.user.plates.first(where: {$0.albumID == album.id}) == nil && Database.shared.cache.user.wantList.first(where: {$0.albumID == album.id}) == nil {
 			let add = addAddOrRemoveAction(forIndexPath: indexPath, forAlbum: album)
 			let want = addWantOrRemoveAction(forIndexPath: indexPath, forAlbum: album)
 			return [add, want]
@@ -111,7 +103,7 @@ extension SearchViewController {
 		
 		if Database.shared.cache.user.plates.first(where: {$0.albumID == album.id}) != nil {
 			// Already in plates, show remove item
-			let remove = UITableViewRowAction(style: .default, title: "\u{2630}\n Remove", handler: {
+			let remove = UITableViewRowAction(style: .default, title: "\u{232B}\n Remove", handler: {
 				(action, index) in
 				// Write instance to database
 				Database.shared.deleteCollectionAlbum(albumId: album.id) { err in
@@ -128,7 +120,7 @@ extension SearchViewController {
 					self.tableView.reloadData()
 				}
 			})
-			remove.backgroundColor = #colorLiteral(red: 0.521568656, green: 0.1098039225, blue: 0.05098039284, alpha: 1)
+			remove.backgroundColor = .red
 			return remove
 		} else {
 			// Not yet in plates, show add item
@@ -157,7 +149,7 @@ extension SearchViewController {
 		
 		if Database.shared.cache.user.wantList.first(where: {$0.albumID == album.id}) != nil {
 			// Already in plates, show remove item
-			let remove = UITableViewRowAction(style: .default, title: "\u{2630}\n Remove", handler: {
+			let remove = UITableViewRowAction(style: .default, title: "\u{232B}\n Remove", handler: {
 				(action, index) in
 				// Write instance to database
 				Database.shared.deleteWantlistAlbum(albumId: album.id) { err in
@@ -173,7 +165,7 @@ extension SearchViewController {
 					self.searchController.isActive = false
 				}
 			})
-			remove.backgroundColor = #colorLiteral(red: 0.521568656, green: 0.1098039225, blue: 0.05098039284, alpha: 1)
+			remove.backgroundColor = .red
 			return remove
 		} else {
 			// Not yet in wantlist, show add item
