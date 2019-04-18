@@ -15,8 +15,9 @@
 "no_user" = "There is no user record corresponding to this identifier.";
 
 //Collection and Wantlist
-"notification_removed" = "Album was succesfully removed";
-"notification_added" = "Album was succesfully added";
+"by" = "by";
+"is_removed" = "is removed from your";
+"is_added" = "is added to your";
 "no_albums" = "You have not added any albums yet.\nGo to the search function and add albums!";
 "remove" = "Remove";
 "add" = "Add";

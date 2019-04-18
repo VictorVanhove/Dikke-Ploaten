@@ -43,7 +43,7 @@ class CollectionViewController: BaseAlbumListTableViewController {
 				self.reloadTableView()
 				
 				//Show toast alert
-				self.showToast(controller: self, message: "notification_removed".localized(), seconds: 2)
+				self.showToast(controller: self, message: "'\(album.title)' " + "by".localized() + " \(album.artist) " + "is_removed".localized() + " collection", seconds: 2)
 			})
 		}
 		action.backgroundColor = .red

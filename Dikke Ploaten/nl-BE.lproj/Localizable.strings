@@ -15,8 +15,9 @@
 "no_user" = "Er is geen gebruiker met deze gegevens.";
 
 //Collection and Wantlist
-"notification_removed" = "Album is succesvol verwijderd";
-"notification_added" = "Album is succesvol toegevoegd";
+"by" = "van";
+"is_removed" = "is verwijderd van je";
+"is_added" = "is toegevoegd aan je";
 "no_albums" = "Je hebt nog geen albums toegevoegd.\nGa naar de zoekfunctie en voeg albums toe!";
 "remove" = "Verwijder";
 "add" = "Voeg toe";
