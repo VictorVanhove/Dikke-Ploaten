@@ -1,0 +1,26 @@
+disabled_rules:
+  - force_cast
+  - force_try
+  - trailing_whitespace
+  - line_length
+  - void_return
+  - legacy_hashing
+
+excluded:
+  - Pods
+
+control_statement:
+  severity: error
+
+statement_position:
+  severity: error
+
+trailing_semicolon:
+  severity: error
+
+comma:
+  severity: error
+
+identifier_name:
+  excluded:
+    - id
