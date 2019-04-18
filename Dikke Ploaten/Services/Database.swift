@@ -12,7 +12,7 @@ import ObjectMapper
 class Database {
 	
 	//Firebase
-	let dtb = Firestore.firestore()
+	let database = Firestore.firestore()
 	let auth = Auth.auth()
 	let storageRef = Storage.storage().reference(forURL: "gs://dikke-ploaten.appspot.com")
 	
@@ -40,7 +40,7 @@ class Database {
 		let userAlbum = UserAlbum(albumID: albumId)
 		let data = userAlbum.toJSON()
 		// Upload data to database
-		dtb.collection("users").document(auth.currentUser!.uid).collection(name).addDocument(data: data) { err in
+		database.collection("users").document(auth.currentUser!.uid).collection(name).addDocument(data: data) { err in
 			if let err = err {
 				print("Error adding document: \(err)")
 			} else {
@@ -69,7 +69,7 @@ class Database {
 	}
 	
 	private func getUserAlbumCollection(name: String, completionHandler: @escaping ([Album]) -> ()) {
-		let userPlates = dtb.collection("users").document(auth.currentUser!.uid).collection(name)
+		let userPlates = database.collection("users").document(auth.currentUser!.uid).collection(name)
 		userPlates.getDocuments { querySnapshot, error in
 			guard let snapshot = querySnapshot else {
 				print("Error fetching snapshots: \(error!)")
@@ -91,7 +91,7 @@ class Database {
 			
 			for userAlbum in userAlbums {
 				group.enter()
-				self.dtb.collection("platen").document(userAlbum.albumID).getDocument { querySnapshot, error in
+				self.database.collection("platen").document(userAlbum.albumID).getDocument { querySnapshot, error in
 					guard let snapshot = querySnapshot else {
 						print("Error fetching snapshots: \(error!)")
 						group.leave()
@@ -110,7 +110,7 @@ class Database {
 	
 	// Gets the whole list of albums out of database
 	func getAlbumList(completionHandler: @escaping (_ updatedCollection: [Album]) -> ()) {
-		dtb.collection("platen").getDocuments { querySnapshot, err in
+		database.collection("platen").getDocuments { querySnapshot, err in
 			if let err = err {
 				print("Error getting documents: \(err)")
 				return
@@ -133,7 +133,7 @@ class Database {
 	}
 	
 	private func deleteUserAlbum(name: String, albumId: String, completionHandler: @escaping (Error?) -> ()) {
-		dtb.collection("users").document(auth.currentUser!.uid).collection(name)
+		database.collection("users").document(auth.currentUser!.uid).collection(name)
 			.whereField("albumID", isEqualTo: albumId)
 			.getDocuments { snapshot, err in
 				guard let snapshot = snapshot else {
@@ -142,7 +142,7 @@ class Database {
 					return
 				}
 				
-				self.dtb.collection("users").document(self.auth.currentUser!.uid).collection(name).document(snapshot.documents.first!.documentID).delete { err in
+				self.database.collection("users").document(self.auth.currentUser!.uid).collection(name).document(snapshot.documents.first!.documentID).delete { err in
 					completionHandler(err)
 					if err == nil {
 						switch name {
@@ -169,7 +169,7 @@ extension Database {
 				failureHandler(error)
 				return
 			}
-			self.dtb.collection("users").document(user!.user.uid).setData(["username": username, "email": email]) { err in
+			self.database.collection("users").document(user!.user.uid).setData(["username": username, "email": email]) { err in
 				// Error adding user to database
 				if let err = err {
 					print("Error adding document: \(err)")
@@ -181,7 +181,7 @@ extension Database {
 	}
 	
 	func getUser(completionHandler: @escaping (_ user: User) -> ()) {
-		dtb.collection("users").document(auth.currentUser!.uid).getDocument { docSnapshot, error in
+		database.collection("users").document(auth.currentUser!.uid).getDocument { docSnapshot, error in
 			guard let snapshot = docSnapshot else {
 				print("Error fetching snapshots: \(error!)")
 				return
@@ -207,7 +207,7 @@ extension Database {
 	}
 	
 	func updateUsername(username: String, completionHandler: @escaping (Error?) -> ()) {
-		dtb.collection("users").document(auth.currentUser!.uid).updateData((["username": username])) { err in
+		database.collection("users").document(auth.currentUser!.uid).updateData((["username": username])) { err in
 			if let err = err {
 				print("Error when changing username: \(err)")
 			} else {
