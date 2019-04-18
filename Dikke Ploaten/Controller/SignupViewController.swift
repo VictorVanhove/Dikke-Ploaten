@@ -69,7 +69,16 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
 	
 	// MARK: - Actions
 	@IBAction func signUpUser(_ sender: Any) {
-		if validForm() {
+		if !validForm() {
+			let alertMessage = "fields_not_all_filled".localized()
+			showAlert(alertMessage: alertMessage)
+		} else if !isValidEmail() {
+			let alertMessage = "bad_email".localized()
+			showAlert(alertMessage: alertMessage)
+		} else if txtPassword.text!.count < 6 {
+			let alertMessage = "invalid_password".localized()
+			showAlert(alertMessage: alertMessage)
+		} else {
 			Database.shared.createUser(username: txtUser.text ?? "", email: txtEmail.text ?? "", password: txtPassword.text ?? "", successHandler: {
 				// Go to next view
 				self.performSegue(withIdentifier: "signupToHome", sender: self)
@@ -77,23 +86,13 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
 				// Error creating user
 				let err = (error as NSError).userInfo["error_name"]! as! String
 				var alertMessage = NSLocalizedString("", comment: "")
-				if err == "ERROR_INVALID_EMAIL" {
-					print(err)
-					alertMessage = "bad_email".localized()
-				}
-				if err == "ERROR_WEAK_PASSWORD" {
-					print(err)
-					alertMessage = "invalid_password".localized()
-				}
-				if err == "ERROR_EMAIL_ALREADY_IN_USE" {
-					print(err)
+				switch err {
+				case "ERROR_EMAIL_ALREADY_IN_USE":
 					alertMessage = "email_already_in_use".localized()
+				default:
+					alertMessage = err
 				}
-				let alertController = UIAlertController(title: "whoops".localized(), message: alertMessage, preferredStyle: .alert)
-				let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-				
-				alertController.addAction(defaultAction)
-				self.present(alertController, animated: true, completion: nil)
+				self.showAlert(alertMessage: alertMessage)
 			})
 		}
 	}
@@ -127,13 +126,24 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
 				}
 			}
 		}
-		
-		// Show alert if form is not filled in correctly
-		let alertController = UIAlertController(title: "whoops".localized(), message: "fields_not_all_filled".localized(), preferredStyle: .alert)
-		alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-		self.present(alertController, animated: true, completion: nil)
-		
 		return false
+	}
+	
+	// Check if email is valid
+	private func isValidEmail() -> Bool {
+		let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+		
+		let emailTest = NSPredicate(format: "SELF MATCHES %@", emailRegEx)
+		return emailTest.evaluate(with: txtEmail.text!)
+	}
+	
+	// Show alert with specific message
+	private func showAlert(alertMessage: String) {
+		let alertController = UIAlertController(title: "whoops".localized(), message: alertMessage, preferredStyle: .alert)
+		let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+		
+		alertController.addAction(defaultAction)
+		self.present(alertController, animated: true, completion: nil)
 	}
 	
 }
