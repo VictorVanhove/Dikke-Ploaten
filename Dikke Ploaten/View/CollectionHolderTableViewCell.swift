@@ -13,14 +13,14 @@ class CollectionHolderTableViewCell: UITableViewCell {
 	
 	var albums: [Album] = []
 	
-	func updateAlbums(albums: [Album]){
+	func updateAlbums(albums: [Album]) {
 		self.albums = []
 		self.albums = albums
 		collectionCollectionView.reloadData()
 	}
 }
 
-extension CollectionHolderTableViewCell : UICollectionViewDataSource {
+extension CollectionHolderTableViewCell: UICollectionViewDataSource {
 	
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		if albums.isEmpty {
@@ -32,7 +32,7 @@ extension CollectionHolderTableViewCell : UICollectionViewDataSource {
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "albumCell", for: indexPath) as! AlbumCollectionViewCell
 		
-		if(!albums.isEmpty){
+		if !albums.isEmpty {
 			cell.updateUI(forAlbum: albums[indexPath.item])
 		}
 		return cell
@@ -43,8 +43,8 @@ extension CollectionHolderTableViewCell : UICollectionViewDataSource {
 extension CollectionHolderTableViewCell: UICollectionViewDelegateFlowLayout {
 	
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-		let itemsPerRow:CGFloat = 4
-		let hardCodedPadding:CGFloat = 5
+		let itemsPerRow: CGFloat = 4
+		let hardCodedPadding: CGFloat = 5
 		let itemWidth = (collectionView.bounds.width / itemsPerRow) - hardCodedPadding
 		return CGSize(width: itemWidth, height: itemWidth)
 	}

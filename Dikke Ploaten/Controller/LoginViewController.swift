@@ -52,7 +52,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 			self.scrollView.scrollIndicatorInsets = contentInsets
 			var aRect = self.view.frame
 			aRect.size.height -= keyboardSize.size.height
-			if (!aRect.contains(activeField.frame.origin)) {
+			if !aRect.contains(activeField.frame.origin) {
 				self.scrollView.scrollRectToVisible(activeField.frame, animated: true)
 			}
 		}
@@ -67,19 +67,28 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 	
 	// MARK: - Actions
 	@IBAction func logUserIn(_ sender: Any) {
-		if validForm() {
+		if !validForm() {
+			let alertMessage = "fields_not_all_filled".localized()
+			showAlert(alertMessage: alertMessage)
+		} else if !isValidEmail() {
+			let alertMessage = "bad_email".localized()
+			showAlert(alertMessage: alertMessage)
+		} else {
 			// Log user in
-			Auth.auth().signIn(withEmail: txtEmail.text!, password: txtPassword.text!) { (user, error) in
+			Auth.auth().signIn(withEmail: txtEmail.text!, password: txtPassword.text!) { _, error in
 				if error == nil {
 					self.performSegue(withIdentifier: "loginToHome", sender: self)
-				}
-				else {
+				} else {
 					// Error while logging in
-					let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
-					let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-					
-					alertController.addAction(defaultAction)
-					self.present(alertController, animated: true, completion: nil)
+					let err = (error! as NSError).userInfo["error_name"]! as! String
+					var alertMessage = NSLocalizedString("", comment: "")
+					switch err {
+					case "ERROR_USER_NOT_FOUND":
+						alertMessage = "no_user".localized()
+					default:
+						alertMessage = err
+					}
+					self.showAlert(alertMessage: alertMessage)
 				}
 			}
 		}
@@ -98,29 +107,32 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 	
 	// Check if form is valid
 	private func validForm() -> Bool {
-		var isValid: Bool = true
-		
 		// Check email
 		lblEmail.textColor = UIColor.black
-		if txtEmail.text!.isEmpty {
-			isValid = false
+		if !txtEmail.text!.isEmpty {
+			// Check password
+			lblPassword.textColor = UIColor.black
+			if !txtPassword.text!.isEmpty {
+				return true
+			}
 		}
-		// Check password
-		lblPassword.textColor = UIColor.black
-		if txtPassword.text!.isEmpty {
-			isValid = false
-		}
-		
-		if !isValid {
-			// Show alert if form is not filled in correctly
-			let alertController = UIAlertController(title: "Whoops", message: "Please make sure all required fields are filled out correctly.", preferredStyle: .alert)
-			alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-			self.present(alertController, animated: true, completion: nil)
-		}
-		
-		return isValid
+		return false
 	}
 	
+	// Check if email is valid
+	private func isValidEmail() -> Bool {
+		let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+		
+		let emailTest = NSPredicate(format: "SELF MATCHES %@", emailRegEx)
+		return emailTest.evaluate(with: txtEmail.text!)
+	}
 	
-	
+	// Show alert with specific message
+	private func showAlert(alertMessage: String) {
+		let alertController = UIAlertController(title: "whoops".localized(), message: alertMessage, preferredStyle: .alert)
+		let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+		
+		alertController.addAction(defaultAction)
+		self.present(alertController, animated: true, completion: nil)
+	}
 }

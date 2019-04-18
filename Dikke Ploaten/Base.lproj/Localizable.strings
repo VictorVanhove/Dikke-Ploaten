@@ -1,0 +1,39 @@
+/* 
+  Localizable.strings
+  Dikke Ploaten
+
+  Created by Victor Vanhove on 17/04/2019.
+  Copyright © 2019 bazookas. All rights reserved.
+*/
+
+//Login and SignUp
+"whoops" = "Whoops";
+"fields_not_all_filled" = "Please make sure all required fields are filled out correctly.";
+"bad_email" = "The email address is badly formatted.";
+"invalid_password" = "The password must be 6 characters long or more.";
+"email_already_in_use" = "The email address is already in use by another account.";
+"no_user" = "There is no user record corresponding to this identifier.";
+
+//Collection and Wantlist
+"is_added_to_collection" = "'%album' by %artist is added to your collection";
+"is_removed_from_collection" = "'%album' by %artist is removed from your collection";
+"is_added_to_wantlist" = "'%album' van %artist is added to your wantlist";
+"is_removed_from_wantlist" = "'%album' van %artist is removed from your wantlist";
+"no_albums" = "You have not added any albums yet.\nGo to the search function and add albums!";
+"remove" = "Remove";
+"add" = "Add";
+"want" = "Want";
+
+//Profile
+"collection" = "Collection";
+"wantlist" = "Wantlist";
+
+//Settings
+"change_name" = "Change name";
+"fill_username" = "Fill in your new username:";
+"placeholder_username" = "Username";
+"cancel" = "Cancel";
+"change_password" = "Change password";
+"fill_in_new_password" = "Fill in your new password:";
+"placeholder_new_password" = "New password";
+"placeholder_confirm_new_password" = "Confirm new password";

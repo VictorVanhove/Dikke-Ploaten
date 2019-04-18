@@ -1,0 +1,201 @@
+
+/* Class = "UIButton"; normalTitle = "Sign Up"; ObjectID = "1Ha-4u-70s"; */
+"1Ha-4u-70s.normalTitle" = "Aanmelden";
+
+/* Class = "UILabel"; text = "Username"; ObjectID = "2rY-eN-RDI"; */
+"2rY-eN-RDI.text" = "Gebruikersnaam";
+
+/* Class = "UIButton"; normalTitle = "Log In"; ObjectID = "38C-63-lBo"; */
+"38C-63-lBo.normalTitle" = "Inloggen";
+
+/* Class = "UITabBarController"; title = "Tab Bar"; ObjectID = "49e-Tb-3d3"; */
+"49e-Tb-3d3.title" = "Tab Bar";
+
+/* Class = "UITextField"; placeholder = "Username"; ObjectID = "4Mu-XG-Zsj"; */
+"4Mu-XG-Zsj.placeholder" = "Gebruikersnaam";
+
+/* Class = "UILabel"; text = "Photo"; ObjectID = "5YP-4m-N5H"; */
+"5YP-4m-N5H.text" = "Foto";
+
+/* Class = "UILabel"; text = "Dikke Ploaten"; ObjectID = "6ob-Rr-nLo"; */
+"6ob-Rr-nLo.text" = "Dikke Ploaten";
+
+/* Class = "UITabBarItem"; title = "Collection"; ObjectID = "6wS-U9-G5D"; */
+"6wS-U9-G5D.title" = "Collectie";
+
+/* Class = "UIViewController"; title = "Launch"; ObjectID = "7jt-9N-JFs"; */
+"7jt-9N-JFs.title" = "Launch";
+
+/* Class = "UILabel"; text = "Highway To Hell"; ObjectID = "96Z-aX-oJF"; */
+"96Z-aX-oJF.text" = "Highway To Hell";
+
+/* Class = "UILabel"; text = "Highway To Hell"; ObjectID = "9ii-x7-MvZ"; */
+"9ii-x7-MvZ.text" = "Highway To Hell";
+
+/* Class = "UILabel"; text = "Highway To Hell"; ObjectID = "9iz-8V-eea"; */
+"9iz-8V-eea.text" = "Highway To Hell";
+
+/* Class = "UILabel"; text = "Highway To Hell"; ObjectID = "ANk-NU-Vdx"; */
+"ANk-NU-Vdx.text" = "Highway To Hell";
+
+/* Class = "UILabel"; text = "Password"; ObjectID = "ASs-NF-Rxy"; */
+"ASs-NF-Rxy.text" = "Wachtwoord";
+
+/* Class = "UILabel"; text = "iOS application to share and keep up your album collection with others. Created to learn iOS development using Swift."; ObjectID = "Abf-qx-vhp"; */
+"Abf-qx-vhp.text" = "iOS applicatie die platencollectie van geregistreerde gebruikers bijhoudt en toelaat die van anderen te bekijken. Gemaakt om iOS-ontwikkeling te leren m.b.v. Swift.";
+
+/* Class = "UIViewController"; title = "Signup"; ObjectID = "AdA-6t-fHw"; */
+"AdA-6t-fHw.title" = "Aanmelden";
+
+/* Class = "UITableViewSection"; headerTitle = "Your personal information"; ObjectID = "Cx4-9h-9Bi"; */
+"Cx4-9h-9Bi.headerTitle" = "Uw persoonlijke informatie";
+
+/* Class = "UIButton"; normalTitle = "More images"; ObjectID = "DPE-hb-PL5"; */
+"DPE-hb-PL5.normalTitle" = "Meer afbeeldingen";
+
+/* Class = "UITableViewController"; title = "Wantlist"; ObjectID = "I6q-8Q-287"; */
+"I6q-8Q-287.title" = "Wantlijst";
+
+/* Class = "UILabel"; text = "Rock"; ObjectID = "I9F-Bg-an0"; */
+"I9F-Bg-an0.text" = "Rock";
+
+/* Class = "UILabel"; text = "AC/DC"; ObjectID = "IB7-cO-xPY"; */
+"IB7-cO-xPY.text" = "AC/DC";
+
+/* Class = "UILabel"; text = "Victor Vanhove"; ObjectID = "Jbd-Hl-VTo"; */
+"Jbd-Hl-VTo.text" = "Victor Vanhove";
+
+/* Class = "UILabel"; text = "Genre"; ObjectID = "Jqy-aN-MIB"; */
+"Jqy-aN-MIB.text" = "Genre";
+
+/* Class = "UINavigationItem"; title = "Profile"; ObjectID = "Nec-1h-RON"; */
+"Nec-1h-RON.title" = "Profiel";
+
+/* Class = "UILabel"; text = "AC/DC"; ObjectID = "PKh-ZC-xSy"; */
+"PKh-ZC-xSy.text" = "AC/DC";
+
+/* Class = "UILabel"; text = "1979"; ObjectID = "QEa-W2-npa"; */
+"QEa-W2-npa.text" = "1979";
+
+/* Class = "UITextView"; text = "Bon Scott – lead vocals\nAngus Young – lead guitar\nMalcolm Young – rhythm guitar, backing vocals\nCliff Williams – bass guitar, backing vocals\nPhil Rudd – drums"; ObjectID = "RP5-P3-q0N"; */
+"RP5-P3-q0N.text" = "Bon Scott – lead vocals\nAngus Young – lead guitar\nMalcolm Young – rhythm guitar, backing vocals\nCliff Williams – bass guitar, backing vocals\nPhil Rudd – drums";
+
+/* Class = "UITextView"; text = "Side A\n \n1. \"Highway to Hell\"\n2. \"Girls Got Rhythm\"\n3. \"Walk All Over You\"\n4. \"Touch Too Much\"\n5. \"Beating Around the Bush\"\n\nSide B\n \n6. \"Shot Down in Flames\"\n7. \"Get It Hot\"\n8. \"If You Want Blood (You've Got It)\"\n9. \"Love Hungry Man\"\n10. \"Night Prowler\""; ObjectID = "RPO-Fz-V0I"; */
+"RPO-Fz-V0I.text" = "Side A\n \n1. \"Highway to Hell\"\n2. \"Girls Got Rhythm\"\n3. \"Walk All Over You\"\n4. \"Touch Too Much\"\n5. \"Beating Around the Bush\"\n\nSide B\n \n6. \"Shot Down in Flames\"\n7. \"Get It Hot\"\n8. \"If You Want Blood (You've Got It)\"\n9. \"Love Hungry Man\"\n10. \"Night Prowler\"";
+
+/* Class = "UILabel"; text = "Password"; ObjectID = "Sz9-k2-ET6"; */
+"Sz9-k2-ET6.text" = "Wachtwoord";
+
+/* Class = "UITabBarItem"; title = "Wantlist"; ObjectID = "T0B-OT-1UC"; */
+"T0B-OT-1UC.title" = "Wantlijst";
+
+/* Class = "UITextField"; text = "testtest"; ObjectID = "Ttx-wy-i9B"; */
+"Ttx-wy-i9B.text" = "testtest";
+
+/* Class = "UILabel"; text = "About this app"; ObjectID = "UgC-02-2xv"; */
+"UgC-02-2xv.text" = "Over deze app";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "WFh-TW-Ynd"; */
+"WFh-TW-Ynd.placeholder" = "Wachtwoord";
+
+/* Class = "UILabel"; text = "Register here first and become a member of our beautiful 'Dikke Ploaten'-community and its features."; ObjectID = "EMX-NX-dzN"; */
+"EMX-NX-dzN.text" = "Meld je hier eerst aan en word lid van onze prachtige 'Dikke Ploaten'-community en zijn features.";
+
+/* Class = "UILabel"; text = "Dikke Ploaten"; ObjectID = "Wvc-pB-ISw"; */
+"Wvc-pB-ISw.text" = "Dikke Ploaten";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Xvg-O7-ifq"; */
+"Xvg-O7-ifq.text" = "Label";
+
+/* Class = "UINavigationItem"; title = "Notifications"; ObjectID = "YM9-Wy-Seb"; */
+"YM9-Wy-Seb.title" = "Notificaties";
+
+/* Class = "UILabel"; text = "Email"; ObjectID = "a1z-QQ-3B7"; */
+"a1z-QQ-3B7.text" = "Emailadres";
+
+/* Class = "UILabel"; text = "AC/DC"; ObjectID = "aAA-Pn-S2A"; */
+"aAA-Pn-S2A.text" = "AC/DC";
+
+/* Class = "UILabel"; text = "Welcome and thanks for joining the 'Dikke Ploaten'-community.  Log in quickly en take a look at what this app has to offer!"; ObjectID = "R2b-l7-Uoq"; */
+"R2b-l7-Uoq.text" = "Welkom en bedankt om lid te worden van de 'Dikke Ploaten'-community. Log je snel in en neem eens een kijkje in wat deze app te bieden heeft!";
+
+/* Class = "UILabel"; text = "Email"; ObjectID = "bG2-vq-oOL"; */
+"bG2-vq-oOL.text" = "Emailadres";
+
+/* Class = "UILabel"; text = "Released"; ObjectID = "cR0-rF-SwB"; */
+"cR0-rF-SwB.text" = "Uitgebracht";
+
+/* Class = "UILabel"; text = "Email"; ObjectID = "cnq-QF-Uhx"; */
+"cnq-QF-Uhx.text" = "Emailadres";
+
+/* Class = "UILabel"; text = "Password"; ObjectID = "cnx-LC-LP9"; */
+"cnx-LC-LP9.text" = "Wachtwoord";
+
+/* Class = "UILabel"; text = "Dikke Ploaten"; ObjectID = "cqG-qY-AmL"; */
+"cqG-qY-AmL.text" = "Dikke Ploaten";
+
+/* Class = "UITabBarItem"; title = "Notifications"; ObjectID = "d2V-V5-YMX"; */
+"d2V-V5-YMX.title" = "Notificaties";
+
+/* Class = "UIBarButtonItem"; title = "Settings"; ObjectID = "dtu-xE-7HN"; */
+"dtu-xE-7HN.title" = "Instellingen";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "eHb-Cv-ct2"; */
+"eHb-Cv-ct2.placeholder" = "Wachtwoord";
+
+/* Class = "UIViewController"; title = "Info"; ObjectID = "iMi-fy-gFC"; */
+"iMi-fy-gFC.title" = "Info";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "j4U-Kr-iuM"; */
+"j4U-Kr-iuM.text" = "Label";
+
+/* Class = "UILabel"; text = "AC/DC"; ObjectID = "jHN-GI-Oxr"; */
+"jHN-GI-Oxr.text" = "AC/DC";
+
+/* Class = "UITextField"; placeholder = "Email"; ObjectID = "lhl-Pe-7mN"; */
+"lhl-Pe-7mN.placeholder" = "Emailadres";
+
+/* Class = "UITableViewController"; title = "Settings"; ObjectID = "lih-ba-Ifl"; */
+"lih-ba-Ifl.title" = "Instellingen";
+
+/* Class = "UITableViewController"; title = "Collection"; ObjectID = "n9P-k1-arz"; */
+"n9P-k1-arz.title" = "Collectie";
+
+/* Class = "UILabel"; text = "Username"; ObjectID = "nSw-g2-MYy"; */
+"nSw-g2-MYy.text" = "Naam";
+
+/* Class = "UIButton"; normalTitle = "Log out"; ObjectID = "pfc-Aw-maI"; */
+"pfc-Aw-maI.normalTitle" = "Uitloggen";
+
+/* Class = "UITabBarItem"; title = "Profile"; ObjectID = "piy-tt-GTD"; */
+"piy-tt-GTD.title" = "Profiel";
+
+/* Class = "UILabel"; text = "Cover"; ObjectID = "psu-Q3-rSJ"; */
+"psu-Q3-rSJ.text" = "Cover";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "qd1-AQ-lNd"; */
+"qd1-AQ-lNd.text" = "Label";
+
+/* Class = "UINavigationItem"; title = "Collection"; ObjectID = "sx1-tZ-wDh"; */
+"sx1-tZ-wDh.title" = "Collectie";
+
+/* Class = "UILabel"; text = "Tracklist"; ObjectID = "t8Y-S4-7Z4"; */
+"t8Y-S4-7Z4.text" = "Tracklist";
+
+/* Class = "UITabBarItem"; title = "Search"; ObjectID = "teA-C8-HFL"; */
+"teA-C8-HFL.title" = "Zoeken";
+
+/* Class = "UIViewController"; title = "Login"; ObjectID = "uo5-RX-civ"; */
+"uo5-RX-civ.title" = "Inloggen";
+
+/* Class = "UINavigationItem"; title = "Wantlist"; ObjectID = "v94-SZ-QqA"; */
+"v94-SZ-QqA.title" = "Wantlijst";
+
+/* Class = "UILabel"; text = "Members"; ObjectID = "vGd-Ge-5Ez"; */
+"vGd-Ge-5Ez.text" = "Leden";
+
+/* Class = "UIButton"; normalTitle = "Not a member yet? Sign Up"; ObjectID = "wzN-4K-O1i"; */
+"wzN-4K-O1i.normalTitle" = "Nog geen account? Meld je hier aan";
+
+/* Class = "UITextField"; placeholder = "Email"; ObjectID = "zMA-ye-D37"; */
+"zMA-ye-D37.placeholder" = "Emailadres";

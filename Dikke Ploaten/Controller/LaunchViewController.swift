@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class LaunchViewController : UIViewController {
+class LaunchViewController: UIViewController {
 	
 	@IBOutlet weak var imgVinyl: UIImageView!
 	
@@ -48,7 +48,7 @@ class LaunchViewController : UIViewController {
 		return imageArray
 	}
 	
-	func animate(imageView: UIImageView, images: [UIImage]){
+	func animate(imageView: UIImageView, images: [UIImage]) {
 		imageView.animationImages = images
 		imageView.animationDuration = 0.5
 		imageView.animationRepeatCount = 3

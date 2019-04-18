@@ -1,0 +1,39 @@
+/* 
+  Localizable.strings
+  Dikke Ploaten
+
+  Created by Victor Vanhove on 17/04/2019.
+  Copyright © 2019 bazookas. All rights reserved.
+*/
+
+//Login and SignUp
+"whoops" = "Oeps";
+"fields_not_all_filled" = "Zorg ervoor dat alles ingevuld is.";
+"bad_email" = "Het emailadres heeft niet het juiste formaat.";
+"invalid_password" = "Het wachtwoord moet 6 of meer karakters bevattten.";
+"email_already_in_use" = "Dit emailadres is al in gebruik.";
+"no_user" = "Er is geen gebruiker met deze gegevens.";
+
+//Collection and Wantlist
+"is_added_to_collection" = "'%album' van %artist is toegevoegd aan je collectie";
+"is_removed_from_collection" = "'%album' van %artist is verwijderd van je collectie";
+"is_added_to_wantlist" = "'%album' van %artist is toegevoegd aan je wantlist";
+"is_removed_from_wantlist" = "'%album' van %artist is verwijderd van je wantlist";
+"no_albums" = "Je hebt nog geen albums toegevoegd.\nGa naar de zoekfunctie en voeg albums toe!";
+"remove" = "Verwijder";
+"add" = "Voeg toe";
+"want" = "Want";
+
+//Profile
+"collection" = "Collectie";
+"wantlist" = "Wantlijst";
+
+//Settings
+"change_name" = "Verander naam";
+"fill_username" = "Vul je nieuwe gebruikersnaam in:";
+"placeholder_username" = "Gebruikersnaam";
+"cancel" = "Annuleer";
+"change_password" = "Verander wachtwoord";
+"fill_in_new_password" = "Vul je nieuw wachtwoord in:";
+"placeholder_new_password" = "Nieuw wachtwoord";
+"placeholder_confirm_new_password" = "Bevestig nieuw wachtwoord";

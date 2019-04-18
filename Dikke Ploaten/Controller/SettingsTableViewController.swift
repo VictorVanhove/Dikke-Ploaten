@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class SettingsTableViewController : UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class SettingsTableViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 	
 	@IBOutlet weak var lblName: UILabel!
 	@IBOutlet weak var lblEmail: UILabel!
@@ -46,8 +46,7 @@ class SettingsTableViewController : UITableViewController, UIImagePickerControll
 		// Sign out
 		do {
 			try Auth.auth().signOut()
-		}
-		catch {
+		} catch {
 			print ("Error signing out: %@", error)
 		}
 		
@@ -61,7 +60,7 @@ class SettingsTableViewController : UITableViewController, UIImagePickerControll
 	
 	func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
 		if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-			if(isPickingImageForProfile) {
+			if isPickingImageForProfile {
 				imgProfile.contentMode = .scaleAspectFit
 				imgProfile.image = image
 			} else {
@@ -69,7 +68,7 @@ class SettingsTableViewController : UITableViewController, UIImagePickerControll
 				imgBackgroundCover.image = image
 			}
 		}
-		if(isPickingImageForProfile) {
+		if isPickingImageForProfile {
 			Database.shared.uploadImage(image: imgProfile.image!, asProfileImage: true)
 			isPickingImageForProfile = false
 		} else {
@@ -99,9 +98,9 @@ class SettingsTableViewController : UITableViewController, UIImagePickerControll
 		}
 		if indexPath.section == 1 {
 			if indexPath.row == 0 {
-				let alertController = UIAlertController(title: "Verander naam", message: "Verander hier je gebruikersnaam:", preferredStyle: .alert)
+				let alertController = UIAlertController(title: "change_name".localized(), message: "fill_username".localized(), preferredStyle: .alert)
 				alertController.addTextField { textField in
-					textField.placeholder = "Gebruikersnaam"
+					textField.placeholder = "placeholder_username".localized()
 				}
 				let confirmAction = UIAlertAction(title: "OK", style: .default) { [weak alertController] _ in
 					guard let alertController = alertController, let textField = alertController.textFields?.first else { return }
@@ -116,23 +115,23 @@ class SettingsTableViewController : UITableViewController, UIImagePickerControll
 					})
 				}
 				alertController.addAction(confirmAction)
-				let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+				let cancelAction = UIAlertAction(title: "cancel".localized(), style: .cancel, handler: nil)
 				alertController.addAction(cancelAction)
 				present(alertController, animated: true, completion: nil)
 			}
-			if indexPath.row == 1{
-				let alertController = UIAlertController(title: "Verander wachtwoord", message: "Verander hier je wachtwoord:", preferredStyle: .alert)
+			if indexPath.row == 1 {
+				let alertController = UIAlertController(title: "change_password".localized(), message: "fill_in_new_password".localized(), preferredStyle: .alert)
 				alertController.addTextField { textField in
-					textField.placeholder = "Nieuw wachtwoord"
+					textField.placeholder = "placeholder_new_password".localized()
 					textField.isSecureTextEntry = true
 				}
 				alertController.addTextField { textField in
-					textField.placeholder = "Bevestig nieuw wachtwoord"
+					textField.placeholder = "placeholder_confirm_new_password".localized()
 					textField.isSecureTextEntry = true
 				}
 				let confirmAction = UIAlertAction(title: "OK", style: .default) { [weak alertController] _ in
 					guard let alertController = alertController, let textField1 = alertController.textFields?.first, let textField2 = alertController.textFields?.last  else { return }
-					if(textField1.text == textField2.text){
+					if textField1.text == textField2.text {
 						Database.shared.updatePassword(newPassword: textField2.text!, completionHandler: { err in
 							if let err = err {
 								print(err)
@@ -145,7 +144,7 @@ class SettingsTableViewController : UITableViewController, UIImagePickerControll
 					}
 				}
 				alertController.addAction(confirmAction)
-				let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+				let cancelAction = UIAlertAction(title: "cancel".localized(), style: .cancel, handler: nil)
 				alertController.addAction(cancelAction)
 				present(alertController, animated: true, completion: nil)
 			}

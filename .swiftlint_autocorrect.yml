@@ -1,0 +1,18 @@
+excluded: # paths to ignore during linting. Takes precedence over `included`.
+  - Pods
+whitelist_rules:
+ - opening_brace
+ - statement_position
+ - comma
+ - colon
+ - mark
+ - unused_closure_parameter
+ - legacy_constructor
+ - vertical_whitespace
+ - trailing_newline
+ - return_arrow_whitespace
+ - unneeded_parentheses_in_closure_argument
+ # These don't work, but I wish they did
+ - unneeded_break_in_switch
+ - closure_parameter_position
+ - control_statement

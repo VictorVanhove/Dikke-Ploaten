@@ -127,6 +127,7 @@ PODS:
   - ObjectMapper (3.4.2)
   - OrderedSet (3.1.0)
   - Protobuf (3.6.1)
+  - SwiftLint (0.31.0)
 
 DEPENDENCIES:
   - AlamofireImage (~> 3.5)
@@ -140,6 +141,7 @@ DEPENDENCIES:
   - ImageSlideshow/Alamofire
   - ObjectMapper
   - OrderedSet
+  - SwiftLint
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -167,6 +169,7 @@ SPEC REPOS:
     - ObjectMapper
     - OrderedSet
     - Protobuf
+    - SwiftLint
 
 SPEC CHECKSUMS:
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
@@ -193,7 +196,8 @@ SPEC CHECKSUMS:
   ObjectMapper: 0d4402610f4e468903ae64629eec4784531e5c51
   OrderedSet: 489d84c7469d5aa7658c78f66259c87d878a2dfb
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
+  SwiftLint: 7a0227733d786395817373b2d0ca799fd0093ff3
 
-PODFILE CHECKSUM: f2ea1fce27cb4da4075d6be9000777a0ddfdb63b
+PODFILE CHECKSUM: a500f2a916cb5eb9fb1fd86b7506436a7818dc6c
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.7.0.beta.3
