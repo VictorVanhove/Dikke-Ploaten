@@ -18,5 +18,6 @@ target 'Dikke Ploaten' do
   pod 'AlamofireImage', '~> 3.5'
   pod 'FLEX'
   pod 'AppCenter'
+	pod 'SwiftLint'
 
 end
