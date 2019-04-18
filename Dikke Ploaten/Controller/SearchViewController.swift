@@ -113,7 +113,8 @@ extension SearchViewController {
 					}
 					
 					//Show toast alert
-					self.showToast(controller: self, message: "'\(album.title)' " + "by".localized() + " \(album.artist) " + "is_removed".localized() + " collection", seconds: 2)
+					let alertMessage = "is_removed_from_collection".localized().replacingOccurrences(of: "%album", with: album.title).replacingOccurrences(of: "%artist", with: album.artist)
+					self.showToast(controller: self, message: alertMessage, seconds: 2)
 					self.searchController.isActive = false
 					self.tableView.reloadData()
 				}
@@ -134,7 +135,8 @@ extension SearchViewController {
 					self.tableView.reloadData()
 				})
 				//Show toast alert
-				self.showToast(controller: self, message: "'\(album.title)' " + "by".localized() + " \(album.artist) " + "is_added".localized() + " collection", seconds: 2)
+				let alertMessage = "is_added_to_collection".localized().replacingOccurrences(of: "%album", with: album.title).replacingOccurrences(of: "%artist", with: album.artist)
+				self.showToast(controller: self, message: alertMessage, seconds: 2)
 				self.searchController.isActive = false
 			})
 			add.backgroundColor = UIColor(red: 0.11, green: 0.74, blue: 0.61, alpha: 1.0)
@@ -157,7 +159,8 @@ extension SearchViewController {
 					}
 					
 					//Show toast alert
-					self.showToast(controller: self, message: "'\(album.title)' " + "by".localized() + " \(album.artist) " + "is_removed".localized() + " wantlist", seconds: 2)
+					let alertMessage = "is_removed_from_wantlist".localized().replacingOccurrences(of: "%album", with: album.title).replacingOccurrences(of: "%artist", with: album.artist)
+					self.showToast(controller: self, message: alertMessage, seconds: 2)
 					self.searchController.isActive = false
 				}
 			})
@@ -181,7 +184,8 @@ extension SearchViewController {
 					self.tableView.reloadData()
 				})
 				//Show toast alert
-				self.showToast(controller: self, message: "'\(album.title)' " + "by".localized() + " \(album.artist) " + "is_added".localized() + " wantlist", seconds: 2)
+				let alertMessage = "is_added_to_wantlist".localized().replacingOccurrences(of: "%album", with: album.title).replacingOccurrences(of: "%artist", with: album.artist)
+				self.showToast(controller: self, message: alertMessage, seconds: 2)
 				self.searchController.isActive = false
 			})
 			want.backgroundColor = UIColor(red: 1.00, green: 0.65, blue: 0.00, alpha: 1.0)

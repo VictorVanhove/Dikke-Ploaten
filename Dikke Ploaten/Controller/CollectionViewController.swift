@@ -43,7 +43,8 @@ class CollectionViewController: BaseAlbumListTableViewController {
 				self.reloadTableView()
 				
 				//Show toast alert
-				self.showToast(controller: self, message: "'\(album.title)' " + "by".localized() + " \(album.artist) " + "is_removed".localized() + " collection", seconds: 2)
+				let alertMessage = "is_removed_from_collection".localized().replacingOccurrences(of: "%album", with: album.title).replacingOccurrences(of: "%artist", with: album.artist)
+				self.showToast(controller: self, message: alertMessage, seconds: 2)
 			})
 		}
 		action.backgroundColor = .red

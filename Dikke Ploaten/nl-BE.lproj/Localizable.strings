@@ -15,9 +15,10 @@
 "no_user" = "Er is geen gebruiker met deze gegevens.";
 
 //Collection and Wantlist
-"by" = "van";
-"is_removed" = "is verwijderd van je";
-"is_added" = "is toegevoegd aan je";
+"is_added_to_collection" = "'%album' van %artist is toegevoegd aan je collectie";
+"is_removed_from_collection" = "'%album' van %artist is verwijderd van je collectie";
+"is_added_to_wantlist" = "'%album' van %artist is toegevoegd aan je wantlist";
+"is_removed_from_wantlist" = "'%album' van %artist is verwijderd van je wantlist";
 "no_albums" = "Je hebt nog geen albums toegevoegd.\nGa naar de zoekfunctie en voeg albums toe!";
 "remove" = "Verwijder";
 "add" = "Voeg toe";
