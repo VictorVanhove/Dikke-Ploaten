@@ -102,7 +102,7 @@ extension SearchViewController {
 		
 		if Database.shared.cache.user.plates.first(where: {$0.albumID == album.id}) != nil {
 			// Already in plates, show remove item
-			let remove = UITableViewRowAction(style: .default, title: "\u{232B}\n Remove", handler: { _, _ in
+			let remove = UITableViewRowAction(style: .default, title: "\u{232B}\n" + "remove".localized(), handler: { _, _ in
 				// Write instance to database
 				Database.shared.deleteCollectionAlbum(albumId: album.id) { err in
 					if let err = err {
@@ -146,7 +146,7 @@ extension SearchViewController {
 		
 		if Database.shared.cache.user.wantList.first(where: {$0.albumID == album.id}) != nil {
 			// Already in plates, show remove item
-			let remove = UITableViewRowAction(style: .default, title: "\u{232B}\n Remove", handler: { _, _ in
+			let remove = UITableViewRowAction(style: .default, title: "\u{232B}\n" + "remove".localized(), handler: { _, _ in
 				// Write instance to database
 				Database.shared.deleteWantlistAlbum(albumId: album.id) { err in
 					if let err = err {
