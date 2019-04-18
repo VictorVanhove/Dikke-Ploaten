@@ -6,6 +6,11 @@ disabled_rules:
   - void_return
   - legacy_hashing
 
+opt_in_rules: # some rules are only opt-in
+  - empty_count
+  - empty_string
+  - unneeded_parentheses_in_closure_argument
+
 excluded:
   - Pods
 
