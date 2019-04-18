@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BaseAlbumListTableViewController : UITableViewController {
+class BaseAlbumListTableViewController: UITableViewController {
 	
 	// MARK: - Properties
 	var albums: [Album] = []
@@ -23,7 +23,7 @@ class BaseAlbumListTableViewController : UITableViewController {
 			if albumDictionary[key] == nil {
 				albumDictionary[key] = []
 			}
-			if !(albumDictionary[key]!.contains(album)){
+			if !(albumDictionary[key]!.contains(album)) {
 				albumDictionary[key]!.append(album)
 			}
 		}
@@ -33,8 +33,8 @@ class BaseAlbumListTableViewController : UITableViewController {
 	}
 	
 	func reloadTableView() {
-		if(albums.isEmpty){
-			let message = NSLocalizedString("You have not added any albums yet.\nGo to the search function and add albums!", comment: "")
+		if albums.isEmpty {
+			let message = "no_albums".localized()
 			self.tableView.setEmptyMessage(message)
 		} else {
 			self.tableView.setEmptyMessage()

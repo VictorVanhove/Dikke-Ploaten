@@ -24,7 +24,7 @@ class User: ImmutableMappable, Hashable, Comparable {
 		self.wantList = wantList
 	}
 	
-	// MARK - ObjectMapper
+	// MARK: - ObjectMapper
 	required init(map: Map) throws {
 		username = try map.value("username")
 		email = try map.value("email")

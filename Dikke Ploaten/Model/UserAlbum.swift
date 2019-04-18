@@ -17,7 +17,7 @@ class UserAlbum: ImmutableMappable, Equatable {
 		self.albumID = albumID
 	}
 	
-	// MARK - ObjectMapper
+	// MARK: - ObjectMapper
 	required init(map: Map) throws {
 		albumID = try map.value("albumID")
 	}

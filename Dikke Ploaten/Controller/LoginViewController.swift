@@ -52,7 +52,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 			self.scrollView.scrollIndicatorInsets = contentInsets
 			var aRect = self.view.frame
 			aRect.size.height -= keyboardSize.size.height
-			if (!aRect.contains(activeField.frame.origin)) {
+			if !aRect.contains(activeField.frame.origin) {
 				self.scrollView.scrollRectToVisible(activeField.frame, animated: true)
 			}
 		}
@@ -69,22 +69,21 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 	@IBAction func logUserIn(_ sender: Any) {
 		if validForm() {
 			// Log user in
-			Auth.auth().signIn(withEmail: txtEmail.text!, password: txtPassword.text!) { (user, error) in
+			Auth.auth().signIn(withEmail: txtEmail.text!, password: txtPassword.text!) { _, error in
 				if error == nil {
 					self.performSegue(withIdentifier: "loginToHome", sender: self)
-				}
-				else {
+				} else {
 					// Error while logging in
-					let alertTitle = NSLocalizedString("Whoops", comment: "")
+					let err = (error! as NSError).userInfo["error_name"]! as! String
 					var alertMessage = NSLocalizedString("", comment: "")
-					if(error!.localizedDescription == "The email address is badly formatted."){
-						alertMessage = NSLocalizedString("The email address is badly formatted.", comment: "")
+					if err == "ERROR_INVALID_EMAIL" {
+						alertMessage = "bad_email".localized()
 					}
-					if(error!.localizedDescription == "There is no user record corresponding to this identifier. The user may have been deleted."){
-						alertMessage = NSLocalizedString("There is no user record corresponding to this identifier.", comment: "")
+					if err == "ERROR_USER_NOT_FOUND" {
+						alertMessage = "no_user".localized()
 					}
 
-					let alertController = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
+					let alertController = UIAlertController(title: "whoops".localized(), message: alertMessage, preferredStyle: .alert)
 					let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
 					
 					alertController.addAction(defaultAction)
@@ -122,16 +121,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 		
 		if !isValid {
 			// Show alert if form is not filled in correctly
-			let alertTitle = NSLocalizedString("Whoops", comment: "")
-			let alertMessage = NSLocalizedString("Please make sure all required fields are filled out correctly.", comment: "")
-			let alertController = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
+			let alertController = UIAlertController(title: "whoops".localized(), message: "fields_not_all_filled".localized(), preferredStyle: .alert)
 			alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
 			self.present(alertController, animated: true, completion: nil)
 		}
 		
 		return isValid
 	}
-	
-	
 	
 }

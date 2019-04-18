@@ -98,8 +98,8 @@
 /* Class = "UITextField"; placeholder = "Password"; ObjectID = "WFh-TW-Ynd"; */
 "WFh-TW-Ynd.placeholder" = "Wachtwoord";
 
-/* Class = "UITextView"; text = "Register here first and become a member of our beautiful 'Dikke Ploaten'-community and its features."; ObjectID = "Wp8-on-meC"; */
-"Wp8-on-meC.text" = "Meld je hier eerst aan en word lid van onze prachtige 'Dikke Ploaten'-community en zijn features.";
+/* Class = "UILabel"; text = "Register here first and become a member of our beautiful 'Dikke Ploaten'-community and its features."; ObjectID = "EMX-NX-dzN"; */
+"EMX-NX-dzN.text" = "Meld je hier eerst aan en word lid van onze prachtige 'Dikke Ploaten'-community en zijn features.";
 
 /* Class = "UILabel"; text = "Dikke Ploaten"; ObjectID = "Wvc-pB-ISw"; */
 "Wvc-pB-ISw.text" = "Dikke Ploaten";
@@ -116,8 +116,8 @@
 /* Class = "UILabel"; text = "AC/DC"; ObjectID = "aAA-Pn-S2A"; */
 "aAA-Pn-S2A.text" = "AC/DC";
 
-/* Class = "UITextView"; text = "Welcome and thanks for joining the 'Dikke Ploaten'-community.  Log in quickly en take a look at what this app has to offer!"; ObjectID = "ald-hc-HRT"; */
-"ald-hc-HRT.text" = "Welkom en bedankt om lid te worden van de 'Dikke Ploaten'-community. Log je snel in en neem eens een kijkje in wat deze app te bieden heeft!";
+/* Class = "UILabel"; text = "Welcome and thanks for joining the 'Dikke Ploaten'-community.  Log in quickly en take a look at what this app has to offer!"; ObjectID = "R2b-l7-Uoq"; */
+"R2b-l7-Uoq.text" = "Welkom en bedankt om lid te worden van de 'Dikke Ploaten'-community. Log je snel in en neem eens een kijkje in wat deze app te bieden heeft!";
 
 /* Class = "UILabel"; text = "Email"; ObjectID = "bG2-vq-oOL"; */
 "bG2-vq-oOL.text" = "Emailadres";

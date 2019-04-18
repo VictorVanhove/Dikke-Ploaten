@@ -20,7 +20,7 @@ class ProfileViewController: UIViewController {
 	// MARK: - Properties
 	var collectionAlbums: [Album] = []
 	var wantlistAlbums: [Album] = []
-	var collections = [NSLocalizedString("Collection", comment: ""), NSLocalizedString("Wantlist", comment: "")]
+	var collections = ["collection".localized(), "wantlist".localized()]
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -36,11 +36,11 @@ class ProfileViewController: UIViewController {
 		Database.shared.getUser { user in
 			self.lblUser.text = user.username
 		}
-		Database.shared.getUserPlates { (albums) in
+		Database.shared.getUserPlates { albums in
 			self.collectionAlbums = albums
 			self.tableView.reloadData()
 		}
-		Database.shared.getUserWantlist { (albums) in
+		Database.shared.getUserWantlist { albums in
 			self.wantlistAlbums = albums
 			self.tableView.reloadData()
 		}
@@ -60,10 +60,9 @@ class ProfileViewController: UIViewController {
 	
 }
 
-extension ProfileViewController : UITableViewDelegate { }
+extension ProfileViewController: UITableViewDelegate { }
 
-extension ProfileViewController : UITableViewDataSource {
-	
+extension ProfileViewController: UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 		return collections[section]
@@ -79,12 +78,12 @@ extension ProfileViewController : UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! CollectionHolderTableViewCell
-		if indexPath.section == 0{
-			if(!collectionAlbums.isEmpty){
+		if indexPath.section == 0 {
+			if !collectionAlbums.isEmpty {
 				cell.updateAlbums(albums: collectionAlbums)
 			}
 		} else {
-			if(!wantlistAlbums.isEmpty){
+			if !wantlistAlbums.isEmpty {
 				cell.updateAlbums(albums: wantlistAlbums)
 			}
 		}
@@ -93,10 +92,9 @@ extension ProfileViewController : UITableViewDataSource {
 	}
 	
 	func tableView(_ tableView: UITableView, heightForRowAt
-		indexPath: IndexPath) -> CGFloat
-	{
-		let itemsPerRow:CGFloat = 4
-		let hardCodedPadding:CGFloat = 5
+		indexPath: IndexPath) -> CGFloat {
+		let itemsPerRow: CGFloat = 4
+		let hardCodedPadding: CGFloat = 5
 		let itemWidth = (tableView.bounds.width / itemsPerRow) - hardCodedPadding
 		return itemWidth
 	}

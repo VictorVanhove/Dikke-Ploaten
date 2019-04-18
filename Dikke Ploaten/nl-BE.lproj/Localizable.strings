@@ -7,30 +7,31 @@
 */
 
 //Login and SignUp
-"Whoops" = "Oeps";
-"Please make sure all required fields are filled out correctly." = "Zorg ervoor dat alles ingevuld is.";
-"The email address is badly formatted." = "Het emailadres heeft niet het juiste formaat.";
-"The password must be 6 characters long or more." = "Het wachtwoord moet 6 of meer karakters bevattten.";
-"The email address is already in use by another account." = "Dit emailadres is al in gebruik.";
-"There is no user record corresponding to this identifier." = "Er is geen gebruiker met deze gegevens.";
+"whoops" = "Oeps";
+"fields_not_all_filled" = "Zorg ervoor dat alles ingevuld is.";
+"bad_email" = "Het emailadres heeft niet het juiste formaat.";
+"invalid_password" = "Het wachtwoord moet 6 of meer karakters bevattten.";
+"email_already_in_use" = "Dit emailadres is al in gebruik.";
+"no_user" = "Er is geen gebruiker met deze gegevens.";
 
 //Collection and Wantlist
-"'' by was removed from your collection" = "'' van was removed from your collection";
-"You have not added any albums yet.\nGo to the search function and add albums!" = "Je hebt nog geen albums toegevoegd.\nGa naar de zoekfunctie en voeg albums toe!";
-"Remove" = "Verwijder";
-"Add" = "Voeg toe";
-"Want" = "Want";
+"notification_removed" = "Album is succesvol verwijderd";
+"notification_added" = "Album is succesvol toegevoegd";
+"no_albums" = "Je hebt nog geen albums toegevoegd.\nGa naar de zoekfunctie en voeg albums toe!";
+"remove" = "Verwijder";
+"add" = "Voeg toe";
+"want" = "Want";
 
 //Profile
-"Collection" = "Collectie";
-"Wantlist" = "Wantlijst";
+"collection" = "Collectie";
+"wantlist" = "Wantlijst";
 
 //Settings
-"Change name" = "Verander naam";
-"Fill in your new username:" = "Vul je nieuwe gebruikersnaam in:";
-"Username" = "Gebruikersnaam";
-"Cancel" = "Annuleer";
-"Change password" = "Verander wachtwoord";
-"Fill in your new password:" = "Vul je nieuw wachtwoord in:";
-"New password" = "Nieuw wachtwoord";
-"Confirm new password" = "Bevestig nieuw wachtwoord";
+"change_name" = "Verander naam";
+"fill_username" = "Vul je nieuwe gebruikersnaam in:";
+"placeholder_username" = "Gebruikersnaam";
+"cancel" = "Annuleer";
+"change_password" = "Verander wachtwoord";
+"fill_in_new_password" = "Vul je nieuw wachtwoord in:";
+"placeholder_new_password" = "Nieuw wachtwoord";
+"placeholder_confirm_new_password" = "Bevestig nieuw wachtwoord";

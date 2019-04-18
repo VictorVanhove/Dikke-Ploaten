@@ -10,7 +10,7 @@ import UIKit
 
 class AlbumDetailViewController: UIViewController {
 	
-	var album : Album!
+	var album: Album!
 	
 	@IBOutlet weak var lblTitle: UILabel!
 	@IBOutlet weak var lblArtist: UILabel!
@@ -20,7 +20,6 @@ class AlbumDetailViewController: UIViewController {
 	@IBOutlet weak var lblReleaseYear: UILabel!
 	@IBOutlet weak var txtTracklist: UITextView!
 	@IBOutlet weak var txtMusicians: UITextView!
-	
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()

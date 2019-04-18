@@ -32,12 +32,11 @@ class AlbumImageViewController: UIViewController {
 		
 		var alamofireSource = [AlamofireSource]()
 		
-		for i in 0..<album.images.count {
-			alamofireSource.append(AlamofireSource(urlString: album.images[i])!)
+		for image in 0..<album.images.count {
+			alamofireSource.append(AlamofireSource(urlString: album.images[image])!)
 		}
 		
 		slideshow.setImageInputs(alamofireSource)
 	}
-	
 	
 }

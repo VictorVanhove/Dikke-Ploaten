@@ -54,7 +54,7 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
 			self.scrollView.scrollIndicatorInsets = contentInsets
 			var aRect = self.view.frame
 			aRect.size.height -= keyboardSize.size.height
-			if (!aRect.contains(activeField.frame.origin)) {
+			if !aRect.contains(activeField.frame.origin) {
 				self.scrollView.scrollRectToVisible(activeField.frame, animated: true)
 			}
 		}
@@ -75,18 +75,21 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
 				self.performSegue(withIdentifier: "signupToHome", sender: self)
 			}, failureHandler: { error in
 				// Error creating user
-				let alertTitle = NSLocalizedString("Whoops", comment: "")
+				let err = (error as NSError).userInfo["error_name"]! as! String
 				var alertMessage = NSLocalizedString("", comment: "")
-				if(error.localizedDescription == "The email address is badly formatted."){
-					alertMessage = NSLocalizedString("The email address is badly formatted.", comment: "")
+				if err == "ERROR_INVALID_EMAIL" {
+					print(err)
+					alertMessage = "bad_email".localized()
 				}
-				if(error.localizedDescription == "The password must be 6 characters long or more."){
-					alertMessage = NSLocalizedString("The password must be 6 characters long or more.", comment: "")
+				if err == "ERROR_WEAK_PASSWORD" {
+					print(err)
+					alertMessage = "invalid_password".localized()
 				}
-				if(error.localizedDescription == "The email address is already in use by another account."){
-					alertMessage = NSLocalizedString("The email address is already in use by another account.", comment: "")
+				if err == "ERROR_EMAIL_ALREADY_IN_USE" {
+					print(err)
+					alertMessage = "email_already_in_use".localized()
 				}
-				let alertController = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
+				let alertController = UIAlertController(title: "whoops".localized(), message: alertMessage, preferredStyle: .alert)
 				let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
 				
 				alertController.addAction(defaultAction)
@@ -115,7 +118,6 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
 		lblUser.textColor = UIColor.black
 		if !txtUser.text!.isEmpty {
 			// Check email
-			// TODO: valid emailadress
 			lblEmail.textColor = UIColor.black
 			if !txtEmail.text!.isEmpty {
 				// Check password
@@ -127,9 +129,7 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
 		}
 		
 		// Show alert if form is not filled in correctly
-		let alertTitle = NSLocalizedString("Whoops", comment: "")
-		let alertMessage = NSLocalizedString("Please make sure all required fields are filled out correctly.", comment: "")
-		let alertController = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
+		let alertController = UIAlertController(title: "whoops".localized(), message: "fields_not_all_filled".localized(), preferredStyle: .alert)
 		alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
 		self.present(alertController, animated: true, completion: nil)
 		

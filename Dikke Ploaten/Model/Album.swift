@@ -34,7 +34,7 @@ class Album: ImmutableMappable, Hashable, Comparable {
 		self.musicians = musicians
 	}
 	
-	// MARK - ObjectMapper
+	// MARK: - ObjectMapper
 	required init(map: Map) throws {
 		title = try map.value("title")
 		artist = try map.value("artist")
@@ -65,7 +65,7 @@ class Album: ImmutableMappable, Hashable, Comparable {
 	}
 	
 	// Equatable
-	static func == (lhs: Album  , rhs: Album) -> Bool {
+	static func == (lhs: Album, rhs: Album) -> Bool {
 		return lhs.id == rhs.id
 	}
 	

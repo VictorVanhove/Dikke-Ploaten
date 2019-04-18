@@ -9,13 +9,12 @@
 import UIKit
 import AlamofireImage
 
-class AlbumCollectionViewCell : UICollectionViewCell {
+class AlbumCollectionViewCell: UICollectionViewCell {
 	
 	@IBOutlet weak var imgCover: UIImageView!
 	
-	func updateUI(forAlbum album: Album){
+	func updateUI(forAlbum album: Album) {
 		imgCover.af_setImage(withURL: URL(string: album.cover)!)
 	}
-	
 	
 }

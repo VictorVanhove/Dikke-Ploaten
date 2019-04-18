@@ -7,30 +7,31 @@
 */
 
 //Login and SignUp
-"Whoops" = "Whoops";
-"Please make sure all required fields are filled out correctly." = "Please make sure all required fields are filled out correctly.";
-"The email address is badly formatted." = "The email address is badly formatted.";
-"The password must be 6 characters long or more." = "The password must be 6 characters long or more.";
-"The email address is already in use by another account." = "The email address is already in use by another account.";
-"There is no user record corresponding to this identifier." = "There is no user record corresponding to this identifier.";
+"whoops" = "Whoops";
+"fields_not_all_filled" = "Please make sure all required fields are filled out correctly.";
+"bad_email" = "The email address is badly formatted.";
+"invalid_password" = "The password must be 6 characters long or more.";
+"email_already_in_use" = "The email address is already in use by another account.";
+"no_user" = "There is no user record corresponding to this identifier.";
 
 //Collection and Wantlist
-"'' by was removed from your collection" = "'' by was removed from your collection";
-"You have not added any albums yet.\nGo to the search function and add albums!" = "You have not added any albums yet.\nGo to the search function and add albums!";
-"Remove" = "Remove";
-"Add" = "Add";
-"Want" = "Want";
+"notification_removed" = "Album was succesfully removed";
+"notification_added" = "Album was succesfully added";
+"no_albums" = "You have not added any albums yet.\nGo to the search function and add albums!";
+"remove" = "Remove";
+"add" = "Add";
+"want" = "Want";
 
 //Profile
-"Collection" = "Collection";
-"Wantlist" = "Wantlist";
+"collection" = "Collection";
+"wantlist" = "Wantlist";
 
 //Settings
-"Change name" = "Change name";
-"Fill in your new username:" = "Fill in your new username:";
-"Username" = "Username";
-"Cancel" = "Cancel";
-"Change password" = "Change password";
-"Fill in your new password:" = "Fill in your new password:";
-"New password" = "New password";
-"Confirm new password" = "Confirm new password";
+"change_name" = "Change name";
+"fill_username" = "Fill in your new username:";
+"placeholder_username" = "Username";
+"cancel" = "Cancel";
+"change_password" = "Change password";
+"fill_in_new_password" = "Fill in your new password:";
+"placeholder_new_password" = "New password";
+"placeholder_confirm_new_password" = "Confirm new password";

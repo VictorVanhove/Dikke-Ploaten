@@ -22,7 +22,7 @@ class AlbumTableViewCell: UITableViewCell {
 		lblTitle.text = album.title
 		lblArtist.text = album.artist
 		imgCover.af_setImage(withURL: URL(string: album.cover)!)
-		}
+	}
 	
 	func updateUISearch(forAlbum album: Album, image: String? = nil) {
 		lblTitle.text = album.title

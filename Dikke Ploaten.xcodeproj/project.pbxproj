@@ -40,8 +40,6 @@
 /* Begin PBXFileReference section */
 		0D0A464722439CAD0042501C /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		0D0B159422423A3B0042EDA5 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
-		0D320A5322671CFD008AFD8C /* nl-BE */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "nl-BE"; path = "nl-BE.lproj/Main.strings"; sourceTree = "<group>"; };
-		0D320A5522671D0F008AFD8C /* nl-BE */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "nl-BE"; path = "nl-BE.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		0D320A5722672D2A008AFD8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0D320A5922672D30008AFD8C /* nl-BE */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "nl-BE"; path = "nl-BE.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		0D35360B223A53CA00DA5453 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -53,6 +51,8 @@
 		0D35C25B225C8E4B00F9854B /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		0D379614224D2EEF00A68DDD /* AlbumDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumDetailViewController.swift; sourceTree = "<group>"; };
 		0D3D147D223A9B29003CACEC /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
+		0D5A73B9226879D200851EDB /* nl-BE */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "nl-BE"; path = "nl-BE.lproj/Main.strings"; sourceTree = "<group>"; };
+		0D5A73BB226879D600851EDB /* nl-BE */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "nl-BE"; path = "nl-BE.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		0D6F68BE22394F1200687EFD /* Dikke Ploaten.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dikke Ploaten.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D6F68C122394F1200687EFD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0D6F68C322394F1200687EFD /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
@@ -366,7 +366,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				0D6F68C822394F1200687EFD /* Base */,
-				0D320A5322671CFD008AFD8C /* nl-BE */,
+				0D5A73B9226879D200851EDB /* nl-BE */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -375,7 +375,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				0D6F68CD22394F1300687EFD /* Base */,
-				0D320A5522671D0F008AFD8C /* nl-BE */,
+				0D5A73BB226879D600851EDB /* nl-BE */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
