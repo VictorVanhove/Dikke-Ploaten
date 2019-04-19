@@ -24,7 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		FirebaseApp.configure()
 		
 		// UITesting
-		if ProcessInfo.processInfo.arguments.contains("userNotLoggedIn"){
+		if ProcessInfo.processInfo.arguments.contains("userLoggedIn"){
+			Auth.auth().signIn(withEmail: "victor@bazookas.be", password: "vvvvvv")
+		} else {
 			try? Auth.auth().signOut()
 		}
 		

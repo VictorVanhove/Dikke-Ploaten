@@ -1,5 +1,5 @@
 //
-//  Dikke_PloatenUITests.swift
+//  LoginScreenTests.swift
 //  Dikke PloatenUITests
 //
 //  Created by Victor Vanhove on 18/04/2019.
@@ -30,7 +30,6 @@ class LoginScreenTests: XCTestCase {
 	
 	override func tearDown() {
 		// Put teardown code here. This method is called after the invocation of each test method in the class.
-		super.tearDown()
 	}
 	
 	func testCannotLoginWithoutEmailAndPassword() {
