@@ -11,6 +11,7 @@
 "fields_not_all_filled" = "Zorg ervoor dat alles ingevuld is.";
 "bad_email" = "Het emailadres heeft niet het juiste formaat.";
 "invalid_password" = "Het wachtwoord moet 6 of meer karakters bevattten.";
+"wrong_password" = "Het wachtwoord komt niet overeen met je emailadres.";
 "email_already_in_use" = "Dit emailadres is al in gebruik.";
 "no_user" = "Er is geen gebruiker met deze gegevens.";
 

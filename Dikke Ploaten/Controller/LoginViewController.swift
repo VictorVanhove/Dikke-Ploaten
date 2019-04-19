@@ -85,6 +85,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 					switch err {
 					case "ERROR_USER_NOT_FOUND":
 						alertMessage = "no_user".localized()
+					case "ERROR_WRONG_PASSWORD":
+						alertMessage = "wrong_password".localized()
 					default:
 						alertMessage = err
 					}
