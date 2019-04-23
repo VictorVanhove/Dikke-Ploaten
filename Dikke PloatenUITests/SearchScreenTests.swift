@@ -28,6 +28,23 @@ class SearchScreenTests: XCTestCase {
 
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
+		
     }
+	
+	func testCanFilterOnAlbumName() {
+		app.tabBars.buttons["Search"].doubleTap()
+		app.navigationBars.element.searchFields["Search"].tap()
+		app.searchFields.element.typeText("Heroes")
+		
+		XCTAssertTrue(app.tables.cells.count == 1)
+	}
+	
+	func testCanFilterOnAlbumArtist() {
+		app.tabBars.buttons["Search"].doubleTap()
+		app.navigationBars.element.searchFields["Search"].tap()
+		app.searchFields.element.typeText("David Bowie")
+		
+		XCTAssertTrue(app.tables.cells.count == 1)
+	}
 
 }
