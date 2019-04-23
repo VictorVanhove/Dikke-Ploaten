@@ -19,7 +19,7 @@
 "is_added_to_collection" = "'%album' by %artist is added to your collection";
 "is_removed_from_collection" = "'%album' by %artist is removed from your collection";
 "is_added_to_wantlist" = "'%album' by %artist is added to your wantlist";
-"is_removed_from_wantlist" = "'%album' van %artist is removed from your wantlist";
+"is_removed_from_wantlist" = "'%album' by %artist is removed from your wantlist";
 "no_albums" = "You have not added any albums yet.\nGo to the search function and add albums!";
 "remove" = "Remove";
 "add" = "Add";
