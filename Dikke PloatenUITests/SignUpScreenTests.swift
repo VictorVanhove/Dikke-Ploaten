@@ -93,6 +93,7 @@ class SignUpScreenTests: XCTestCase {
 		app.secureTextFields["Password"].typeText("vvvvvv")
 		
 		app.buttons["Go"].tap()
+		sleep(1)
 		
 		XCTAssertTrue(app.alerts.element.staticTexts["The email address is already in use by another account."].exists)
 	}

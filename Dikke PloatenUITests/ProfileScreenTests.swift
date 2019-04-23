@@ -44,8 +44,7 @@ class ProfileScreenTests: XCTestCase {
 		
 		let selectedPhoto = app.collectionViews.element(boundBy: 0).cells.element(boundBy: 0)
 		sleep(3)
-		selectedPhoto.tap()
-		selectedPhoto.tap()
+		selectedPhoto.doubleTap()
     }
 	
 	func testCanAddCoverPhoto() {
