@@ -39,10 +39,6 @@ class SearchScreenTests: XCTestCase {
 		app.tables.cells.element(boundBy: 0).buttons["☰ Add"].tap()
 
 		XCTAssertTrue(app.alerts.element.staticTexts["'Pet Sounds' by The Beach Boys is added to your collection"].exists)
-		
-		app.tabBars.buttons["Collection"].tap()
-		app.tables.cells.element(boundBy: 0).swipeLeft()
-		app.tables.cells.element(boundBy: 0).buttons["⌫ Remove"].tap()
     }
 	
 	func testCanAddAlbumToWantlist() {
@@ -54,10 +50,6 @@ class SearchScreenTests: XCTestCase {
 		app.tables.cells.element(boundBy: 1).buttons["♥ Want"].tap()
 		
 		XCTAssertTrue(app.alerts.element.staticTexts["'1999' by Prince is added to your wantlist"].exists)
-		
-		app.tabBars.buttons["Wantlist"].tap()
-		app.tables.cells.element(boundBy: 0).swipeLeft()
-		app.tables.cells.element(boundBy: 0).buttons["⌫ Remove"].tap()
 	}
 
 }
