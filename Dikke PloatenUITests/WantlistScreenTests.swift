@@ -30,36 +30,26 @@ class WantlistScreenTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 	
-	func testCanAddAlbumToWantlistAndRemoveAgain() {
-		app.tabBars.buttons["Search"].doubleTap()
-		
-		app.tables.cells.element(boundBy: 1).swipeLeft()
-		app.tables.cells.element(boundBy: 1).buttons["♥ Want"].tap()
-		
-		XCTAssertTrue(app.alerts.element.staticTexts["'1999' by Prince is added to your wantlist"].exists)
-		
-		app.tabBars.buttons["Wantlist"].tap()
+	func testCanRemoveAlbumFromWantlistAndAddAgain() {
+		app.tabBars.buttons["Wantlist"].doubleTap()
 		app.tables.cells.element(boundBy: 0).swipeLeft()
 		app.tables.cells.element(boundBy: 0).buttons["⌫ Remove"].tap()
 		sleep(1)
 		
 		XCTAssertTrue(app.alerts.element.staticTexts["'1999' by Prince is removed from your wantlist"].exists)
-	}
-	
-	func testCanOpenAlbumFromWantlist() {
-		app.tabBars.buttons["Search"].doubleTap()
 		
+		app.tabBars.buttons["Search"].tap()
 		app.tables.cells.element(boundBy: 1).swipeLeft()
 		app.tables.cells.element(boundBy: 1).buttons["♥ Want"].tap()
 		
-		app.tabBars.buttons["Wantlist"].tap()
+		XCTAssertTrue(app.alerts.element.staticTexts["'1999' by Prince is added to your wantlist"].exists)
+	}
+	
+	func testCanOpenAlbumFromWantlist() {
+		app.tabBars.buttons["Wantlist"].doubleTap()
 		app.tables.cells.element(boundBy: 0).tap()
 		
 		XCTAssertTrue(app.navigationBars["Dikke_Ploaten.AlbumDetailView"].exists)
-		
-		app.navigationBars["Dikke_Ploaten.AlbumDetailView"].buttons["Wantlist"].tap()
-		app.tables.cells.element(boundBy: 0).swipeLeft()
-		app.tables.cells.element(boundBy: 0).buttons["⌫ Remove"].tap()
 	}
 
 }

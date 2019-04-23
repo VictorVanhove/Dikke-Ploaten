@@ -30,36 +30,26 @@ class CollectionScreenTests: XCTestCase {
 		// Put teardown code here. This method is called after the invocation of each test method in the class.
 	}
 	
-	func testCanAddAlbumToCollectionAndRemoveAgain() {
-		app.tabBars.buttons["Search"].doubleTap()
-		
-		app.tables.cells.element(boundBy: 0).swipeLeft()
-		app.tables.cells.element(boundBy: 0).buttons["☰ Add"].tap()
-		
-		XCTAssertTrue(app.alerts.element.staticTexts["'Pet Sounds' by The Beach Boys is added to your collection"].exists)
-		
-		app.tabBars.buttons["Collection"].tap()
+	func testCanRemoveAlbumFromCollectionAndAddAgain() {
+		app.tabBars.buttons["Collection"].doubleTap()
 		app.tables.cells.element(boundBy: 0).swipeLeft()
 		app.tables.cells.element(boundBy: 0).buttons["⌫ Remove"].tap()
 		sleep(1)
 		
 		XCTAssertTrue(app.alerts.element.staticTexts["'Pet Sounds' by The Beach Boys is removed from your collection"].exists)
-	}
-	
-	func testCanOpenAlbumFromCollection() {
-		app.tabBars.buttons["Search"].doubleTap()
 		
+		app.tabBars.buttons["Search"].tap()
 		app.tables.cells.element(boundBy: 0).swipeLeft()
 		app.tables.cells.element(boundBy: 0).buttons["☰ Add"].tap()
 		
-		app.tabBars.buttons["Collection"].tap()
+		XCTAssertTrue(app.alerts.element.staticTexts["'Pet Sounds' by The Beach Boys is added to your collection"].exists)
+	}
+	
+	func testCanOpenAlbumFromCollection() {
+		app.tabBars.buttons["Collection"].doubleTap()
 		app.tables.cells.element(boundBy: 0).tap()
 		
 		XCTAssertTrue(app.navigationBars["Dikke_Ploaten.AlbumDetailView"].exists)
-		
-		app.navigationBars["Dikke_Ploaten.AlbumDetailView"].buttons["Collection"].tap()
-		app.tables.cells.element(boundBy: 0).swipeLeft()
-		app.tables.cells.element(boundBy: 0).buttons["⌫ Remove"].tap()
 	}
 	
 }
