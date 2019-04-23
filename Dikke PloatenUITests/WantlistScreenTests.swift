@@ -51,5 +51,18 @@ class WantlistScreenTests: XCTestCase {
 		
 		XCTAssertTrue(app.navigationBars["Dikke_Ploaten.AlbumDetailView"].exists)
 	}
+	
+	func testShowEmptyMessageWhenWantlistIsEmpty() {
+		app.tabBars.buttons["Wantlist"].doubleTap()
+		app.tables.cells.element(boundBy: 0).swipeLeft()
+		app.tables.cells.element(boundBy: 0).buttons["⌫ Remove"].tap()
+		sleep(3)
+		
+		XCTAssertTrue(app.staticTexts["You have not added any albums yet.\nGo to the search function and add albums!"].exists)
+		
+		app.tabBars.buttons["Search"].tap()
+		app.tables.cells.element(boundBy: 1).swipeLeft()
+		app.tables.cells.element(boundBy: 1).buttons["♥ Want"].tap()
+	}
 
 }

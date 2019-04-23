@@ -52,4 +52,17 @@ class CollectionScreenTests: XCTestCase {
 		XCTAssertTrue(app.navigationBars["Dikke_Ploaten.AlbumDetailView"].exists)
 	}
 	
+	func testShowEmptyMessageWhenCollectionIsEmpty() {
+		app.tabBars.buttons["Collection"].doubleTap()
+		app.tables.cells.element(boundBy: 0).swipeLeft()
+		app.tables.cells.element(boundBy: 0).buttons["⌫ Remove"].tap()
+		sleep(3)
+		
+		XCTAssertTrue(app.staticTexts["You have not added any albums yet.\nGo to the search function and add albums!"].exists)
+		
+		app.tabBars.buttons["Search"].tap()
+		app.tables.cells.element(boundBy: 0).swipeLeft()
+		app.tables.cells.element(boundBy: 0).buttons["☰ Add"].tap()
+	}
+	
 }
