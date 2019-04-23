@@ -30,26 +30,4 @@ class SearchScreenTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testCanAddAlbumToCollection() {
-		app.tabBars.buttons["Search"].tap()
-		app.tabBars.buttons["Collection"].tap()
-		app.tabBars.buttons["Search"].tap()
-		
-		app.tables.cells.element(boundBy: 0).swipeLeft()
-		app.tables.cells.element(boundBy: 0).buttons["☰ Add"].tap()
-
-		XCTAssertTrue(app.alerts.element.staticTexts["'Pet Sounds' by The Beach Boys is added to your collection"].exists)
-    }
-	
-	func testCanAddAlbumToWantlist() {
-		app.tabBars.buttons["Search"].tap()
-		app.tabBars.buttons["Wantlist"].tap()
-		app.tabBars.buttons["Search"].tap()
-		
-		app.tables.cells.element(boundBy: 1).swipeLeft()
-		app.tables.cells.element(boundBy: 1).buttons["♥ Want"].tap()
-		
-		XCTAssertTrue(app.alerts.element.staticTexts["'1999' by Prince is added to your wantlist"].exists)
-	}
-
 }
