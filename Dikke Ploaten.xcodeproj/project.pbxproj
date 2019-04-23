@@ -10,6 +10,7 @@
 		0D0A464822439CAD0042501C /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0A464722439CAD0042501C /* SettingsTableViewController.swift */; };
 		0D0B159522423A3B0042EDA5 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0B159422423A3B0042EDA5 /* LaunchViewController.swift */; };
 		0D0F1C12226F1159006FF31D /* WantlistScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0F1C11226F1159006FF31D /* WantlistScreenTests.swift */; };
+		0D0F1C14226F16DE006FF31D /* ProfileScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0F1C13226F16DE006FF31D /* ProfileScreenTests.swift */; };
 		0D320A5822672D2A008AFD8C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0D320A5622672D2A008AFD8C /* Localizable.strings */; };
 		0D35360C223A53CA00DA5453 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D35360B223A53CA00DA5453 /* LoginViewController.swift */; };
 		0D35360E223A53E300DA5453 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D35360D223A53E300DA5453 /* SignupViewController.swift */; };
@@ -56,6 +57,7 @@
 		0D0A464722439CAD0042501C /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		0D0B159422423A3B0042EDA5 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		0D0F1C11226F1159006FF31D /* WantlistScreenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WantlistScreenTests.swift; sourceTree = "<group>"; };
+		0D0F1C13226F16DE006FF31D /* ProfileScreenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenTests.swift; sourceTree = "<group>"; };
 		0D320A5722672D2A008AFD8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0D320A5922672D30008AFD8C /* nl-BE */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "nl-BE"; path = "nl-BE.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		0D35360B223A53CA00DA5453 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 				0DCFFEC92269D03A005CB171 /* SearchScreenTests.swift */,
 				0DCFFEC72269CE9E005CB171 /* CollectionScreenTests.swift */,
 				0D0F1C11226F1159006FF31D /* WantlistScreenTests.swift */,
+				0D0F1C13226F16DE006FF31D /* ProfileScreenTests.swift */,
 				0DCFFEBF2268B89F005CB171 /* Info.plist */,
 			);
 			path = "Dikke PloatenUITests";
@@ -429,6 +432,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0DCFFEC82269CE9E005CB171 /* CollectionScreenTests.swift in Sources */,
+				0D0F1C14226F16DE006FF31D /* ProfileScreenTests.swift in Sources */,
 				0DCFFEBE2268B89F005CB171 /* LoginScreenTests.swift in Sources */,
 				0D0F1C12226F1159006FF31D /* WantlistScreenTests.swift in Sources */,
 				0DCFFEC62269B328005CB171 /* SignUpScreenTests.swift in Sources */,

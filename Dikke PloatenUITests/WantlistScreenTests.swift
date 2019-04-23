@@ -29,12 +29,19 @@ class WantlistScreenTests: XCTestCase {
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
+	
+	func testCanOpenAlbumFromWantlist() {
+		app.tabBars.buttons["Wantlist"].tap()
+		app.tables.cells.element(boundBy: 0).tap()
+		
+		XCTAssertTrue(app.navigationBars["Dikke_Ploaten.AlbumDetailView"].exists)
+	}
 
 	func testCanRemoveAlbumFromWantlist() {
-		app.tabBars.buttons["Wantlist"].tap()
+		app.tabBars.buttons["Wantlist"].doubleTap()
 		app.tables.cells.element(boundBy: 0).swipeLeft()
 		app.tables.cells.element(boundBy: 0).buttons["⌫ Remove"].tap()
-		
+		sleep(1)
 		XCTAssertTrue(app.alerts.element.staticTexts["'1999' by Prince is removed from your wantlist"].exists)
 	}
 

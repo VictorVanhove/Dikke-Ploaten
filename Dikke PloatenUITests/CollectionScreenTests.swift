@@ -30,11 +30,18 @@ class CollectionScreenTests: XCTestCase {
 		// Put teardown code here. This method is called after the invocation of each test method in the class.
 	}
 	
+	func testCanOpenAlbumFromCollection() {
+		app.tabBars.buttons["Collection"].tap()
+		app.tables.cells.element(boundBy: 0).tap()
+		
+		XCTAssertTrue(app.navigationBars["Dikke_Ploaten.AlbumDetailView"].exists)
+	}
+	
 	func testCanRemoveAlbumFromCollection() {
 		app.tabBars.buttons["Collection"].tap()
 		app.tables.cells.element(boundBy: 0).swipeLeft()
 		app.tables.cells.element(boundBy: 0).buttons["⌫ Remove"].tap()
-		
+		sleep(1)
 		XCTAssertTrue(app.alerts.element.staticTexts["'Pet Sounds' by The Beach Boys is removed from your collection"].exists)
 	}
 	
