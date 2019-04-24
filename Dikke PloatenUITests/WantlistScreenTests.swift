@@ -31,7 +31,8 @@ class WantlistScreenTests: XCTestCase {
     }
 	
 	func testCanRemoveAlbumFromWantlistAndAddAgain() {
-		app.tabBars.buttons["Wantlist"].doubleTap()
+		app.tabBars.buttons["Wantlist"].tap()
+		sleep(1)
 		app.tables.cells.element(boundBy: 0).swipeLeft()
 		app.tables.cells.element(boundBy: 0).buttons["⌫ Remove"].tap()
 		sleep(1)
@@ -46,14 +47,16 @@ class WantlistScreenTests: XCTestCase {
 	}
 	
 	func testCanOpenAlbumFromWantlist() {
-		app.tabBars.buttons["Wantlist"].doubleTap()
+		app.tabBars.buttons["Wantlist"].tap()
+		sleep(1)
 		app.tables.cells.element(boundBy: 0).tap()
 		
 		XCTAssertTrue(app.navigationBars["Dikke_Ploaten.AlbumDetailView"].exists)
 	}
 	
 	func testShowEmptyMessageWhenWantlistIsEmpty() {
-		app.tabBars.buttons["Wantlist"].doubleTap()
+		app.tabBars.buttons["Wantlist"].tap()
+		sleep(1)
 		app.tables.cells.element(boundBy: 0).swipeLeft()
 		app.tables.cells.element(boundBy: 0).buttons["⌫ Remove"].tap()
 		sleep(3)

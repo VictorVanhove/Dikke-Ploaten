@@ -34,6 +34,7 @@ class LoginScreenTests: XCTestCase {
 	
 	func testCannotLoginWithoutEmailAndPassword() {
 		app.buttons["Log In"].tap()
+		sleep(1)
 		XCTAssertTrue(app.alerts.element.staticTexts["Please make sure all required fields are filled out correctly."].exists)
 	}
 	

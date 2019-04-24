@@ -34,6 +34,7 @@ class SignUpScreenTests: XCTestCase {
 	
 	func testCannotSignUpWithoutNameEmailAndPassword() {
 		app.buttons["Not a member yet? Sign Up"].tap()
+		sleep(1)
 		app.buttons["Sign Up"].tap()
 		
 		XCTAssertTrue(app.alerts.element.staticTexts["Please make sure all required fields are filled out correctly."].exists)
@@ -41,7 +42,7 @@ class SignUpScreenTests: XCTestCase {
 	
 	func testCannotSignUpWithInvalidEmail() {
 		app.buttons["Not a member yet? Sign Up"].tap()
-		
+		sleep(1)
 		app.textFields["Username"].tap()
 		app.textFields["Username"].typeText("Victor")
 		
@@ -65,7 +66,7 @@ class SignUpScreenTests: XCTestCase {
 	
 	func testCannotSignUpWithInvalidPassword() {
 		app.buttons["Not a member yet? Sign Up"].tap()
-		
+		sleep(1)
 		app.textFields["Username"].tap()
 		app.textFields["Username"].typeText("Victor")
 		
@@ -82,7 +83,7 @@ class SignUpScreenTests: XCTestCase {
 	
 	func testCannotSignUpIfEmailAlreadyInUse() {
 		app.buttons["Not a member yet? Sign Up"].tap()
-		
+		sleep(1)
 		app.textFields["Username"].tap()
 		app.textFields["Username"].typeText("Victor")
 		
@@ -100,7 +101,7 @@ class SignUpScreenTests: XCTestCase {
 	
 	func testCanSignUpWithValidInformation() {
 		app.buttons["Not a member yet? Sign Up"].tap()
-		
+		sleep(1)
 		app.textFields["Username"].tap()
 		app.textFields["Username"].typeText("Victor")
 		

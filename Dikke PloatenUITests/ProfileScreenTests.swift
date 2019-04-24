@@ -33,7 +33,8 @@ class ProfileScreenTests: XCTestCase {
     }
 
     func testCanAddProfilePhoto() {
-		app.tabBars.buttons["Profile"].doubleTap()
+		app.tabBars.buttons["Profile"].tap()
+		sleep(3)
 		app.navigationBars["Profile"].buttons["Settings"].tap()
 		app.tables.cells.element(boundBy: 0).tap()
 		sleep(3)
@@ -44,11 +45,14 @@ class ProfileScreenTests: XCTestCase {
 		
 		let selectedPhoto = app.collectionViews.element(boundBy: 0).cells.element(boundBy: 0)
 		sleep(3)
-		selectedPhoto.doubleTap()
+		selectedPhoto.tap()
+		selectedPhoto.tap()
+		sleep(3)
     }
 	
 	func testCanAddCoverPhoto() {
-		app.tabBars.buttons["Profile"].doubleTap()
+		app.tabBars.buttons["Profile"].tap()
+		sleep(1)
 		app.navigationBars["Profile"].buttons["Settings"].tap()
 		app.tables.cells.element(boundBy: 1).tap()
 		sleep(3)
@@ -60,10 +64,12 @@ class ProfileScreenTests: XCTestCase {
 		let selectedPhoto = app.collectionViews.element(boundBy: 0).cells.element(boundBy: 2)
 		sleep(3)
 		selectedPhoto.tap()
+		sleep(3)
 	}
 	
 	func testCanChangeUsername() {
-		app.tabBars.buttons["Profile"].doubleTap()
+		app.tabBars.buttons["Profile"].tap()
+		sleep(1)
 		app.navigationBars["Profile"].buttons["Settings"].tap()
 		app.tables.cells.element(boundBy: 2).tap()
 		
@@ -75,7 +81,8 @@ class ProfileScreenTests: XCTestCase {
 	}
 
 	func testCanChangePassword() {
-		app.tabBars.buttons["Profile"].doubleTap()
+		app.tabBars.buttons["Profile"].tap()
+		sleep(1)
 		app.navigationBars["Profile"].buttons["Settings"].tap()
 		app.tables.cells.element(boundBy: 3).tap()
 		
@@ -89,7 +96,8 @@ class ProfileScreenTests: XCTestCase {
 	}
 	
 	func testCanLogOut() {
-		app.tabBars.buttons["Profile"].doubleTap()
+		app.tabBars.buttons["Profile"].tap()
+		sleep(1)
 		app.navigationBars["Profile"].buttons["Settings"].tap()
 		app.tables.cells.element(boundBy: 6).tap()
 

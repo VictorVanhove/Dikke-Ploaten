@@ -32,7 +32,8 @@ class SearchScreenTests: XCTestCase {
     }
 	
 	func testCanFilterOnAlbumName() {
-		app.tabBars.buttons["Search"].doubleTap()
+		app.tabBars.buttons["Search"].tap()
+		sleep(1)
 		app.navigationBars.element.searchFields["Search"].tap()
 		app.searchFields.element.typeText("Heroes")
 		
@@ -40,7 +41,8 @@ class SearchScreenTests: XCTestCase {
 	}
 	
 	func testCanFilterOnAlbumArtist() {
-		app.tabBars.buttons["Search"].doubleTap()
+		app.tabBars.buttons["Search"].tap()
+		sleep(1)
 		app.navigationBars.element.searchFields["Search"].tap()
 		app.searchFields.element.typeText("David Bowie")
 		

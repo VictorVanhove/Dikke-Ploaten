@@ -31,7 +31,8 @@ class CollectionScreenTests: XCTestCase {
 	}
 	
 	func testCanRemoveAlbumFromCollectionAndAddAgain() {
-		app.tabBars.buttons["Collection"].doubleTap()
+		app.tabBars.buttons["Collection"].tap()
+		sleep(1)
 		app.tables.cells.element(boundBy: 0).swipeLeft()
 		app.tables.cells.element(boundBy: 0).buttons["⌫ Remove"].tap()
 		sleep(1)
@@ -39,6 +40,7 @@ class CollectionScreenTests: XCTestCase {
 		XCTAssertTrue(app.alerts.element.staticTexts["'Pet Sounds' by The Beach Boys is removed from your collection"].exists)
 		
 		app.tabBars.buttons["Search"].tap()
+		sleep(1)
 		app.tables.cells.element(boundBy: 0).swipeLeft()
 		app.tables.cells.element(boundBy: 0).buttons["☰ Add"].tap()
 		
@@ -46,14 +48,16 @@ class CollectionScreenTests: XCTestCase {
 	}
 	
 	func testCanOpenAlbumFromCollection() {
-		app.tabBars.buttons["Collection"].doubleTap()
+		app.tabBars.buttons["Collection"].tap()
+		sleep(1)
 		app.tables.cells.element(boundBy: 0).tap()
 		
 		XCTAssertTrue(app.navigationBars["Dikke_Ploaten.AlbumDetailView"].exists)
 	}
 	
 	func testShowEmptyMessageWhenCollectionIsEmpty() {
-		app.tabBars.buttons["Collection"].doubleTap()
+		app.tabBars.buttons["Collection"].tap()
+		sleep(1)
 		app.tables.cells.element(boundBy: 0).swipeLeft()
 		app.tables.cells.element(boundBy: 0).buttons["⌫ Remove"].tap()
 		sleep(3)
