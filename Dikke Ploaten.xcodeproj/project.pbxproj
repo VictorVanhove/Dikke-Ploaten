@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0D0A464822439CAD0042501C /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0A464722439CAD0042501C /* SettingsTableViewController.swift */; };
 		0D0B159522423A3B0042EDA5 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0B159422423A3B0042EDA5 /* LaunchViewController.swift */; };
+		0D0F1C12226F1159006FF31D /* WantlistScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0F1C11226F1159006FF31D /* WantlistScreenTests.swift */; };
+		0D0F1C14226F16DE006FF31D /* ProfileScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0F1C13226F16DE006FF31D /* ProfileScreenTests.swift */; };
 		0D320A5822672D2A008AFD8C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0D320A5622672D2A008AFD8C /* Localizable.strings */; };
 		0D35360C223A53CA00DA5453 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D35360B223A53CA00DA5453 /* LoginViewController.swift */; };
 		0D35360E223A53E300DA5453 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D35360D223A53E300DA5453 /* SignupViewController.swift */; };
@@ -27,6 +29,10 @@
 		0D9EC154224BAA4B00DF9E9C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9EC153224BAA4B00DF9E9C /* Extensions.swift */; };
 		0D9EC156224CEA7300DF9E9C /* BaseAlbumListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9EC155224CEA7300DF9E9C /* BaseAlbumListTableViewController.swift */; };
 		0DA3132C22539DBF0082827A /* AlbumImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA3132B22539DBF0082827A /* AlbumImageViewController.swift */; };
+		0DCFFEBE2268B89F005CB171 /* LoginScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCFFEBD2268B89F005CB171 /* LoginScreenTests.swift */; };
+		0DCFFEC62269B328005CB171 /* SignUpScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCFFEC52269B328005CB171 /* SignUpScreenTests.swift */; };
+		0DCFFEC82269CE9E005CB171 /* CollectionScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCFFEC72269CE9E005CB171 /* CollectionScreenTests.swift */; };
+		0DCFFECA2269D03A005CB171 /* SearchScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCFFEC92269D03A005CB171 /* SearchScreenTests.swift */; };
 		0DEBCBAD2242454D00E5A3BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DEBCBAC2242454D00E5A3BB /* Assets.xcassets */; };
 		0DF765002256150300608C75 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF764FF2256150300608C75 /* User.swift */; };
 		0DF765022256452700608C75 /* AlbumCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF765012256452700608C75 /* AlbumCollectionViewCell.swift */; };
@@ -37,9 +43,21 @@
 		C39E9E3E4E74F7EDE6CACB61 /* Pods_Dikke_Ploaten.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 989F7FDF88058EF8EF722F8E /* Pods_Dikke_Ploaten.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		0DCFFEC02268B89F005CB171 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0D6F68B622394F1200687EFD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0D6F68BD22394F1200687EFD;
+			remoteInfo = "Dikke Ploaten";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		0D0A464722439CAD0042501C /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		0D0B159422423A3B0042EDA5 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		0D0F1C11226F1159006FF31D /* WantlistScreenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WantlistScreenTests.swift; sourceTree = "<group>"; };
+		0D0F1C13226F16DE006FF31D /* ProfileScreenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenTests.swift; sourceTree = "<group>"; };
 		0D320A5722672D2A008AFD8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0D320A5922672D30008AFD8C /* nl-BE */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "nl-BE"; path = "nl-BE.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		0D35360B223A53CA00DA5453 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +81,12 @@
 		0D9EC153224BAA4B00DF9E9C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		0D9EC155224CEA7300DF9E9C /* BaseAlbumListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAlbumListTableViewController.swift; sourceTree = "<group>"; };
 		0DA3132B22539DBF0082827A /* AlbumImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumImageViewController.swift; sourceTree = "<group>"; };
+		0DCFFEBB2268B89F005CB171 /* Dikke PloatenUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Dikke PloatenUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0DCFFEBD2268B89F005CB171 /* LoginScreenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenTests.swift; sourceTree = "<group>"; };
+		0DCFFEBF2268B89F005CB171 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0DCFFEC52269B328005CB171 /* SignUpScreenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpScreenTests.swift; sourceTree = "<group>"; };
+		0DCFFEC72269CE9E005CB171 /* CollectionScreenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionScreenTests.swift; sourceTree = "<group>"; };
+		0DCFFEC92269D03A005CB171 /* SearchScreenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScreenTests.swift; sourceTree = "<group>"; };
 		0DEBCBAC2242454D00E5A3BB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0DF764FF2256150300608C75 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0DF765012256452700608C75 /* AlbumCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -81,6 +105,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				C39E9E3E4E74F7EDE6CACB61 /* Pods_Dikke_Ploaten.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0DCFFEB82268B89F005CB171 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				0D6F68C022394F1200687EFD /* Dikke Ploaten */,
+				0DCFFEBC2268B89F005CB171 /* Dikke PloatenUITests */,
 				0D6F68BF22394F1200687EFD /* Products */,
 				2DB12DB99E1ED437B2477A66 /* Pods */,
 				37F580B0F249D29D65D7B7C2 /* Frameworks */,
@@ -141,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				0D6F68BE22394F1200687EFD /* Dikke Ploaten.app */,
+				0DCFFEBB2268B89F005CB171 /* Dikke PloatenUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -161,6 +194,20 @@
 				0D320A5622672D2A008AFD8C /* Localizable.strings */,
 			);
 			path = "Dikke Ploaten";
+			sourceTree = "<group>";
+		};
+		0DCFFEBC2268B89F005CB171 /* Dikke PloatenUITests */ = {
+			isa = PBXGroup;
+			children = (
+				0DCFFEC52269B328005CB171 /* SignUpScreenTests.swift */,
+				0DCFFEBD2268B89F005CB171 /* LoginScreenTests.swift */,
+				0DCFFEC92269D03A005CB171 /* SearchScreenTests.swift */,
+				0DCFFEC72269CE9E005CB171 /* CollectionScreenTests.swift */,
+				0D0F1C11226F1159006FF31D /* WantlistScreenTests.swift */,
+				0D0F1C13226F16DE006FF31D /* ProfileScreenTests.swift */,
+				0DCFFEBF2268B89F005CB171 /* Info.plist */,
+			);
+			path = "Dikke PloatenUITests";
 			sourceTree = "<group>";
 		};
 		2BEE2811224A5D5C007EA0E9 /* Services */ = {
@@ -212,6 +259,24 @@
 			productReference = 0D6F68BE22394F1200687EFD /* Dikke Ploaten.app */;
 			productType = "com.apple.product-type.application";
 		};
+		0DCFFEBA2268B89F005CB171 /* Dikke PloatenUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0DCFFEC42268B89F005CB171 /* Build configuration list for PBXNativeTarget "Dikke PloatenUITests" */;
+			buildPhases = (
+				0DCFFEB72268B89F005CB171 /* Sources */,
+				0DCFFEB82268B89F005CB171 /* Frameworks */,
+				0DCFFEB92268B89F005CB171 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0DCFFEC12268B89F005CB171 /* PBXTargetDependency */,
+			);
+			name = "Dikke PloatenUITests";
+			productName = "Dikke PloatenUITests";
+			productReference = 0DCFFEBB2268B89F005CB171 /* Dikke PloatenUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -224,6 +289,10 @@
 				TargetAttributes = {
 					0D6F68BD22394F1200687EFD = {
 						CreatedOnToolsVersion = 10.1;
+					};
+					0DCFFEBA2268B89F005CB171 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 0D6F68BD22394F1200687EFD;
 					};
 				};
 			};
@@ -242,6 +311,7 @@
 			projectRoot = "";
 			targets = (
 				0D6F68BD22394F1200687EFD /* Dikke Ploaten */,
+				0DCFFEBA2268B89F005CB171 /* Dikke PloatenUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -256,6 +326,13 @@
 				0D353610223A60F100DA5453 /* GoogleService-Info.plist in Resources */,
 				0DEBCBAD2242454D00E5A3BB /* Assets.xcassets in Resources */,
 				0D6F68C922394F1200687EFD /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0DCFFEB92268B89F005CB171 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,7 +427,28 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0DCFFEB72268B89F005CB171 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0DCFFEC82269CE9E005CB171 /* CollectionScreenTests.swift in Sources */,
+				0D0F1C14226F16DE006FF31D /* ProfileScreenTests.swift in Sources */,
+				0DCFFEBE2268B89F005CB171 /* LoginScreenTests.swift in Sources */,
+				0D0F1C12226F1159006FF31D /* WantlistScreenTests.swift in Sources */,
+				0DCFFEC62269B328005CB171 /* SignUpScreenTests.swift in Sources */,
+				0DCFFECA2269D03A005CB171 /* SearchScreenTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0DCFFEC12268B89F005CB171 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0D6F68BD22394F1200687EFD /* Dikke Ploaten */;
+			targetProxy = 0DCFFEC02268B89F005CB171 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		0D320A5622672D2A008AFD8C /* Localizable.strings */ = {
@@ -545,6 +643,44 @@
 			};
 			name = Release;
 		};
+		0DCFFEC22268B89F005CB171 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7G7B2T2MH3;
+				INFOPLIST_FILE = "Dikke PloatenUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.bazookas.Dikke-PloatenUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Dikke Ploaten";
+			};
+			name = Debug;
+		};
+		0DCFFEC32268B89F005CB171 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7G7B2T2MH3;
+				INFOPLIST_FILE = "Dikke PloatenUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.bazookas.Dikke-PloatenUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Dikke Ploaten";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -562,6 +698,15 @@
 			buildConfigurations = (
 				0D6F68D322394F1300687EFD /* Debug */,
 				0D6F68D422394F1300687EFD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0DCFFEC42268B89F005CB171 /* Build configuration list for PBXNativeTarget "Dikke PloatenUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0DCFFEC22268B89F005CB171 /* Debug */,
+				0DCFFEC32268B89F005CB171 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

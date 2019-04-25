@@ -19,8 +19,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        FirebaseApp.configure()
+		
+		// Override point for customization after application launch.
+		FirebaseApp.configure()
+		
+		// UITesting
+		if ProcessInfo.processInfo.arguments.contains("userLoggedIn"){
+			Auth.auth().signIn(withEmail: "victor@bazookas.be", password: "vvvvvv")
+		} else {
+			try? Auth.auth().signOut()
+		}
 		
 		MSAppCenter.start("ff4eb3db-19be-4eb0-8f51-8a4837e58fff", withServices: [ MSAnalytics.self, MSCrashes.self ])
 		
