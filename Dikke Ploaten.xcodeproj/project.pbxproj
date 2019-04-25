@@ -154,9 +154,9 @@
 			isa = PBXGroup;
 			children = (
 				0D3D147D223A9B29003CACEC /* Album.swift */,
-				0D0F1C1522705C2A006FF31D /* DiscogsDocument.swift */,
 				0DF764FF2256150300608C75 /* User.swift */,
 				2B472B5222607BF6001B1FF6 /* UserAlbum.swift */,
+				0D0F1C1522705C2A006FF31D /* DiscogsDocument.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";

@@ -67,6 +67,10 @@ class BaseAlbumListTableViewController: UITableViewController {
 			
 			cell.updateUI(forAlbum: album)
 		}
+		
+		//Uncomment next line when using "platen" instead of "platenDiscogs"
+		cell.isUserInteractionEnabled = false
+		
 		return cell
 	}
 	

@@ -262,7 +262,6 @@ extension Database {
 	func importDiscogsDocumentsToFirebase(completionHandler: @escaping (_ documentID: String) -> ()) {
 		for id in 1...2 {
 			let urlString = "https://api.discogs.com/artists/\(id)/releases?secret=ayNFZAMFUUonMcbKYfiTFFrzZLJTIzYi&page=1&key=haPLcXIqXkohtMRIhgsx"
-			//let urlString = "https://api.discogs.com/artists/\(id)/releases"
 			getJsonDataFromUrl(stringUrl: urlString, completionHandler: { data in
 				self.addDiscogsDocumentToFirebase(data: data, completionHandler: { documentID in
 					print("Document was succesfully added!")
@@ -299,16 +298,13 @@ extension Database {
 				print("Error fetching snapshots: \(err!)")
 				return
 			}
-			
 			let albumArray = DiscogsDocument.docToDiscogsDocument(document: snapshot)
 			
 			for album in albumArray.releases {
 				print(album.title)
 				self.database.collection("platenDiscogs").addDocument(data: album.toJSON())
 			}
-			
 			print("VOLGEND DOCUMENT")
-
 		}
 	}
 	

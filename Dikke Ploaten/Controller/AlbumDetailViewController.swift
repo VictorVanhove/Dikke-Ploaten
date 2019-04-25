@@ -28,11 +28,11 @@ class AlbumDetailViewController: UIViewController {
 		lblArtist.text = album.artist
 		imgCover.af_setImage(withURL: URL(string: album.cover)!)
 		imgCover.contentMode = .scaleAspectFill
-//		txtDescription.text = album.description
-//		lblGenre.text = album.genre
-//		lblReleaseYear.text = album.releaseYear
-//		txtTracklist.text = album.tracklist.replacingOccurrences(of: "\\n", with: "\n")
-//		txtMusicians.text = album.musicians.replacingOccurrences(of: "\\n", with: "\n")
+		txtDescription.text = album.description
+		lblGenre.text = album.genre
+		lblReleaseYear.text = album.releaseYear
+		txtTracklist.text = album.tracklist?.replacingOccurrences(of: "\\n", with: "\n")
+		txtMusicians.text = album.musicians?.replacingOccurrences(of: "\\n", with: "\n")
 	}
 	
 	@IBAction func showMoreImages(_ sender: Any) {
