@@ -79,13 +79,9 @@ extension ProfileViewController: UITableViewDataSource {
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! CollectionHolderTableViewCell
 		if indexPath.section == 0 {
-			if !collectionAlbums.isEmpty {
-				cell.updateAlbums(albums: collectionAlbums)
-			}
+			cell.updateAlbums(albums: collectionAlbums)
 		} else {
-			if !wantlistAlbums.isEmpty {
-				cell.updateAlbums(albums: wantlistAlbums)
-			}
+			cell.updateAlbums(albums: wantlistAlbums)
 		}
 		
 		return cell

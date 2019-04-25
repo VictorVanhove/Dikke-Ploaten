@@ -8,6 +8,7 @@
 
 import Firebase
 import ObjectMapper
+import Alamofire
 
 class Database {
 	
@@ -91,7 +92,7 @@ class Database {
 			
 			for userAlbum in userAlbums {
 				group.enter()
-				self.database.collection("platen").document(userAlbum.albumID).getDocument { querySnapshot, error in
+				self.database.collection("platenDiscogs").document(userAlbum.albumID).getDocument { querySnapshot, error in
 					guard let snapshot = querySnapshot else {
 						print("Error fetching snapshots: \(error!)")
 						group.leave()
@@ -110,7 +111,7 @@ class Database {
 	
 	// Gets the whole list of albums out of database
 	func getAlbumList(completionHandler: @escaping (_ updatedCollection: [Album]) -> ()) {
-		database.collection("platen").getDocuments { querySnapshot, err in
+		database.collection("platenDiscogs").getDocuments { querySnapshot, err in
 			if let err = err {
 				print("Error getting documents: \(err)")
 				return
@@ -187,7 +188,8 @@ extension Database {
 				return
 			}
 			let user = User.docToUser(document: snapshot)
-			self.cache.user = user
+			self.cache.user.username = user.username
+			self.cache.user.email = user.email
 			completionHandler(user)
 		}
 	}
@@ -251,4 +253,63 @@ extension Database {
 		// Upload
 		childImages.putData(data as Data, metadata: metaData)
 	}
+}
+
+// MARK: - Discogs API
+
+extension Database {
+	
+	func importDiscogsDocumentsToFirebase(completionHandler: @escaping (_ documentID: String) -> ()) {
+		for id in 1...2 {
+			let urlString = "https://api.discogs.com/artists/\(id)/releases?secret=ayNFZAMFUUonMcbKYfiTFFrzZLJTIzYi&page=1&key=haPLcXIqXkohtMRIhgsx"
+			//let urlString = "https://api.discogs.com/artists/\(id)/releases"
+			getJsonDataFromUrl(stringUrl: urlString, completionHandler: { data in
+				self.addDiscogsDocumentToFirebase(data: data, completionHandler: { documentID in
+					print("Document was succesfully added!")
+					completionHandler(documentID)
+				})
+			})
+		}
+	}
+	
+	//this function is fetching the json from URL
+	private func getJsonDataFromUrl(stringUrl: String, completionHandler: @escaping ([String: Any]) -> ()) {
+		URLSession.shared.dataTask(with: URL(string: stringUrl)!) { data, _, _ in
+			if let data = data {
+				if let jsonString = String(data: data, encoding: .utf8) {
+					completionHandler(jsonString.toJSON()!)
+				}
+			}
+			}.resume()
+	}
+	
+	private func addDiscogsDocumentToFirebase(data: [String: Any], completionHandler: @escaping (_ documentID: String) -> ()) {
+		var ref: DocumentReference? = nil
+		ref = self.database.collection("discogsDocuments").addDocument(data: data) { err in
+			if let err = err {
+				print("Error adding document: \(err)")
+			}
+			completionHandler(ref!.documentID)
+		}
+	}
+	
+	func importDiscogsAlbumsFromDocumentToFirebase(documentID: String) {
+		self.database.collection("discogsDocuments").document(documentID).getDocument { documentSnapshot, err in
+			guard let snapshot = documentSnapshot else {
+				print("Error fetching snapshots: \(err!)")
+				return
+			}
+			
+			let albumArray = DiscogsDocument.docToDiscogsDocument(document: snapshot)
+			
+			for album in albumArray.releases {
+				print(album.title)
+				self.database.collection("platenDiscogs").addDocument(data: album.toJSON())
+			}
+			
+			print("VOLGEND DOCUMENT")
+
+		}
+	}
+	
 }

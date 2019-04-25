@@ -55,4 +55,9 @@ extension String {
 	func localized(bundle: Bundle = .main, tableName: String = "Localizable") -> String {
 		return NSLocalizedString(self, tableName: tableName, value: "**\(self)**", comment: "")
 	}
+	
+	func toJSON() -> [String: Any]? {
+		guard let data = self.data(using: .utf8, allowLossyConversion: false) else { return nil }
+		return try! JSONSerialization.jsonObject(with: data, options: .mutableContainers) as! [String: Any]
+	}
 }

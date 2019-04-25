@@ -20,6 +20,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		
+//		// Script for importing discogsalbums to Firebase
+//		Database.shared.importDiscogsDocumentsToFirebase { documentID in
+//			Database.shared.importDiscogsAlbumsFromDocumentToFirebase(documentID: documentID)
+//		}
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {
