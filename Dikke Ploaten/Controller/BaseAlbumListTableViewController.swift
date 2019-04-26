@@ -68,7 +68,7 @@ class BaseAlbumListTableViewController: UITableViewController {
 			cell.updateUI(forAlbum: album)
 		}
 		
-		//Uncomment next line when using "platen" instead of "platenDiscogs"
+		//Album not clickable due to missing info in collection "platenDiscogs", clickable possible when using collection "platen"
 		cell.isUserInteractionEnabled = false
 		
 		return cell
