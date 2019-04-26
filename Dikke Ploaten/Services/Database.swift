@@ -260,7 +260,8 @@ extension Database {
 extension Database {
 	
 	func importDiscogsDocumentsToFirebase(completionHandler: @escaping (_ documentID: String) -> ()) {
-		for id in 1...2 {
+		// Change id for importing jsons
+		for id in 21...40 {
 			let urlString = "https://api.discogs.com/artists/\(id)/releases?secret=ayNFZAMFUUonMcbKYfiTFFrzZLJTIzYi&page=1&key=haPLcXIqXkohtMRIhgsx"
 			getJsonDataFromUrl(stringUrl: urlString, completionHandler: { data in
 				self.addDiscogsDocumentToFirebase(data: data, completionHandler: { documentID in
@@ -300,7 +301,7 @@ extension Database {
 			}
 			let albumArray = DiscogsDocument.docToDiscogsDocument(document: snapshot)
 			
-			for album in albumArray.releases {
+			for album in albumArray.releases ?? [] {
 				print(album.title)
 				self.database.collection("platenDiscogs").addDocument(data: album.toJSON())
 			}

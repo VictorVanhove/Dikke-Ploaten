@@ -11,16 +11,16 @@ import ObjectMapper
 
 class DiscogsDocument: ImmutableMappable, Hashable, Comparable {
 	var id: String = ""
-	var releases: [Album]
+	var releases: [Album]?
 	
 	// MARK: - Constructors
-	init(releases: [Album]) {
+	init(releases: [Album]?) {
 		self.releases = releases
 	}
 	
 	// MARK: - ObjectMapper
 	required init(map: Map) throws {
-		releases = try map.value("releases")
+		releases = try? map.value("releases")
 	}
 	
 	func mapping(map: Map) {
