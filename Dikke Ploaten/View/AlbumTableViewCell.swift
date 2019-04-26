@@ -18,16 +18,18 @@ class AlbumTableViewCell: UITableViewCell {
 	
 	@IBOutlet weak var imgNotifier: UIImageView!
 	
+	let template = URL(string: "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg")
+	
 	func updateUI(forAlbum album: Album) {
 		lblTitle.text = album.title
 		lblArtist.text = album.artist
-		imgCover.af_setImage(withURL: URL(string: album.cover)!)
+		imgCover.af_setImage(withURL: URL(string: album.cover) ?? template!)
 	}
 	
 	func updateUISearch(forAlbum album: Album, image: String? = nil) {
 		lblTitle.text = album.title
 		lblArtist.text = album.artist
-		imgCover.af_setImage(withURL: URL(string: album.cover)!)
+		imgCover.af_setImage(withURL: URL(string: album.cover) ?? template!)
 		if image != nil {
 			imgNotifier.image = UIImage(named: image!)
 		} else {

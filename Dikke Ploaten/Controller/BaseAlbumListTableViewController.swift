@@ -67,6 +67,10 @@ class BaseAlbumListTableViewController: UITableViewController {
 			
 			cell.updateUI(forAlbum: album)
 		}
+		
+		//Album not clickable due to missing info in collection "platenDiscogs", clickable possible when using collection "platen"
+		cell.isUserInteractionEnabled = false
+		
 		return cell
 	}
 	

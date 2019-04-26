@@ -14,15 +14,15 @@ class Album: ImmutableMappable, Hashable, Comparable {
 	var title: String
 	var artist: String
 	var cover: String
-	var description: String
-	var genre: String
-	var releaseYear: String
-	var tracklist: String
-	var musicians: String
-	var images: [String]
+	var description: String?
+	var genre: String?
+	var releaseYear: String?
+	var tracklist: String?
+	var musicians: String?
+	var images: [String]?
 	
 	// MARK: - Constructors
-	init(title: String, artist: String, cover: String, images: [String], description: String, genre: String, releaseYear: String, tracklist: String, musicians: String) {
+	init(title: String, artist: String, cover: String, images: [String]?, description: String?, genre: String?, releaseYear: String?, tracklist: String?, musicians: String?) {
 		self.title = title
 		self.artist = artist
 		self.cover = cover
@@ -38,19 +38,19 @@ class Album: ImmutableMappable, Hashable, Comparable {
 	required init(map: Map) throws {
 		title = try map.value("title")
 		artist = try map.value("artist")
-		cover = try map.value("image")
-		images = try! map.value("images")
-		description = try! map.value("description")
-		genre = try! map.value("genre")
-		releaseYear = try! map.value("released_in")
-		tracklist = try! map.value("tracklist")
-		musicians = try! map.value("musicians")
+		cover = try map.value("thumb")
+		images = try? map.value("images")
+		description = try? map.value("description")
+		genre = try? map.value("genre")
+		releaseYear = try? map.value("released_in")
+		tracklist = try? map.value("tracklist")
+		musicians = try? map.value("musicians")
 	}
 	
 	func mapping(map: Map) {
 		title       >>> map["title"]
 		artist      >>> map["artist"]
-		cover       >>> map["image"]
+		cover       >>> map["thumb"]
 		images 	    >>> map["images"]
 		description >>> map["description"]
 		genre       >>> map["genre"]

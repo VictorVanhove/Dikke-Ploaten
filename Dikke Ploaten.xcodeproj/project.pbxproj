@@ -11,6 +11,7 @@
 		0D0B159522423A3B0042EDA5 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0B159422423A3B0042EDA5 /* LaunchViewController.swift */; };
 		0D0F1C12226F1159006FF31D /* WantlistScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0F1C11226F1159006FF31D /* WantlistScreenTests.swift */; };
 		0D0F1C14226F16DE006FF31D /* ProfileScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0F1C13226F16DE006FF31D /* ProfileScreenTests.swift */; };
+		0D0F1C1622705C2A006FF31D /* DiscogsDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0F1C1522705C2A006FF31D /* DiscogsDocument.swift */; };
 		0D320A5822672D2A008AFD8C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0D320A5622672D2A008AFD8C /* Localizable.strings */; };
 		0D35360C223A53CA00DA5453 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D35360B223A53CA00DA5453 /* LoginViewController.swift */; };
 		0D35360E223A53E300DA5453 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D35360D223A53E300DA5453 /* SignupViewController.swift */; };
@@ -58,6 +59,7 @@
 		0D0B159422423A3B0042EDA5 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		0D0F1C11226F1159006FF31D /* WantlistScreenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WantlistScreenTests.swift; sourceTree = "<group>"; };
 		0D0F1C13226F16DE006FF31D /* ProfileScreenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenTests.swift; sourceTree = "<group>"; };
+		0D0F1C1522705C2A006FF31D /* DiscogsDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsDocument.swift; sourceTree = "<group>"; };
 		0D320A5722672D2A008AFD8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0D320A5922672D30008AFD8C /* nl-BE */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "nl-BE"; path = "nl-BE.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		0D35360B223A53CA00DA5453 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 				0D3D147D223A9B29003CACEC /* Album.swift */,
 				0DF764FF2256150300608C75 /* User.swift */,
 				2B472B5222607BF6001B1FF6 /* UserAlbum.swift */,
+				0D0F1C1522705C2A006FF31D /* DiscogsDocument.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -407,6 +410,7 @@
 				0D6F68C622394F1200687EFD /* WantlistViewController.swift in Sources */,
 				0DF765042256473600608C75 /* CollectionHolderTableViewCell.swift in Sources */,
 				2B472B5522608C98001B1FF6 /* Cache.swift in Sources */,
+				0D0F1C1622705C2A006FF31D /* DiscogsDocument.swift in Sources */,
 				0D353614223A8D4A00DA5453 /* NotificationViewController.swift in Sources */,
 				0DF765022256452700608C75 /* AlbumCollectionViewCell.swift in Sources */,
 				0D6F68C222394F1200687EFD /* AppDelegate.swift in Sources */,

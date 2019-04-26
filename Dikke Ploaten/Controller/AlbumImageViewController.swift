@@ -32,7 +32,7 @@ class AlbumImageViewController: UIViewController {
 		
 		var alamofireSource = [AlamofireSource]()
 		
-		for image in album.images {
+		for image in album?.images ?? [] {
 			alamofireSource.append(AlamofireSource(urlString: image)!)
 		}
 		
