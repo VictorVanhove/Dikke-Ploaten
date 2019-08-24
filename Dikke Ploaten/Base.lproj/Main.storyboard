@@ -908,13 +908,13 @@ Phil Rudd – drums</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ASs-NF-Rxy">
-                                                <rect key="frame" x="38" y="393" width="339" height="23"/>
+                                                <rect key="frame" x="38" y="385" width="339" height="23"/>
                                                 <fontDescription key="fontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="23"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="zMA-ye-D37">
-                                                <rect key="frame" x="38" y="350" width="339" height="30"/>
+                                                <rect key="frame" x="38" y="342" width="339" height="30"/>
                                                 <color key="textColor" red="0.31156805199999998" green="0.31156805199999998" blue="0.31156805199999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="email"/>
@@ -923,7 +923,7 @@ Phil Rudd – drums</string>
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="WFh-TW-Ynd">
-                                                <rect key="frame" x="38" y="424" width="339" height="30"/>
+                                                <rect key="frame" x="38" y="416" width="339" height="30"/>
                                                 <color key="textColor" red="0.31156805199999998" green="0.31156805199999998" blue="0.31156805199999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="go" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
@@ -932,7 +932,7 @@ Phil Rudd – drums</string>
                                                 </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalCompressionResistancePriority="751" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cnq-QF-Uhx">
-                                                <rect key="frame" x="38" y="321" width="339" height="23"/>
+                                                <rect key="frame" x="38" y="313" width="339" height="23"/>
                                                 <fontDescription key="fontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="23"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -958,7 +958,7 @@ Phil Rudd – drums</string>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome and thanks for joining the 'Dikke Ploaten'-community.  Log in quickly en take a look at what this app has to offer!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R2b-l7-Uoq">
-                                                <rect key="frame" x="38" y="226" width="339" height="78"/>
+                                                <rect key="frame" x="38" y="218" width="339" height="78"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="78" id="YWW-Yr-pEG"/>
                                                 </constraints>
@@ -975,7 +975,7 @@ Phil Rudd – drums</string>
                                             <constraint firstItem="ASs-NF-Rxy" firstAttribute="leading" secondItem="E8e-xe-8gP" secondAttribute="leading" constant="38" id="7Te-Zv-Hg7"/>
                                             <constraint firstItem="Wvc-pB-ISw" firstAttribute="centerX" secondItem="E8e-xe-8gP" secondAttribute="centerX" id="Apb-CR-ZJT"/>
                                             <constraint firstItem="R2b-l7-Uoq" firstAttribute="leading" secondItem="E8e-xe-8gP" secondAttribute="leading" constant="38" id="EQt-zf-nRr"/>
-                                            <constraint firstItem="R2b-l7-Uoq" firstAttribute="top" secondItem="Wvc-pB-ISw" secondAttribute="bottom" constant="13" id="GT9-sy-e5b"/>
+                                            <constraint firstItem="R2b-l7-Uoq" firstAttribute="top" secondItem="Wvc-pB-ISw" secondAttribute="bottom" constant="5" id="GT9-sy-e5b"/>
                                             <constraint firstItem="WFh-TW-Ynd" firstAttribute="top" secondItem="ASs-NF-Rxy" secondAttribute="bottom" constant="8" id="HgS-xv-npS"/>
                                             <constraint firstItem="cnq-QF-Uhx" firstAttribute="top" secondItem="R2b-l7-Uoq" secondAttribute="bottom" constant="17" id="NkV-qm-2qW"/>
                                             <constraint firstItem="38C-63-lBo" firstAttribute="top" relation="greaterThanOrEqual" secondItem="WFh-TW-Ynd" secondAttribute="bottom" constant="18" id="OC5-Xr-fYO"/>
@@ -1215,35 +1215,6 @@ Phil Rudd – drums</string>
             </objects>
             <point key="canvasLocation" x="515.94202898550725" y="750.66964285714278"/>
         </scene>
-        <!--Notifications-->
-        <scene sceneID="sis-sY-RkG">
-            <objects>
-                <tableViewController id="qsH-Me-6pr" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="jqH-5y-zU5">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="120" id="Djr-I6-2eT">
-                                <rect key="frame" x="0.0" y="28" width="414" height="120"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Djr-I6-2eT" id="guh-ig-lbG">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="119.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="qsH-Me-6pr" id="3Zo-Ee-i0A"/>
-                            <outlet property="delegate" destination="qsH-Me-6pr" id="mPQ-sZ-Owh"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Notifications" id="YM9-Wy-Seb"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZG4-mW-i1a" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2569.5652173913045" y="439.95535714285711"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="23b-TB-5y5">
             <objects>
@@ -1332,12 +1303,39 @@ Phil Rudd – drums</string>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="qsH-Me-6pr" kind="relationship" relationship="rootViewController" id="hrv-QD-f4e"/>
+                        <segue destination="frS-3n-J54" kind="relationship" relationship="rootViewController" id="LR1-DS-EHn"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I8S-Zs-PjT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1659.4202898550725" y="439.95535714285711"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Lts-eO-Lsr">
+            <objects>
+                <viewController id="frS-3n-J54" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8pa-87-9aD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="under-construction" translatesAutoresizingMaskIntoConstraints="NO" id="1ao-DT-0Nr">
+                                <rect key="frame" x="100" y="188" width="214" height="525"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="1ao-DT-0Nr" firstAttribute="top" secondItem="92J-ed-iDP" secondAttribute="top" constant="100" id="1Xm-WJ-trx"/>
+                            <constraint firstItem="92J-ed-iDP" firstAttribute="bottom" secondItem="1ao-DT-0Nr" secondAttribute="bottom" constant="100" id="MPX-Ya-6Xk"/>
+                            <constraint firstItem="1ao-DT-0Nr" firstAttribute="leading" secondItem="92J-ed-iDP" secondAttribute="leading" constant="100" id="dnA-tL-niP"/>
+                            <constraint firstItem="92J-ed-iDP" firstAttribute="trailing" secondItem="1ao-DT-0Nr" secondAttribute="trailing" constant="100" id="nk7-lu-BNn"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="92J-ed-iDP"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="3EC-yh-55d"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i7f-jm-VTT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2567" y="440"/>
         </scene>
         <!--Profile-->
         <scene sceneID="1Pp-lR-YGm">
@@ -1510,10 +1508,11 @@ Phil Rudd – drums</string>
         <image name="profile-placeholder" width="600" height="600"/>
         <image name="search" width="29" height="29"/>
         <image name="settings" width="25" height="25"/>
+        <image name="under-construction" width="400" height="584"/>
         <image name="vinyl1" width="100" height="100"/>
         <image name="wantlist" width="29" height="29"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="B2C-KQ-Hrh"/>
+        <segue reference="7pn-1Q-XMK"/>
     </inferredMetricsTieBreakers>
 </document>
