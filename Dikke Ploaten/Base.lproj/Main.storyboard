@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7jt-9N-JFs">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7jt-9N-JFs">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -1045,13 +1045,13 @@ Phil Rudd – drums</string>
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sz9-k2-ET6">
-                                                <rect key="frame" x="38" y="444" width="339" height="23"/>
+                                                <rect key="frame" x="38" y="436" width="339" height="23"/>
                                                 <fontDescription key="fontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="23"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="eHb-Cv-ct2">
-                                                <rect key="frame" x="38" y="473" width="340" height="30"/>
+                                                <rect key="frame" x="38" y="465" width="340" height="30"/>
                                                 <color key="textColor" red="0.31156805199999998" green="0.31156805199999998" blue="0.31156805199999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="go" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
@@ -1060,7 +1060,7 @@ Phil Rudd – drums</string>
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="4Mu-XG-Zsj">
-                                                <rect key="frame" x="38" y="329" width="339" height="30"/>
+                                                <rect key="frame" x="38" y="321" width="339" height="30"/>
                                                 <color key="textColor" red="0.31156805199999998" green="0.31156805199999998" blue="0.31156805199999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="username"/>
@@ -1069,7 +1069,7 @@ Phil Rudd – drums</string>
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="lhl-Pe-7mN">
-                                                <rect key="frame" x="38" y="401" width="340" height="30"/>
+                                                <rect key="frame" x="38" y="393" width="340" height="30"/>
                                                 <color key="textColor" red="0.31156805199999998" green="0.31156805199999998" blue="0.31156805199999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="email"/>
@@ -1078,19 +1078,19 @@ Phil Rudd – drums</string>
                                                 </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalCompressionResistancePriority="751" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1z-QQ-3B7">
-                                                <rect key="frame" x="38" y="372" width="340" height="23"/>
+                                                <rect key="frame" x="38" y="364" width="340" height="23"/>
                                                 <fontDescription key="fontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="23"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalCompressionResistancePriority="751" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2rY-eN-RDI">
-                                                <rect key="frame" x="38" y="300" width="339" height="23"/>
+                                                <rect key="frame" x="38" y="292" width="339" height="23"/>
                                                 <fontDescription key="fontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="23"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Ha-4u-70s">
-                                                <rect key="frame" x="37.5" y="674" width="339" height="80"/>
+                                                <rect key="frame" x="37.5" y="682" width="339" height="80"/>
                                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="80" id="R8o-Jj-Qk0"/>
@@ -1103,7 +1103,7 @@ Phil Rudd – drums</string>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Register here first and become a member of our beautiful 'Dikke Ploaten'-community and its features." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EMX-NX-dzN">
-                                                <rect key="frame" x="39" y="226" width="335" height="57"/>
+                                                <rect key="frame" x="39" y="218" width="335" height="57"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="57" id="mFM-cN-9Nz"/>
                                                 </constraints>
@@ -1117,7 +1117,7 @@ Phil Rudd – drums</string>
                                             <constraint firstItem="EMX-NX-dzN" firstAttribute="leading" secondItem="YUN-Xm-rEm" secondAttribute="leading" constant="39" id="EjN-ct-46A"/>
                                             <constraint firstAttribute="trailing" secondItem="a1z-QQ-3B7" secondAttribute="trailing" constant="36" id="JGH-nK-dCp"/>
                                             <constraint firstItem="lhl-Pe-7mN" firstAttribute="top" secondItem="a1z-QQ-3B7" secondAttribute="bottom" constant="6" id="LSC-UO-tvP"/>
-                                            <constraint firstAttribute="bottom" secondItem="1Ha-4u-70s" secondAttribute="bottom" constant="20" id="Pcy-Hm-awk"/>
+                                            <constraint firstAttribute="bottom" secondItem="1Ha-4u-70s" secondAttribute="bottom" constant="12" id="Pcy-Hm-awk"/>
                                             <constraint firstItem="eHb-Cv-ct2" firstAttribute="leading" secondItem="YUN-Xm-rEm" secondAttribute="leading" constant="38" id="Q9n-kJ-1pY"/>
                                             <constraint firstAttribute="trailing" secondItem="EMX-NX-dzN" secondAttribute="trailing" constant="40" id="QTF-vO-b6w"/>
                                             <constraint firstItem="a1z-QQ-3B7" firstAttribute="leading" secondItem="YUN-Xm-rEm" secondAttribute="leading" constant="38" id="UTE-ra-cvj"/>
@@ -1149,7 +1149,7 @@ Phil Rudd – drums</string>
                                     </imageView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="EMX-NX-dzN" firstAttribute="top" secondItem="cqG-qY-AmL" secondAttribute="bottom" constant="13" id="1ob-Zm-wl7"/>
+                                    <constraint firstItem="EMX-NX-dzN" firstAttribute="top" secondItem="cqG-qY-AmL" secondAttribute="bottom" constant="5" id="1ob-Zm-wl7"/>
                                     <constraint firstItem="YUN-Xm-rEm" firstAttribute="width" secondItem="Zir-rS-Auw" secondAttribute="width" id="G8J-vj-fmV"/>
                                     <constraint firstItem="YUN-Xm-rEm" firstAttribute="trailing" secondItem="4Mu-XG-Zsj" secondAttribute="trailing" constant="37" id="GDB-5v-7j5"/>
                                     <constraint firstItem="2rY-eN-RDI" firstAttribute="leading" secondItem="YUN-Xm-rEm" secondAttribute="leading" constant="38" id="IE1-mf-6lX"/>
@@ -1509,11 +1509,11 @@ Phil Rudd – drums</string>
         <image name="profile" width="29" height="29"/>
         <image name="profile-placeholder" width="600" height="600"/>
         <image name="search" width="29" height="29"/>
-        <image name="settings" width="37.5" height="37.5"/>
-        <image name="vinyl1" width="200" height="200"/>
+        <image name="settings" width="25" height="25"/>
+        <image name="vinyl1" width="100" height="100"/>
         <image name="wantlist" width="29" height="29"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="7pn-1Q-XMK"/>
+        <segue reference="B2C-KQ-Hrh"/>
     </inferredMetricsTieBreakers>
 </document>

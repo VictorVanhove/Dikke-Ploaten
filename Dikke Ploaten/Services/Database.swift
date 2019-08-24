@@ -92,7 +92,7 @@ class Database {
 			
 			for userAlbum in userAlbums {
 				group.enter()
-				self.database.collection("platenDiscogs").document(userAlbum.albumID).getDocument { querySnapshot, error in
+				self.database.collection("platen").document(userAlbum.albumID).getDocument { querySnapshot, error in
 					guard let snapshot = querySnapshot else {
 						print("Error fetching snapshots: \(error!)")
 						group.leave()
@@ -111,7 +111,7 @@ class Database {
 	
 	// Gets the whole list of albums out of database
 	func getAlbumList(completionHandler: @escaping (_ updatedCollection: [Album]) -> ()) {
-		database.collection("platenDiscogs").getDocuments { querySnapshot, err in
+		database.collection("platen").getDocuments { querySnapshot, err in
 			if let err = err {
 				print("Error getting documents: \(err)")
 				return
